@@ -1,0 +1,19 @@
+Package: desuctools
+Type: Package
+Title: Funciones para trabajo en DESUC
+Version: 0.1.0
+Author: Cristian Ayala
+Maintainer: Cristiab Ayala <caayala@uc.cl>
+Description: Funciones y datos útiles en el trabajo de limpieza, revisión, 
+    tabulación y graficación de datos de la Dirección de Estudios Sociales UC.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr,
+    forcats,
+    ggplot2,
+    haven,
+    purrr,
+    sjmisc
+RoxygenNote: 6.1.1
