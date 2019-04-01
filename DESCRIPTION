@@ -9,11 +9,19 @@ Description: Funciones y datos útiles en el trabajo de limpieza, revisión,
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Depends:
+    R (>= 3.5)
 Imports:
     dplyr,
     forcats,
     ggplot2,
     haven,
+    knitr,
+    tibble,
     purrr,
-    sjmisc
+    sjmisc,
+    stringr,
+    rlang,
+    sjlabelled,
+    tidyselect
 RoxygenNote: 6.1.1

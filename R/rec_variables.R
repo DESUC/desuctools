@@ -2,13 +2,13 @@
 
 rec_cat_5a3 <- function(valores,
                         rec = "1:2 = 1;
-                                3 = 2;
-                                4:5 = 3;
-                                else = 9",
+                               3 = 2;
+                               4:5 = 3;
+                               else = 9",
                         labels = NULL){
 
-  rec(valores,
-      rec = rec) %>%
-    labelled(labels = labels,
-             label = get_label(valores))
+  sjmisc::rec(valores,
+              rec = rec) %>%
+    haven::labelled(labels = labels,
+                    label = get_label(valores))
 }

@@ -1,28 +1,32 @@
-# DESUC: Funciones para resultados
-
-
-# Tablas de resultados ----------------------------------------------------
-
+#' Tablas de resultados ----------------------------------------------------
+#'
+#' @import dplyr
+#'
+#' @export
 tabla_segmentos <- function(.data, ..., wt = NULL) {
     # Tabla con número de casos y proporción de respuestas por segmentos.
 
     segmentos <- tidyselect::vars_select(names(.data), ...)
     wt_quo <- enquo(wt)
 
+    print(3)
+
     .data %>%
-        transmute_at(vars(segmentos, !!wt_quo), as_label) %>%
+        mutate_at(vars(segmentos), list(lab = as_label)) %>%
+        select_at(vars(segmentos, !!wt_quo)) %>%
         group_by_at(vars(segmentos)) %>%
         summarise(n = sum(!!wt_quo %||% n())) %>%
-        gather("variable", "categoría", -n) %>%
-        count(variable, categoría = forcats::as_factor(categoría), wt = n) %>%
+        gather("variable", "categoria", -n) %>%
+        count(variable, categoria = forcats::as_factor(categoria), wt = n) %>%
         group_by(variable) %>%
         mutate(prop = n/sum(n)) %>%
         rename(casos = n) %>%
         identity()
 }
 
+#' @export
 tabla_orden <- function(.data, .var, .segmento = NULL) {
-    # Orden de variables y categorías para la presentación de tablas.
+    # Orden de variables y categorias para la presentación de tablas.
 
     var_quo <- enquo(.var)
     segmento_quo <- enquo(.segmento)
@@ -34,6 +38,7 @@ tabla_orden <- function(.data, .var, .segmento = NULL) {
         arrange_at(vars(!!!var_seg_exprs))
 }
 
+#' @export
 tabla_prop <- function(.data, .segmento) {
     # Cálculo de porcetaje de respuestas en tabla con numero de casos.
 
@@ -45,6 +50,7 @@ tabla_prop <- function(.data, .segmento) {
         ungroup()
 }
 
+#' @export
 tabla_prop_val <- function(.data, .var, .segmento, miss) {
     # Cálculo de porcetaje de respuestas válidas en tabla con numero de casos.
 
@@ -73,7 +79,7 @@ tabla_total <- function(.data, .var, .segmento, miss = NULL) {
 
     tab_total <- tabla_prop(tab_total, .segmento = NULL)
 
-    # Agrega el porcentaje válido si es que se señalan categorías perdidas.
+    # Agrega el porcentaje válido si es que se señalan categorias perdidas.
 
     tab <- bind_rows(.data %>%
                          mutate(`:=`(!!rlang::as_label(segmento_quo), as.character(!!segmento_quo))), tab_total)
@@ -88,7 +94,9 @@ tabla_total <- function(.data, .var, .segmento, miss = NULL) {
     return(tab)
 }
 
-tabla_var <- function(.data, .var, .segmento = NULL, .wt = NULL, total = FALSE, miss = NULL) {
+#' @export
+tabla_var <- function(.data, .var, .segmento = NULL, .wt = NULL,
+                      total = FALSE, miss = NULL) {
     # Tabla con número de casos y proporción de variable Se agrega una variable de de segmentación llamada 'segmento' con valor 'Total'.
 
     var_quo <- enquo(.var)
@@ -96,7 +104,8 @@ tabla_var <- function(.data, .var, .segmento = NULL, .wt = NULL, total = FALSE, 
     wt_quo <- enquo(.wt)
 
     tab <- .data %>%
-        transmute_at(vars(!!segmento_quo, !!var_quo, !!wt_quo), sjlabelled::as_label) %>%
+        transmute_at(vars(!!segmento_quo, !!var_quo, !!wt_quo),
+                     sjlabelled::as_label, add.non.labelled = TRUE) %>%
         group_by_at(vars(!!segmento_quo, !!var_quo)) %>%
         summarise(casos = sum(!!wt_quo %||%
                                   n())) %>%
@@ -105,12 +114,12 @@ tabla_var <- function(.data, .var, .segmento = NULL, .wt = NULL, total = FALSE, 
     # Agrega el porcentaje de respuesta.
     tab <- tabla_prop(tab, .segmento = !!segmento_quo)
 
-    # Agrega el porcentaje válido si es que se señalan categorías perdidas.
+    # Agrega el porcentaje válido si es que se señalan categorias perdidas.
     if (!is.null(miss)) {
         tab <- tabla_prop_val(tab, .var = !!var_quo, .segmento = !!segmento_quo, miss = miss)
     }
 
-    # Agrega el porcentaje válido si es que se señalan categorías perdidas.
+    # Agrega el porcentaje válido si es que se señalan categorias perdidas.
     if (total) {
         tab <- tabla_total(tab, .var = !!var_quo, .segmento = !!segmento_quo, miss = miss)
     }
@@ -119,6 +128,7 @@ tabla_var <- function(.data, .var, .segmento = NULL, .wt = NULL, total = FALSE, 
 }
 
 
+#' @export
 tabla_var_segmentos <- function(.data, .var, .segmentos, .wt = NULL, total = FALSE, miss = NULL) {
     # Resultados de una pregunta `.var` para varios segmentos `.segmentos`
 
@@ -143,6 +153,7 @@ tabla_var_segmentos <- function(.data, .var, .segmentos, .wt = NULL, total = FAL
                segmento_cat, everything())
 }
 
+#' @export
 tabla_multiple <- function(.data, .var, .segmentos, .wt = NULL, total = FALSE, miss = NULL) {
     # Resultados de varias preguntas `.var` para varios segmentos `.segmentos`
 
