@@ -9,19 +9,26 @@ tabla_segmentos <- function(.data, ..., wt = NULL) {
     segmentos <- tidyselect::vars_select(names(.data), ...)
     wt_quo <- enquo(wt)
 
-    print(3)
+    seg_labels <- sjlabelled::get_label(.data, segmentos)
 
-    .data %>%
-        mutate_at(vars(segmentos), list(lab = as_label)) %>%
-        select_at(vars(segmentos, !!wt_quo)) %>%
+    tabla <- .data %>%
+        transmute_at(vars(segmentos, !!wt_quo), list(sjlabelled::as_label)) %>%
         group_by_at(vars(segmentos)) %>%
         summarise(n = sum(!!wt_quo %||% n())) %>%
         gather("variable", "categoria", -n) %>%
+        mutate(variable = forcats::as_factor(variable))
+
+    tabla <- tabla %>%
         count(variable, categoria = forcats::as_factor(categoria), wt = n) %>%
         group_by(variable) %>%
         mutate(prop = n/sum(n)) %>%
         rename(casos = n) %>%
+        ungroup() %>%
         identity()
+
+    tabla %>%
+        mutate(var_label = forcats::as_factor(seg_labels[variable])) %>%
+        select(starts_with('var'), everything())
 }
 
 #' @export
@@ -65,7 +72,9 @@ tabla_prop_val <- function(.data, .var, .segmento, miss) {
         ungroup()
 }
 
-tabla_total <- function(.data, .var, .segmento, miss = NULL) {
+#' @export
+tabla_total <- function(.data, .var, .segmento,
+                        miss = NULL) {
     # Cálculo de porcetaje para el total de segmento
 
     var_quo <- enquo(.var)
@@ -95,8 +104,8 @@ tabla_total <- function(.data, .var, .segmento, miss = NULL) {
 }
 
 #' @export
-tabla_var <- function(.data, .var, .segmento = NULL, .wt = NULL,
-                      total = FALSE, miss = NULL) {
+tabla_var_segmento <- function(.data, .var,
+                               .segmento = NULL, .wt = NULL, total = FALSE, miss = NULL) {
     # Tabla con número de casos y proporción de variable Se agrega una variable de de segmentación llamada 'segmento' con valor 'Total'.
 
     var_quo <- enquo(.var)
@@ -127,24 +136,28 @@ tabla_var <- function(.data, .var, .segmento = NULL, .wt = NULL,
     tabla_orden(tab, .var = !!var_quo, .segmento = !!segmento_quo)
 }
 
-
 #' @export
-tabla_var_segmentos <- function(.data, .var, .segmentos, .wt = NULL, total = FALSE, miss = NULL) {
+tabla_var_segmentos <- function(.data, .var, .segmentos,
+                                .wt = NULL, total = FALSE, miss = NULL) {
     # Resultados de una pregunta `.var` para varios segmentos `.segmentos`
 
     var_quo <- enquo(.var)
     wt_quo <- enquo(.wt)
 
-    tabla_var_segmento <- function(.data, .segmento) {
-        segmento_quo <- enquo(.segmento)
+    tabla_var_seg <- function(.data, .seg) {
+        segmento_quo <- enquo(.seg)
 
-        tab <- tabla_var(.data, .var = !!var_quo, .segmento = !!segmento_quo, total = total, .wt = !!wt_quo, miss = miss) %>%
+        tab <- tabla_var_segmento(.data,
+                                  .var = !!var_quo,
+                                  .seg = !!segmento_quo,
+                                  total = total,
+                                  .wt = !!wt_quo, miss = miss) %>%
             mutate(segmento_var = !!rlang::as_label(segmento_quo)) %>%
             rename(segmento_cat = !!rlang::as_label(segmento_quo)) %>%
             mutate_at(vars(segmento_var, segmento_cat), as.character)
     }
 
-    tab <- map(.segmentos, ~tabla_var_segmento(.data, .segmento = !!.))
+    tab <- map(.segmentos, ~tabla_var_seg(.data, .seg = !!.))
 
     reduce(tab, bind_rows) %>%
         mutate_at(vars(segmento_cat), forcats::as_factor) %>%
@@ -154,12 +167,17 @@ tabla_var_segmentos <- function(.data, .var, .segmentos, .wt = NULL, total = FAL
 }
 
 #' @export
-tabla_multiple <- function(.data, .var, .segmentos, .wt = NULL, total = FALSE, miss = NULL) {
+tabla_vars_segmentos <- function(.data, .vars, .segmentos,
+                                 .wt = NULL, total = FALSE, miss = NULL) {
     # Resultados de varias preguntas `.var` para varios segmentos `.segmentos`
 
     wt_quo <- enquo(.wt)
 
-    tab <- map(.var, ~tabla_var_segmentos(.data, .var = !!., .segmentos = .segmentos, .wt = !!wt_quo, total = total, miss = miss))
+    tab <- map(.vars, ~tabla_var_segmentos(.data,
+                                           .var = !!.,
+                                           .segmentos = .segmentos,
+                                           .wt = !!wt_quo,
+                                           total = total, miss = miss))
 
     tabla_variables <- function(.data, .var) {
         var_quo <- enquo(.var)
@@ -171,7 +189,9 @@ tabla_multiple <- function(.data, .var, .segmentos, .wt = NULL, total = FALSE, m
                       as.character)
     }
 
-    map2(tab, .var, ~tabla_variables(.x, !!.y)) %>%
+    map2(tab, .vars, ~tabla_variables(.x, !!.y)) %>%
         reduce(bind_rows) %>%
-        select(starts_with("segmento"), pregunta_var, pregunta_lab, pregunta_cat, everything())
+        select(starts_with("segmento"),
+               pregunta_var, pregunta_lab, pregunta_cat, everything()) %>%
+        mutate_at(vars(segmento_var, pregunta_var, pregunta_lab), forcats::as_factor)
 }
