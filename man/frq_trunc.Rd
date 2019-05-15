@@ -2,10 +2,21 @@
 % Please edit documentation in R/output_print.R
 \name{frq_trunc}
 \alias{frq_trunc}
-\title{Funciones para revisar dados --------------------------------------------}
+\title{Frecuencia de variable con etiqueta truncada}
 \usage{
 frq_trunc(.data, .var = NULL, width = 50)
 }
+\arguments{
+\item{.data}{Una data frame o vector}
+
+\item{.var}{nombre de la variable de la que se quiere saber su frecuencia}
+
+\item{width}{= 50 Largo del texto de la etiqueta de la variable.}
+}
+\value{
+Una kable con el formato DESUC
+}
 \description{
-Funciones para revisar dados --------------------------------------------
+Se trunca el texto de la etiqueta de la variable a un largo preestablecido para
+una mejor visión de la tabla resultante.
 }

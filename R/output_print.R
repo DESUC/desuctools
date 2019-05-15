@@ -1,10 +1,27 @@
-#' Funciones para revisar dados --------------------------------------------
+#' Frecuencia de variable con etiqueta truncada
+#'
+#' Se trunca el texto de la etiqueta de la variable a un largo preestablecido para
+#' una mejor visión de la tabla resultante.
+#'
+#' @name frq_trunc
+#'
+#' @param .data Una data frame o vector
+#' @param .var nombre de la variable de la que se quiere saber su frecuencia
+#' @param width = 50 Largo del texto de la etiqueta de la variable.
+#'
+#' @return Una kable con el formato DESUC
 #'
 #' @import dplyr
+#' @importFrom sjmisc frq
+#' @importFrom haven labelled
+#' @importFrom stringr str_trunc
+#'
 #'
 #' @export
-frq_trunc <- function(.data, .var = NULL, width = 50) {
-    # frecuencia de variable truncando las etiquetas para mejorar visualisación.
+frq_trunc <- function(.data,
+                      .var = NULL,
+                      width = 50) {
+    # frecuencia de variable truncando las etiquetas para mejorar visualización.
 
     var <- enquo(.var)
 
@@ -19,4 +36,56 @@ frq_trunc <- function(.data, .var = NULL, width = 50) {
 
     haven::labelled(vect, labels = labels_trunc) %>%
         sjmisc::frq()
+}
+
+
+#' Función para ajustar estilo a tablas al momento de ser mostradas en un informe
+#'
+#' @name kable_desuc
+#'
+#' @param .data Una data frame
+#' @param caption Leyenda asociada a la tabla
+#' @param ... Atributos pasados a la función `kable_styling`
+#'
+#' @return Una kable con el formato DESUC
+#'
+#' @importFrom knitr kable
+#' @importFrom kableExtra kable_styling
+#'
+#' @export
+kable_desuc <- function(.data,
+                        caption = NULL,
+                        ...){
+    # Ajustes de formatos para tablas según estilo DESUC.
+    .data %>%
+        knitr::kable(caption = caption,
+                     booktabs = TRUE,
+                     linesep = "",
+                     format.args = list(decimal.mark = ',', big.mark = ".")) %>%
+        kableExtra::kable_styling(latex_options = "hold_position",
+                                  position = "center",
+                                  font_size = 8,
+                                  ...)
+}
+
+
+
+#' Ajuste del tamaño del texto en chunks
+#'
+#' @name chunk_size
+#'
+#' @export
+chunk_size <- function(...) {
+    # Cambio de tamaño del chunk.
+    # Obtenido desde
+    # https://stackoverflow.com/questions/25646333/code-chunk-font-size-in-rmarkdown-with-knitr-and-latex
+
+    fmt <- rmarkdown::pdf_document(...)
+
+    fmt$knitr$knit_hooks$size = function(before, options, envir) {
+        if (before) return(paste0("\n \\", options$size, "\n\n"))
+        else return("\n\n \\normalsize \n")
+    }
+
+    return(fmt)
 }
