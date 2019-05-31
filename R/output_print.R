@@ -45,6 +45,7 @@ frq_trunc <- function(.data,
 #'
 #' @param .data Una data frame
 #' @param caption Leyenda asociada a la tabla
+#' @param digits Número de decimales en la tabla (por defecto digits = 1)
 #' @param ... Atributos pasados a la función `kable_styling`
 #'
 #' @return Una kable con el formato DESUC
@@ -55,11 +56,13 @@ frq_trunc <- function(.data,
 #' @export
 kable_desuc <- function(.data,
                         caption = NULL,
+                        digits = 1,
                         ...){
     # Ajustes de formatos para tablas según estilo DESUC.
     .data %>%
         knitr::kable(caption = caption,
                      booktabs = TRUE,
+                     digits = digits,
                      linesep = "",
                      format.args = list(decimal.mark = ',', big.mark = ".")) %>%
         kableExtra::kable_styling(latex_options = "hold_position",

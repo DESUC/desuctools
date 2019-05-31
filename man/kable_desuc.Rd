@@ -4,12 +4,14 @@
 \alias{kable_desuc}
 \title{Función para ajustar estilo a tablas al momento de ser mostradas en un informe}
 \usage{
-kable_desuc(.data, caption = NULL, ...)
+kable_desuc(.data, caption = NULL, digits = 1, ...)
 }
 \arguments{
 \item{.data}{Una data frame}
 
 \item{caption}{Leyenda asociada a la tabla}
+
+\item{digits}{Número de decimales en la tabla (por defecto digits = 1)}
 
 \item{...}{Atributos pasados a la función `kable_styling`}
 }
