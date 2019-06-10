@@ -183,7 +183,8 @@ tabla_vars_segmentos <- function(.data, .vars, .segmentos,
         var_quo <- enquo(.var)
 
         .data %>%
-            mutate(pregunta_var = !!rlang::as_label(var_quo), pregunta_lab = get_label(!!var_quo)) %>%
+            mutate(pregunta_var = !!rlang::as_label(var_quo),
+                   pregunta_lab = get_label(!!var_quo)) %>%
             rename(pregunta_cat = !!rlang::as_label(var_quo)) %>%
             mutate_at(vars(pregunta_var),
                       as.character)
