@@ -1,6 +1,19 @@
 #' Tablas de resultados ----------------------------------------------------
 #'
+#' Generación de una data.frame con el número de casos y proporción de las distintas
+#' variables de segmentos que se agregen en `...`.
+#'
+#' @name tabla_segmentos
+#'
+#' @param .data data frame. Base de datos.
+#' @param ... Variables de las que se quiere saber su proporcion. Se puede utilizar
+#' `tidyselect` para facilitar la selección de varias columnas.
+#' @param wt Ponderador o expansor de los datos. Por defecto es NULL.
+#'
+#' @return tibble
+#'
 #' @import dplyr
+#' @importFrom tidyselect vars_select
 #'
 #' @export
 tabla_segmentos <- function(.data, ..., wt = NULL) {
@@ -31,7 +44,6 @@ tabla_segmentos <- function(.data, ..., wt = NULL) {
         select(starts_with('var'), everything())
 }
 
-#' @export
 tabla_orden <- function(.data, .var, .segmento = NULL) {
     # Orden de variables y categorias para la presentación de tablas.
 
@@ -45,7 +57,7 @@ tabla_orden <- function(.data, .var, .segmento = NULL) {
         arrange_at(vars(!!!var_seg_exprs))
 }
 
-#' @export
+
 tabla_prop <- function(.data, .segmento) {
     # Cálculo de porcetaje de respuestas en tabla con numero de casos.
 
@@ -57,7 +69,7 @@ tabla_prop <- function(.data, .segmento) {
         ungroup()
 }
 
-#' @export
+
 tabla_prop_val <- function(.data, .var, .segmento, miss) {
     # Cálculo de porcetaje de respuestas válidas en tabla con numero de casos.
 
@@ -72,7 +84,7 @@ tabla_prop_val <- function(.data, .var, .segmento, miss) {
         ungroup()
 }
 
-#' @export
+
 tabla_total <- function(.data, .var, .segmento,
                         miss = NULL) {
     # Cálculo de porcetaje para el total de segmento

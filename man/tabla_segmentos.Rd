@@ -6,6 +6,18 @@
 \usage{
 tabla_segmentos(.data, ..., wt = NULL)
 }
+\arguments{
+\item{.data}{data frame. Base de datos.}
+
+\item{...}{Variables de las que se quiere saber su proporcion. Se puede utilizar
+`tidyselect` para facilitar la selección de varias columnas.}
+
+\item{wt}{Ponderador o expansor de los datos. Por defecto es NULL.}
+}
+\value{
+tibble
+}
 \description{
-Tablas de resultados ----------------------------------------------------
+Generación de una data.frame con el número de casos y proporción de las distintas
+variables de segmentos que se agregen en `...`.
 }
