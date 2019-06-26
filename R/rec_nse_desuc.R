@@ -3,12 +3,48 @@
 #' Cálculo de Nivel socioeconómico según formula DESUC utilizando
 #' ocupación, educación y bienes.
 #'
+#' Nivel de educación más alto que alcanzó
+#' val                                                          label
+#' 1                                                     No estudió
+#' 2                     Educación básica o preparatoria incompleta
+#' 3                       Educación básica o preparatoria completa
+#' 4                       Educación media o humanidades incompleta
+#' 5                         Educación media o humanidades completa
+#' 6 Instituto Profesional o Centro de formación Técnica Incompleta
+#' 7   Instituto Profesional o Centro de Formación Técnica Completa
+#' 8                                       Universitaria incompleta
+#' 9                                         Universitaria completa
+#' 10                   Post grado (máster, doctorado o equivalente)
+#' 88                                                        No sabe
+#' 99                                                    No responde
+#'
+#'
+#' ¿Cuál de las siguientes ocupaciones corresponde al trabajo del principal sostenedor del hogar?
+#' [Si el principal sostenedor del hogar está cesante o es jubilado, preguntar por la última ocupación remunerada que tuvo. Si el principal sostenedor tiene más de 1 trabajo, debe registrarse el de mayor ingreso.]
+#'
+#' val Categoría
+#' 1. Trabajadores no calificados en ventas y servicios, peones agropecuarios, forestales, construcción, etc.
+#' 2. Obreros, operarios y artesanos de artes mecánicas y de otros oficios.
+#' 3. Trabajadores de los servicios y vendedores de comercio y mercados.
+#' 4. Agricultores y trabajadores calificados agropecuarios y pesqueros.
+#' 5. Operadores de instalaciones y máquinas y montadores / conductores de vehículos.
+#' 6. Empleados de oficina públicos y privados.
+#' 7. Técnicos y profesionales de nivel medio (incluye hasta suboficiales FFAA y Carabineros).
+#' 8. Profesionales, científicos e intelectuales.
+#' 9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o públicas. Director o dueño de grandes empresas. Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública (incluye oficiales de FFAA y Carabineros).
+#' 10. Otros grupos no identificados (incluye rentistas, incapacitados, etc.)
+#'
+#'
 #' @name calculo_nse
 #'
 #' @import dplyr
 #'
 #' @export
-calculo_nse <- function(.data, .ocupacion_jh, .educacion_jh, .bienes_var = NULL, append = TRUE) {
+calculo_nse <- function(.data,
+                        .ocupacion_jh,
+                        .educacion_jh,
+                        .bienes_var = NULL,
+                        append = TRUE) {
     # Cálculo de nivel socioeconómico según fórmula DESUC
 
     ocup_jh <- enquo(.ocupacion_jh)
@@ -49,7 +85,8 @@ calculo_nse <- function(.data, .ocupacion_jh, .educacion_jh, .bienes_var = NULL,
                       .data %in% ns_nr ~ NA, TRUE ~ FALSE)
         }
 
-        bienes_sum <- .data %>% transmute_at(.vars = .bienes_var, .funs = rec_bienes, val_valido = 1) %>% sjmisc::row_sums(n = 0.9, append = FALSE) %>% pull()
+        bienes_sum <- .data %>% transmute_at(.vars = .bienes_var, .funs = rec_bienes, val_valido = 1) %>%
+            sjmisc::row_sums(n = 0.9, append = FALSE) %>% pull()
 
         nse_bienes <- dplyr::case_when(bienes_sum == 0 ~ 1L,
                                        bienes_sum <= 3 ~ 2L,
