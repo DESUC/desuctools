@@ -98,7 +98,11 @@ calculo_nse <- function(.data,
     }
 
     # NSE sólo educación
-    nse_educacion <- dplyr::case_when(educ_jh <= 3 ~ 1L, educ_jh <= 6 ~ 2L, educ_jh <= 8 ~ 3L, educ_jh == 9 ~ 4L, educ_jh == 10 ~ 5L)
+    nse_educacion <- dplyr::case_when(educ_jh <= 3 ~ 1L,
+                                      educ_jh <= 6 ~ 2L,
+                                      educ_jh <= 8 ~ 3L,
+                                      educ_jh == 9 ~ 4L,
+                                      educ_jh == 10 ~ 5L)
 
     # Construcción de NSE
     df_nse <- tibble::tibble(nse_edu_ocu   = nse_edu_ocu,
