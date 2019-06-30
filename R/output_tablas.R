@@ -3,45 +3,54 @@
 #' Generación de una data.frame con el número de casos y proporción de las distintas
 #' variables de segmentos que se agregen en `...`.
 #'
-#' @name tabla_segmentos
+#' @title Tabla de categorías
+#'
+#' Porcentaje de respuesta de categorías de varias variables.
+#' Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores.
+#'
+#' @name tabla_categorias
 #'
 #' @param .data data frame. Base de datos.
-#' @param ... Variables de las que se quiere saber su proporcion. Se puede utilizar
+#' @param ... Preguntas de las que se quiere saber su proporcion. Se puede utilizar
 #' `tidyselect` para facilitar la selección de varias columnas.
 #' @param wt Ponderador o expansor de los datos. Por defecto es NULL.
 #'
 #' @return tibble
 #'
 #' @import dplyr
+#' @importFrom forcats as_factor
+#' @importFrom sjlabelled get_label
 #' @importFrom tidyselect vars_select
 #'
 #' @export
-tabla_segmentos <- function(.data, ..., wt = NULL) {
-    # Tabla con número de casos y proporción de respuestas por segmentos.
+tabla_categorias <- function(.data,
+                             ...,
+                             wt = NULL) {
+    # Tabla con número de casos y proporción de respuestas por distintas categorías.
 
-    segmentos <- tidyselect::vars_select(names(.data), ...)
+    preguntas <- tidyselect::vars_select(names(.data), ...)
     wt_quo <- enquo(wt)
 
-    seg_labels <- sjlabelled::get_label(.data, segmentos)
+    seg_labels <- sjlabelled::get_label(.data, preguntas)
 
     tabla <- .data %>%
-        transmute_at(vars(segmentos, !!wt_quo), list(sjlabelled::as_label)) %>%
-        group_by_at(vars(segmentos)) %>%
+        transmute_at(vars(preguntas, !!wt_quo), list(sjlabelled::as_label)) %>%
+        group_by_at(vars(preguntas)) %>%
         summarise(n = sum(!!wt_quo %||% n())) %>%
-        gather("variable", "categoria", -n) %>%
-        mutate(variable = forcats::as_factor(variable))
+        gather("pregunta_var", "pregunta_cat", -n) %>%
+        mutate(pregunta_var = forcats::as_factor(pregunta_var))
 
     tabla <- tabla %>%
-        count(variable, categoria = forcats::as_factor(categoria), wt = n) %>%
-        group_by(variable) %>%
+        count(pregunta_var, pregunta_cat = forcats::as_factor(pregunta_cat), wt = n) %>%
+        group_by(pregunta_var) %>%
         mutate(prop = n/sum(n)) %>%
         rename(casos = n) %>%
         ungroup() %>%
         identity()
 
     tabla %>%
-        mutate(var_label = forcats::as_factor(seg_labels[variable])) %>%
-        select(starts_with('var'), everything())
+        mutate(pregunta_lab = forcats::as_factor(seg_labels[pregunta_var])) %>%
+        select(starts_with('pregunta'), everything())
 }
 
 tabla_orden <- function(.data, .var, .segmento = NULL) {
@@ -56,7 +65,6 @@ tabla_orden <- function(.data, .var, .segmento = NULL) {
         select_at(vars(!!!var_seg_exprs, everything())) %>%
         arrange_at(vars(!!!var_seg_exprs))
 }
-
 
 tabla_prop <- function(.data, .segmento) {
     # Cálculo de porcetaje de respuestas en tabla con numero de casos.
@@ -78,14 +86,18 @@ tabla_prop_val <- function(.data, .var, .segmento, miss) {
 
     .data %>%
         group_by_at(vars(!!segmento_quo)) %>%
-        mutate(casos_val = if_else(!(!!var_quo %in% miss), as.double(casos), NA_real_), prop_val = casos_val/sum(casos_val,
-                                                                                                                 na.rm = TRUE)) %>%
+        mutate(casos_val = if_else(!(!!var_quo %in% miss),
+                                   as.double(casos),
+                                   NA_real_),
+               prop_val = casos_val/sum(casos_val, na.rm = TRUE)) %>%
         select(-casos_val) %>%
         ungroup()
 }
 
 
-tabla_total <- function(.data, .var, .segmento,
+tabla_total <- function(.data,
+                        .var,
+                        .segmento,
                         miss = NULL) {
     # Cálculo de porcetaje para el total de segmento
 
@@ -115,9 +127,12 @@ tabla_total <- function(.data, .var, .segmento,
     return(tab)
 }
 
-#' @export
-tabla_var_segmento <- function(.data, .var,
-                               .segmento = NULL, .wt = NULL, total = FALSE, miss = NULL) {
+tabla_var_segmento <- function(.data,
+                               .var,
+                               .segmento = NULL,
+                               .wt = NULL,
+                               total = FALSE,
+                               miss = NULL) {
     # Tabla con número de casos y proporción de variable Se agrega una variable de de segmentación llamada 'segmento' con valor 'Total'.
 
     var_quo <- enquo(.var)
@@ -149,7 +164,9 @@ tabla_var_segmento <- function(.data, .var,
 }
 
 #' @export
-tabla_var_segmentos <- function(.data, .var, .segmentos,
+tabla_var_segmentos <- function(.data,
+                                .var,
+                                .segmentos,
                                 .wt = NULL, total = FALSE, miss = NULL) {
     # Resultados de una pregunta `.var` para varios segmentos `.segmentos`
 

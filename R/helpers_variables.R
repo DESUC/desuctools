@@ -1,5 +1,7 @@
 #' Funciones de trabajo con datos ------------------------------------------
 #'
+#' @title Corregir missings en preguntas múltiples
+#'
 #' Función para corregir problemas de no respuesta en preguntas múltiples
 #'
 #' @name shift_missing
@@ -44,6 +46,18 @@ shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {
 
 }
 
+
+#' @title Colapso de strings
+#'
+#' Variable útil para colapsar en una sola casilla _list variables_ en un
+#' tibble que quiera ser mostrad en una tabla
+#'
+#' @param .data tibble
+#'
+#' @param .var variable name
+#' @param collapse string, string con el que se unirán los textos. Por defecto
+#'        ", ".
+#'
 #' @importFrom dplyr %>% pull enquo
 #' @importFrom stringr str_c
 #' @export
@@ -56,6 +70,30 @@ collapse_chr <- function(.data, .var, collapse = ", ") {
         stringr::str_c(., collapse = collapse)
 }
 
+
+#' @title Extrae string entre dos textos
+#'
+#' @param text string. Puede ser un named string.
+#' @param ini string, desde donde se extrae el texto
+#' @param fin string, hasta donde se extrae el texto
+#'
+#' @return string
+#' @importFrom stringr str_extract str_glue str_squish
+#' @export
+#'
+#' @examples
+str_entre <- function(text,
+                      ini = '',
+                      fin = ''){
+    structure(stringr::str_extract(text,
+                                   stringr::str_glue('(?<={ini}).*(?={fin})')) %>%
+                  stringr::str_squish(),
+              names = names(text))
+}
+
+
+#' @title Extrae string entre paréntesis
+#'
 #' Función para extraer texto presente entre paréntesis.
 #' Creado para trabajo con etiquetas de variables y extraer así el concepto
 #' preguntado.
@@ -64,7 +102,7 @@ collapse_chr <- function(.data, .var, collapse = ", ") {
 #'
 #' @name str_entre_parentesis
 #'
-#' @param text texto
+#' @param text string
 #'
 #' @return string
 #'
@@ -73,13 +111,18 @@ collapse_chr <- function(.data, .var, collapse = ", ") {
 str_entre_parentesis <- function(text){
 
     # Extrae texto entre paréntesis
-    text_extract <- str_extract(text, "(?<=\\().*(?=\\))")
+    text_extract <- str_entre(text, ini = '\\(', fin = '\\)')
 
     if (is.na(nchar(text_extract))) {
         text_extract <- text
     }
 
     return(text_extract)
-
 }
+
+
+label_entre <- function (var, ...) {
+    UseMethod("label_entre", var)
+}
+
 

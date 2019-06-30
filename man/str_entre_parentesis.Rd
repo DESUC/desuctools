@@ -2,18 +2,28 @@
 % Please edit documentation in R/helpers_variables.R
 \name{str_entre_parentesis}
 \alias{str_entre_parentesis}
-\title{Función para extraer texto presente entre paréntesis.
+\title{Extrae string entre paréntesis
+
+Función para extraer texto presente entre paréntesis.
 Creado para trabajo con etiquetas de variables y extraer así el concepto
-preguntado.}
+preguntado.
+
+Si no encuentra texto entre paréntesis, devuelve el texto original.}
 \usage{
 str_entre_parentesis(text)
 }
 \arguments{
-\item{text}{texto}
+\item{text}{string}
 }
 \value{
 string
 }
 \description{
+Extrae string entre paréntesis
+
+Función para extraer texto presente entre paréntesis.
+Creado para trabajo con etiquetas de variables y extraer así el concepto
+preguntado.
+
 Si no encuentra texto entre paréntesis, devuelve el texto original.
 }
