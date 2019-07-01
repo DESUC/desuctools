@@ -167,7 +167,9 @@ tabla_var_segmento <- function(.data,
 tabla_var_segmentos <- function(.data,
                                 .var,
                                 .segmentos,
-                                .wt = NULL, total = FALSE, miss = NULL) {
+                                .wt = NULL,
+                                total = FALSE,
+                                miss = NULL) {
     # Resultados de una pregunta `.var` para varios segmentos `.segmentos`
 
     var_quo <- enquo(.var)
@@ -180,7 +182,8 @@ tabla_var_segmentos <- function(.data,
                                   .var = !!var_quo,
                                   .seg = !!segmento_quo,
                                   total = total,
-                                  .wt = !!wt_quo, miss = miss) %>%
+                                  .wt = !!wt_quo,
+                                  miss = miss) %>%
             mutate(segmento_var = !!rlang::as_label(segmento_quo)) %>%
             rename(segmento_cat = !!rlang::as_label(segmento_quo)) %>%
             mutate_at(vars(segmento_var, segmento_cat), as.character)
@@ -195,31 +198,54 @@ tabla_var_segmentos <- function(.data,
                segmento_cat, everything())
 }
 
+#' @title Tabla de porcentajes de variables según segmentos.
+#'
+#'  Obtiene porcentajes de respuestas de múltiples variables según multiples segmentos.
+#'
+#' @param .data tibble
+#'
+#' @param .vars vars(), lista de nombres de variables de las que se quiere saber su proporción de respuestas
+#' @param .segmentos vars(), lista de nombres de variables de segmentación de las preguntas de `.vars`
+#' @param .wt name, nombre de la variable de ponderación
+#' @param total logical, Si total = TRUE, se agrega el total para cada segmento.
+#' @param miss integers, Vector de valores que deben coniderarse como missings.
+#'
+#' @return tibble
+#'
 #' @export
-tabla_vars_segmentos <- function(.data, .vars, .segmentos,
-                                 .wt = NULL, total = FALSE, miss = NULL) {
+tabla_vars_segmentos <- function(.data,
+                                 .vars,
+                                 .segmentos,
+                                 .wt = NULL,
+                                 total = FALSE,
+                                 miss = NULL) {
     # Resultados de varias preguntas `.var` para varios segmentos `.segmentos`
+
+    variables <- tidyselect::vars_select(names(.data), !!!.vars)
 
     wt_quo <- enquo(.wt)
 
-    tab <- map(.vars, ~tabla_var_segmentos(.data,
-                                           .var = !!.,
-                                           .segmentos = .segmentos,
-                                           .wt = !!wt_quo,
-                                           total = total, miss = miss))
+    tab <- map(variables, ~tabla_var_segmentos(.data,
+                                               .var = !!.,
+                                               .segmentos = .segmentos,
+                                               .wt = !!wt_quo,
+                                               total = total,
+                                               miss = miss))
+    walk(tab, ~get_label(.) %>% print())
 
     tabla_variables <- function(.data, .var) {
-        var_quo <- enquo(.var)
+
+        label <- get_label(.data, .var)
 
         .data %>%
-            mutate(pregunta_var = !!rlang::as_label(var_quo),
-                   pregunta_lab = get_label(!!var_quo)) %>%
-            rename(pregunta_cat = !!rlang::as_label(var_quo)) %>%
+            mutate(pregunta_var = .var,
+                   pregunta_lab = label) %>%
+            rename(pregunta_cat = .var) %>%
             mutate_at(vars(pregunta_var),
                       as.character)
     }
 
-    map2(tab, .vars, ~tabla_variables(.x, !!.y)) %>%
+    map2(tab, variables, ~tabla_variables(.x, .y)) %>%
         reduce(bind_rows) %>%
         select(starts_with("segmento"),
                pregunta_var, pregunta_lab, pregunta_cat, everything()) %>%
