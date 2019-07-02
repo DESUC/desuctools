@@ -9,6 +9,10 @@
 #'        Todo lo demás lo deja como 9
 #' @param labels vector string, etiquetas para las variables recodificadas. Por defecto NULL.
 #'
+#' @importFrom sjlabelled get_label
+#' @importFrom haven labelled
+#' @importFrom sjmisc rec
+#'
 #' @return haven_labelled
 #' @export
 #'

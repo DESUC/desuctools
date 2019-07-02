@@ -14,6 +14,7 @@
 #' @return Una data frame con los valores de .x y .y corregidos
 #'
 #' @import dplyr
+#' @importFrom rlang quo_is_null as_label
 #'
 #' @export
 shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {

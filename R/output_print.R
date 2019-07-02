@@ -16,7 +16,6 @@
 #' @importFrom haven labelled
 #' @importFrom stringr str_trunc
 #'
-#'
 #' @export
 frq_trunc <- function(.data,
                       .var = NULL,
@@ -32,7 +31,7 @@ frq_trunc <- function(.data,
     }
 
     labels_trunc <- attr(vect, "labels")
-    names(labels_trunc) <- str_trunc(names(labels_trunc), width = width)
+    names(labels_trunc) <- stringr::str_trunc(names(labels_trunc), width = width)
 
     haven::labelled(vect, labels = labels_trunc) %>%
         sjmisc::frq()
@@ -71,6 +70,37 @@ kable_desuc <- function(.data,
                                   ...)
 }
 
+
+#' @title Divide un data.frame en columnas
+#'
+#' Toma una tabla y la divide y pega en sucesicas columnas para imprimir en menor espacio.
+#'
+#' @name tabla_columnas
+#'
+#' @param data tibble
+#' @param ncols integer. Número de columnas en las que se quiere dividir la data original.
+#'    Por defecto ncols = 2.
+#'
+#' @import dplyr
+#' @importFrom janitor adorn_totals
+#' @importFrom purrr reduce
+#'
+#' @return tibble
+#' @export
+#'
+tabla_columnas <- function(data, ncols = 2){
+
+    tab <- data %>%
+        janitor::adorn_totals('row') %>%
+        mutate(col = ceiling((1:n())/n() * ncols)) %>%
+        group_nest(col)
+
+    tab <- purrr::reduce(tab$data, bind_cols)
+
+    colnames(tab) <- rep(names(data), ncols)
+
+    return(tab)
+}
 
 
 #' Ajuste del tamaño del texto en chunks

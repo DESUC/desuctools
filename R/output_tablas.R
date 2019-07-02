@@ -212,6 +212,12 @@ tabla_var_segmentos <- function(.data,
 #'
 #' @return tibble
 #'
+#' @import dplyr
+#' @importFrom purrr map2 reduce
+#' @importFrom forcats as_factor
+#' @importFrom sjlabelled get_label
+#' @importFrom tidyselect vars_select
+#'
 #' @export
 tabla_vars_segmentos <- function(.data,
                                  .vars,
@@ -221,7 +227,7 @@ tabla_vars_segmentos <- function(.data,
                                  miss = NULL) {
 
     variables <- tidyselect::vars_select(names(.data), !!!.vars)
-    wt_quo <- enquo(.wt)
+    wt_quo <- ?(.wt)
 
     tab <- map(variables, ~tabla_var_segmentos(.data,
                                                .var = !!.,
@@ -232,7 +238,7 @@ tabla_vars_segmentos <- function(.data,
 
     tabla_variables <- function(.data, .var) {
 
-        label <- get_label(.data, .var)
+        label <- sjlabelled::get_label(.data, .var)
 
         .data %>%
             mutate(pregunta_var = .var,
