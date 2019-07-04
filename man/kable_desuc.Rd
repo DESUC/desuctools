@@ -4,14 +4,21 @@
 \alias{kable_desuc}
 \title{Función para ajustar estilo a tablas al momento de ser mostradas en un informe}
 \usage{
-kable_desuc(.data, caption = NULL, digits = 1, ...)
+kable_desuc(.data, caption = NULL, digits = 1, col.names = NA,
+  escape = TRUE, ...)
 }
 \arguments{
 \item{.data}{Una data frame}
 
-\item{caption}{Leyenda asociada a la tabla}
+\item{caption}{`string` Leyenda asociada a la tabla (por defecto sin leyenda)}
 
-\item{digits}{Número de decimales en la tabla (por defecto digits = 1)}
+\item{digits}{`int` Número de decimales en la tabla (por defecto digits = 1)}
+
+\item{col.names}{`strings` Vector de texto para los nombres de las columnas.
+(por defecto igual al colname de la tabla)}
+
+\item{escape}{`bolean` Si se normalizan los caracterres especiales en html o latex.
+(por defecto TRUE)}
 
 \item{...}{Atributos pasados a la función `kable_styling`}
 }

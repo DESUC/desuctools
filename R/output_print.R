@@ -43,8 +43,12 @@ frq_trunc <- function(.data,
 #' @name kable_desuc
 #'
 #' @param .data Una data frame
-#' @param caption Leyenda asociada a la tabla
-#' @param digits Número de decimales en la tabla (por defecto digits = 1)
+#' @param caption `string` Leyenda asociada a la tabla (por defecto sin leyenda)
+#' @param digits `int` Número de decimales en la tabla (por defecto digits = 1)
+#' @param col.names `strings` Vector de texto para los nombres de las columnas.
+#'    (por defecto igual al colname de la tabla)
+#' @param escape `bolean` Si se normalizan los caracterres especiales en html o latex.
+#'    (por defecto TRUE)
 #' @param ... Atributos pasados a la función `kable_styling`
 #'
 #' @return Una kable con el formato DESUC
@@ -56,12 +60,16 @@ frq_trunc <- function(.data,
 kable_desuc <- function(.data,
                         caption = NULL,
                         digits = 1,
+                        col.names = NA,
+                        escape = TRUE,
                         ...){
     # Ajustes de formatos para tablas según estilo DESUC.
     .data %>%
         knitr::kable(caption = caption,
                      booktabs = TRUE,
                      digits = digits,
+                     col.names = col.names,
+                     escape = escape,
                      linesep = "",
                      format.args = list(decimal.mark = ',', big.mark = ".")) %>%
         kableExtra::kable_styling(latex_options = "hold_position",
