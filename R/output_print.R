@@ -54,7 +54,6 @@ frq_trunc <- function(.data,
 #' @return Una kable con el formato DESUC
 #'
 #' @importFrom knitr kable
-#' @importFrom kableExtra kable_styling
 #'
 #' @export
 kable_desuc <- function(.data,
@@ -90,7 +89,6 @@ kable_desuc <- function(.data,
 #'    Por defecto ncols = 2.
 #'
 #' @import dplyr
-#' @importFrom janitor adorn_totals
 #' @importFrom purrr reduce
 #'
 #' @return tibble

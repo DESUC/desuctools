@@ -227,7 +227,7 @@ tabla_vars_segmentos <- function(.data,
                                  miss = NULL) {
 
     variables <- tidyselect::vars_select(names(.data), !!!.vars)
-    wt_quo <- ?(.wt)
+    wt_quo <- enquo(.wt)
 
     tab <- map(variables, ~tabla_var_segmentos(.data,
                                                .var = !!.,

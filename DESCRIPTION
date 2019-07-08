@@ -1,27 +1,30 @@
-Package: desuctools
 Type: Package
+Package: desuctools
 Title: Funciones para trabajo en DESUC
-Version: 0.1.0
+Version: 0.1.1
 Author: Cristian Ayala
 Maintainer: Cristiab Ayala <caayala@uc.cl>
-Description: Funciones y datos útiles en el trabajo de limpieza, revisión, 
-    tabulación y graficación de datos de la Dirección de Estudios Sociales UC.
+Description: Funciones y datos útiles en el trabajo de limpieza,
+    revisión, tabulación y graficación de datos de la Dirección de
+    Estudios Sociales UC.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
 Depends:
     R (>= 3.5)
 Imports:
-    dplyr,
+    dplyr (>= 0.8.3),
     forcats,
     ggplot2,
     haven,
     knitr,
-    tibble,
     purrr,
+    rlang (>= 0.1.2),
+    sjlabelled,
     sjmisc,
     stringr,
-    rlang,
-    sjlabelled,
+    tibble,
     tidyselect
+Suggests: 
+    roxygen2
+Encoding: UTF-8
+LazyData: true
 RoxygenNote: 6.1.1
