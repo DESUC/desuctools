@@ -113,13 +113,14 @@ calculo_nse <- function(.data,
                                TRUE ~ nse_edu_ocu))
 
     # Etiquetas y recodificaciones finales
-    df_nse <- df_nse %>% mutate(NSE = haven::labelled(NSE,
-                                                      labels = c(E = 1, D = 2, C3 = 3, C2 = 4, ABC1 = 5),
-                                                      label = "Grupo socioecon\u00f3mico"),
-                                tnse = sjmisc::rec(NSE, rec = "1:2 = 1 [Bajo];
-                                                               3   = 2 [Medio];
-                                                               4:5 = 3 [Alto]"),
-                                nse4 = sjmisc::rec(NSE, rec = "1:2 = 1 [D];
+    df_nse <- df_nse %>%
+        mutate(NSE = haven::labelled(NSE,
+                                     labels = c(E = 1, D = 2, C3 = 3, C2 = 4, ABC1 = 5),
+                                     label = "Grupo socioecon\u00f3mico"),
+               tnse = sjmisc::rec(NSE, rec = "1:2 = 1 [Bajo];
+                                              3   = 2 [Medio];
+                                              4:5 = 3 [Alto]"),
+               nse4 = sjmisc::rec(NSE, rec = "1:2 = 1 [D];
                                                                3   = 2 [C3];
                                                                4   = 3 [C2];
                                                                5   = 4 [Alto]")) %>%
