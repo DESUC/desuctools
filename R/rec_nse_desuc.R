@@ -121,10 +121,11 @@ calculo_nse <- function(.data,
                                               3   = 2 [Medio];
                                               4:5 = 3 [Alto]"),
                nse4 = sjmisc::rec(NSE, rec = "1:2 = 1 [D];
-                                                               3   = 2 [C3];
-                                                               4   = 3 [C2];
-                                                               5   = 4 [Alto]")) %>%
-        sjlabelled::var_labels(tnse = "Nivel socioecon\u00f3mico", nse4 = "NSE con cuatro niveles") %>%
+                                              3   = 2 [C3];
+                                              4   = 3 [C2];
+                                              5   = 4 [Alto]")) %>%
+        sjlabelled::var_labels(tnse = "Nivel socioecon\u00f3mico",
+                               nse4 = "NSE con cuatro niveles") %>%
         mutate_all(sjlabelled::as_labelled)
 
     if (append) {

@@ -15,6 +15,7 @@
 #'
 #' @import dplyr
 #' @importFrom rlang quo_is_null as_label
+#' @importFrom haven labelled
 #'
 #' @export
 shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {
@@ -42,7 +43,8 @@ shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {
         x_lab <- if_else(x %in% missing & !(y %in% missing), as.integer(y), as.integer(x)) %>% add_labels(x)
         y_lab <- if_else(y %in% missing, NA_integer_, as.integer(y)) %>% add_labels(y)
 
-        .data %>% mutate(`:=`(!!rlang::as_label(var1), x_lab), `:=`(!!rlang::as_label(var2), y_lab))
+        .data %>% mutate(`:=`(!!rlang::as_label(var1), x_lab),
+                         `:=`(!!rlang::as_label(var2), y_lab))
     }
 
 }
@@ -79,10 +81,11 @@ collapse_chr <- function(.data, .var, collapse = ", ") {
 #' @param fin string, hasta donde se extrae el texto
 #'
 #' @return string
+#'
 #' @importFrom stringr str_extract str_glue str_squish
+#'
 #' @export
 #'
-#' @examples
 str_entre <- function(text,
                       ini = '',
                       fin = ''){
@@ -108,6 +111,7 @@ str_entre <- function(text,
 #' @return string
 #'
 #' @importFrom stringr str_extract
+#'
 #' @export
 str_entre_parentesis <- function(text){
 
@@ -120,10 +124,4 @@ str_entre_parentesis <- function(text){
 
     return(text_extract)
 }
-
-
-label_entre <- function (var, ...) {
-    UseMethod("label_entre", var)
-}
-
 

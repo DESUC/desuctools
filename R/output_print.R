@@ -54,6 +54,7 @@ frq_trunc <- function(.data,
 #' @return Una kable con el formato DESUC
 #'
 #' @importFrom knitr kable
+#' @importFrom kableExtra kable_styling
 #'
 #' @export
 kable_desuc <- function(.data,
@@ -90,6 +91,7 @@ kable_desuc <- function(.data,
 #'
 #' @import dplyr
 #' @importFrom purrr reduce
+#' @importFrom janitor adorn_totals
 #'
 #' @return tibble
 #' @export
@@ -112,6 +114,8 @@ tabla_columnas <- function(data, ncols = 2){
 #' Ajuste del tamaño del texto en chunks
 #'
 #' @name chunk_size
+#'
+#' @importFrom rmarkdown pdf_document
 #'
 #' @export
 chunk_size <- function(...) {

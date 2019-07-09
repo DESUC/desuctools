@@ -113,8 +113,8 @@ tabla_total <- function(.data,
                          mutate({{.segmento}} := as.character({{.segmento}})),
                      tab_total)
 
-    label_var <- get_label(.data, {{.var}})
-    print(label_var)
+    # label_var <- get_label(.data, {{.var}})
+    # print(label_var)
 
     tab <- tab %>%
         mutate({{.segmento}} := forcats::as_factor({{.segmento}}))
@@ -128,7 +128,6 @@ tabla_total <- function(.data,
     return(tab)
 }
 
-#' @export
 tabla_var_segmento <- function(.data,
                                .var,
                                .segmento = NULL,
@@ -174,7 +173,6 @@ tabla_var_segmento <- function(.data,
                 .segmento = !!segmento_quo)
 }
 
-#' @export
 tabla_var_segmentos <- function(.data,
                                 .var,
                                 .segmentos,
@@ -202,7 +200,8 @@ tabla_var_segmentos <- function(.data,
     tab <- reduce(tab, bind_rows) %>%
         mutate_at(vars(segmento_cat), forcats::as_factor)
 
-    # sjlabelled::set_label(x = tab, {{.var}}, label = sjlabelled::get_label(x = .data, ... = {{.var}}))
+    tab <- sjlabelled::copy_labels(df_new = tab,
+                                   df_origin = .data)
 
     tab %>%
         select(segmento_var,
@@ -249,11 +248,11 @@ tabla_vars_segmentos <- function(.data,
 
     tabla_variables <- function(.data, .var) {
 
-        label <- sjlabelled::get_label(.data, .var)
+        var_label <- sjlabelled::get_label(.data, .var )
 
         .data %>%
             mutate(pregunta_var = .var,
-                   pregunta_lab = label) %>%
+                   pregunta_lab = var_label) %>%
             rename(pregunta_cat = .var) %>%
             mutate_at(vars(pregunta_var),
                       as.character)
