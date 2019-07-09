@@ -113,9 +113,6 @@ tabla_total <- function(.data,
                          mutate({{.segmento}} := as.character({{.segmento}})),
                      tab_total)
 
-    # label_var <- get_label(.data, {{.var}})
-    # print(label_var)
-
     tab <- tab %>%
         mutate({{.segmento}} := forcats::as_factor({{.segmento}}))
 
