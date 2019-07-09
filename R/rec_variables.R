@@ -7,7 +7,8 @@
 #' @param variable numeric, Valores de variable a recodificar.
 #' @param rec string, por defecto recodifica 1:2 en 1, 3 en 2 y 4:5 en 3.
 #'        Todo lo demás lo deja como 9
-#' @param labels vector string, etiquetas para las variables recodificadas. Por defecto NULL.
+#' @param labels vector string, etiquetas para las variables recodificadas.
+#'        Por defecto NULL.
 #'
 #' @importFrom sjlabelled get_label
 #' @importFrom haven labelled
