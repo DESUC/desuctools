@@ -50,6 +50,9 @@ frq_trunc <- function(.data,
 #' @param escape `bolean` Si se normalizan los caracterres especiales en html o latex.
 #'    (por defecto TRUE)
 #' @param ... Atributos pasados a la función `kable_styling`
+#' @param booktabs `bolean` si usa estilo booktabs para la tabla (por defecto TRUE)
+#' @param longtable `bolean` si usa estilo para tablas que cruzan dos páginas (por defecto FALSE)
+#' @param font_size `ìnt` tamaño de letra en la tabla (por defecto 8)
 #'
 #' @return Una kable con el formato DESUC
 #'
@@ -59,22 +62,27 @@ frq_trunc <- function(.data,
 #' @export
 kable_desuc <- function(.data,
                         caption = NULL,
+                        booktabs = TRUE,
+                        longtable = FALSE,
                         digits = 1,
                         col.names = NA,
                         escape = TRUE,
+                        font_size = 8,
                         ...){
     # Ajustes de formatos para tablas según estilo DESUC.
     .data %>%
         knitr::kable(caption = caption,
-                     booktabs = TRUE,
+                     booktabs = booktabs,
+                     longtable = longtable,
                      digits = digits,
                      col.names = col.names,
                      escape = escape,
                      linesep = "",
                      format.args = list(decimal.mark = ',', big.mark = ".")) %>%
         kableExtra::kable_styling(latex_options = "hold_position",
+                                  repeat_header_text = '(continuación)',
                                   position = "center",
-                                  font_size = 8,
+                                  font_size = font_size,
                                   ...)
 }
 
