@@ -81,14 +81,13 @@ tabla_prop <- function(.data, .segmento) {
 tabla_prop_val <- function(.data, .var, .segmento, miss) {
     # Cálculo de porcetaje de respuestas válidas en tabla con numero de casos.
 
-    var_quo <- enquo(.var)
+    # Pasar de quosure con texto a string y luego simbolo.
+    var_quo <- rlang::sym(rlang::as_name(.var))
     segmento_quo <- enquo(.segmento)
 
     .data %>%
         group_by_at(vars(!!segmento_quo)) %>%
-        mutate(casos_val = if_else(!(!!var_quo %in% miss),
-                                   as.double(casos),
-                                   NA_real_),
+        mutate(casos_val = replace(casos, (!!var_quo %in% miss), NA_real_),
                prop_val = casos_val/sum(casos_val, na.rm = TRUE)) %>%
         select(-casos_val) %>%
         ungroup()
@@ -110,16 +109,16 @@ tabla_total <- function(.data,
 
     # Agrega el porcentaje válido si es que se señalan categorias perdidas.
     tab <- bind_rows(.data %>%
-                         mutate({{.segmento}} := as.character({{.segmento}})),
+                         mutate({{ .segmento }} := as.character({{ .segmento }})),
                      tab_total)
 
     tab <- tab %>%
-        mutate({{.segmento}} := forcats::as_factor({{.segmento}}))
+        mutate({{ .segmento }} := forcats::as_factor({{ .segmento }}))
 
     if (!is.null(miss)) {
         tab <- tabla_prop_val(tab,
-                              .var = {{.var}},
-                              .segmento = {{.segmento}},
+                              .var = enquo(.var),
+                              .segmento = {{ .segmento }},
                               miss = miss)
     }
     return(tab)
@@ -147,17 +146,18 @@ tabla_var_segmento <- function(.data,
         ungroup()
 
     # Agrega el porcentaje de respuesta.
-    tab <- tabla_prop(tab, .segmento = !!segmento_quo)
+    tab <- tabla_prop(tab,
+                      .segmento = !!segmento_quo)
 
     # Agrega el porcentaje válido si es que se señalan categorias perdidas.
     if (!is.null(miss)) {
         tab <- tabla_prop_val(tab,
-                              .var = !!var_quo,
+                              .var = var_quo,
                               .segmento = !!segmento_quo,
                               miss = miss)
     }
 
-    # Agrega el porcentaje válido si es que se señalan categorias perdidas.
+    # Agrega el porcentaje total a los segmentos.
     if (total) {
         tab <- tabla_total(tab,
                            .var = !!var_quo,
@@ -187,8 +187,8 @@ tabla_var_segmentos <- function(.data,
                                   total = total,
                                   .wt = {{.wt}},
                                   miss = miss) %>%
-            mutate(segmento_var = {{.seg}}) %>%
-            rename(segmento_cat = {{.seg}}) %>%
+            mutate(segmento_var = !!rlang::as_label(enquo(.seg))) %>%
+            rename(segmento_cat = !!rlang::as_label(enquo(.seg))) %>%
             mutate_at(vars(segmento_var, segmento_cat), as.character)
     }
 
