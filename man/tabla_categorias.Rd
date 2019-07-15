@@ -7,7 +7,7 @@
 Porcentaje de respuesta de categorías de varias variables.
 Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores.}
 \usage{
-tabla_categorias(.data, ..., wt = NULL)
+tabla_categorias(.data, ..., .wt = NULL)
 }
 \arguments{
 \item{.data}{data frame. Base de datos.}
@@ -15,7 +15,7 @@ tabla_categorias(.data, ..., wt = NULL)
 \item{...}{Preguntas de las que se quiere saber su proporcion. Se puede utilizar
 `tidyselect` para facilitar la selección de varias columnas.}
 
-\item{wt}{Ponderador o expansor de los datos. Por defecto es NULL.}
+\item{.wt}{Ponderador o expansor de los datos. Por defecto es NULL.}
 }
 \value{
 tibble

@@ -13,23 +13,23 @@
 #' @param .data data frame. Base de datos.
 #' @param ... Preguntas de las que se quiere saber su proporcion. Se puede utilizar
 #' `tidyselect` para facilitar la selección de varias columnas.
-#' @param wt Ponderador o expansor de los datos. Por defecto es NULL.
+#' @param .wt Ponderador o expansor de los datos. Por defecto es NULL.
 #'
 #' @return tibble
 #'
 #' @import dplyr
-#' @importFrom forcats as_factor
-#' @importFrom sjlabelled get_label
+#' @importFrom forcats as_factor fct_explicit_na
+#' @importFrom sjlabelled as_label get_label
 #' @importFrom tidyselect vars_select
 #'
 #' @export
 tabla_categorias <- function(.data,
                              ...,
-                             wt = NULL) {
+                             .wt = NULL) {
     # Tabla con número de casos y proporción de respuestas por distintas categorías.
 
     preguntas <- tidyselect::vars_select(names(.data), ...)
-    wt_quo <- enquo(wt)
+    wt_quo <- enquo(.wt)
 
     seg_labels <- sjlabelled::get_label(.data, preguntas)
 
@@ -38,15 +38,16 @@ tabla_categorias <- function(.data,
         group_by_at(vars(preguntas)) %>%
         summarise(n = sum(!!wt_quo %||% n())) %>%
         gather("pregunta_var", "pregunta_cat", -n) %>%
-        mutate(pregunta_var = forcats::as_factor(pregunta_var))
+        mutate(pregunta_var = forcats::as_factor(pregunta_var),
+               pregunta_cat = forcats::as_factor(pregunta_cat),
+               pregunta_cat = forcats::fct_explicit_na(pregunta_cat, na_level = 'NA'))
 
     tabla <- tabla %>%
-        count(pregunta_var, pregunta_cat = forcats::as_factor(pregunta_cat), wt = n) %>%
+        count(pregunta_var, pregunta_cat, wt = n) %>%
         group_by(pregunta_var) %>%
         mutate(prop = n/sum(n)) %>%
         rename(casos = n) %>%
-        ungroup() %>%
-        identity()
+        ungroup()
 
     tabla %>%
         mutate(pregunta_lab = forcats::as_factor(seg_labels[pregunta_var])) %>%
