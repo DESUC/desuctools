@@ -10,7 +10,6 @@
 #' @param labels vector string, etiquetas para las variables recodificadas.
 #'        Por defecto NULL.
 #'
-#' @importFrom sjlabelled get_label
 #' @importFrom haven labelled
 #' @importFrom sjmisc rec
 #'
@@ -28,5 +27,5 @@ rec_cat_5a3 <- function(variable,
   sjmisc::rec(variable,
               rec = rec) %>%
     haven::labelled(labels = labels,
-                    label = sjlabelled::get_label(variable))
+                    label = attr(variable, 'label'))
 }
