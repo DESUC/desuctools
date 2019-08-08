@@ -19,7 +19,8 @@
 #'
 #' @import dplyr
 #' @importFrom forcats as_factor fct_explicit_na
-#' @importFrom sjlabelled as_label get_label
+#' @importFrom sjmisc to_label
+#' @importFrom sjlabelled get_label
 #' @importFrom tidyselect vars_select
 #'
 #' @export
@@ -34,7 +35,7 @@ tabla_categorias <- function(.data,
     seg_labels <- sjlabelled::get_label(.data, preguntas)
 
     tabla <- .data %>%
-        transmute_at(vars(preguntas, !!wt_quo), list(sjlabelled::as_label)) %>%
+        transmute_at(vars(preguntas, !!wt_quo), list(sjmisc::to_label)) %>%
         group_by_at(vars(preguntas)) %>%
         summarise(n = sum(!!wt_quo %||% n())) %>%
         gather("pregunta_var", "pregunta_cat", -n) %>%
@@ -140,7 +141,7 @@ tabla_var_segmento <- function(.data,
 
     tab <- .data %>%
         transmute_at(vars(!!segmento_quo, !!var_quo, !!wt_quo),
-                     sjlabelled::as_label, add.non.labelled = TRUE) %>%
+                     sjmisc::to_label, add.non.labelled = TRUE) %>%
         group_by_at(vars(!!segmento_quo, !!var_quo)) %>%
         summarise(casos = sum(!!wt_quo %||%
                                   n())) %>%

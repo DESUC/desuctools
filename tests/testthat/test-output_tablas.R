@@ -1,4 +1,5 @@
 library(tidyverse)
+library(desuctools)
 
 df_test <- tibble::tibble(sexo = haven::labelled(c(1, 2, 2, 2),
                                                  labels = c('M' = 1, 'W' = 2),
