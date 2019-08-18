@@ -1,12 +1,13 @@
 # Funciones para análisis de datos de encuestas
 # 181228
 
-#' @name svr_tabla_var_segmento
+#' @title Tabla con intervalos de confianza
 #'
 #' Devuelve tabla de frecuencias con intervalos de confianza para un nivel
 #' `level`de significancia entre las categorías de respuesta de la
 #' variable `.var`.
 #'
+#' @name svy_tabla_var_segmento
 #'
 #' @param .data data frame con diseño complejo
 #'
@@ -16,32 +17,50 @@
 #' @param na.rm boolean. Considera o no missings, por defecto FALSE.
 #' @param level double. Nivel de significancia para intervalos de confianza
 #'
+#' @importFrom rlang %||%
+#'
+#' @return data.frame
+#'
 #' @export
-svr_tabla_var_segmento <- function(.data,
+svy_tabla_var_segmento <- function(.data,
                                    .var,
-                                   .segmentos = NULL,
-                                   na.rm = FALSE,
+                                   .segmento = NULL,
+                                   na.rm = TRUE,
                                    level = 0.95){
 
-  if(!any(class(.data) %in% 'tbl_svy')) stop('Se necesita un data.frame con diseño complejo')
+  if(!any(class(.data) %in% 'tbl_svy')) stop('Se necesita un data.frame con diseno complejo')
 
-  # Función para cálculo de proporción de respuestas de '.var'
-
+  # Construcción de tabla de segmentos y variable de interés
   tab <- .data %>%
-    transmute(segmento_var = rlang::as_label(enquo(.segmentos))      %||% 'Total',
-              segmento_lab = sjlabelled::get_label({{ .segmentos }}) %||% FALSE,
-              segmento_cat = sjmisc::to_label({{ .segmentos }}       %||% FALSE),
-              {{ .var }} := sjmisc::to_label({{ .var }}, add.non.labelled = TRUE)) %>%
-    group_by(segmento_var, segmento_lab, segmento_cat,
-             pregunta_var = rlang::as_label(enquo(.var)),
-             pregunta_lab = sjlabelled::get_label({{ .var }}) %||% 'Sin etiqueta',
-             pregunta_cat = sjmisc::to_label({{ .var }})) %>%
-    summarise(prop = survey_mean(na.rm = na.rm, vartype = c('ci', 'se'), level = level)) %>%
-    group_by(segmento_cat) %>%
-    mutate(diff_sig = min(prop_upp) < prop_low | max(prop_low) > prop_upp) %>%
-    ungroup()
+    transmute(segmento_var = rlang::as_label(enquo(.segmento))      %||% 'Total',
+              segmento_lab = sjlabelled::get_label({{ .segmento }}) %||% '-',
+              segmento_cat = sjlabelled::as_label({{ .segmento }}   %||% '-'),
+              pregunta_var = rlang::as_label(enquo(.var)),
+              pregunta_lab = sjlabelled::get_label({{ .var }})      %||% FALSE,
+              pregunta_cat = sjlabelled::as_label({{ .var }}, add.non.labelled = TRUE)) %>%
+    group_by_at(vars(segmento_var:pregunta_lab))
 
-  if(rlang::quo_is_null(enquo(.segmentos))){
+  # Construir la variable de interés según si es una variable escalar o categórica
+  if (class(.data$variable[[ rlang::as_label(enquo(.var)) ]] ) %in% c('numeric', 'integer')) {
+    # Variable escalar
+    tab <- tab %>%
+      summarise(mean = survey_mean(pregunta_cat,
+                                   na.rm = na.rm,
+                                   vartype = c('ci', 'se'), level = level))
+  } else {
+    # Variable categórica
+    tab <- tab %>%
+      mutate(pregunta_cat = forcats::fct_explicit_na(pregunta_cat,
+                                                     na_level = 'missing')) %>%
+      group_by_at(vars(pregunta_cat), .add = TRUE, .drop = FALSE) %>%
+      summarise(prop = srvyr::survey_mean(na.rm = na.rm,
+                                          vartype = c('ci', 'se'), level = level))
+  }
+
+  # Determinar si hay diferencias significativas
+  tab <- svy_diff_grupo(tab, segmento_cat)
+
+  if(rlang::quo_is_null(enquo(.segmento))){
     tab %>%
       select(-starts_with('segmento'))
   } else {
@@ -49,38 +68,75 @@ svr_tabla_var_segmento <- function(.data,
   }
 }
 
-segmentos_frq <- function(base, variable, ...){
+#' @title Tabla con intervalos de confianza
+#'
+#' Devuelve tabla de frecuencias con intervalos de confianza para un nivel
+#' `level`de significancia entre las categorías de respuesta de la
+#' variable `.var`.
+#'
+#' @name svy_tabla_var_segmentos
+#'
+#' @param .data
+#'
+#' @param .var Variable de interés respecto.
+#' @param .segmentos vars(). Lista de variables por las que se quiere segmentar `.var`.
+#' @param ... atributos que se pasan a funcion `svy_tabla_var_segmento`.
+#'
+#' @importFrom rlang !!
+#'
+#' @export
+svy_tabla_var_segmentos <- function(.data,
+                                    .var,
+                                    .segmentos = NULL,
+                                    ...) {
 
-  variable_quo <- enquo(variable)
-  segmentos_quo <- enquos(...)
+  segmentos <- tidyselect::vars_select(colnames(.data), !!!.segmentos)
+  # Transforma string a expresiones para ser evaluadas luego.
+  segmentos <- rlang::syms(segmentos)
 
-  segmento_frq <- function(base, variable, segmento){
-
-    variable_quo <- enquo(variable)
-    segmento_quo <- enquo(segmento)
-
-    seg_categorias <- get_labels(base[['variables']][[rlang::quo_text(segmento_quo)]], drop.unused = TRUE)
-
-    out_seg_cat_frq <- function(base, variable, segmento, seg_cat){
-      variable_quo <- enquo(variable)
-      segmento_quo <- enquo(segmento)
-
-      out <- base %>%
-        filter(to_label(!!segmento_quo) == seg_cat) %>%
-        pregunta_frq(!!variable_quo) %>%
-        mutate(segmento = rlang::quo_text(segmento_quo),
-               seg_label = get_label(base[['variables']][[rlang::quo_text(segmento_quo)]]) %||% NA_character_,
-               seg_cat = seg_cat) %>%
-        select(segmento, seg_label, seg_cat, everything())
-
-      return(out)
-    }
-    map_df(seg_categorias, ~ out_seg_cat_frq(base, !!variable_quo, !!segmento_quo, .))
-
+  # Funcion para poder pasar ... de la funcion dentro de map.
+  # No funcionó agregar ... dentro de una función anónima dentro de map.
+  svy_tabla <- function(.seg) {
+    svy_tabla_var_segmento(.data,
+                           .var = {{ .var }},
+                           .segmento = !!.seg,
+                           ...)
   }
-  tabla <- map_df(exprs(!!!segmentos_quo), ~ segmento_frq(base, variable = !!variable_quo, segmento = !!.))
 
-  tabla %>%
-    mutate_at(vars(seg_label, seg_cat, var_labels), forcats::as_factor)
+  purrr::map(segmentos, svy_tabla) %>%
+    purrr::map(~mutate(., segmento_cat = as.character(segmento_cat))) %>%
+    purrr::reduce(dplyr::bind_rows)
+}
 
+#' @title Comparación entre intervalos de confianza
+#'
+#' Determina diferencias significativas según intervalos de confianza calculados desde
+#' `svrvyr`.
+#'
+#' @name svy_diff_grupo
+#'
+#' @param .data data.frame con variables `\\*_upp` y `\\*_low`
+#' @param grupo Variable por la que se verá la existencia de diferencias. Por defecto = NA.
+#'
+#' @return data.frame
+#'
+#' @export
+svy_diff_grupo <- function(.data, grupo = NA){
+
+  var_data <- colnames(.data)
+
+  if(sum(stringr::str_detect(var_data, '_upp$|_low$')) != 2) stop('Se necesita el intervalo de confianza')
+
+  var_low <- rlang::sym(var_data[stringr::str_which(var_data, '_low$')])
+  var_upp <- rlang::sym(var_data[stringr::str_which(var_data, '_upp$')])
+
+  tab <- .data %>%
+    group_by({{ grupo }}) %>%
+    mutate(diff_sig = min(!!var_upp) < !!var_low | max(!!var_low) > !!var_upp) %>%
+    ungroup()
+
+  suppressWarnings(
+    tab %>%
+      select(-one_of('NA'))
+  )
 }

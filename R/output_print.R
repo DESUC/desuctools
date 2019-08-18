@@ -57,7 +57,6 @@ frq_trunc <- function(.data,
 #' @return Una kable con el formato DESUC
 #'
 #' @importFrom knitr kable
-#' @importFrom kableExtra kable_styling
 #'
 #' @export
 kable_desuc <- function(.data,
@@ -80,7 +79,7 @@ kable_desuc <- function(.data,
                      linesep = "",
                      format.args = list(decimal.mark = ',', big.mark = ".")) %>%
         kableExtra::kable_styling(latex_options = "hold_position",
-                                  repeat_header_text = '(continuación)',
+                                  repeat_header_text = '(continuaci\u00f3n)',
                                   position = "center",
                                   font_size = font_size,
                                   ...)
@@ -99,7 +98,6 @@ kable_desuc <- function(.data,
 #'
 #' @import dplyr
 #' @importFrom purrr reduce
-#' @importFrom janitor adorn_totals
 #'
 #' @return tibble
 #' @export
@@ -122,8 +120,6 @@ tabla_columnas <- function(data, ncols = 2){
 #' Ajuste del tamaño del texto en chunks
 #'
 #' @name chunk_size
-#'
-#' @importFrom rmarkdown pdf_document
 #'
 #' @export
 chunk_size <- function(...) {

@@ -18,6 +18,7 @@
 #' @return tibble
 #'
 #' @import dplyr
+#' @importFrom rlang %||%
 #' @importFrom forcats as_factor fct_explicit_na
 #' @importFrom sjmisc to_label
 #' @importFrom sjlabelled get_label
@@ -28,7 +29,6 @@ tabla_categorias <- function(.data,
                              ...,
                              .wt = NULL) {
     # Tabla con número de casos y proporción de respuestas por distintas categorías.
-
     preguntas <- tidyselect::vars_select(names(.data), ...)
     wt_quo <- enquo(.wt)
 
@@ -38,7 +38,7 @@ tabla_categorias <- function(.data,
         transmute_at(vars(preguntas, !!wt_quo), list(sjmisc::to_label)) %>%
         group_by_at(vars(preguntas)) %>%
         summarise(n = sum(!!wt_quo %||% n())) %>%
-        gather("pregunta_var", "pregunta_cat", -n) %>%
+        tidyr::gather("pregunta_var", "pregunta_cat", -n) %>%
         mutate(pregunta_var = forcats::as_factor(pregunta_var),
                pregunta_cat = forcats::as_factor(pregunta_cat),
                pregunta_cat = forcats::fct_explicit_na(pregunta_cat, na_level = 'NA'))
@@ -172,6 +172,7 @@ tabla_var_segmento <- function(.data,
                 .segmento = !!segmento_quo)
 }
 
+
 tabla_var_segmentos <- function(.data,
                                 .var,
                                 .segmentos,
@@ -179,7 +180,6 @@ tabla_var_segmentos <- function(.data,
                                 total = FALSE,
                                 miss = NULL) {
     # Resultados de una pregunta `.var` para varios segmentos `.segmentos`
-
 
     tabla_var_seg <- function(.data, .seg) {
 
@@ -222,7 +222,7 @@ tabla_var_segmentos <- function(.data,
 #' @return tibble
 #'
 #' @import dplyr
-#' @importFrom purrr map2 reduce
+#' @importFrom purrr map map2 reduce
 #' @importFrom forcats as_factor
 #' @importFrom sjlabelled get_label
 #' @importFrom tidyselect vars_select
@@ -238,12 +238,12 @@ tabla_vars_segmentos <- function(.data,
     variables <- tidyselect::vars_select(names(.data), !!!.vars)
     wt_quo <- enquo(.wt)
 
-    tab <- map(variables, ~tabla_var_segmentos(.data,
-                                               .var = !!.,
-                                               .segmentos = .segmentos,
-                                               .wt = !!wt_quo,
-                                               total = total,
-                                               miss = miss))
+    tab <- purrr::map(variables, ~tabla_var_segmentos(.data,
+                                                      .var = !!.,
+                                                      .segmentos = .segmentos,
+                                                      .wt = !!wt_quo,
+                                                      total = total,
+                                                      miss = miss))
 
     tabla_variables <- function(.data, .var) {
 
