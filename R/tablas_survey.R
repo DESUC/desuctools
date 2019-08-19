@@ -34,16 +34,17 @@ svy_tabla_var_segmento <- function(.data,
   tab <- .data %>%
     transmute(segmento_var = rlang::as_label(enquo(.segmento))      %||% 'Total',
               segmento_lab = sjlabelled::get_label({{ .segmento }}) %||% '-',
-              segmento_cat = sjlabelled::as_label({{ .segmento }}   %||% '-'),
+              segmento_cat = sjlabelled::as_label({{ .segmento }}   %||% '-') %>%
+                forcats::fct_explicit_na(na_level = 'seg_miss'),
               pregunta_var = rlang::as_label(enquo(.var)),
-              pregunta_lab = sjlabelled::get_label({{ .var }})      %||% FALSE,
-              pregunta_cat = sjlabelled::as_label({{ .var }}, add.non.labelled = TRUE)) %>%
-    group_by_at(vars(segmento_var:pregunta_lab))
+              pregunta_lab = sjlabelled::get_label({{ .var }})      %||% '-',
+              pregunta_cat = sjlabelled::as_label({{ .var }}, add.non.labelled = TRUE))
 
   # Construir la variable de interés según si es una variable escalar o categórica
   if (class(.data$variable[[ rlang::as_label(enquo(.var)) ]] ) %in% c('numeric', 'integer')) {
     # Variable escalar
     tab <- tab %>%
+      group_by_at(vars(segmento_var:pregunta_lab)) %>%
       summarise(mean = survey_mean(pregunta_cat,
                                    na.rm = na.rm,
                                    vartype = c('ci', 'se'), level = level))
@@ -51,14 +52,17 @@ svy_tabla_var_segmento <- function(.data,
     # Variable categórica
     tab <- tab %>%
       mutate(pregunta_cat = forcats::fct_explicit_na(pregunta_cat,
-                                                     na_level = 'missing')) %>%
-      group_by_at(vars(pregunta_cat), .add = TRUE, .drop = FALSE) %>%
+                                                     na_level = 'cat_miss')) %>%
+      group_by_at(vars(segmento_var:pregunta_lab, pregunta_cat), .drop = FALSE) %>%
       summarise(prop = srvyr::survey_mean(na.rm = na.rm,
                                           vartype = c('ci', 'se'), level = level))
   }
 
   # Determinar si hay diferencias significativas
-  tab <- svy_diff_grupo(tab, segmento_cat)
+  tab <- tab %>%
+    group_by(segmento_cat) %>%
+    svy_diff_sig() %>%
+    ungroup()
 
   if(rlang::quo_is_null(enquo(.segmento))){
     tab %>%
@@ -111,17 +115,16 @@ svy_tabla_var_segmentos <- function(.data,
 #' @title Comparación entre intervalos de confianza
 #'
 #' Determina diferencias significativas según intervalos de confianza calculados desde
-#' `svrvyr`.
+#' `srvyr`.
 #'
-#' @name svy_diff_grupo
+#' @name svy_diff_sig
 #'
 #' @param .data data.frame con variables `\\*_upp` y `\\*_low`
-#' @param grupo Variable por la que se verá la existencia de diferencias. Por defecto = NA.
 #'
 #' @return data.frame
 #'
 #' @export
-svy_diff_grupo <- function(.data, grupo = NA){
+svy_diff_sig <- function(.data){
 
   var_data <- colnames(.data)
 
@@ -131,12 +134,5 @@ svy_diff_grupo <- function(.data, grupo = NA){
   var_upp <- rlang::sym(var_data[stringr::str_which(var_data, '_upp$')])
 
   tab <- .data %>%
-    group_by({{ grupo }}) %>%
-    mutate(diff_sig = min(!!var_upp) < !!var_low | max(!!var_low) > !!var_upp) %>%
-    ungroup()
-
-  suppressWarnings(
-    tab %>%
-      select(-one_of('NA'))
-  )
+    mutate(diff_sig = min(!!var_upp) < !!var_low | max(!!var_low) > !!var_upp)
 }
