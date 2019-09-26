@@ -23,6 +23,7 @@
 #' @importFrom sjmisc to_label
 #' @importFrom sjlabelled get_label
 #' @importFrom tidyselect vars_select
+#' @importFrom rlang .data
 #'
 #' @export
 tabla_categorias <- function(.data,
@@ -143,8 +144,7 @@ tabla_var_segmento <- function(.data,
         transmute_at(vars(!!segmento_quo, !!var_quo, !!wt_quo),
                      sjmisc::to_label, add.non.labelled = TRUE) %>%
         group_by_at(vars(!!segmento_quo, !!var_quo)) %>%
-        summarise(casos = sum(!!wt_quo %||%
-                                  n())) %>%
+        summarise(casos = sum(!!wt_quo %||% n())) %>%
         ungroup()
 
     # Agrega el porcentaje de respuesta.
@@ -185,7 +185,7 @@ tabla_var_segmentos <- function(.data,
 
         tab <- tabla_var_segmento(.data,
                                   .var = {{.var}},
-                                  .seg = {{.seg}},
+                                  .segmento = {{.seg}},
                                   total = total,
                                   .wt = {{.wt}},
                                   miss = miss) %>%
@@ -226,6 +226,7 @@ tabla_var_segmentos <- function(.data,
 #' @importFrom forcats as_factor
 #' @importFrom sjlabelled get_label
 #' @importFrom tidyselect vars_select
+#' @importFrom rlang .data
 #'
 #' @export
 tabla_vars_segmentos <- function(.data,

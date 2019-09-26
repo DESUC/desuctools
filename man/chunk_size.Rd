@@ -6,6 +6,9 @@
 \usage{
 chunk_size(...)
 }
+\arguments{
+\item{...}{path al documento .Rmd}
+}
 \description{
 Ajuste del tamaño del texto en chunks
 }

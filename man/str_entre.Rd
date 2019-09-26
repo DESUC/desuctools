@@ -19,3 +19,8 @@ string
 \description{
 Extrae string entre dos textos
 }
+\examples{
+
+str_entre('a (between) z', ini = '\\\\(', fin = '\\\\)')
+
+}

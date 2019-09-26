@@ -121,6 +121,8 @@ tabla_columnas <- function(data, ncols = 2){
 #'
 #' @name chunk_size
 #'
+#' @param ... path al documento .Rmd
+#'
 #' @export
 chunk_size <- function(...) {
     # Cambio de tamaño del chunk.

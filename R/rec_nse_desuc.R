@@ -1,3 +1,5 @@
+#' @title Calculo NSE
+#'
 #' Funciones de trabajo con datos ------------------------------------------
 #'
 #' Cálculo de Nivel socioeconómico según formula DESUC utilizando
@@ -20,7 +22,8 @@
 #'
 #'
 #' ¿Cuál de las siguientes ocupaciones corresponde al trabajo del principal sostenedor del hogar?
-#' [Si el principal sostenedor del hogar está cesante o es jubilado, preguntar por la última ocupación remunerada que tuvo. Si el principal sostenedor tiene más de 1 trabajo, debe registrarse el de mayor ingreso.]
+#' Si el principal sostenedor del hogar esta cesante o es jubilado, preguntar por la ultima ocupacion
+#' remunerada que tuvo. Si el principal sostenedor tiene más de 1 trabajo, debe registrarse el de mayor ingreso.
 #'
 #' val Categoría
 #' 1. Trabajadores no calificados en ventas y servicios, peones agropecuarios, forestales, construcción, etc.
@@ -34,6 +37,12 @@
 #' 9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o públicas. Director o dueño de grandes empresas. Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública (incluye oficiales de FFAA y Carabineros).
 #' 10. Otros grupos no identificados (incluye rentistas, incapacitados, etc.)
 #'
+#'
+#' @param .data data.frame Base de datos
+#' @param .ocupacion_jh name nombre de variable para educación de jefe de hogar
+#' @param .educacion_jh name nombre de variable para educación de jefe de hogar
+#' @param .bienes_var tidyselect selector de variables para bienes
+#' @param append logic TRUE para agregar la variable a la base original
 #'
 #' @name calculo_nse
 #'

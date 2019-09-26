@@ -63,14 +63,19 @@ shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {
 #'
 #' @importFrom dplyr %>% pull enquo
 #' @importFrom stringr str_c
+#'
+#' @examples
+#'
+#' df <- data.frame(x = c('a', 'b', 'c'))
+#'
+#' str_collapse(df, x)
+#'
 #' @export
-collapse_chr <- function(.data, .var, collapse = ", ") {
+str_collapse <- function(.data, .var, collapse = ", ") {
     # Colapsar valores de una variable en un string.
 
-    var_quo <- enquo(.var)
-
-    pull(.data, !!var_quo) %>%
-        stringr::str_c(., collapse = collapse)
+    pull(.data, {{ .var }}) %>%
+        stringr::str_c(collapse = collapse)
 }
 
 
@@ -83,6 +88,10 @@ collapse_chr <- function(.data, .var, collapse = ", ") {
 #' @return string
 #'
 #' @importFrom stringr str_extract str_glue str_squish
+#'
+#' @examples
+#'
+#' str_entre('a (between) z', ini = '\\(', fin = '\\)')
 #'
 #' @export
 #'

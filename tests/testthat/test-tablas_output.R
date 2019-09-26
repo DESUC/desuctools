@@ -8,8 +8,6 @@ df_test <- tibble::tibble(sexo = haven::labelled(c(1, 2, 2, 2),
                           cat_na = c(1, 1, 2, NA),
                           wt     = c(2, 1, 1, 0))
 
-
-
 # tabla_categoria ---------------------------------------------------------
 
 test_that("tabla_categoria proporcion de categoría labelled", {
@@ -61,6 +59,15 @@ test_that("tabla_categoria proporcion de categoría con peso y total", {
                     c(0.5, 0.5, 1, 0.25, 0.75))
 })
 
+# test_that("tabla_categoria proporcion de categoría con peso y total y missing", {
+#   expect_equivalent(tabla_vars_segmentos(df_test,
+#                                          .vars = vars(sexo),
+#                                          .segmentos = vars(cat),
+#                                          miss = 1,
+#                                          total = TRUE) %>%
+#                       pull(prop),
+#                     c(0.5, 0.5, 1, 0.25, 0.75))
+# })
 
 #  rec_cat_5a3 ------------------------------------------------------------
 

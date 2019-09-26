@@ -16,12 +16,17 @@ Imports:
     ggplot2,
     haven,
     knitr,
+    janitor,
+    kableExtra,
+    srvyr,
     purrr,
+    rmarkdown,
     rlang (>= 0.1.2),
     sjlabelled,
     sjmisc,
     stringr,
     tibble,
+    tidyr (>= 1.0.0),
     tidyselect
 Suggests: 
     roxygen2,
