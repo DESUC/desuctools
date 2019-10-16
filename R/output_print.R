@@ -19,22 +19,26 @@
 #' @export
 frq_trunc <- function(.data,
                       .var = NULL,
+                      weights = NULL,
+                      ...,
                       width = 50) {
     # frecuencia de variable truncando las etiquetas para mejorar visualización.
-
-    var <- enquo(.var)
+    print(.data)
 
     if (is.numeric(.data)) {
         vect <- .data
+        print(vect)
     } else {
-        vect <- .data %>% pull(!!var)
+        vect <- .data %>% pull({{ .var }})
+        wgt  <- .data %>% pull({{ weights }})
     }
 
-    labels_trunc <- attr(vect, "labels")
+    (labels_trunc <- attr(vect, "labels"))
     names(labels_trunc) <- stringr::str_trunc(names(labels_trunc), width = width)
 
+    print(labels_trunc)
     haven::labelled(vect, labels = labels_trunc) %>%
-        sjmisc::frq()
+        sjmisc::frq(weights = wgt)
 }
 
 
@@ -43,10 +47,12 @@ frq_trunc <- function(.data,
 #' @name kable_desuc
 #'
 #' @param .data Una data frame
-#' @param caption `string` Leyenda asociada a la tabla (por defecto sin leyenda)
 #' @param digits `int` Número de decimales en la tabla (por defecto digits = 1)
+#' @param row.names `Logical` Se incluye o no los nombres de las filas.
 #' @param col.names `strings` Vector de texto para los nombres de las columnas.
 #'    (por defecto igual al colname de la tabla)
+#' @param align `vector` Indicación para la alineación de las columnas. c('rll')
+#' @param caption `string` Leyenda asociada a la tabla (por defecto sin leyenda)
 #' @param escape `bolean` Si se normalizan los caracterres especiales en html o latex.
 #'    (por defecto TRUE)
 #' @param ... Atributos pasados a la función `kable_styling`
@@ -60,21 +66,25 @@ frq_trunc <- function(.data,
 #'
 #' @export
 kable_desuc <- function(.data,
+                        digits = 1,
+                        row.names = NA,
+                        col.names = NA,
+                        align = NULL,
                         caption = NULL,
                         booktabs = TRUE,
                         longtable = FALSE,
-                        digits = 1,
-                        col.names = NA,
                         escape = TRUE,
                         font_size = 8,
                         ...){
     # Ajustes de formatos para tablas según estilo DESUC.
     .data %>%
-        knitr::kable(caption = caption,
+        knitr::kable(digits = digits,
+                     row.names = row.names,
+                     col.names = col.names,
+                     align = align,
+                     caption = caption,
                      booktabs = booktabs,
                      longtable = longtable,
-                     digits = digits,
-                     col.names = col.names,
                      escape = escape,
                      linesep = "",
                      format.args = list(decimal.mark = ',', big.mark = ".")) %>%
