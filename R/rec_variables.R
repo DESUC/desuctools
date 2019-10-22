@@ -18,10 +18,7 @@
 #'
 #' @examples
 rec_cat_5a3 <- function(variable,
-                        rec = "1:2 = 1;
-                               3 = 2;
-                               4:5 = 3;
-                               else = 9",
+                        rec = "1:2 = 1; 3 = 2; 4:5 = 3; else = 9",
                         labels = NULL){
 
   sjmisc::rec(variable,

@@ -11,7 +11,7 @@ variable `.var`.}
 svy_tabla_var_segmentos(.data, .var, .segmentos = NULL, ...)
 }
 \arguments{
-\item{.data}{}
+\item{.data}{`tbl_svy` data.frame con diseño de encuesta.}
 
 \item{.var}{Variable de interés respecto.}
 

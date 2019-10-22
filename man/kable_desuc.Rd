@@ -4,23 +4,27 @@
 \alias{kable_desuc}
 \title{Función para ajustar estilo a tablas al momento de ser mostradas en un informe}
 \usage{
-kable_desuc(.data, caption = NULL, booktabs = TRUE,
-  longtable = FALSE, digits = 1, col.names = NA, escape = TRUE,
-  font_size = 8, ...)
+kable_desuc(.data, digits = 1, row.names = NA, col.names = NA,
+  align = NULL, caption = NULL, booktabs = TRUE, longtable = FALSE,
+  escape = TRUE, font_size = 8, ...)
 }
 \arguments{
 \item{.data}{Una data frame}
+
+\item{digits}{`int` Número de decimales en la tabla (por defecto digits = 1)}
+
+\item{row.names}{`Logical` Se incluye o no los nombres de las filas.}
+
+\item{col.names}{`strings` Vector de texto para los nombres de las columnas.
+(por defecto igual al colname de la tabla)}
+
+\item{align}{`vector` Indicación para la alineación de las columnas. c('rll')}
 
 \item{caption}{`string` Leyenda asociada a la tabla (por defecto sin leyenda)}
 
 \item{booktabs}{`bolean` si usa estilo booktabs para la tabla (por defecto TRUE)}
 
 \item{longtable}{`bolean` si usa estilo para tablas que cruzan dos páginas (por defecto FALSE)}
-
-\item{digits}{`int` Número de decimales en la tabla (por defecto digits = 1)}
-
-\item{col.names}{`strings` Vector de texto para los nombres de las columnas.
-(por defecto igual al colname de la tabla)}
 
 \item{escape}{`bolean` Si se normalizan los caracterres especiales en html o latex.
 (por defecto TRUE)}

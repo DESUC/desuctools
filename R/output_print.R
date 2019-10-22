@@ -18,27 +18,42 @@
 #'
 #' @export
 frq_trunc <- function(.data,
-                      .var = NULL,
-                      weights = NULL,
                       ...,
-                      width = 50) {
+                      width = 50,
+                      ellipsis = '...',
+                      weights = NULL) {
     # frecuencia de variable truncando las etiquetas para mejorar visualización.
-    print(.data)
 
-    if (is.numeric(.data)) {
-        vect <- .data
-        print(vect)
+    if (is.data.frame(.data)) {
+        var_sel <- tidyselect::vars_select(colnames(.data), ...)
+        data <- .data[var_sel]
     } else {
-        vect <- .data %>% pull({{ .var }})
-        wgt  <- .data %>% pull({{ weights }})
+        data <- .data
     }
 
-    (labels_trunc <- attr(vect, "labels"))
-    names(labels_trunc) <- stringr::str_trunc(names(labels_trunc), width = width)
+    labels_trunc <- purrr::map(sjlabelled::get_labels(data),
+                               ~ str_trunc(., width = width, ellipsis = ellipsis))
 
-    print(labels_trunc)
-    haven::labelled(vect, labels = labels_trunc) %>%
-        sjmisc::frq(weights = wgt)
+    if (!is.data.frame(data)) {
+        (labels_trunc <- unlist(labels_trunc))
+    }
+
+    if (is.null({{weights}})) {
+        vct_weights <- NULL
+    } else {
+        if (is.vector({{weights}})) {
+            print('vect')
+            vct_weights <- weights
+        } else {
+            print('nom')
+            vct_weights <- .data[!!rlang::as_string(weights)]
+        }
+    }
+    print(vct_weights)
+
+    data <- sjlabelled::set_labels(data, labels = labels_trunc)
+
+    sjmisc::frq(data, weights = vct_weights)
 }
 
 

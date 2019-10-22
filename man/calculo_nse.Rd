@@ -38,7 +38,10 @@ val Categoría
 6. Empleados de oficina públicos y privados.
 7. Técnicos y profesionales de nivel medio (incluye hasta suboficiales FFAA y Carabineros).
 8. Profesionales, científicos e intelectuales.
-9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o públicas. Director o dueño de grandes empresas. Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública (incluye oficiales de FFAA y Carabineros).
+9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o pública.
+   Director o dueño de grandes empresas.
+   Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública
+   (incluye oficiales de FFAA y Carabineros).
 10. Otros grupos no identificados (incluye rentistas, incapacitados, etc.)}
 \usage{
 calculo_nse(.data, .ocupacion_jh, .educacion_jh, .bienes_var = NULL,
@@ -92,6 +95,9 @@ val Categoría
 6. Empleados de oficina públicos y privados.
 7. Técnicos y profesionales de nivel medio (incluye hasta suboficiales FFAA y Carabineros).
 8. Profesionales, científicos e intelectuales.
-9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o públicas. Director o dueño de grandes empresas. Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública (incluye oficiales de FFAA y Carabineros).
+9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o pública.
+   Director o dueño de grandes empresas.
+   Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública
+   (incluye oficiales de FFAA y Carabineros).
 10. Otros grupos no identificados (incluye rentistas, incapacitados, etc.)
 }

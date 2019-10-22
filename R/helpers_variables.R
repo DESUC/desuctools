@@ -14,7 +14,7 @@
 #' @return Una data frame con los valores de .x y .y corregidos
 #'
 #' @import dplyr
-#' @importFrom rlang quo_is_null as_label
+#' @importFrom rlang quo_is_null as_label :=
 #' @importFrom haven labelled
 #'
 #' @export

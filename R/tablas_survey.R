@@ -10,14 +10,14 @@
 #' @name svy_tabla_var_segmento
 #'
 #' @param .data data frame con diseño complejo
-#'
 #' @param .var Variable en la que interesa comparar categorías de respuesta.
-#' @param .segmentos Segmentos de interés para ver diferencias en categorías
+#' @param .segmento Segmentos de interés para ver diferencias en categorías
 #'        de variable `.var`. Por defecto NULL
 #' @param na.rm boolean. Considera o no missings, por defecto FALSE.
 #' @param level double. Nivel de significancia para intervalos de confianza
 #'
-#' @importFrom rlang %||%
+#' @importFrom rlang %||% .data
+#' @importFrom srvyr survey_mean
 #'
 #' @return data.frame
 #'
@@ -44,23 +44,25 @@ svy_tabla_var_segmento <- function(.data,
   if (class(.data$variable[[ rlang::as_label(enquo(.var)) ]] ) %in% c('numeric', 'integer')) {
     # Variable escalar
     tab <- tab %>%
-      group_by_at(vars(segmento_var:pregunta_lab)) %>%
-      summarise(mean = survey_mean(pregunta_cat,
-                                   na.rm = na.rm,
-                                   vartype = c('ci', 'se'), level = level))
+      group_by_at(vars(.data$segmento_var:.data$pregunta_lab)) %>%
+      summarise(mean = srvyr::survey_mean(.data$pregunta_cat,
+                                          na.rm = na.rm,
+                                          vartype = c('ci', 'se'), level = level))
   } else {
     # Variable categórica
     tab <- tab %>%
-      mutate(pregunta_cat = forcats::fct_explicit_na(pregunta_cat,
+      mutate(pregunta_cat = forcats::fct_explicit_na(.data$pregunta_cat,
                                                      na_level = 'cat_miss')) %>%
-      group_by_at(vars(segmento_var:pregunta_lab, pregunta_cat), .drop = FALSE) %>%
+      group_by_at(vars(.data$segmento_var:.data$pregunta_lab, .data$pregunta_cat),
+                  .drop = FALSE) %>%
       summarise(prop = srvyr::survey_mean(na.rm = na.rm,
-                                          vartype = c('ci', 'se'), level = level))
+                                          vartype = c('ci', 'se'),
+                                          level = level))
   }
 
   # Determinar si hay diferencias significativas
   tab <- tab %>%
-    group_by(segmento_cat) %>%
+    group_by(.data$segmento_cat) %>%
     svy_diff_sig() %>%
     ungroup()
 
@@ -80,8 +82,7 @@ svy_tabla_var_segmento <- function(.data,
 #'
 #' @name svy_tabla_var_segmentos
 #'
-#' @param .data
-#'
+#' @param .data `tbl_svy` data.frame con diseño de encuesta.
 #' @param .var Variable de interés respecto.
 #' @param .segmentos vars(). Lista de variables por las que se quiere segmentar `.var`.
 #' @param ... atributos que se pasan a funcion `svy_tabla_var_segmento`.

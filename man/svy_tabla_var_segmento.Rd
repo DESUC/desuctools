@@ -16,12 +16,12 @@ svy_tabla_var_segmento(.data, .var, .segmento = NULL, na.rm = TRUE,
 
 \item{.var}{Variable en la que interesa comparar categorías de respuesta.}
 
+\item{.segmento}{Segmentos de interés para ver diferencias en categorías
+de variable `.var`. Por defecto NULL}
+
 \item{na.rm}{boolean. Considera o no missings, por defecto FALSE.}
 
 \item{level}{double. Nivel de significancia para intervalos de confianza}
-
-\item{.segmentos}{Segmentos de interés para ver diferencias en categorías
-de variable `.var`. Por defecto NULL}
 }
 \value{
 data.frame

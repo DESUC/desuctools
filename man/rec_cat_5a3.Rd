@@ -6,8 +6,7 @@
 
 Por defecto recodifica variables _likert_ de 5 niveles a 3 niveles.}
 \usage{
-rec_cat_5a3(variable,
-  rec = "1:2 = 1;\\n                               3 = 2;\\n                               4:5 = 3;\\n                               else = 9",
+rec_cat_5a3(variable, rec = "1:2 = 1; 3 = 2; 4:5 = 3; else = 9",
   labels = NULL)
 }
 \arguments{

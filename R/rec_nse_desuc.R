@@ -34,7 +34,10 @@
 #' 6. Empleados de oficina públicos y privados.
 #' 7. Técnicos y profesionales de nivel medio (incluye hasta suboficiales FFAA y Carabineros).
 #' 8. Profesionales, científicos e intelectuales.
-#' 9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o públicas. Director o dueño de grandes empresas. Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública (incluye oficiales de FFAA y Carabineros).
+#' 9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o pública.
+#'    Director o dueño de grandes empresas.
+#'    Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública
+#'    (incluye oficiales de FFAA y Carabineros).
 #' 10. Otros grupos no identificados (incluye rentistas, incapacitados, etc.)
 #'
 #'
@@ -47,6 +50,7 @@
 #' @name calculo_nse
 #'
 #' @import dplyr
+#' @importFrom rlang .data
 #'
 #' @export
 calculo_nse <- function(.data,
@@ -74,14 +78,15 @@ calculo_nse <- function(.data,
     # Tabla con relación educación y ocupación y nivel socioeconómico
     ocu_y_edu_a_nse <- tibble::tibble(
         edu = c(1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 8,
-        8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10),
+                8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10),
         ocu = c(1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1,
-        2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6),
+                2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6),
         nse = c(1, 1, 2, 3, 3, 4, 1, 1, 2, 3, 3, 4, 1, 2, 2, 3, 3, 4, 2, 2, 2,
-        3, 4, 4, 2, 2, 3, 3, 4, 5, 2, 2, 3, 3, 4, 5, 3, 3, 4, 4, 4, 5, 3, 3, 4, 4, 4, 5, 3, 3, 4, 4, 5, 5, 3, 3, 4, 5, 5, 5))
+                3, 4, 4, 2, 2, 3, 3, 4, 5, 2, 2, 3, 3, 4, 5, 3, 3, 4, 4, 4, 5, 3, 3, 4, 4, 4, 5, 3, 3, 4, 4, 5, 5, 3, 3, 4, 5, 5, 5))
 
     tab_ocu_y_edu_a_nse <- ocu_y_edu_a_nse %>%
-        transmute(index = edu * 10 + ocu, nse = as.integer(nse)) %>%
+        transmute(index = .data$edu * 10 + .data$ocu,
+                  nse = as.integer(.data$nse)) %>%
         tibble::deframe()
 
     # NSE educación y ocupación
@@ -91,10 +96,13 @@ calculo_nse <- function(.data,
     if (!is.null(.bienes_var)) {
         rec_bienes <- function(.data, val_valido = 1, ns_nr = c(8, 9)) {
             dplyr::case_when(.data %in% val_valido ~ TRUE,
-                      .data %in% ns_nr ~ NA, TRUE ~ FALSE)
+                             .data %in% ns_nr      ~ NA,
+                             TRUE ~ FALSE)
         }
 
-        bienes_sum <- .data %>% transmute_at(.vars = .bienes_var, .funs = rec_bienes, val_valido = 1) %>%
+        bienes_sum <- .data %>%
+            transmute_at(.vars = .bienes_var,
+                         .funs = rec_bienes, val_valido = 1) %>%
             sjmisc::row_sums(n = 0.9, append = FALSE) %>% pull()
 
         nse_bienes <- dplyr::case_when(bienes_sum == 0 ~ 1L,
@@ -118,21 +126,16 @@ calculo_nse <- function(.data,
                              nse_bienes    = nse_bienes,
                              nse_educacion = nse_educacion) %>%
         mutate(NSE = dplyr::case_when(is.na(nse_edu_ocu) & is.na(nse_bienes) ~ nse_educacion,
-                               is.na(nse_edu_ocu) ~ nse_bienes,
-                               TRUE ~ nse_edu_ocu))
+                                      is.na(nse_edu_ocu) ~ nse_bienes,
+                                      TRUE ~ nse_edu_ocu))
 
     # Etiquetas y recodificaciones finales
     df_nse <- df_nse %>%
-        mutate(NSE = haven::labelled(NSE,
+        mutate(NSE = haven::labelled(.data$NSE,
                                      labels = c(E = 1, D = 2, C3 = 3, C2 = 4, ABC1 = 5),
                                      label = "Grupo socioecon\u00f3mico"),
-               tnse = sjmisc::rec(NSE, rec = "1:2 = 1 [Bajo];
-                                              3   = 2 [Medio];
-                                              4:5 = 3 [Alto]"),
-               nse4 = sjmisc::rec(NSE, rec = "1:2 = 1 [D];
-                                              3   = 2 [C3];
-                                              4   = 3 [C2];
-                                              5   = 4 [Alto]")) %>%
+               tnse = sjmisc::rec(.data$NSE, rec = "1:2 = 1 [Bajo]; 3 = 2 [Medio]; 4:5 = 3 [Alto]"),
+               nse4 = sjmisc::rec(.data$NSE, rec = "1:2 = 1 [D];    3 = 2 [C3];      4 = 3 [C2]; 5 = 4 [Alto]")) %>%
         sjlabelled::var_labels(tnse = "Nivel socioecon\u00f3mico",
                                nse4 = "NSE con cuatro niveles") %>%
         mutate_all(sjlabelled::as_labelled)

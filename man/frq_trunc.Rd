@@ -4,7 +4,7 @@
 \alias{frq_trunc}
 \title{Frecuencia de variable con etiqueta truncada}
 \usage{
-frq_trunc(.data, .var = NULL, width = 50)
+frq_trunc(.data, .var = NULL, weights = NULL, ..., width = 50)
 }
 \arguments{
 \item{.data}{Una data frame o vector}
