@@ -4,14 +4,14 @@
 \alias{frq_trunc}
 \title{Frecuencia de variable con etiqueta truncada}
 \usage{
-frq_trunc(.data, .var = NULL, weights = NULL, ..., width = 50)
+frq_trunc(.data, ..., width = 50, ellipsis = "...", weights = NULL)
 }
 \arguments{
 \item{.data}{Una data frame o vector}
 
-\item{.var}{nombre de la variable de la que se quiere saber su frecuencia}
-
 \item{width}{= 50 Largo del texto de la etiqueta de la variable.}
+
+\item{.var}{nombre de la variable de la que se quiere saber su frecuencia}
 }
 \value{
 Una kable con el formato DESUC

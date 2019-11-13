@@ -4,9 +4,13 @@
 \alias{include_graphics_latex}
 \title{Wrapper of \code{knitr::include_graphics} for PDF Output}
 \usage{
-include_graphics_latex(path, alt_path = NULL, handler = function(path)
-  knitr::asis_output(paste("View", tools::file_ext(path), "at", path)),
-  ...)
+include_graphics_latex(
+  path,
+  alt_path = NULL,
+  handler = function(path) knitr::asis_output(paste("View", tools::file_ext(path), "at",
+    path)),
+  ...
+)
 }
 \description{
 Deals with URL and GIFs. If an url is passed to

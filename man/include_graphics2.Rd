@@ -4,9 +4,13 @@
 \alias{include_graphics2}
 \title{Wrapper of \code{knitr::include_graphics} to Deal with URLs and Invalid File Types}
 \usage{
-include_graphics2(path, alt_path = NULL, handler = function(path)
-  knitr::asis_output(paste("View", tools::file_ext(path), "at", path)),
-  ...)
+include_graphics2(
+  path,
+  alt_path = NULL,
+  handler = function(path) knitr::asis_output(paste("View", tools::file_ext(path), "at",
+    path)),
+  ...
+)
 }
 \arguments{
 \item{path}{String. Path to a figure to be included. Can be either

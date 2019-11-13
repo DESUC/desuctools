@@ -8,8 +8,13 @@ Devuelve tabla de frecuencias con intervalos de confianza para un nivel
 `level`de significancia entre las categorías de respuesta de la
 variable `.var`.}
 \usage{
-svy_tabla_var_segmento(.data, .var, .segmento = NULL, na.rm = TRUE,
-  level = 0.95)
+svy_tabla_var_segmento(
+  .data,
+  .var,
+  .segmento = NULL,
+  na.rm = TRUE,
+  level = 0.95
+)
 }
 \arguments{
 \item{.data}{data frame con diseño complejo}

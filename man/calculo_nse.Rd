@@ -44,8 +44,13 @@ val Categoría
    (incluye oficiales de FFAA y Carabineros).
 10. Otros grupos no identificados (incluye rentistas, incapacitados, etc.)}
 \usage{
-calculo_nse(.data, .ocupacion_jh, .educacion_jh, .bienes_var = NULL,
-  append = TRUE)
+calculo_nse(
+  .data,
+  .ocupacion_jh,
+  .educacion_jh,
+  .bienes_var = NULL,
+  append = TRUE
+)
 }
 \arguments{
 \item{.data}{data.frame Base de datos}

@@ -2,12 +2,11 @@
 % Please edit documentation in R/rec_variables.R
 \name{rec_cat_5a3}
 \alias{rec_cat_5a3}
-\title{Recodificaión de variables
+\title{Recodificaión de variables 5 a 3
 
 Por defecto recodifica variables _likert_ de 5 niveles a 3 niveles.}
 \usage{
-rec_cat_5a3(variable, rec = "1:2 = 1; 3 = 2; 4:5 = 3; else = 9",
-  labels = NULL)
+rec_cat_5a3(variable, rec = "1:2 = 1; 3 = 2; 4:5 = 3; else = 9", labels = NULL)
 }
 \arguments{
 \item{variable}{numeric, Valores de variable a recodificar.}
@@ -22,7 +21,7 @@ Por defecto NULL.}
 haven_labelled
 }
 \description{
-Recodificaión de variables
+Recodificaión de variables 5 a 3
 
 Por defecto recodifica variables _likert_ de 5 niveles a 3 niveles.
 }

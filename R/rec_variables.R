@@ -1,6 +1,6 @@
 # Recodificación
 
-#' @title Recodificaión de variables
+#' @title Recodificaión de variables 5 a 3
 #'
 #' Por defecto recodifica variables _likert_ de 5 niveles a 3 niveles.
 #'
@@ -26,3 +26,4 @@ rec_cat_5a3 <- function(variable,
     haven::labelled(labels = labels,
                     label = attr(variable, 'label'))
 }
+

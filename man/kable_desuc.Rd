@@ -4,9 +4,20 @@
 \alias{kable_desuc}
 \title{Función para ajustar estilo a tablas al momento de ser mostradas en un informe}
 \usage{
-kable_desuc(.data, digits = 1, row.names = NA, col.names = NA,
-  align = NULL, caption = NULL, booktabs = TRUE, longtable = FALSE,
-  escape = TRUE, font_size = 8, ...)
+kable_desuc(
+  .data,
+  digits = 1,
+  row.names = NA,
+  col.names = NA,
+  align = NULL,
+  caption = NULL,
+  booktabs = TRUE,
+  longtable = FALSE,
+  escape = TRUE,
+  font_size = 8,
+  latex_options = c("hold_position"),
+  ...
+)
 }
 \arguments{
 \item{.data}{Una data frame}
@@ -30,6 +41,8 @@ kable_desuc(.data, digits = 1, row.names = NA, col.names = NA,
 (por defecto TRUE)}
 
 \item{font_size}{`ìnt` tamaño de letra en la tabla (por defecto 8)}
+
+\item{latex_options}{`vector de caracteres` donde se controla aspectos de latex.}
 
 \item{...}{Atributos pasados a la función `kable_styling`}
 }

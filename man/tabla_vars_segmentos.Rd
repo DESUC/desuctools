@@ -6,8 +6,14 @@
 
  Obtiene porcentajes de respuestas de múltiples variables según multiples segmentos.}
 \usage{
-tabla_vars_segmentos(.data, .vars, .segmentos, .wt = NULL,
-  total = FALSE, miss = NULL)
+tabla_vars_segmentos(
+  .data,
+  .vars,
+  .segmentos,
+  .wt = NULL,
+  total = FALSE,
+  miss = NULL
+)
 }
 \arguments{
 \item{.data}{tibble}

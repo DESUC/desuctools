@@ -74,6 +74,7 @@ frq_trunc <- function(.data,
 #' @param booktabs `bolean` si usa estilo booktabs para la tabla (por defecto TRUE)
 #' @param longtable `bolean` si usa estilo para tablas que cruzan dos páginas (por defecto FALSE)
 #' @param font_size `ìnt` tamaño de letra en la tabla (por defecto 8)
+#' @param latex_options `vector de caracteres` donde se controla aspectos de latex.
 #'
 #' @return Una kable con el formato DESUC
 #'
@@ -90,6 +91,7 @@ kable_desuc <- function(.data,
                         longtable = FALSE,
                         escape = TRUE,
                         font_size = 8,
+                        latex_options = c('hold_position'),
                         ...){
     # Ajustes de formatos para tablas según estilo DESUC.
     .data %>%
@@ -103,7 +105,7 @@ kable_desuc <- function(.data,
                      escape = escape,
                      linesep = "",
                      format.args = list(decimal.mark = ',', big.mark = ".")) %>%
-        kableExtra::kable_styling(latex_options = "hold_position",
+        kableExtra::kable_styling(latex_options = latex_options,
                                   repeat_header_text = '(continuaci\u00f3n)',
                                   position = "center",
                                   font_size = font_size,
