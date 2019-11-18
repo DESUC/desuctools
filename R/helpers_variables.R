@@ -134,3 +134,24 @@ str_entre_parentesis <- function(text){
     return(text_extract)
 }
 
+
+#' Title Número de dígitos enteros.
+#'
+#' Número de dígitos enteros para valores con decimales. Diseñada para casos en que
+#' longitud y latitud son capturados como digitos sin decimal y necesitan ser reescalados.
+#'
+#' @name digitos_entero
+#'
+#' @param x vector numerico.
+#' @param digits cantidad de dígitos del número entero que se quiere obtener.
+#'        Por defecto digits = 2.
+#'
+#' @return vector numerico.
+#' @export
+#'
+#' @examples
+digitos_entero <-  function(x, digits = 2) {
+    div <- floor(log10(abs(x))) - digits + 1
+
+    x / 10^div
+}

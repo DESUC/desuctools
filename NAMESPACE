@@ -2,6 +2,7 @@
 
 export(calculo_nse)
 export(chunk_size)
+export(digitos_entero)
 export(frq_trunc)
 export(include_graphics2)
 export(kable_desuc)
