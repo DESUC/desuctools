@@ -25,3 +25,9 @@ Recodificaión de variables 5 a 3
 
 Por defecto recodifica variables _likert_ de 5 niveles a 3 niveles.
 }
+\examples{
+
+vect <- c(1, 4, 6, 99, NA)
+rec_cat_5a3(vect, labels = c('alto' = 1))
+
+}
