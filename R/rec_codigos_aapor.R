@@ -1,4 +1,7 @@
 
+#' @title Codigos de disposición final según AAPOR
+#'
+#' @description
 #' Recodificación de códigos de disposición final de casos según AAPOR.
 #'
 #' Tabla de cógidos a partir de Casen 2015

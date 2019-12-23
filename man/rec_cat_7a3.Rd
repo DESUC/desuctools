@@ -2,9 +2,7 @@
 % Please edit documentation in R/rec_variables.R
 \name{rec_cat_7a3}
 \alias{rec_cat_7a3}
-\title{Recodificaión de variables 7 a 3
-
-Por defecto recodifica variables de _notas_ de 7 niveles a 3 niveles.}
+\title{Recodificaión de variables 7 a 3}
 \usage{
 rec_cat_7a3(variable, rec = "1:4 = 1; 4 = 2; 6:7 = 3; else = 9", labels = NULL)
 }
@@ -21,8 +19,6 @@ Por defecto NULL.}
 haven_labelled
 }
 \description{
-Recodificaión de variables 7 a 3
-
 Por defecto recodifica variables de _notas_ de 7 niveles a 3 niveles.
 }
 \examples{

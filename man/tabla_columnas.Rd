@@ -2,9 +2,7 @@
 % Please edit documentation in R/output_print.R
 \name{tabla_columnas}
 \alias{tabla_columnas}
-\title{Divide un data.frame en columnas
-
-Toma una tabla y la divide y pega en sucesicas columnas para imprimir en menor espacio.}
+\title{Divide un data.frame en columnas}
 \usage{
 tabla_columnas(data, ncols = 2)
 }
@@ -18,7 +16,5 @@ Por defecto ncols = 2.}
 tibble
 }
 \description{
-Divide un data.frame en columnas
-
 Toma una tabla y la divide y pega en sucesicas columnas para imprimir en menor espacio.
 }

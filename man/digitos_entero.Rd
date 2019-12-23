@@ -2,7 +2,7 @@
 % Please edit documentation in R/helpers_variables.R
 \name{digitos_entero}
 \alias{digitos_entero}
-\title{Title Número de dígitos enteros.}
+\title{Número de dígitos enteros.}
 \usage{
 digitos_entero(x, digits = 2)
 }
@@ -18,4 +18,7 @@ vector numerico.
 \description{
 Número de dígitos enteros para valores con decimales. Diseñada para casos en que
 longitud y latitud son capturados como digitos sin decimal y necesitan ser reescalados.
+}
+\examples{
+
 }

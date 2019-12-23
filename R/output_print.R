@@ -1,5 +1,6 @@
-#' Frecuencia de variable con etiqueta truncada
+#' @title Frecuencia de variable con etiqueta truncada
 #'
+#' @description
 #' Se trunca el texto de la etiqueta de la variable a un largo preestablecido para
 #' una mejor visión de la tabla resultante.
 #'
@@ -57,7 +58,7 @@ frq_trunc <- function(.data,
 }
 
 
-#' Función para ajustar estilo a tablas al momento de ser mostradas en un informe
+#' @title Función para ajustar estilo a tablas al momento de ser mostradas en un informe
 #'
 #' @name kable_desuc
 #'
@@ -115,6 +116,7 @@ kable_desuc <- function(.data,
 
 #' @title Divide un data.frame en columnas
 #'
+#' @description
 #' Toma una tabla y la divide y pega en sucesicas columnas para imprimir en menor espacio.
 #'
 #' @name tabla_columnas
@@ -144,7 +146,7 @@ tabla_columnas <- function(data, ncols = 2){
 }
 
 
-#' Ajuste del tamaño del texto en chunks
+#' @title Ajuste del tamaño del texto en chunks
 #'
 #' @name chunk_size
 #'

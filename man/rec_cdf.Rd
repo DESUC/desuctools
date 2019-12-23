@@ -2,7 +2,7 @@
 % Please edit documentation in R/rec_codigos_aapor.R
 \name{rec_cdf}
 \alias{rec_cdf}
-\title{Recodificación de códigos de disposición final de casos según AAPOR.}
+\title{Codigos de disposición final según AAPOR}
 \usage{
 rec_cdf(codigo)
 }
@@ -13,9 +13,10 @@ rec_cdf(codigo)
 factor con cófigos agrupados.
 }
 \description{
+Recodificación de códigos de disposición final de casos según AAPOR.
+
 Tabla de cógidos a partir de Casen 2015
-}
-\details{
+
 val                                                      label
 110                                        Entrevista completa
 120                                         Entrevista parcial

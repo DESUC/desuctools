@@ -2,10 +2,7 @@
 % Please edit documentation in R/helpers_variables.R
 \name{str_collapse}
 \alias{str_collapse}
-\title{Colapso de strings
-
-Variable útil para colapsar en una sola casilla _list variables_ en un
-tibble que quiera ser mostrad en una tabla}
+\title{Colapso de strings}
 \usage{
 str_collapse(.data, .var, collapse = ", ")
 }
@@ -18,8 +15,6 @@ str_collapse(.data, .var, collapse = ", ")
 ", ".}
 }
 \description{
-Colapso de strings
-
 Variable útil para colapsar en una sola casilla _list variables_ en un
 tibble que quiera ser mostrad en una tabla
 }

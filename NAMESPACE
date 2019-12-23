@@ -3,6 +3,8 @@
 export(calculo_nse)
 export(chunk_size)
 export(digitos_entero)
+export(format_clp)
+export(format_dinero)
 export(frq_trunc)
 export(include_graphics2)
 export(kable_desuc)

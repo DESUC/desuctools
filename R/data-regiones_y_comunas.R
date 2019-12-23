@@ -1,5 +1,6 @@
-#' Datos de regiones y comunas de Chile
+#' @title Datos de regiones y comunas de Chile
 #'
+#' @description
 #' Tabla que contiene nombres y códigos de regiones y comunas de Chile,
 #' además de algunas segmentación es utilizadas habitualmente
 #'

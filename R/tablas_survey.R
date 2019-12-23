@@ -3,6 +3,7 @@
 
 #' @title Tabla con intervalos de confianza
 #'
+#' @description
 #' Devuelve tabla de frecuencias con intervalos de confianza para un nivel
 #' `level`de significancia entre las categorías de respuesta de la
 #' variable `.var`.
@@ -76,6 +77,7 @@ svy_tabla_var_segmento <- function(.data,
 
 #' @title Tabla con intervalos de confianza
 #'
+#' @description
 #' Devuelve tabla de frecuencias con intervalos de confianza para un nivel
 #' `level`de significancia entre las categorías de respuesta de la
 #' variable `.var`.
@@ -115,6 +117,7 @@ svy_tabla_var_segmentos <- function(.data,
 
 #' @title Comparación entre intervalos de confianza
 #'
+#' @description
 #' Determina diferencias significativas según intervalos de confianza calculados desde
 #' `srvyr`.
 #'

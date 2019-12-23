@@ -2,11 +2,7 @@
 % Please edit documentation in R/tablas_survey.R
 \name{svy_tabla_var_segmento}
 \alias{svy_tabla_var_segmento}
-\title{Tabla con intervalos de confianza
-
-Devuelve tabla de frecuencias con intervalos de confianza para un nivel
-`level`de significancia entre las categorías de respuesta de la
-variable `.var`.}
+\title{Tabla con intervalos de confianza}
 \usage{
 svy_tabla_var_segmento(
   .data,
@@ -32,8 +28,6 @@ de variable `.var`. Por defecto NULL}
 data.frame
 }
 \description{
-Tabla con intervalos de confianza
-
 Devuelve tabla de frecuencias con intervalos de confianza para un nivel
 `level`de significancia entre las categorías de respuesta de la
 variable `.var`.

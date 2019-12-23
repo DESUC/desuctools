@@ -2,9 +2,7 @@
 % Please edit documentation in R/helpers_variables.R
 \name{shift_missing}
 \alias{shift_missing}
-\title{Corregir missings en preguntas múltiples
-
-Función para corregir problemas de no respuesta en preguntas múltiples}
+\title{Corregir missings en preguntas múltiples}
 \usage{
 shift_missing(.data, .x, .y = NULL, missing = c(77L, 88L, 99L))
 }
@@ -21,5 +19,8 @@ shift_missing(.data, .x, .y = NULL, missing = c(77L, 88L, 99L))
 Una data frame con los valores de .x y .y corregidos
 }
 \description{
+Función para corregir problemas de no respuesta en preguntas múltiples
+}
+\details{
 Funciones de trabajo con datos ------------------------------------------
 }

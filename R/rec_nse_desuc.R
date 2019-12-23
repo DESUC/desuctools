@@ -1,12 +1,14 @@
 #' @title Calculo NSE
 #'
+#' @description
+#'
 #' Funciones de trabajo con datos ------------------------------------------
 #'
 #' Cálculo de Nivel socioeconómico según formula DESUC utilizando
 #' ocupación, educación y bienes.
 #'
 #' Nivel de educación más alto que alcanzó
-#' val                                                          label
+#' val                                                        label
 #' 1                                                     No estudió
 #' 2                     Educación básica o preparatoria incompleta
 #' 3                       Educación básica o preparatoria completa
@@ -17,8 +19,8 @@
 #' 8                                       Universitaria incompleta
 #' 9                                         Universitaria completa
 #' 10                   Post grado (máster, doctorado o equivalente)
-#' 88                                                        No sabe
-#' 99                                                    No responde
+#' 88                                                       No sabe
+#' 99                                                   No responde
 #'
 #'
 #' ¿Cuál de las siguientes ocupaciones corresponde al trabajo del principal sostenedor del hogar?
@@ -26,6 +28,7 @@
 #' remunerada que tuvo. Si el principal sostenedor tiene más de 1 trabajo, debe registrarse el de mayor ingreso.
 #'
 #' val Categoría
+#'
 #' 1. Trabajadores no calificados en ventas y servicios, peones agropecuarios, forestales, construcción, etc.
 #' 2. Obreros, operarios y artesanos de artes mecánicas y de otros oficios.
 #' 3. Trabajadores de los servicios y vendedores de comercio y mercados.
@@ -42,8 +45,8 @@
 #'
 #'
 #' @param .data data.frame Base de datos
-#' @param .ocupacion_jh name nombre de variable para educación de jefe de hogar
-#' @param .educacion_jh name nombre de variable para educación de jefe de hogar
+#' @param .ocupacion_jh name nombre de variable para educación de jefe de hogar, 10 categorías.
+#' @param .educacion_jh name nombre de variable para educación de jefe de hogar 10 categorías
 #' @param .bienes_var tidyselect selector de variables para bienes
 #' @param append logic TRUE para agregar la variable a la base original
 #'

@@ -2,6 +2,7 @@
 #'
 #' @title Corregir missings en preguntas múltiples
 #'
+#' @description
 #' Función para corregir problemas de no respuesta en preguntas múltiples
 #'
 #' @name shift_missing
@@ -18,6 +19,7 @@
 #' @importFrom haven labelled
 #'
 #' @export
+#'
 shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {
     # Revisa preguntas de respuesta múltiple para corregir respuestas inválidas en variables posteriores.
     missing <- c(missing, NA)
@@ -52,6 +54,7 @@ shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {
 
 #' @title Colapso de strings
 #'
+#' @description
 #' Variable útil para colapsar en una sola casilla _list variables_ en un
 #' tibble que quiera ser mostrad en una tabla
 #'
@@ -71,6 +74,7 @@ shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {
 #' str_collapse(df, x)
 #'
 #' @export
+#'
 str_collapse <- function(.data, .var, collapse = ", ") {
     # Colapsar valores de una variable en un string.
 
@@ -107,6 +111,7 @@ str_entre <- function(text,
 
 #' @title Extrae string entre paréntesis
 #'
+#' @description
 #' Función para extraer texto presente entre paréntesis.
 #' Creado para trabajo con etiquetas de variables y extraer así el concepto
 #' preguntado.
@@ -122,6 +127,7 @@ str_entre <- function(text,
 #' @importFrom stringr str_extract
 #'
 #' @export
+#'
 str_entre_parentesis <- function(text){
 
     # Extrae texto entre paréntesis
@@ -135,8 +141,9 @@ str_entre_parentesis <- function(text){
 }
 
 
-#' Title Número de dígitos enteros.
+#' @title Número de dígitos enteros.
 #'
+#' @description
 #' Número de dígitos enteros para valores con decimales. Diseñada para casos en que
 #' longitud y latitud son capturados como digitos sin decimal y necesitan ser reescalados.
 #'
@@ -150,6 +157,7 @@ str_entre_parentesis <- function(text){
 #' @export
 #'
 #' @examples
+#'
 digitos_entero <-  function(x, digits = 2) {
     div <- floor(log10(abs(x))) - digits + 1
 

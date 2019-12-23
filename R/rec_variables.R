@@ -13,6 +13,7 @@ rec_cat <- function(variable,
 
 #' @title Recodificaión de variables 5 a 3
 #'
+#' @description
 #' Por defecto recodifica variables _likert_ de 5 niveles a 3 niveles.
 #'
 #' @param variable numeric, Valores de variable a recodificar.
@@ -43,6 +44,7 @@ rec_cat_5a3 <- function(variable,
 
 #' @title Recodificaión de variables 7 a 3
 #'
+#' @description
 #' Por defecto recodifica variables de _notas_ de 7 niveles a 3 niveles.
 #'
 #' @param variable numeric, Valores de variable a recodificar.

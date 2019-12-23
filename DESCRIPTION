@@ -1,7 +1,7 @@
 Type: Package
 Package: desuctools
 Title: Funciones para trabajo en DESUC
-Version: 0.1.4
+Version: 0.1.5
 Author: Cristian Ayala
 Maintainer: Cristiab Ayala <caayala@uc.cl>
 Description: Funciones y datos útiles en el trabajo de limpieza,
@@ -30,7 +30,8 @@ Imports:
     tidyselect
 Suggests: 
     roxygen2,
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    covr
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.0.2

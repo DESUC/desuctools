@@ -2,10 +2,7 @@
 % Please edit documentation in R/tablas_survey.R
 \name{svy_diff_sig}
 \alias{svy_diff_sig}
-\title{Comparación entre intervalos de confianza
-
-Determina diferencias significativas según intervalos de confianza calculados desde
-`srvyr`.}
+\title{Comparación entre intervalos de confianza}
 \usage{
 svy_diff_sig(.data)
 }
@@ -16,8 +13,6 @@ svy_diff_sig(.data)
 data.frame
 }
 \description{
-Comparación entre intervalos de confianza
-
 Determina diferencias significativas según intervalos de confianza calculados desde
 `srvyr`.
 }

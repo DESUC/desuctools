@@ -2,47 +2,7 @@
 % Please edit documentation in R/rec_nse_desuc.R
 \name{calculo_nse}
 \alias{calculo_nse}
-\title{Calculo NSE
-
-Funciones de trabajo con datos ------------------------------------------
-
-Cálculo de Nivel socioeconómico según formula DESUC utilizando
-ocupación, educación y bienes.
-
-Nivel de educación más alto que alcanzó
-val                                                          label
-1                                                     No estudió
-2                     Educación básica o preparatoria incompleta
-3                       Educación básica o preparatoria completa
-4                       Educación media o humanidades incompleta
-5                         Educación media o humanidades completa
-6 Instituto Profesional o Centro de formación Técnica Incompleta
-7   Instituto Profesional o Centro de Formación Técnica Completa
-8                                       Universitaria incompleta
-9                                         Universitaria completa
-10                   Post grado (máster, doctorado o equivalente)
-88                                                        No sabe
-99                                                    No responde
-
-
-¿Cuál de las siguientes ocupaciones corresponde al trabajo del principal sostenedor del hogar?
-Si el principal sostenedor del hogar esta cesante o es jubilado, preguntar por la ultima ocupacion
-remunerada que tuvo. Si el principal sostenedor tiene más de 1 trabajo, debe registrarse el de mayor ingreso.
-
-val Categoría
-1. Trabajadores no calificados en ventas y servicios, peones agropecuarios, forestales, construcción, etc.
-2. Obreros, operarios y artesanos de artes mecánicas y de otros oficios.
-3. Trabajadores de los servicios y vendedores de comercio y mercados.
-4. Agricultores y trabajadores calificados agropecuarios y pesqueros.
-5. Operadores de instalaciones y máquinas y montadores / conductores de vehículos.
-6. Empleados de oficina públicos y privados.
-7. Técnicos y profesionales de nivel medio (incluye hasta suboficiales FFAA y Carabineros).
-8. Profesionales, científicos e intelectuales.
-9. Alto ejecutivo (gerente general o gerente de área o sector) de empresa privadas o pública.
-   Director o dueño de grandes empresas.
-   Alto directivo del poder ejecutivo, de los cuerpos legislativos y la administración pública
-   (incluye oficiales de FFAA y Carabineros).
-10. Otros grupos no identificados (incluye rentistas, incapacitados, etc.)}
+\title{Calculo NSE}
 \usage{
 calculo_nse(
   .data,
@@ -55,24 +15,22 @@ calculo_nse(
 \arguments{
 \item{.data}{data.frame Base de datos}
 
-\item{.ocupacion_jh}{name nombre de variable para educación de jefe de hogar}
+\item{.ocupacion_jh}{name nombre de variable para educación de jefe de hogar, 10 categorías.}
 
-\item{.educacion_jh}{name nombre de variable para educación de jefe de hogar}
+\item{.educacion_jh}{name nombre de variable para educación de jefe de hogar 10 categorías}
 
 \item{.bienes_var}{tidyselect selector de variables para bienes}
 
 \item{append}{logic TRUE para agregar la variable a la base original}
 }
 \description{
-Calculo NSE
-
 Funciones de trabajo con datos ------------------------------------------
 
 Cálculo de Nivel socioeconómico según formula DESUC utilizando
 ocupación, educación y bienes.
 
 Nivel de educación más alto que alcanzó
-val                                                          label
+val                                                        label
 1                                                     No estudió
 2                     Educación básica o preparatoria incompleta
 3                       Educación básica o preparatoria completa
@@ -83,8 +41,8 @@ val                                                          label
 8                                       Universitaria incompleta
 9                                         Universitaria completa
 10                   Post grado (máster, doctorado o equivalente)
-88                                                        No sabe
-99                                                    No responde
+88                                                       No sabe
+99                                                   No responde
 
 
 ¿Cuál de las siguientes ocupaciones corresponde al trabajo del principal sostenedor del hogar?
@@ -92,6 +50,7 @@ Si el principal sostenedor del hogar esta cesante o es jubilado, preguntar por l
 remunerada que tuvo. Si el principal sostenedor tiene más de 1 trabajo, debe registrarse el de mayor ingreso.
 
 val Categoría
+
 1. Trabajadores no calificados en ventas y servicios, peones agropecuarios, forestales, construcción, etc.
 2. Obreros, operarios y artesanos de artes mecánicas y de otros oficios.
 3. Trabajadores de los servicios y vendedores de comercio y mercados.
