@@ -10,7 +10,9 @@
 #'   \item{id}{orden de comunas siguiendo geografía y código comunal}
 #'   \item{region_orden}{numeración de regiones de norte a sur}
 #'   \item{comuna}{código de comuna}
+#'   \item{comuna18}{código de comuna luego de la creación de la región de Ñuble en 2018}
 #'   \item{region}{número de región}
+#'   \item{provincia}{código de provincia luego de la creación de la región de Ñuble}
 #'   \item{region_nom}{nombre oficial de la región}
 #'   \item{region_nom_small}{nombre breve de la región}
 #'   \item{comuna_nom}{nombre de la comuna}
