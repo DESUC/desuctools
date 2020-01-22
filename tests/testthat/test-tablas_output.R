@@ -4,9 +4,13 @@ library(desuctools)
 df_test <- tibble::tibble(sexo = haven::labelled(c(1, 2, 2, 2),
                                                  labels = c('M' = 1, 'W' = 2),
                                                  label = 'Sex'),
+                          edad = haven::labelled(c(1, 1, 2, 2),
+                                                 labels = c('young' = 1, 'old' = 2),
+                                                 label = 'Age'),
                           cat    = c(1, 1, 2, 2),
                           cat_na = c(1, 1, 2, NA),
                           wt     = c(2, 1, 1, 0))
+
 
 # tabla_categoria ---------------------------------------------------------
 
@@ -15,6 +19,14 @@ test_that("tabla_categoria proporcion de categoría labelled", {
                       pull(prop),
                     c(0.25, 0.75))
 })
+
+test_that("tabla_categoria proporcion de dos variables labelled", {
+  expect_identical(tabla_categorias(df_test, sexo, edad) %>%
+                     pull(prop),
+                   c(0.25, 0.75, 0.50, 0.50))
+})
+
+# tabla_categorias2(df_test, sexo, edad)
 
 test_that("tabla_categoria agrega en pregunta_lab la etiqueta de categoria", {
   expect_equal(tabla_categorias(df_test, sexo) %>%
@@ -50,7 +62,7 @@ test_that("tabla_categoria proporcion de categoría numerica con missing con pes
 
 # tabla_vars_segmentos ----------------------------------------------------
 
-test_that("tabla_categoria proporcion de categoría con peso y total", {
+test_that("tabla_vars_segmentos proporcion de categoría con peso y total", {
   expect_equivalent(tabla_vars_segmentos(df_test,
                                          .vars = vars(sexo),
                                          .segmentos = vars(cat),

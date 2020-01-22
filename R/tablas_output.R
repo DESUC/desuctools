@@ -21,24 +21,30 @@
 #' @importFrom rlang %||% .data enquo
 #' @importFrom forcats as_factor fct_explicit_na
 #' @importFrom sjmisc to_label
-#' @importFrom sjlabelled get_label
 #' @importFrom tidyselect vars_select
+#' @importFrom purrr map_chr
+#' @importFrom tidyr pivot_longer
 #'
 #' @export
 tabla_categorias <- function(.data,
                              ...,
                              .wt = NULL) {
     # Tabla con número de casos y proporción de respuestas por distintas categorías.
-    preguntas <- tidyselect::vars_select(names(.data), ...)
     wt_quo <- enquo(.wt)
 
-    seg_labels <- sjlabelled::get_label(.data, preguntas)
+    preguntas <- tidyselect::vars_select(names(.data), ...)
+
+    # Vector de etiqueta de variables.
+    seg_labels <- map_chr(preguntas, ~attr(.data[[.]], 'label') %||% '')
+    names(seg_labels) <- preguntas
 
     tabla <- .data %>%
         transmute_at(vars(preguntas, !!wt_quo), list(sjmisc::to_label)) %>%
         group_by_at(vars(preguntas)) %>%
         summarise(n = sum(!!wt_quo %||% n())) %>%
-        tidyr::gather("pregunta_var", "pregunta_cat", -n) %>%
+        tidyr::pivot_longer(cols = -n,
+                            names_to = 'pregunta_var',
+                            values_to = 'pregunta_cat') %>%
         mutate(pregunta_var = forcats::as_factor(.data$pregunta_var),
                pregunta_cat = forcats::as_factor(.data$pregunta_cat),
                pregunta_cat = forcats::fct_explicit_na(.data$pregunta_cat, na_level = 'NA'))
@@ -223,7 +229,6 @@ tabla_var_segmentos <- function(.data,
 #' @import dplyr
 #' @importFrom purrr map map2 reduce
 #' @importFrom forcats as_factor
-#' @importFrom sjlabelled get_label
 #' @importFrom tidyselect vars_select
 #' @importFrom rlang .data
 #'
@@ -247,7 +252,7 @@ tabla_vars_segmentos <- function(.data,
 
     tabla_variables <- function(.data, .var) {
 
-        var_label <- sjlabelled::get_label(.data, .var)
+        var_label <- attr(.data[[.var]], 'label')
 
         .data %>%
             mutate(pregunta_var = .var,
