@@ -15,8 +15,17 @@ test_that("str_entre funciona", {
   expect_equal(str_entre(text, ini = ' '), '(entre) y')
 })
 
+
 test_that('digitos_entero funciona', {
   num_vec <- c(1, 123, -123)
 
   expect_equal(digitos_entero(num_vec), c(10.0, 12.3, -12.3))
+})
+
+
+test_that("is_email funciona", {
+
+  mails <- c('a@a.com', 'a@a', '--@---.___-')
+
+  expect_equal(is_email(mails), c(TRUE, FALSE, FALSE))
 })
