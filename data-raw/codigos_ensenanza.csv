@@ -1,0 +1,45 @@
+﻿cod_ense;descripcion;cod_ense2;cod_ense2_lab;cod_ense3;cod_ense3_lab
+0;No Aplica;0;No aplica;0;No aplica
+10;Educación Parvularia;1;Educación Parvularia;1;Educación Parvularia
+110;Enseñanza Básica;2;Enseñanza Básica Niños;2;Enseñanza Básica Niños
+160;Educación Básica Común Adultos (Decreto 584/2007);3;Educación Básica Adultos;3;Educación Básica Adultos
+161;Educación Básica Especial Adultos;3;Educación Básica Adultos;3;Educación Básica Adultos
+163;Escuelas Cárceles (Básica Adultos);3;Educación Básica Adultos;3;Educación Básica Adultos
+165;Educación Básica Adultos Sin Oficios (Decreto 584/2007);3;Educación Básica Adultos;3;Educación Básica Adultos
+167;Educación Básica Adultos Con Oficios (Decreto 584/2007 y 999/2009);3;Educación Básica Adultos;3;Educación Básica Adultos
+211;Educación Especial Discapacidad Auditiva;4;Educación Especial;1;Educación Parvularia
+212;Educación Especial Discapacidad Intelectual;4;Educación Especial;1;Educación Parvularia
+213;Educación Especial Discapacidad Visual;4;Educación Especial;1;Educación Parvularia
+214;Educación Especial Trastornos Específicos del Lenguaje;4;Educación Especial;1;Educación Parvularia
+215;Educación Especial Trastornos Motores;4;Educación Especial;1;Educación Parvularia
+216;Educación Especial Autismo;4;Educación Especial;1;Educación Parvularia
+217;Educación Especial Discapacidad Graves Alteraciones en la Capacidad de Relación y Comunicación;4;Educación Especial;1;Educación Parvularia
+218;Educación Especial Discapacidad Múltiple;4;Educación Especial;1;Educación Parvularia
+219;Educación Especial Sordoceguera;4;Educación Especial;1;Educación Parvularia
+299;Opción 4 Programa Integración Escolar;4;Educación Especial;1;Educación Parvularia
+310;Enseñanza Media H-C niños y jóvenes;5;Enseñanza Media Humanístico-Científica Jóvenes ;4;Enseñanza Media Humanístico-Científica Jóvenes 
+360;Educación Media H-C adultos vespertino y nocturno (Decreto N° 190/1975);6;Educación Media Humanístico-Científica Adultos;5;Educación Media Humanístico-Científica Adultos
+361;Educación Media H-C adultos (Decreto N° 12/1987);6;Educación Media Humanístico-Científica Adultos;5;Educación Media Humanístico-Científica Adultos
+362;Escuelas Cárceles (Media Adultos);6;Educación Media Humanístico-Científica Adultos;5;Educación Media Humanístico-Científica Adultos
+363;Educación Media H-C Adultos (Decreto N°1000/2009);6;Educación Media Humanístico-Científica Adultos;5;Educación Media Humanístico-Científica Adultos
+410;Enseñanza Media T-P Comercial Niños y Jóvenes;7;Enseñanza Media Técnico Profesional y Artística, Jóvenes;6;Enseñanza Media Técnico Profesional y Artística, Jóvenes
+460;Educación Media T-P Comercial Adultos (Decreto N° 152/1989);8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+461;Educación Media T-P Comercial Adultos (Decreto N° 152/1989);8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+463;Educación Media T-P Comercial Adultos (Decreto N° 1000/2009) ;8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+510;Enseñanza Media T-P Industrial Niños y Jóvenes;7;Enseñanza Media Técnico Profesional y Artística, Jóvenes;6;Enseñanza Media Técnico Profesional y Artística, Jóvenes
+560;Educación Media T-P Industrial Adultos (Decreto N° 152/1989);8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+561;Educación Media T-P Industrial Adultos (Decreto N° 152/1989);8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+563;Educación Media T-P Industrial Adultos (Decreto N° 1000/2009) ;8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+610;Enseñanza Media T-P Técnica Niños y Jóvenes;7;Enseñanza Media Técnico Profesional y Artística, Jóvenes;6;Enseñanza Media Técnico Profesional y Artística, Jóvenes
+660;Educación Media T-P Técnica Adultos (Decreto N° 152/1989);8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+661;Educación Media T-P Técnica Adultos (Decreto N° 152/1989);8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+663;Educación Media T-P Técnica Adultos (Decreto N° 1000/2009) ;8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+710;Enseñanza Media T-P Agrícola Niños y Jóvenes;7;Enseñanza Media Técnico Profesional y Artística, Jóvenes;6;Enseñanza Media Técnico Profesional y Artística, Jóvenes
+760;Educación Media T-P Agrícola Adultos (Decreto N° 152/1989);8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+761;Educación Media T-P Agrícola Adultos (Decreto N° 152/1989);8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+763;Educación Media T-P Agrícola Adultos (Decreto N° 1000/2009) ;8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+810;Enseñanza Media T-P Marítima Niños y Jóvenes;7;Enseñanza Media Técnico Profesional y Artística, Jóvenes;6;Enseñanza Media Técnico Profesional y Artística, Jóvenes
+860;Enseñanza Media T-P Marítima Adultos (Decreto N° 152/1989) ;8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+863;Enseñanza Media T-P Marítima Adultos (Decreto N° 1000/2009) ;8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
+910;Enseñanza Media Artística Niños y Jóvenes;7;Enseñanza Media Técnico Profesional y Artística, Jóvenes;6;Enseñanza Media Técnico Profesional y Artística, Jóvenes
+963;Enseñanza Media Artística Adultos;8;Educación Media Técnico Profesional y Artística, Adultos;7;Educación Media Técnico Profesional y Artística, Adultos
