@@ -14,3 +14,4 @@
 ## Bug fix
 
 * Correccion de bug por `get_label`.
+* En `tabla_vars_segmentos` si una variable no tiene etiquetas, deja pregunta_lab en blanco.

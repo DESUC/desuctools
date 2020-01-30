@@ -252,7 +252,8 @@ tabla_vars_segmentos <- function(.data,
 
     tabla_variables <- function(.data, .var) {
 
-        var_label <- attr(.data[[.var]], 'label')
+        # Captura la etiqueta de la variable. Si no tiene, lo deja en blanco
+        var_label <- attr(.data[[.var]], 'label') %||% ""
 
         .data %>%
             mutate(pregunta_var = .var,
