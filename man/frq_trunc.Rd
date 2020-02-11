@@ -4,14 +4,14 @@
 \alias{frq_trunc}
 \title{Frecuencia de variable con etiqueta truncada}
 \usage{
-frq_trunc(.data, ..., width = 50, ellipsis = "...", weights = NULL)
+frq_trunc(..., width = 50L, ellipsis = "...")
 }
 \arguments{
-\item{.data}{Una data frame o vector}
+\item{...}{Una data frame o vector según lo requerido por `sjmisc::frq`.}
 
-\item{width}{= 50 Largo del texto de la etiqueta de la variable.}
+\item{width}{numeric. Por defecto = 50. Largo del texto de la etiqueta de la variable.}
 
-\item{.var}{nombre de la variable de la que se quiere saber su frecuencia}
+\item{ellipsis}{string. Por defecto = '...'.}
 }
 \value{
 Una kable con el formato DESUC
