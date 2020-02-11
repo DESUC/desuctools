@@ -6,55 +6,29 @@
 #'
 #' @name frq_trunc
 #'
-#' @param .data Una data frame o vector
-#' @param .var nombre de la variable de la que se quiere saber su frecuencia
-#' @param width = 50 Largo del texto de la etiqueta de la variable.
+#' @param ... Una data frame o vector según lo requerido por `sjmisc::frq`.
+#' @param width numeric. Por defecto = 50. Largo del texto de la etiqueta de la variable.
+#' @param ellipsis string. Por defecto = '...'.
 #'
 #' @return Una kable con el formato DESUC
 #'
 #' @import dplyr
 #' @importFrom sjmisc frq
-#' @importFrom haven labelled
 #' @importFrom stringr str_trunc
 #'
 #' @export
-frq_trunc <- function(.data,
-                      ...,
-                      width = 50,
-                      ellipsis = '...',
-                      weights = NULL) {
+frq_trunc <- function(...,
+                      width = 50L,
+                      ellipsis = '...') {
     # frecuencia de variable truncando las etiquetas para mejorar visualización.
 
-    if (is.data.frame(.data)) {
-        var_sel <- tidyselect::vars_select(colnames(.data), ...)
-        data <- .data[var_sel]
-    } else {
-        data <- .data
-    }
+    tab <- sjmisc::frq(...)
 
-    labels_trunc <- purrr::map(sjlabelled::get_labels(data),
-                               ~ str_trunc(., width = width, ellipsis = ellipsis))
+    tab[[1]]$label <- str_trunc(tab[[1]]$label,
+                                width = width,
+                                ellipsis = ellipsis)
 
-    if (!is.data.frame(data)) {
-        (labels_trunc <- unlist(labels_trunc))
-    }
-
-    if (is.null({{weights}})) {
-        vct_weights <- NULL
-    } else {
-        if (is.vector({{weights}})) {
-            print('vect')
-            vct_weights <- weights
-        } else {
-            print('nom')
-            vct_weights <- .data[!!rlang::as_string(weights)]
-        }
-    }
-    print(vct_weights)
-
-    data <- sjlabelled::set_labels(data, labels = labels_trunc)
-
-    sjmisc::frq(data, weights = vct_weights)
+    return(tab)
 }
 
 
