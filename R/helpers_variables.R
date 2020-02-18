@@ -3,54 +3,57 @@
 #' @title Corregir missings en preguntas múltiples
 #'
 #' @description
-#' Función para corregir problemas de no respuesta en preguntas múltiples
+#' Función para corregir problemas de no respuesta en preguntas múltiples y sucesivas.
 #'
 #' @name shift_missing
 #'
 #' @param .data Una data frame
-#' @param .x nombre de la variable la primera variable
-#' @param .y nombre de la variable la primera variable
-#' @param missing vector con valores considerados no válidos (por defecto \code{77, 88, 99})
+#' @param .var1 nombre de la variable la primera variable
+#' @param .var2 nombre de la variable la segunda variable
+#' @param missing vector con valores considerados no válidos (por defecto \code{77, 88, 99}). `NA` es considerado siempre.
 #'
-#' @return Una data frame con los valores de .x y .y corregidos
+#' @return Una data frame con los valores de .var1 y .var2 corregidos
 #'
 #' @import dplyr
 #' @importFrom rlang quo_is_null as_label :=
-#' @importFrom haven labelled
 #'
 #' @export
 #'
-shift_missing <- function(.data, .x, .y = NULL, missing = c(77L, 88L, 99L)) {
+shift_missing <- function(.data,
+                          .var1,
+                          .var2 = NULL,
+                          missing = c(77L, 88L, 99L)) {
     # Revisa preguntas de respuesta múltiple para corregir respuestas inválidas en variables posteriores.
     missing <- c(missing, NA)
 
-    var1 <- enquo(.x)
-    var2 <- enquo(.y)
+    x <- pull(.data, {{ .var1 }})
 
-    add_labels <- function(x, var_labels = NULL) {
-        haven::labelled(x, labels = attr(var_labels, "labels"))
-    }
+    # Posición en donde el vector x es missing
+    x_index <- which(x %in% missing)
 
-    x <- pull(.data, !!var1)
+    if (rlang::quo_is_null(enquo(.var2))) {
 
-    if (rlang::quo_is_null(var2)) {
+        # Para esos casos, reemplazo el valor de y por NA ya que quedó en x
+        x[x_index] <- NA_integer_
 
-        x_lab <- if_else(x %in% missing, NA_integer_, as.integer(x)) %>% add_labels(x)
-
-        .data %>% mutate(`:=`(!!rlang::as_label(var1), x_lab))
+        .data %>%
+            mutate({{ .var1 }} := x)
 
     } else {
-        y <- pull(.data, !!var2)
+        y <- pull(.data, {{ .var2 }})
 
-        x_lab <- if_else(x %in% missing & !(y %in% missing), as.integer(y), as.integer(x)) %>% add_labels(x)
-        y_lab <- if_else(y %in% missing, NA_integer_, as.integer(y)) %>% add_labels(y)
+        # En esos casos, reemplazo el valor de x por el valor de y
+        x[x_index] <- y[x_index]
 
-        .data %>% mutate(`:=`(!!rlang::as_label(var1), x_lab),
-                         `:=`(!!rlang::as_label(var2), y_lab))
+        # Para esos casos, reemplazo el valor de y por NA ya que quedó en x
+        y[x_index] <- NA_integer_
+
+        .data %>%
+            mutate({{ .var1 }} := x,
+                   {{ .var2 }} := y)
     }
 
 }
-
 
 #' @title Colapso de strings
 #'
