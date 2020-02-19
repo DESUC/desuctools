@@ -45,7 +45,7 @@ svy_tabla_var_segmento <- function(.data,
 
   # Construir la variable de interés según si es una variable escalar o categórica
   if (class(.data$variables[[ rlang::as_label(enquo(.var)) ]] ) %in% c('numeric', 'integer')) {
-    # print('escalar')
+
     # Variable escalar
     tab <- tab %>%
       group_by_at(vars(.data$segmento_var:.data$pregunta_lab)) %>%
