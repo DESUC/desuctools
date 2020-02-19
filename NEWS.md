@@ -4,7 +4,8 @@
 
 ## New functions
 
-* Agregar función `is_email` para validar sintaxis de correos electrónicos.
+* Función `is_email` para validar sintaxis de correos electrónicos.
+* Función `
 
 ## Features
 
