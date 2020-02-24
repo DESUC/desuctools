@@ -5,7 +5,7 @@
 ## New functions
 
 * Función `is_email` para validar sintaxis de correos electrónicos.
-* Función `
+* Función `svy_tabla_vars_segmentos` para obtener estadísticos de multiples variables y segmentos.
 
 ## Features
 

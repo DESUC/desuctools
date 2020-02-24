@@ -194,3 +194,21 @@ is_email <- function(email){
 }
 
 
+#' @title Orden de preguntas según valor de categoría
+#'
+#' @description función de ayuda para `forcats::fct_reorder2` con tal de ordenar distintas preguntas
+#' según una catogoría de respuesta de interès `cat_orden`.
+#'
+#' @param .x vector. Categorías de respuesta.
+#' @param .y vector. Valor de respuesta para cada categoría de respuesta
+#' @param cat_orden string. Nombre de la categoría de respuesta de interés.
+#'
+#' @return
+#' @export
+#'
+#' @examples
+pregunta_orden <- function(.x, .y, cat_orden){
+    max(if_else(.x == cat_orden, .y, 0))
+}
+
+

@@ -67,7 +67,7 @@ test_that("svy_tabla_var_segmento proporcion de categoría labelled", {
   expect_s3_class(svy_tabla_var_segmento(s, .var = lab_na, .segmento = x), 'tbl_df')
 })
 
-# svy_tabla_var_segmentos ---------------------------------------------------------
+# svy_tabla_vars_segmentos ---------------------------------------------------------
 
 # Resultados sin segmentos
 
