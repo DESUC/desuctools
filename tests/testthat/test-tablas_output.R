@@ -71,19 +71,19 @@ test_that("tabla_vars_segmentos proporcion de categoría con peso y total", {
                     c(0.5, 0.5, 1, 0.25, 0.75))
 })
 
-# test_that("tabla_categoria proporcion de categoría con peso y total y missing", {
-#   expect_equivalent(tabla_vars_segmentos(df_test,
-#                                          .vars = vars(sexo),
-#                                          .segmentos = vars(cat),
-#                                          miss = 1,
-#                                          total = TRUE) %>%
-#                       pull(prop),
-#                     c(0.5, 0.5, 1, 0.25, 0.75))
-# })
+test_that("tabla_categoria proporcion de categoría con peso y total y missing", {
+  expect_equivalent(tabla_vars_segmentos(df_test,
+                                         .vars = vars(sexo),
+                                         .segmentos = vars(cat),
+                                         miss = 1,
+                                         total = TRUE) %>%
+                      pull(prop),
+                    c(0.5, 0.5, 1, 0.25, 0.75))
+})
 
 #  rec_cat_5a3 ------------------------------------------------------------
 
 test_that("rec_cat_5a3 mantiene la etiqueta de la variable", {
-  expect_equivalent(attr(rec_cat_5a3(df_test$sexo), 'label'),
+  expect_equivalent(attr(rec_cat_5a3(df_test$sexo), 'label', exact = TRUE),
                     'Sex')
 })

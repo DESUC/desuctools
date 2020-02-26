@@ -5,12 +5,13 @@
 #'
 #' @param .data `data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
 #'   Funciona bien a partir de data.frame de resultado de función `tabla_vars_segmentos`.
+#' @param x `quo` Nombre de variable a utilizar en eje X.
 #' @param title `chr` Título del gráfico
 #' @param subtitle `chr` Subtítulo del gráfico
 #' @param caption `chr` Caption del gráfico
-#' @param missing
-#' @param text_size
-#' @param flip
+#' @param missing `chr` vector con categorías de respuesta consideradas 'missing'
+#' @param text_size `num` tamaño de letra
+#' @param flip `logical` TRUE gira los ejes.
 #' @param colour_neg_neu_pos
 #' @param y_na
 #' @param x_str_entre_ini
@@ -19,12 +20,27 @@
 #' @param colour_na
 #' @param font_family
 #'
+#' @import ggplot2
+#' @importFrom scales percent
+#' @importFrom stringr str_wrap
+#' @importFrom magrittr %>%
+#'
 #' @return ggplot
 #' @export
 #'
 #' @examples
+#'   df_chart <- data.frame(pregunta_lab = c(rep('a', 4), rep('b', 4)),
+#'                          x_other = c(rep('x', 4), rep('y', 4)),
+#'                          prop = c(-0.1, 0.3, 0.4, 0.1, -0.3, 0.1, 0.4, 0.05),
+#'                          pregunta_cat = factor(rep(c('bajo', 'medio', 'alto', 'ns'), 2),
+#'                                                levels = c('bajo', 'medio', 'alto', 'ns')))
+#'
+#' gg_bar_3_niveles_stack(df_chart,
+#'                        missing = 'ns',
+#'                        title = 'Gráfico de prueba')
 #'
 gg_bar_3_niveles_stack <- function(.data,
+                                   x = pregunta_lab,
                                    title = NULL,
                                    subtitle = NULL,
                                    caption = NULL,
@@ -55,17 +71,20 @@ gg_bar_3_niveles_stack <- function(.data,
 
   gg_niv3 <- .data %>%
     filter(!pregunta_cat %in% missing) %>%
-    ggplot(aes(x = pregunta_lab, y = {{ y_prop }}, fill = pregunta_cat)) +
+    ggplot(aes(x = {{ x }}, y = {{ y_prop }}, fill = pregunta_cat)) +
     geom_col(width = .5,
              position = position_stack(reverse = TRUE)) +
-    ggplot2::geom_hline(yintercept = 0, colour = 'grey30') +
+    geom_hline(yintercept = 0, colour = 'grey30') +
     geom_text(aes(label = abs(round(..y.. * 100))),
               position = position_stack(vjust = 0.5, reverse = TRUE),
               size = rel(text_size),
               family = font_family, fontface = 'bold',
               colour = 'white') +
     scale_x_discrete('',
-                     labels = function(x) str_entre(x, ini = x_str_entre_ini, fin = x_str_entre_fin) %>% str_wrap(width = x_str_width)) +
+                     labels = function(x) desuctools::str_entre(x,
+                                                                ini = x_str_entre_ini,
+                                                                fin = x_str_entre_fin) %>%
+                       stringr::str_wrap(width = x_str_width)) +
     scale_y_continuous('% de respuestas',
                        labels = function(x) scales::percent(abs(x))) +
     scale_fill_manual('',
@@ -87,7 +106,7 @@ gg_bar_3_niveles_stack <- function(.data,
     tab_ns <- .data %>%
       filter(pregunta_cat == missing)
 
-    pos_x_annotate <- length(unique(.data[['pregunta_lab']]))
+    pos_x_annotate <- length(unique(.data[[rlang::as_name(enquo(x))]]))
 
     gg_niv3 <- gg_niv3 +
       geom_text(data = tab_ns,

@@ -188,12 +188,12 @@ tabla_var_segmentos <- function(.data,
 
     tabla_var_seg <- function(.data, .seg) {
 
-        tab <- tabla_var_segmento(.data,
-                                  .var = {{.var}},
-                                  .segmento = {{.seg}},
-                                  total = total,
-                                  .wt = {{.wt}},
-                                  miss = miss) %>%
+        tabla_var_segmento(.data,
+                           .var = {{ .var }},
+                           .segmento = {{ .seg }},
+                           total = total,
+                           .wt = {{ .wt }},
+                           miss = miss) %>%
             mutate(segmento_var = !!rlang::as_label(enquo(.seg))) %>%
             rename(segmento_cat = !!rlang::as_label(enquo(.seg))) %>%
             mutate_at(vars(.data$segmento_var, .data$segmento_cat), as.character)
@@ -204,8 +204,16 @@ tabla_var_segmentos <- function(.data,
     tab <- reduce(tab, bind_rows) %>%
         mutate_at(vars(.data$segmento_cat), forcats::as_factor)
 
-    tab <- sjlabelled::copy_labels(df_new = tab,
-                                   df_origin = .data)
+    # Copia label y labels a variable "var" recién creada.
+    # No utilizo esto para no pegar las etiquetas de
+    # tab <- sjlabelled::copy_labels(df_new = tab,
+    #                                df_origin = .data)
+
+    # Dejar solo el 'label' de la variable recién creada
+    var_filtro <- rlang::as_name(enquo(.var))
+
+    tab[[var_filtro]] <- structure(tab[[var_filtro]],
+                                   label = attr(.data[[var_filtro]], 'label', exact = TRUE))
 
     tab %>%
         select(.data$segmento_var,
@@ -241,12 +249,11 @@ tabla_vars_segmentos <- function(.data,
                                  miss = NULL) {
 
     variables <- tidyselect::vars_select(names(.data), !!!.vars)
-    wt_quo <- enquo(.wt)
 
     tab <- purrr::map(variables, ~tabla_var_segmentos(.data,
                                                       .var = !!.,
                                                       .segmentos = .segmentos,
-                                                      .wt = !!wt_quo,
+                                                      .wt = {{ .wt }},
                                                       total = total,
                                                       miss = miss))
 
@@ -263,8 +270,8 @@ tabla_vars_segmentos <- function(.data,
                       as.character)
     }
 
-    map2(tab, variables, ~tabla_variables(.x, .y)) %>%
-        reduce(bind_rows) %>%
+    purrr::map2(tab, variables, ~tabla_variables(.x, .y)) %>%
+        purrr::reduce(bind_rows) %>%
         select(starts_with("segmento"),
                .data$pregunta_var, .data$pregunta_lab, .data$pregunta_cat,
                everything()) %>%

@@ -12,6 +12,10 @@
 * Agregar columna `comuna18` para tener el código comunal luego de la creación de la región del Ñuble en 2018.
 * Base de datos con `codigos_ensenanza` para tener equivalencias y descripción de la nomenclatura utilizada por MINEDUC en sus bases de datos.
 
+### Gráfico
+
+* Función `gg_bar_3_niveles_stack`.
+
 ## Bug fix
 
 * Correccion de bug por `get_label`.

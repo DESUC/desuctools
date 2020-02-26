@@ -8,6 +8,7 @@ Gráfico de barras diseñado para comparar categoría positiva, negativa y neutr
 \usage{
 gg_bar_3_niveles_stack(
   .data,
+  x = pregunta_lab,
   title = NULL,
   subtitle = NULL,
   caption = NULL,
@@ -28,11 +29,19 @@ gg_bar_3_niveles_stack(
 \item{.data}{`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
 Funciona bien a partir de data.frame de resultado de función `tabla_vars_segmentos`.}
 
+\item{x}{`quo` Nombre de variable a utilizar en eje X.}
+
 \item{title}{`chr` Título del gráfico}
 
 \item{subtitle}{`chr` Subtítulo del gráfico}
 
 \item{caption}{`chr` Caption del gráfico}
+
+\item{missing}{`chr` vector con categorías de respuesta consideradas 'missing'}
+
+\item{text_size}{`num` tamaño de letra}
+
+\item{flip}{`logical` TRUE gira los ejes.}
 
 \item{font_family}{}
 }
@@ -45,5 +54,14 @@ Barras 3 niveles positivo neutro negativo
 Gráfico de barras diseñado para comparar categoría positiva, negativa y neutra.
 }
 \examples{
+  df_chart <- data.frame(pregunta_lab = c(rep('a', 4), rep('b', 4)),
+                         x_other = c(rep('x', 4), rep('y', 4)),
+                         prop = c(-0.1, 0.3, 0.4, 0.1, -0.3, 0.1, 0.4, 0.05),
+                         pregunta_cat = factor(rep(c('bajo', 'medio', 'alto', 'ns'), 2),
+                                               levels = c('bajo', 'medio', 'alto', 'ns')))
+
+gg_bar_3_niveles_stack(df_chart,
+                       missing = 'ns',
+                       title = 'Gráfico de prueba')
 
 }

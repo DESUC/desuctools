@@ -57,14 +57,14 @@ rev_niveles.haven_labelled <- function(x, rango_inv = NULL, ...){
 
   # Función para invertir valores según rango_inv
   valores_inv <- function(val, index_inf, index_sup){
-    val_names <- names(val)
+    limits <- sort(unique(val))
 
-    val <- ifelse(val >= val[index_inf] & val <= val[index_sup],
-                  val[index_sup] + 1 - val,
+    val <- ifelse(val >= limits[index_inf] & val <= limits[index_sup],
+                  limits[index_sup] + 1 - val,
                   val)
 
     structure(val,
-              names = val_names)
+              names = names(val))
   }
 
   # Por defecto (NULL), se invierte todo el rango de números.
@@ -73,7 +73,9 @@ rev_niveles.haven_labelled <- function(x, rango_inv = NULL, ...){
     rango_inv <- range(x)
   }
 
-  value_pos <- which(x %in% rango_inv)
+  # Posición de los valores que fijan el rango a invertir. Interesa el indice
+  # para poder voltear también las etiquetas.
+  value_pos <- which(sort(unique(x)) %in% rango_inv)
 
   x_new <- valores_inv(x,
                        index_inf = value_pos[1],
