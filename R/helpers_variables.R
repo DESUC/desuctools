@@ -230,7 +230,7 @@ pregunta_orden <- function(.x, .y, cat_orden){
 #' @examples
 fct_reorder_cat <- function(.f, .cat, .val, cat_orden, .desc = FALSE){
     forcats::fct_reorder2(.f, .cat, .val,
-                          .fun = desuctools::pregunta_orden, cat_orden = cat_orden,
+                          .fun = pregunta_orden, cat_orden = cat_orden,
                           .desc = .desc)
 }
 
