@@ -199,16 +199,38 @@ is_email <- function(email){
 #' @description función de ayuda para `forcats::fct_reorder2` con tal de ordenar distintas preguntas
 #' según una catogoría de respuesta de interès `cat_orden`.
 #'
-#' @param .x vector. Categorías de respuesta.
-#' @param .y vector. Valor de respuesta para cada categoría de respuesta
+#' @param .x chr o factor. Variable con categorías de respuesta.
+#' @param .y numeric. Valor de respuesta para cada categoría de respuesta
 #' @param cat_orden string. Nombre de la categoría de respuesta de interés.
 #'
-#' @return
-#' @export
+#' @return numeric vector
 #'
 #' @examples
 pregunta_orden <- function(.x, .y, cat_orden){
     max(if_else(.x == cat_orden, .y, 0))
 }
 
+#' @title Orden de preguntas según valor de categoría
+#'
+#' @description Wrapper al rededor de `forcats::fct_reorder2` para ordenar factor `.f` según
+#' según una catogoría de respuesta de `.x` de interès `cat_orden` a partir del valor en `.y`.
+#'
+#' @param .f factor. Factor que quiere ser ordenado.
+#' @param .cat chr o factor. Variable con categorías de respuesta.
+#' @param .val numeric. Valor de respuesta para cada categoría de respuesta
+#' @param cat_orden string. Nombre de la categoría de respuesta de interés.
+#' @param .desc logical. Controla si el orden es ascendente o descendente. Por defecto
+#'    .desc = FALSE.
+#'
+#' @return factor
+#' @importFrom forcats fct_reorder2
+#'
+#' @export
+#'
+#' @examples
+fct_reorder_cat <- function(.f, .cat, .val, cat_orden, .desc = FALSE){
+    forcats::fct_reorder2(.f, .cat, .val,
+                          .fun = desuctools::pregunta_orden, cat_orden = cat_orden,
+                          .desc = .desc)
+}
 

@@ -9,5 +9,5 @@ test_that("gg_bar_3_niveles_stack", {
                          missing = 'ns',
                          title = 'Gráfico de prueba')
 
-  expect_s3_class(gg_bar_3_niveles_stack(df_chart), 'ggplot')
+  expect_s3_class(gg_bar_3_niveles_stack(df_chart, missing = 'ns'), 'ggplot')
 })

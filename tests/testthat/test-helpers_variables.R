@@ -59,3 +59,23 @@ test_that("shift_missing para var2", {
   # Remplazar valores anotados como missings en el primer vector
   expect_equal(shift_missing(df, v1, v2, missing = 9)[['v2']], c(1, 9, NA, NA, NA))
 })
+
+
+# Datos para probar `fct_reorder_cat`
+df <- data.frame(f1 = factor(c('a', 'a', 'b', 'b', 'c', 'c')),
+                 f_cat = factor(rep(c('x', 'y'), 3)),
+                 f_chr = rep(c('x', 'y'), 3),
+                 val = c(2, 9, 1, 8, 3, 7))
+
+test_that("fct_reorder_cat para factores y characters", {
+  expect_equal(with(df, fct_reorder_cat(f1, .cat = f_cat, .val = val, cat_orden = 'x', .desc = TRUE)),
+               with(df, fct_reorder_cat(f1, .cat = f_chr, .val = val, cat_orden = 'x', .desc = TRUE)))
+
+  expect_equal(with(df, fct_reorder_cat(f1, .cat = f_cat, .val = val, cat_orden = 'y', .desc = FALSE)),
+               with(df, fct_reorder_cat(f1, .cat = f_chr, .val = val, cat_orden = 'y', .desc = FALSE)))
+})
+
+test_that("fct_reorder_cat orden de niveles", {
+  expect_equal(levels(with(df, fct_reorder_cat(f1, .cat = f_cat, .val = val, cat_orden = 'x', .desc = FALSE))),
+               c('b', 'a', 'c'))
+})

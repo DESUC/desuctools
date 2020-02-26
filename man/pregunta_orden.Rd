@@ -7,14 +7,14 @@
 pregunta_orden(.x, .y, cat_orden)
 }
 \arguments{
-\item{.x}{vector. Categorías de respuesta.}
+\item{.x}{chr o factor. Variable con categorías de respuesta.}
 
-\item{.y}{vector. Valor de respuesta para cada categoría de respuesta}
+\item{.y}{numeric. Valor de respuesta para cada categoría de respuesta}
 
 \item{cat_orden}{string. Nombre de la categoría de respuesta de interés.}
 }
 \value{
-
+numeric vector
 }
 \description{
 función de ayuda para `forcats::fct_reorder2` con tal de ordenar distintas preguntas
