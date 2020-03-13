@@ -104,7 +104,7 @@ gg_bar_3_niveles_stack <- function(.data,
 
   if(!is.null(missing)){
     tab_ns <- .data %>%
-      filter(pregunta_cat == missing)
+      filter(pregunta_cat %in% missing)
 
     pos_x_annotate <- length(unique(.data[[rlang::as_name(enquo(x))]]))
 

@@ -4,7 +4,8 @@
 \name{codigos_ensenanza}
 \alias{codigos_ensenanza}
 \title{Codigos de enseñanza}
-\format{data.frame con 44 filas (codigos de enseñanza) y 6 variables
+\format{
+data.frame con 44 filas (codigos de enseñanza) y 6 variables
 
 \describe{
   \item{cod_ense}{Codigo de enseñanza}
@@ -13,7 +14,8 @@
   \item{cod_ense2_lab}{Descripción de codigo de enseñanza 2}
   \item{cod_ense3}{Codigo de enseñanza agrupados 3}
   \item{cod_ense3_lab}{Descripción de codigo de enseñanza 3}
-}}
+}
+}
 \usage{
 codigos_ensenanza
 }

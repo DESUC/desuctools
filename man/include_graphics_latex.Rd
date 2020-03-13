@@ -7,8 +7,8 @@
 include_graphics_latex(
   path,
   alt_path = NULL,
-  handler = function(path) knitr::asis_output(paste("View", tools::file_ext(path), "at",
-    path)),
+  handler = function(path) knitr::asis_output(paste("View", tools::file_ext(path),
+    "at", path)),
   ...
 )
 }

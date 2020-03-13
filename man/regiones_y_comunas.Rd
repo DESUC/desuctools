@@ -4,7 +4,8 @@
 \name{regiones_y_comunas}
 \alias{regiones_y_comunas}
 \title{Datos de regiones y comunas de Chile}
-\format{Un data frame con 346 filas (comunas) y 11 variables
+\format{
+Un data frame con 346 filas (comunas) y 11 variables
 
 \describe{
   \item{id}{orden de comunas siguiendo geografía y código comunal}
@@ -20,7 +21,8 @@
   \item{comuna_extrema}{1 si comuna es extrema para INE, 2 si es extrema para DESUC}
   \item{gran_santiago}{TRUE si comuna pertenece al Gran Santiago}
   \item{gran_santiago_zonas}{nombre de zonas del Gran Santiago}
-}}
+}
+}
 \usage{
 regiones_y_comunas
 }
