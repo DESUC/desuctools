@@ -24,6 +24,7 @@
 #' @importFrom scales percent
 #' @importFrom stringr str_wrap
 #' @importFrom magrittr %>%
+#' @importFrom tidyr replace_na
 #'
 #' @return ggplot
 #' @export
@@ -104,7 +105,12 @@ gg_bar_3_niveles_stack <- function(.data,
 
   if(!is.null(missing)){
     tab_ns <- .data %>%
-      filter(pregunta_cat %in% missing)
+      filter(pregunta_cat %in% missing) %>%
+      group_by_at(vars(segmento_var:pregunta_lab)) %>%
+      summarise(pregunta_cat = str_c(pregunta_cat, collapse = '/'),
+                casos = sum(casos),
+                prop = sum(prop)) %>%
+      tidyr::replace_na(list(prop = 0))
 
     pos_x_annotate <- length(unique(.data[[rlang::as_name(enquo(x))]]))
 
