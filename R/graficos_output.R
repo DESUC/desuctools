@@ -1,16 +1,16 @@
 
 #' @title Barras 3 niveles positivo neutro negativo
 #'
-#' Gráfico de barras diseñado para comparar categoría positiva, negativa y neutra.
+#' Gr\\u00e1fico de barras dise\\u00f1ado para comparar categor\\u00eda positiva, negativa y neutra.
 #'
 #' @param .data `data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
-#'   Funciona bien a partir de data.frame de resultado de función `tabla_vars_segmentos`.
+#'   Funciona bien a partir de data.frame de resultado de funci\\u00f3n `tabla_vars_segmentos`.
 #' @param x `quo` Nombre de variable a utilizar en eje X.
-#' @param title `chr` Título del gráfico
-#' @param subtitle `chr` Subtítulo del gráfico
-#' @param caption `chr` Caption del gráfico
-#' @param missing `chr` vector con categorías de respuesta consideradas 'missing'
-#' @param text_size `num` tamaño de letra
+#' @param title `chr` T\\u00edtulo del gr\\u00e1fico
+#' @param subtitle `chr` Subt\\u00edtulo del gr\\u00e1fico
+#' @param caption `chr` Caption del gr\\u00e1fico
+#' @param missing `chr` vector con categor\\u00edas de respuesta consideradas 'missing'
+#' @param text_size `num` tama\\u00f1o de letra
 #' @param flip `logical` TRUE gira los ejes.
 #' @param colour_neg_neu_pos
 #' @param y_na
@@ -21,26 +21,25 @@
 #' @param font_family
 #'
 #' @import ggplot2
-#' @importFrom scales percent
 #' @importFrom stringr str_wrap
-#' @importFrom magrittr %>%
 #' @importFrom tidyr replace_na
+#' @importFrom rlang .data
 #'
 #' @return ggplot
 #' @export
 #'
 #' @examples
-#'   df_chart <- data.frame(pregunta_lab = c(rep('a', 4), rep('b', 4)),
-#'                          x_other = c(rep('x', 4), rep('y', 4)),
-#'                          prop = c(-0.1, 0.3, 0.4, 0.1, -0.3, 0.1, 0.4, 0.05),
-#'                          pregunta_cat = factor(rep(c('bajo', 'medio', 'alto', 'ns'), 2),
-#'                                                levels = c('bajo', 'medio', 'alto', 'ns')))
+#' df_chart <- data.frame(pregunta_lab = c(rep('a', 4), rep('b', 4)),
+#'                        x_other = c(rep('x', 4), rep('y', 4)),
+#'                        prop = c(-0.1, 0.3, 0.4, 0.1, -0.3, 0.1, 0.4, 0.05),
+#'                        pregunta_cat = factor(rep(c('bajo', 'medio', 'alto', 'ns'), 2),
+#'                                              levels = c('bajo', 'medio', 'alto', 'ns')))
 #'
 #' gg_bar_3_niveles_stack(df_chart,
 #'                        missing = 'ns',
-#'                        title = 'Gráfico de prueba')
+#'                        title = 'Grafico de prueba')
 #'
-gg_bar_3_niveles_stack <- function(.data,
+gg_bar_3_niveles_stack <- function(.df,
                                    x = pregunta_lab,
                                    title = NULL,
                                    subtitle = NULL,
@@ -58,25 +57,26 @@ gg_bar_3_niveles_stack <- function(.data,
                                    font_family = 'Calibri'
 ) {
 
-  # Revisar que estén las variables necesarias en la tabla de datos
+  # Revisar que est\\u00e9n las variables necesarias en la tabla de datos
   var_check <- c('pregunta_lab', 'prop', 'pregunta_cat')
-  if(!all(sapply(var_check, function(x) any(names(.data) %in% x)))) {
+
+  if(!all(sapply(var_check, function(x) any(names(.df) %in% x)))) {
     stop(paste("No están presentes en ",
-               deparse(substitute(.data))
+               deparse(substitute(.df))
                ,"alguna de las variables 'pregunta_lab', 'prop', 'pregunta_cat'"))
   }
   # Revisar que hayan 4 niveles de respuesta y missing
-  if(length(levels(droplevels(.data[['pregunta_cat']]))) >= 4 & is.null(missing)) {
+  if(length(levels(droplevels(.df[['pregunta_cat']]))) >= 4 & is.null(missing)) {
     stop("4 niveles o más en pregunta_cat sin missing explícito")
   }
 
-  gg_niv3 <- .data %>%
+  gg_niv3 <- .df %>%
     filter(!pregunta_cat %in% missing) %>%
-    ggplot(aes(x = {{ x }}, y = {{ y_prop }}, fill = pregunta_cat)) +
+    ggplot(aes(x = {{ x }}, y = {{ y_prop }}, fill = .data$pregunta_cat)) +
     geom_col(width = .5,
              position = position_stack(reverse = TRUE)) +
     geom_hline(yintercept = 0, colour = 'grey30') +
-    geom_text(aes(label = abs(round(..y.. * 100))),
+    geom_text(aes(label = abs(round({{ y_prop }} * 100))),
               position = position_stack(vjust = 0.5, reverse = TRUE),
               size = rel(text_size),
               family = font_family, fontface = 'bold',
@@ -104,15 +104,14 @@ gg_bar_3_niveles_stack <- function(.data,
   }
 
   if(!is.null(missing)){
-    tab_ns <- .data %>%
+    tab_ns <- .df %>%
       filter(pregunta_cat %in% missing) %>%
-      group_by_at(vars(segmento_var:pregunta_lab)) %>%
-      summarise(pregunta_cat = str_c(pregunta_cat, collapse = '/'),
-                casos = sum(casos),
-                prop = sum(prop)) %>%
+      group_by_at(vars(.data$pregunta_lab)) %>%
+      summarise(pregunta_cat = str_c(.data$pregunta_cat, collapse = '/'),
+                prop = sum(.data$prop)) %>%
       tidyr::replace_na(list(prop = 0))
 
-    pos_x_annotate <- length(unique(.data[[rlang::as_name(enquo(x))]]))
+    pos_x_annotate <- length(unique(.df[[rlang::as_name(enquo(x))]]))
 
     gg_niv3 <- gg_niv3 +
       geom_text(data = tab_ns,

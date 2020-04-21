@@ -7,7 +7,7 @@ Maintainer: Cristiab Ayala <caayala@uc.cl>
 Description: Funciones y datos útiles en el trabajo de limpieza,
     revisión, tabulación y graficación de datos de la Dirección de
     Estudios Sociales UC.
-License: GPL-3
+License: MIT + file LICENSE
 Depends:
     R (>= 3.5)
 Imports:

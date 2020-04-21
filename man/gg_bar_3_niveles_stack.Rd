@@ -4,10 +4,10 @@
 \alias{gg_bar_3_niveles_stack}
 \title{Barras 3 niveles positivo neutro negativo
 
-Gráfico de barras diseñado para comparar categoría positiva, negativa y neutra.}
+Gr\\u00e1fico de barras dise\\u00f1ado para comparar categor\\u00eda positiva, negativa y neutra.}
 \usage{
 gg_bar_3_niveles_stack(
-  .data,
+  .df,
   x = pregunta_lab,
   title = NULL,
   subtitle = NULL,
@@ -26,24 +26,24 @@ gg_bar_3_niveles_stack(
 )
 }
 \arguments{
-\item{.data}{`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
-Funciona bien a partir de data.frame de resultado de función `tabla_vars_segmentos`.}
-
 \item{x}{`quo` Nombre de variable a utilizar en eje X.}
 
-\item{title}{`chr` Título del gráfico}
+\item{title}{`chr` T\\u00edtulo del gr\\u00e1fico}
 
-\item{subtitle}{`chr` Subtítulo del gráfico}
+\item{subtitle}{`chr` Subt\\u00edtulo del gr\\u00e1fico}
 
-\item{caption}{`chr` Caption del gráfico}
+\item{caption}{`chr` Caption del gr\\u00e1fico}
 
-\item{missing}{`chr` vector con categorías de respuesta consideradas 'missing'}
+\item{missing}{`chr` vector con categor\\u00edas de respuesta consideradas 'missing'}
 
-\item{text_size}{`num` tamaño de letra}
+\item{text_size}{`num` tama\\u00f1o de letra}
 
 \item{flip}{`logical` TRUE gira los ejes.}
 
 \item{font_family}{}
+
+\item{.data}{`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
+Funciona bien a partir de data.frame de resultado de funci\\u00f3n `tabla_vars_segmentos`.}
 }
 \value{
 ggplot
@@ -51,7 +51,7 @@ ggplot
 \description{
 Barras 3 niveles positivo neutro negativo
 
-Gráfico de barras diseñado para comparar categoría positiva, negativa y neutra.
+Gr\\u00e1fico de barras dise\\u00f1ado para comparar categor\\u00eda positiva, negativa y neutra.
 }
 \examples{
   df_chart <- data.frame(pregunta_lab = c(rep('a', 4), rep('b', 4)),

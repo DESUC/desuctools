@@ -1,347 +1,347 @@
-﻿id;region_orden;comuna;comuna18;region;provincia;region_nom;region_nom_small;comuna_nom;region_capital;comuna_extrema;gran_santiago;gran_santiago_zonas
-1;1;15101;15101;15;151;De Arica y Parinacota;Arica y Parinacota;Arica;TRUE;0;FALSE;
-2;1;15102;15102;15;151;De Arica y Parinacota;Arica y Parinacota;Camarones;FALSE;2;FALSE;
-3;1;15201;15201;15;152;De Arica y Parinacota;Arica y Parinacota;Putre;FALSE;2;FALSE;
-4;1;15202;15202;15;152;De Arica y Parinacota;Arica y Parinacota;General Lagos;FALSE;1;FALSE;
-5;2;1101;1101;1;11;De Tarapacá;Tarapacá;Iquique;TRUE;0;FALSE;
-6;2;1107;1107;1;11;De Tarapacá;Tarapacá;Alto Hospicio;FALSE;0;FALSE;
-7;2;1401;1401;1;14;De Tarapacá;Tarapacá;Pozo Almonte;FALSE;0;FALSE;
-8;2;1402;1402;1;14;De Tarapacá;Tarapacá;Camiña;FALSE;0;FALSE;
-9;2;1403;1403;1;14;De Tarapacá;Tarapacá;Colchane;FALSE;1;FALSE;
-10;2;1404;1404;1;14;De Tarapacá;Tarapacá;Huara;FALSE;0;FALSE;
-11;2;1405;1405;1;14;De Tarapacá;Tarapacá;Pica;FALSE;0;FALSE;
-12;3;2101;2101;2;21;De Antofagasta;Antofagasta;Antofagasta;TRUE;0;FALSE;
-13;3;2102;2102;2;21;De Antofagasta;Antofagasta;Mejillones;FALSE;0;FALSE;
-14;3;2103;2103;2;21;De Antofagasta;Antofagasta;Sierra Gorda;FALSE;0;FALSE;
-15;3;2104;2104;2;21;De Antofagasta;Antofagasta;Taltal;FALSE;0;FALSE;
-16;3;2201;2201;2;22;De Antofagasta;Antofagasta;Calama;FALSE;0;FALSE;
-17;3;2202;2202;2;22;De Antofagasta;Antofagasta;Ollagüe;FALSE;1;FALSE;
-18;3;2203;2203;2;22;De Antofagasta;Antofagasta;San Pedro de Atacama;FALSE;0;FALSE;
-19;3;2301;2301;2;23;De Antofagasta;Antofagasta;Tocopilla;FALSE;0;FALSE;
-20;3;2302;2302;2;23;De Antofagasta;Antofagasta;María Elena;FALSE;0;FALSE;
-21;4;3101;3101;3;31;De Atacama;Atacama;Copiapó;TRUE;0;FALSE;
-22;4;3102;3102;3;31;De Atacama;Atacama;Caldera;FALSE;0;FALSE;
-23;4;3103;3103;3;31;De Atacama;Atacama;Tierra Amarilla;FALSE;0;FALSE;
-24;4;3201;3201;3;32;De Atacama;Atacama;Chañaral;FALSE;0;FALSE;
-25;4;3202;3202;3;32;De Atacama;Atacama;Diego de Almagro;FALSE;0;FALSE;
-26;4;3301;3301;3;33;De Atacama;Atacama;Vallenar;FALSE;0;FALSE;
-27;4;3302;3302;3;33;De Atacama;Atacama;Alto del Carmen;FALSE;0;FALSE;
-28;4;3303;3303;3;33;De Atacama;Atacama;Freirina;FALSE;0;FALSE;
-29;4;3304;3304;3;33;De Atacama;Atacama;Huasco;FALSE;0;FALSE;
-30;5;4101;4101;4;41;De Coquimbo;Coquimbo;La Serena;TRUE;0;FALSE;
-31;5;4102;4102;4;41;De Coquimbo;Coquimbo;Coquimbo;FALSE;0;FALSE;
-32;5;4103;4103;4;41;De Coquimbo;Coquimbo;Andacollo;FALSE;0;FALSE;
-33;5;4104;4104;4;41;De Coquimbo;Coquimbo;La Higuera;FALSE;0;FALSE;
-34;5;4105;4105;4;41;De Coquimbo;Coquimbo;Paiguano;FALSE;0;FALSE;
-35;5;4106;4106;4;41;De Coquimbo;Coquimbo;Vicuña;FALSE;0;FALSE;
-36;5;4201;4201;4;42;De Coquimbo;Coquimbo;Illapel;FALSE;0;FALSE;
-37;5;4202;4202;4;42;De Coquimbo;Coquimbo;Canela;FALSE;0;FALSE;
-38;5;4203;4203;4;42;De Coquimbo;Coquimbo;Los Vilos;FALSE;0;FALSE;
-39;5;4204;4204;4;42;De Coquimbo;Coquimbo;Salamanca;FALSE;0;FALSE;
-40;5;4301;4301;4;43;De Coquimbo;Coquimbo;Ovalle;FALSE;0;FALSE;
-41;5;4302;4302;4;43;De Coquimbo;Coquimbo;Combarbalá;FALSE;0;FALSE;
-42;5;4303;4303;4;43;De Coquimbo;Coquimbo;Monte Patria;FALSE;0;FALSE;
-43;5;4304;4304;4;43;De Coquimbo;Coquimbo;Punitaqui;FALSE;0;FALSE;
-44;5;4305;4305;4;43;De Coquimbo;Coquimbo;Río Hurtado;FALSE;0;FALSE;
-45;6;5101;5101;5;51;De Valparaíso;Valparaíso;Valparaíso;TRUE;0;FALSE;
-46;6;5102;5102;5;51;De Valparaíso;Valparaíso;Casablanca;FALSE;0;FALSE;
-47;6;5103;5103;5;51;De Valparaíso;Valparaíso;Concón;FALSE;0;FALSE;
-48;6;5104;5104;5;51;De Valparaíso;Valparaíso;Juan Fernández;FALSE;1;FALSE;
-49;6;5105;5105;5;51;De Valparaíso;Valparaíso;Puchuncaví;FALSE;0;FALSE;
-50;6;5107;5107;5;51;De Valparaíso;Valparaíso;Quintero;FALSE;0;FALSE;
-51;6;5109;5109;5;51;De Valparaíso;Valparaíso;Viña del Mar;FALSE;0;FALSE;
-52;6;5201;5201;5;52;De Valparaíso;Valparaíso;Isla de Pascua;FALSE;1;FALSE;
-53;6;5301;5301;5;53;De Valparaíso;Valparaíso;Los Andes;FALSE;0;FALSE;
-54;6;5302;5302;5;53;De Valparaíso;Valparaíso;Calle Larga;FALSE;0;FALSE;
-55;6;5303;5303;5;53;De Valparaíso;Valparaíso;Rinconada;FALSE;0;FALSE;
-56;6;5304;5304;5;53;De Valparaíso;Valparaíso;San Esteban;FALSE;0;FALSE;
-57;6;5401;5401;5;54;De Valparaíso;Valparaíso;La Ligua;FALSE;0;FALSE;
-58;6;5402;5402;5;54;De Valparaíso;Valparaíso;Cabildo;FALSE;0;FALSE;
-59;6;5403;5403;5;54;De Valparaíso;Valparaíso;Papudo;FALSE;0;FALSE;
-60;6;5404;5404;5;54;De Valparaíso;Valparaíso;Petorca;FALSE;0;FALSE;
-61;6;5405;5405;5;54;De Valparaíso;Valparaíso;Zapallar;FALSE;0;FALSE;
-62;6;5501;5501;5;55;De Valparaíso;Valparaíso;Quillota;FALSE;0;FALSE;
-63;6;5502;5502;5;55;De Valparaíso;Valparaíso;Calera;FALSE;0;FALSE;
-64;6;5503;5503;5;55;De Valparaíso;Valparaíso;Hijuelas;FALSE;0;FALSE;
-65;6;5504;5504;5;55;De Valparaíso;Valparaíso;La Cruz;FALSE;0;FALSE;
-66;6;5506;5506;5;55;De Valparaíso;Valparaíso;Nogales;FALSE;0;FALSE;
-67;6;5601;5601;5;56;De Valparaíso;Valparaíso;San Antonio;FALSE;0;FALSE;
-68;6;5602;5602;5;56;De Valparaíso;Valparaíso;Algarrobo;FALSE;0;FALSE;
-69;6;5603;5603;5;56;De Valparaíso;Valparaíso;Cartagena;FALSE;0;FALSE;
-70;6;5604;5604;5;56;De Valparaíso;Valparaíso;El Quisco;FALSE;0;FALSE;
-71;6;5605;5605;5;56;De Valparaíso;Valparaíso;El Tabo;FALSE;0;FALSE;
-72;6;5606;5606;5;56;De Valparaíso;Valparaíso;Santo Domingo;FALSE;0;FALSE;
-73;6;5701;5701;5;57;De Valparaíso;Valparaíso;San Felipe;FALSE;0;FALSE;
-74;6;5702;5702;5;57;De Valparaíso;Valparaíso;Catemu;FALSE;0;FALSE;
-75;6;5703;5703;5;57;De Valparaíso;Valparaíso;Llaillay;FALSE;0;FALSE;
-76;6;5704;5704;5;57;De Valparaíso;Valparaíso;Panquehue;FALSE;0;FALSE;
-77;6;5705;5705;5;57;De Valparaíso;Valparaíso;Putaendo;FALSE;0;FALSE;
-78;6;5706;5706;5;57;De Valparaíso;Valparaíso;Santa María;FALSE;0;FALSE;
-79;6;5801;5801;5;58;De Valparaíso;Valparaíso;Quilpué;FALSE;0;FALSE;
-80;6;5802;5802;5;58;De Valparaíso;Valparaíso;Limache;FALSE;0;FALSE;
-81;6;5803;5803;5;58;De Valparaíso;Valparaíso;Olmué;FALSE;0;FALSE;
-82;6;5804;5804;5;58;De Valparaíso;Valparaíso;Villa Alemana;FALSE;0;FALSE;
-83;7;13101;13101;13;131;Metropolitana de Santiago;Metropolitana;Santiago;FALSE;0;TRUE;Centro
-84;7;13102;13102;13;131;Metropolitana de Santiago;Metropolitana;Cerrillos;FALSE;0;TRUE;Poniente
-85;7;13103;13103;13;131;Metropolitana de Santiago;Metropolitana;Cerro Navia;FALSE;0;TRUE;Poniente
-86;7;13104;13104;13;131;Metropolitana de Santiago;Metropolitana;Conchalí;FALSE;0;TRUE;Norte
-87;7;13105;13105;13;131;Metropolitana de Santiago;Metropolitana;El Bosque;FALSE;0;TRUE;Sur
-88;7;13106;13106;13;131;Metropolitana de Santiago;Metropolitana;Estación Central;FALSE;0;TRUE;Poniente
-89;7;13107;13107;13;131;Metropolitana de Santiago;Metropolitana;Huechuraba;FALSE;0;TRUE;Norte
-90;7;13108;13108;13;131;Metropolitana de Santiago;Metropolitana;Independencia;FALSE;0;TRUE;Norte
-91;7;13109;13109;13;131;Metropolitana de Santiago;Metropolitana;La Cisterna;FALSE;0;TRUE;Sur
-92;7;13110;13110;13;131;Metropolitana de Santiago;Metropolitana;La Florida;FALSE;0;TRUE;Sur
-93;7;13111;13111;13;131;Metropolitana de Santiago;Metropolitana;La Granja;FALSE;0;TRUE;Sur
-94;7;13112;13112;13;131;Metropolitana de Santiago;Metropolitana;La Pintana;FALSE;0;TRUE;Sur
-95;7;13113;13113;13;131;Metropolitana de Santiago;Metropolitana;La Reina;FALSE;0;TRUE;Oriente
-96;7;13114;13114;13;131;Metropolitana de Santiago;Metropolitana;Las Condes;FALSE;0;TRUE;Oriente
-97;7;13115;13115;13;131;Metropolitana de Santiago;Metropolitana;Lo Barnechea;FALSE;0;TRUE;Oriente
-98;7;13116;13116;13;131;Metropolitana de Santiago;Metropolitana;Lo Espejo;FALSE;0;TRUE;Poniente
-99;7;13117;13117;13;131;Metropolitana de Santiago;Metropolitana;Lo Prado;FALSE;0;TRUE;Poniente
-100;7;13118;13118;13;131;Metropolitana de Santiago;Metropolitana;Macul;FALSE;0;TRUE;Centro
-101;7;13119;13119;13;131;Metropolitana de Santiago;Metropolitana;Maipú;FALSE;0;TRUE;Poniente
-102;7;13120;13120;13;131;Metropolitana de Santiago;Metropolitana;Ñuñoa;FALSE;0;TRUE;Centro
-103;7;13121;13121;13;131;Metropolitana de Santiago;Metropolitana;Pedro Aguirre Cerda;FALSE;0;TRUE;Poniente
-104;7;13122;13122;13;131;Metropolitana de Santiago;Metropolitana;Peñalolén;FALSE;0;TRUE;Oriente
-105;7;13123;13123;13;131;Metropolitana de Santiago;Metropolitana;Providencia;FALSE;0;TRUE;Centro
-106;7;13124;13124;13;131;Metropolitana de Santiago;Metropolitana;Pudahuel;FALSE;0;TRUE;Poniente
-107;7;13125;13125;13;131;Metropolitana de Santiago;Metropolitana;Quilicura;FALSE;0;TRUE;Norte
-108;7;13126;13126;13;131;Metropolitana de Santiago;Metropolitana;Quinta Normal;FALSE;0;TRUE;Poniente
-109;7;13127;13127;13;131;Metropolitana de Santiago;Metropolitana;Recoleta;FALSE;0;TRUE;Norte
-110;7;13128;13128;13;131;Metropolitana de Santiago;Metropolitana;Renca;FALSE;0;TRUE;Norte
-111;7;13129;13129;13;131;Metropolitana de Santiago;Metropolitana;San Joaquín;FALSE;0;TRUE;Centro
-112;7;13130;13130;13;131;Metropolitana de Santiago;Metropolitana;San Miguel;FALSE;0;TRUE;Centro
-113;7;13131;13131;13;131;Metropolitana de Santiago;Metropolitana;San Ramón;FALSE;0;TRUE;Sur
-114;7;13132;13132;13;131;Metropolitana de Santiago;Metropolitana;Vitacura;FALSE;0;TRUE;Oriente
-115;7;13201;13201;13;132;Metropolitana de Santiago;Metropolitana;Puente Alto;FALSE;0;TRUE;Sur
-116;7;13202;13202;13;132;Metropolitana de Santiago;Metropolitana;Pirque;FALSE;0;FALSE;Oriente
-117;7;13203;13203;13;132;Metropolitana de Santiago;Metropolitana;San José de Maipo;FALSE;0;FALSE;Oriente
-118;7;13301;13301;13;133;Metropolitana de Santiago;Metropolitana;Colina;FALSE;0;FALSE;Norte
-119;7;13302;13302;13;133;Metropolitana de Santiago;Metropolitana;Lampa;FALSE;0;FALSE;Norte
-120;7;13303;13303;13;133;Metropolitana de Santiago;Metropolitana;Til Til;FALSE;0;FALSE;Norte
-121;7;13401;13401;13;134;Metropolitana de Santiago;Metropolitana;San Bernardo;FALSE;0;TRUE;Sur
-122;7;13402;13402;13;134;Metropolitana de Santiago;Metropolitana;Buin;FALSE;0;FALSE;Sur
-123;7;13403;13403;13;134;Metropolitana de Santiago;Metropolitana;Calera de Tango;FALSE;0;FALSE;Sur
-124;7;13404;13404;13;134;Metropolitana de Santiago;Metropolitana;Paine;FALSE;0;FALSE;Sur
-125;7;13501;13501;13;135;Metropolitana de Santiago;Metropolitana;Melipilla;FALSE;0;FALSE;Poniente
-126;7;13502;13502;13;135;Metropolitana de Santiago;Metropolitana;Alhué;FALSE;0;FALSE;Poniente
-127;7;13503;13503;13;135;Metropolitana de Santiago;Metropolitana;Curacaví;FALSE;0;FALSE;Poniente
-128;7;13504;13504;13;135;Metropolitana de Santiago;Metropolitana;María Pinto;FALSE;0;FALSE;Poniente
-129;7;13505;13505;13;135;Metropolitana de Santiago;Metropolitana;San Pedro;FALSE;0;FALSE;Poniente
-130;7;13601;13601;13;136;Metropolitana de Santiago;Metropolitana;Talagante;FALSE;0;FALSE;Poniente
-131;7;13602;13602;13;136;Metropolitana de Santiago;Metropolitana;El Monte;FALSE;0;FALSE;Poniente
-132;7;13603;13603;13;136;Metropolitana de Santiago;Metropolitana;Isla de Maipo;FALSE;0;FALSE;Poniente
-133;7;13604;13604;13;136;Metropolitana de Santiago;Metropolitana;Padre Hurtado;FALSE;0;FALSE;Poniente
-134;7;13605;13605;13;136;Metropolitana de Santiago;Metropolitana;Peñaflor;FALSE;0;FALSE;Poniente
-135;8;6101;6101;6;61;Del Libertador B. O’Higgins;O’Higgins;Rancagua;TRUE;0;FALSE;
-136;8;6102;6102;6;61;Del Libertador B. O’Higgins;O’Higgins;Codegua;FALSE;0;FALSE;
-137;8;6103;6103;6;61;Del Libertador B. O’Higgins;O’Higgins;Coinco;FALSE;0;FALSE;
-138;8;6104;6104;6;61;Del Libertador B. O’Higgins;O’Higgins;Coltauco;FALSE;0;FALSE;
-139;8;6105;6105;6;61;Del Libertador B. O’Higgins;O’Higgins;Doñihue;FALSE;0;FALSE;
-140;8;6106;6106;6;61;Del Libertador B. O’Higgins;O’Higgins;Graneros;FALSE;0;FALSE;
-141;8;6107;6107;6;61;Del Libertador B. O’Higgins;O’Higgins;Las Cabras;FALSE;0;FALSE;
-142;8;6108;6108;6;61;Del Libertador B. O’Higgins;O’Higgins;Machalí;FALSE;0;FALSE;
-143;8;6109;6109;6;61;Del Libertador B. O’Higgins;O’Higgins;Malloa;FALSE;0;FALSE;
-144;8;6110;6110;6;61;Del Libertador B. O’Higgins;O’Higgins;Mostazal;FALSE;0;FALSE;
-145;8;6111;6111;6;61;Del Libertador B. O’Higgins;O’Higgins;Olivar;FALSE;0;FALSE;
-146;8;6112;6112;6;61;Del Libertador B. O’Higgins;O’Higgins;Peumo;FALSE;0;FALSE;
-147;8;6113;6113;6;61;Del Libertador B. O’Higgins;O’Higgins;Pichidegua;FALSE;0;FALSE;
-148;8;6114;6114;6;61;Del Libertador B. O’Higgins;O’Higgins;Quinta de Tilcoco;FALSE;0;FALSE;
-149;8;6115;6115;6;61;Del Libertador B. O’Higgins;O’Higgins;Rengo;FALSE;0;FALSE;
-150;8;6116;6116;6;61;Del Libertador B. O’Higgins;O’Higgins;Requínoa;FALSE;0;FALSE;
-151;8;6117;6117;6;61;Del Libertador B. O’Higgins;O’Higgins;San Vicente;FALSE;0;FALSE;
-152;8;6201;6201;6;62;Del Libertador B. O’Higgins;O’Higgins;Pichilemu;FALSE;0;FALSE;
-153;8;6202;6202;6;62;Del Libertador B. O’Higgins;O’Higgins;La Estrella;FALSE;0;FALSE;
-154;8;6203;6203;6;62;Del Libertador B. O’Higgins;O’Higgins;Litueche;FALSE;0;FALSE;
-155;8;6204;6204;6;62;Del Libertador B. O’Higgins;O’Higgins;Marchihue;FALSE;0;FALSE;
-156;8;6205;6205;6;62;Del Libertador B. O’Higgins;O’Higgins;Navidad;FALSE;0;FALSE;
-157;8;6206;6206;6;62;Del Libertador B. O’Higgins;O’Higgins;Paredones;FALSE;0;FALSE;
-158;8;6301;6301;6;63;Del Libertador B. O’Higgins;O’Higgins;San Fernando;FALSE;0;FALSE;
-159;8;6302;6302;6;63;Del Libertador B. O’Higgins;O’Higgins;Chépica;FALSE;0;FALSE;
-160;8;6303;6303;6;63;Del Libertador B. O’Higgins;O’Higgins;Chimbarongo;FALSE;0;FALSE;
-161;8;6304;6304;6;63;Del Libertador B. O’Higgins;O’Higgins;Lolol;FALSE;0;FALSE;
-162;8;6305;6305;6;63;Del Libertador B. O’Higgins;O’Higgins;Nancagua;FALSE;0;FALSE;
-163;8;6306;6306;6;63;Del Libertador B. O’Higgins;O’Higgins;Palmilla;FALSE;0;FALSE;
-164;8;6307;6307;6;63;Del Libertador B. O’Higgins;O’Higgins;Peralillo;FALSE;0;FALSE;
-165;8;6308;6308;6;63;Del Libertador B. O’Higgins;O’Higgins;Placilla;FALSE;0;FALSE;
-166;8;6309;6309;6;63;Del Libertador B. O’Higgins;O’Higgins;Pumanque;FALSE;0;FALSE;
-167;8;6310;6310;6;63;Del Libertador B. O’Higgins;O’Higgins;Santa Cruz;FALSE;0;FALSE;
-168;9;7101;7101;7;71;Del Maule;Maule;Talca;TRUE;0;FALSE;
-169;9;7102;7102;7;71;Del Maule;Maule;Constitución;FALSE;0;FALSE;
-170;9;7103;7103;7;71;Del Maule;Maule;Curepto;FALSE;0;FALSE;
-171;9;7104;7104;7;71;Del Maule;Maule;Empedrado;FALSE;0;FALSE;
-172;9;7105;7105;7;71;Del Maule;Maule;Maule;FALSE;0;FALSE;
-173;9;7106;7106;7;71;Del Maule;Maule;Pelarco;FALSE;0;FALSE;
-174;9;7107;7107;7;71;Del Maule;Maule;Pencahue;FALSE;0;FALSE;
-175;9;7108;7108;7;71;Del Maule;Maule;Río Claro;FALSE;0;FALSE;
-176;9;7109;7109;7;71;Del Maule;Maule;San Clemente;FALSE;0;FALSE;
-177;9;7110;7110;7;71;Del Maule;Maule;San Rafael;FALSE;0;FALSE;
-178;9;7201;7201;7;72;Del Maule;Maule;Cauquenes;FALSE;0;FALSE;
-179;9;7202;7202;7;72;Del Maule;Maule;Chanco;FALSE;0;FALSE;
-180;9;7203;7203;7;72;Del Maule;Maule;Pelluhue;FALSE;0;FALSE;
-181;9;7301;7301;7;73;Del Maule;Maule;Curicó;FALSE;0;FALSE;
-182;9;7302;7302;7;73;Del Maule;Maule;Hualañé;FALSE;0;FALSE;
-183;9;7303;7303;7;73;Del Maule;Maule;Licantén;FALSE;0;FALSE;
-184;9;7304;7304;7;73;Del Maule;Maule;Molina;FALSE;0;FALSE;
-185;9;7305;7305;7;73;Del Maule;Maule;Rauco;FALSE;0;FALSE;
-186;9;7306;7306;7;73;Del Maule;Maule;Romeral;FALSE;0;FALSE;
-187;9;7307;7307;7;73;Del Maule;Maule;Sagrada Familia;FALSE;0;FALSE;
-188;9;7308;7308;7;73;Del Maule;Maule;Teno;FALSE;0;FALSE;
-189;9;7309;7309;7;73;Del Maule;Maule;Vichuquén;FALSE;0;FALSE;
-190;9;7401;7401;7;74;Del Maule;Maule;Linares;FALSE;0;FALSE;
-191;9;7402;7402;7;74;Del Maule;Maule;Colbún;FALSE;0;FALSE;
-192;9;7403;7403;7;74;Del Maule;Maule;Longaví;FALSE;0;FALSE;
-193;9;7404;7404;7;74;Del Maule;Maule;Parral;FALSE;0;FALSE;
-194;9;7405;7405;7;74;Del Maule;Maule;Retiro;FALSE;0;FALSE;
-195;9;7406;7406;7;74;Del Maule;Maule;San Javier;FALSE;0;FALSE;
-196;9;7407;7407;7;74;Del Maule;Maule;Villa Alegre;FALSE;0;FALSE;
-197;9;7408;7408;7;74;Del Maule;Maule;Yerbas Buenas;FALSE;0;FALSE;
-198;10;8401;16101;16;161;De Ñuble;Ñuble;Chillán;TRUE;0;FALSE;
-199;10;8402;16102;16;161;De Ñuble;Ñuble;Bulnes;FALSE;0;FALSE;
-200;10;8406;16103;16;161;De Ñuble;Ñuble;Chillán Viejo;FALSE;0;FALSE;
-201;10;8407;16104;16;161;De Ñuble;Ñuble;El Carmen;FALSE;0;FALSE;
-202;10;8410;16105;16;161;De Ñuble;Ñuble;Pemuco;FALSE;0;FALSE;
-203;10;8411;16106;16;161;De Ñuble;Ñuble;Pinto;FALSE;0;FALSE;
-204;10;8413;16107;16;161;De Ñuble;Ñuble;Quillón;FALSE;0;FALSE;
-205;10;8418;16108;16;161;De Ñuble;Ñuble;San Ignacio;FALSE;0;FALSE;
-206;10;8421;16109;16;161;De Ñuble;Ñuble;Yungay;FALSE;0;FALSE;
-207;10;8414;16201;16;162;De Ñuble;Ñuble;Quirihue;FALSE;0;FALSE;
-208;10;8403;16202;16;162;De Ñuble;Ñuble;Cobquecura;FALSE;0;FALSE;
-209;10;8404;16203;16;162;De Ñuble;Ñuble;Coelemu;FALSE;0;FALSE;
-210;10;8408;16204;16;162;De Ñuble;Ñuble;Ninhue;FALSE;0;FALSE;
-211;10;8412;16205;16;162;De Ñuble;Ñuble;Portezuelo;FALSE;0;FALSE;
-212;10;8415;16206;16;162;De Ñuble;Ñuble;Ránquil;FALSE;0;FALSE;
-213;10;8420;16207;16;162;De Ñuble;Ñuble;Treguaco;FALSE;0;FALSE;
-214;10;8416;16301;16;163;De Ñuble;Ñuble;San Carlos;FALSE;0;FALSE;
-215;10;8405;16302;16;163;De Ñuble;Ñuble;Coihueco;FALSE;0;FALSE;
-216;10;8409;16303;16;163;De Ñuble;Ñuble;Ñiquén;FALSE;0;FALSE;
-217;10;8417;16304;16;163;De Ñuble;Ñuble;San Fabián;FALSE;0;FALSE;
-218;10;8419;16305;16;163;De Ñuble;Ñuble;San Nicolás;FALSE;0;FALSE;
-219;11;8101;8101;8;81;Del Biobío;Biobío;Concepción;TRUE;0;FALSE;
-220;11;8102;8102;8;81;Del Biobío;Biobío;Coronel;FALSE;0;FALSE;
-221;11;8103;8103;8;81;Del Biobío;Biobío;Chiguayante;FALSE;0;FALSE;
-222;11;8104;8104;8;81;Del Biobío;Biobío;Florida;FALSE;0;FALSE;
-223;11;8105;8105;8;81;Del Biobío;Biobío;Hualqui;FALSE;0;FALSE;
-224;11;8106;8106;8;81;Del Biobío;Biobío;Lota;FALSE;0;FALSE;
-225;11;8107;8107;8;81;Del Biobío;Biobío;Penco;FALSE;0;FALSE;
-226;11;8108;8108;8;81;Del Biobío;Biobío;San Pedro de la Paz;FALSE;0;FALSE;
-227;11;8109;8109;8;81;Del Biobío;Biobío;Santa Juana;FALSE;0;FALSE;
-228;11;8110;8110;8;81;Del Biobío;Biobío;Talcahuano;FALSE;0;FALSE;
-229;11;8111;8111;8;81;Del Biobío;Biobío;Tomé;FALSE;0;FALSE;
-230;11;8112;8112;8;81;Del Biobío;Biobío;Hualpén;FALSE;0;FALSE;
-231;11;8201;8201;8;82;Del Biobío;Biobío;Lebu;FALSE;0;FALSE;
-232;11;8202;8202;8;82;Del Biobío;Biobío;Arauco;FALSE;0;FALSE;
-233;11;8203;8203;8;82;Del Biobío;Biobío;Cañete;FALSE;0;FALSE;
-234;11;8204;8204;8;82;Del Biobío;Biobío;Contulmo;FALSE;0;FALSE;
-235;11;8205;8205;8;82;Del Biobío;Biobío;Curanilahue;FALSE;0;FALSE;
-236;11;8206;8206;8;82;Del Biobío;Biobío;Los Álamos;FALSE;0;FALSE;
-237;11;8207;8207;8;82;Del Biobío;Biobío;Tirúa;FALSE;0;FALSE;
-238;11;8301;8301;8;83;Del Biobío;Biobío;Los Ángeles;FALSE;0;FALSE;
-239;11;8302;8302;8;83;Del Biobío;Biobío;Antuco;FALSE;0;FALSE;
-240;11;8303;8303;8;83;Del Biobío;Biobío;Cabrero;FALSE;0;FALSE;
-241;11;8304;8304;8;83;Del Biobío;Biobío;Laja;FALSE;0;FALSE;
-242;11;8305;8305;8;83;Del Biobío;Biobío;Mulchén;FALSE;0;FALSE;
-243;11;8306;8306;8;83;Del Biobío;Biobío;Nacimiento;FALSE;0;FALSE;
-244;11;8307;8307;8;83;Del Biobío;Biobío;Negrete;FALSE;0;FALSE;
-245;11;8308;8308;8;83;Del Biobío;Biobío;Quilaco;FALSE;0;FALSE;
-246;11;8309;8309;8;83;Del Biobío;Biobío;Quilleco;FALSE;0;FALSE;
-247;11;8310;8310;8;83;Del Biobío;Biobío;San Rosendo;FALSE;0;FALSE;
-248;11;8311;8311;8;83;Del Biobío;Biobío;Santa Bárbara;FALSE;0;FALSE;
-249;11;8312;8312;8;83;Del Biobío;Biobío;Tucapel;FALSE;0;FALSE;
-250;11;8313;8313;8;83;Del Biobío;Biobío;Yumbel;FALSE;0;FALSE;
-251;11;8314;8314;8;83;Del Biobío;Biobío;Alto Biobío;FALSE;0;FALSE;
-252;12;9101;9101;9;91;De La Araucanía;La Araucanía;Temuco;TRUE;0;FALSE;
-253;12;9102;9102;9;91;De La Araucanía;La Araucanía;Carahue;FALSE;0;FALSE;
-254;12;9103;9103;9;91;De La Araucanía;La Araucanía;Cunco;FALSE;0;FALSE;
-255;12;9104;9104;9;91;De La Araucanía;La Araucanía;Curarrehue;FALSE;0;FALSE;
-256;12;9105;9105;9;91;De La Araucanía;La Araucanía;Freire;FALSE;0;FALSE;
-257;12;9106;9106;9;91;De La Araucanía;La Araucanía;Galvarino;FALSE;0;FALSE;
-258;12;9107;9107;9;91;De La Araucanía;La Araucanía;Gorbea;FALSE;0;FALSE;
-259;12;9108;9108;9;91;De La Araucanía;La Araucanía;Lautaro;FALSE;0;FALSE;
-260;12;9109;9109;9;91;De La Araucanía;La Araucanía;Loncoche;FALSE;0;FALSE;
-261;12;9110;9110;9;91;De La Araucanía;La Araucanía;Melipeuco;FALSE;0;FALSE;
-262;12;9111;9111;9;91;De La Araucanía;La Araucanía;Nueva Imperial;FALSE;0;FALSE;
-263;12;9112;9112;9;91;De La Araucanía;La Araucanía;Padre las Casas;FALSE;0;FALSE;
-264;12;9113;9113;9;91;De La Araucanía;La Araucanía;Perquenco;FALSE;0;FALSE;
-265;12;9114;9114;9;91;De La Araucanía;La Araucanía;Pitrufquén;FALSE;0;FALSE;
-266;12;9115;9115;9;91;De La Araucanía;La Araucanía;Pucón;FALSE;0;FALSE;
-267;12;9116;9116;9;91;De La Araucanía;La Araucanía;Saavedra;FALSE;0;FALSE;
-268;12;9117;9117;9;91;De La Araucanía;La Araucanía;Teodoro Schmidt;FALSE;0;FALSE;
-269;12;9118;9118;9;91;De La Araucanía;La Araucanía;Toltén;FALSE;0;FALSE;
-270;12;9119;9119;9;91;De La Araucanía;La Araucanía;Vilcún;FALSE;0;FALSE;
-271;12;9120;9120;9;91;De La Araucanía;La Araucanía;Villarrica;FALSE;0;FALSE;
-272;12;9121;9121;9;91;De La Araucanía;La Araucanía;Cholchol;FALSE;0;FALSE;
-273;12;9201;9201;9;92;De La Araucanía;La Araucanía;Angol;FALSE;0;FALSE;
-274;12;9202;9202;9;92;De La Araucanía;La Araucanía;Collipulli;FALSE;0;FALSE;
-275;12;9203;9203;9;92;De La Araucanía;La Araucanía;Curacautín;FALSE;0;FALSE;
-276;12;9204;9204;9;92;De La Araucanía;La Araucanía;Ercilla;FALSE;0;FALSE;
-277;12;9205;9205;9;92;De La Araucanía;La Araucanía;Lonquimay;FALSE;0;FALSE;
-278;12;9206;9206;9;92;De La Araucanía;La Araucanía;Los Sauces;FALSE;0;FALSE;
-279;12;9207;9207;9;92;De La Araucanía;La Araucanía;Lumaco;FALSE;0;FALSE;
-280;12;9208;9208;9;92;De La Araucanía;La Araucanía;Purén;FALSE;0;FALSE;
-281;12;9209;9209;9;92;De La Araucanía;La Araucanía;Renaico;FALSE;0;FALSE;
-282;12;9210;9210;9;92;De La Araucanía;La Araucanía;Traiguén;FALSE;0;FALSE;
-283;12;9211;9211;9;92;De La Araucanía;La Araucanía;Victoria;FALSE;0;FALSE;
-284;13;14101;14101;14;141;De Los Ríos;Los Ríos;Valdivia;TRUE;0;FALSE;
-285;13;14102;14102;14;141;De Los Ríos;Los Ríos;Corral;FALSE;0;FALSE;
-286;13;14103;14103;14;141;De Los Ríos;Los Ríos;Lanco;FALSE;0;FALSE;
-287;13;14104;14104;14;141;De Los Ríos;Los Ríos;Los Lagos;FALSE;0;FALSE;
-288;13;14105;14105;14;141;De Los Ríos;Los Ríos;Máfil;FALSE;0;FALSE;
-289;13;14106;14106;14;141;De Los Ríos;Los Ríos;Mariquina;FALSE;0;FALSE;
-290;13;14107;14107;14;141;De Los Ríos;Los Ríos;Paillaco;FALSE;0;FALSE;
-291;13;14108;14108;14;141;De Los Ríos;Los Ríos;Panguipulli;FALSE;0;FALSE;
-292;13;14201;14201;14;142;De Los Ríos;Los Ríos;La Unión;FALSE;0;FALSE;
-293;13;14202;14202;14;142;De Los Ríos;Los Ríos;Futrono;FALSE;0;FALSE;
-294;13;14203;14203;14;142;De Los Ríos;Los Ríos;Lago Ranco;FALSE;0;FALSE;
-295;13;14204;14204;14;142;De Los Ríos;Los Ríos;Río Bueno;FALSE;0;FALSE;
-296;14;10101;10101;10;101;De Los Lagos;Los Lagos;Puerto Montt;TRUE;0;FALSE;
-297;14;10102;10102;10;101;De Los Lagos;Los Lagos;Calbuco;FALSE;0;FALSE;
-298;14;10103;10103;10;101;De Los Lagos;Los Lagos;Cochamó;FALSE;1;FALSE;
-299;14;10104;10104;10;101;De Los Lagos;Los Lagos;Fresia;FALSE;0;FALSE;
-300;14;10105;10105;10;101;De Los Lagos;Los Lagos;Frutillar;FALSE;0;FALSE;
-301;14;10106;10106;10;101;De Los Lagos;Los Lagos;Los Muermos;FALSE;0;FALSE;
-302;14;10107;10107;10;101;De Los Lagos;Los Lagos;Llanquihue;FALSE;0;FALSE;
-303;14;10108;10108;10;101;De Los Lagos;Los Lagos;Maullín;FALSE;0;FALSE;
-304;14;10109;10109;10;101;De Los Lagos;Los Lagos;Puerto Varas;FALSE;0;FALSE;
-305;14;10201;10201;10;102;De Los Lagos;Los Lagos;Castro;FALSE;0;FALSE;
-306;14;10202;10202;10;102;De Los Lagos;Los Lagos;Ancud;FALSE;0;FALSE;
-307;14;10203;10203;10;102;De Los Lagos;Los Lagos;Chonchi;FALSE;0;FALSE;
-308;14;10204;10204;10;102;De Los Lagos;Los Lagos;Curaco de Vélez;FALSE;0;FALSE;
-309;14;10205;10205;10;102;De Los Lagos;Los Lagos;Dalcahue;FALSE;0;FALSE;
-310;14;10206;10206;10;102;De Los Lagos;Los Lagos;Puqueldón;FALSE;0;FALSE;
-311;14;10207;10207;10;102;De Los Lagos;Los Lagos;Queilén;FALSE;0;FALSE;
-312;14;10208;10208;10;102;De Los Lagos;Los Lagos;Quellón;FALSE;0;FALSE;
-313;14;10209;10209;10;102;De Los Lagos;Los Lagos;Quemchi;FALSE;0;FALSE;
-314;14;10210;10210;10;102;De Los Lagos;Los Lagos;Quinchao;FALSE;0;FALSE;
-315;14;10301;10301;10;103;De Los Lagos;Los Lagos;Osorno;FALSE;0;FALSE;
-316;14;10302;10302;10;103;De Los Lagos;Los Lagos;Puerto Octay;FALSE;0;FALSE;
-317;14;10303;10303;10;103;De Los Lagos;Los Lagos;Purranque;FALSE;0;FALSE;
-318;14;10304;10304;10;103;De Los Lagos;Los Lagos;Puyehue;FALSE;0;FALSE;
-319;14;10305;10305;10;103;De Los Lagos;Los Lagos;Río Negro;FALSE;0;FALSE;
-320;14;10306;10306;10;103;De Los Lagos;Los Lagos;San Juan de La Costa;FALSE;0;FALSE;
-321;14;10307;10307;10;103;De Los Lagos;Los Lagos;San Pablo;FALSE;0;FALSE;
-322;14;10401;10401;10;104;De Los Lagos;Los Lagos;Chaitén;FALSE;1;FALSE;
-323;14;10402;10402;10;104;De Los Lagos;Los Lagos;Futaleufú;FALSE;1;FALSE;
-324;14;10403;10403;10;104;De Los Lagos;Los Lagos;Hualaihué;FALSE;1;FALSE;
-325;14;10404;10404;10;104;De Los Lagos;Los Lagos;Palena;FALSE;1;FALSE;
-326;15;11101;11101;11;111;De Aysén del General Carlos Ibáñez del Campo;Aysén;Coyhaique;TRUE;0;FALSE;
-327;15;11102;11102;11;111;De Aysén del General Carlos Ibáñez del Campo;Aysén;Lago Verde;FALSE;1;FALSE;
-328;15;11201;11201;11;112;De Aysén del General Carlos Ibáñez del Campo;Aysén;Aysén;FALSE;0;FALSE;
-329;15;11202;11202;11;112;De Aysén del General Carlos Ibáñez del Campo;Aysén;Cisnes;FALSE;0;FALSE;
-330;15;11203;11203;11;112;De Aysén del General Carlos Ibáñez del Campo;Aysén;Guaitecas;FALSE;1;FALSE;
-331;15;11301;11301;11;113;De Aysén del General Carlos Ibáñez del Campo;Aysén;Cochrane;FALSE;0;FALSE;
-332;15;11302;11302;11;113;De Aysén del General Carlos Ibáñez del Campo;Aysén;O'Higgins;FALSE;1;FALSE;
-333;15;11303;11303;11;113;De Aysén del General Carlos Ibáñez del Campo;Aysén;Tortel;FALSE;1;FALSE;
-334;15;11401;11401;11;114;De Aysén del General Carlos Ibáñez del Campo;Aysén;Chile Chico;FALSE;2;FALSE;
-335;15;11402;11402;11;114;De Aysén del General Carlos Ibáñez del Campo;Aysén;Río Ibáñez;FALSE;0;FALSE;
-336;16;12101;12101;12;121;De Magallanes y Antártida Chilena;Magallanes;Punta Arenas;TRUE;0;FALSE;
-337;16;12102;12102;12;121;De Magallanes y Antártida Chilena;Magallanes;Laguna Blanca;FALSE;1;FALSE;
-338;16;12103;12103;12;121;De Magallanes y Antártida Chilena;Magallanes;Río Verde;FALSE;1;FALSE;
-339;16;12104;12104;12;121;De Magallanes y Antártida Chilena;Magallanes;San Gregorio;FALSE;1;FALSE;
-340;16;12201;12201;12;122;De Magallanes y Antártida Chilena;Magallanes;Cabo de Hornos;FALSE;1;FALSE;
-341;16;12202;12202;12;122;De Magallanes y Antártida Chilena;Magallanes;Antártica;FALSE;1;FALSE;
-342;16;12301;12301;12;123;De Magallanes y Antártida Chilena;Magallanes;Porvenir;FALSE;0;FALSE;
-343;16;12302;12302;12;123;De Magallanes y Antártida Chilena;Magallanes;Primavera;FALSE;1;FALSE;
-344;16;12303;12303;12;123;De Magallanes y Antártida Chilena;Magallanes;Timaukel;FALSE;1;FALSE;
-345;16;12401;12401;12;124;De Magallanes y Antártida Chilena;Magallanes;Natales;FALSE;0;FALSE;
-346;16;12402;12402;12;124;De Magallanes y Antártida Chilena;Magallanes;Torres del Paine;FALSE;1;FALSE;
+﻿id;region_orden;comuna;comuna18;region;provincia;region_nom;region_nom_small;comuna_nom;region_capital;comuna_extrema;gran_santiago;gran_santiago_zonas;educ_sup_com;hacinamiento;allegamiento_int;carente_ser_bas;carente_entorno;decil
+1;1;15101;15101;15;151;De Arica y Parinacota;Arica y Parinacota;Arica;TRUE;0;FALSE;;0,12;0,03;0,14;0,08;0,06;5,15
+2;1;15102;15102;15;151;De Arica y Parinacota;Arica y Parinacota;Camarones;FALSE;2;FALSE;;0;0;0,02;0,61;0,49;4,42
+3;1;15201;15201;15;152;De Arica y Parinacota;Arica y Parinacota;Putre;FALSE;2;FALSE;;0,05;0,02;0,07;0,48;0,18;5,01
+4;1;15202;15202;15;152;De Arica y Parinacota;Arica y Parinacota;General Lagos;FALSE;1;FALSE;;;;;;;
+5;2;1101;1101;1;11;De Tarapacá;Tarapacá;Iquique;TRUE;0;FALSE;;0,14;0,06;0,21;0,08;0,08;6,04
+6;2;1107;1107;1;11;De Tarapacá;Tarapacá;Alto Hospicio;FALSE;0;FALSE;;0,05;0,04;0,22;0,04;0,11;4,65
+7;2;1401;1401;1;14;De Tarapacá;Tarapacá;Pozo Almonte;FALSE;0;FALSE;;0,07;0,08;0,13;0,34;0,24;5,2
+8;2;1402;1402;1;14;De Tarapacá;Tarapacá;Camiña;FALSE;0;FALSE;;0;0,03;0,1;0,76;0,11;5,03
+9;2;1403;1403;1;14;De Tarapacá;Tarapacá;Colchane;FALSE;1;FALSE;;;;;;;
+10;2;1404;1404;1;14;De Tarapacá;Tarapacá;Huara;FALSE;0;FALSE;;0,02;0,05;0,1;0,52;0,11;4,91
+11;2;1405;1405;1;14;De Tarapacá;Tarapacá;Pica;FALSE;0;FALSE;;0,13;0,02;0,06;0,21;0,13;5,8
+12;3;2101;2101;2;21;De Antofagasta;Antofagasta;Antofagasta;TRUE;0;FALSE;;0,18;0,01;0,18;0,1;0,08;6,22
+13;3;2102;2102;2;21;De Antofagasta;Antofagasta;Mejillones;FALSE;0;FALSE;;0,01;0,01;0,14;0,04;0,15;5,71
+14;3;2103;2103;2;21;De Antofagasta;Antofagasta;Sierra Gorda;FALSE;0;FALSE;;0,02;0,02;0,04;0,02;0,02;6,29
+15;3;2104;2104;2;21;De Antofagasta;Antofagasta;Taltal;FALSE;0;FALSE;;0,01;0,02;0,2;0,11;0,07;5,7
+16;3;2201;2201;2;22;De Antofagasta;Antofagasta;Calama;FALSE;0;FALSE;;0,09;0,02;0,07;0,03;0,1;6,82
+17;3;2202;2202;2;22;De Antofagasta;Antofagasta;Ollagüe;FALSE;1;FALSE;;;;;;;
+18;3;2203;2203;2;22;De Antofagasta;Antofagasta;San Pedro de Atacama;FALSE;0;FALSE;;0,01;0;0,01;0,13;0,05;6,27
+19;3;2301;2301;2;23;De Antofagasta;Antofagasta;Tocopilla;FALSE;0;FALSE;;0,1;0;0,1;0,24;0,11;4,99
+20;3;2302;2302;2;23;De Antofagasta;Antofagasta;María Elena;FALSE;0;FALSE;;0,04;0,05;0,17;0;0,11;6,55
+21;4;3101;3101;3;31;De Atacama;Atacama;Copiapó;TRUE;0;FALSE;;0,15;0,01;0,16;0,02;0,23;5,72
+22;4;3102;3102;3;31;De Atacama;Atacama;Caldera;FALSE;0;FALSE;;0,06;0;0,09;0,01;0,11;5,12
+23;4;3103;3103;3;31;De Atacama;Atacama;Tierra Amarilla;FALSE;0;FALSE;;0;0,01;0,15;0,13;0,25;5,35
+24;4;3201;3201;3;32;De Atacama;Atacama;Chañaral;FALSE;0;FALSE;;0,03;0,02;0,15;0;0,79;4,6
+25;4;3202;3202;3;32;De Atacama;Atacama;Diego de Almagro;FALSE;0;FALSE;;0,11;0,02;0,07;0,01;0,51;5,92
+26;4;3301;3301;3;33;De Atacama;Atacama;Vallenar;FALSE;0;FALSE;;0,1;0,03;0,19;0,07;0,06;5,3
+27;4;3302;3302;3;33;De Atacama;Atacama;Alto del Carmen;FALSE;0;FALSE;;0,03;0;0,08;0,21;0,34;4,07
+28;4;3303;3303;3;33;De Atacama;Atacama;Freirina;FALSE;0;FALSE;;0,05;0,05;0,28;0,23;0,14;4,34
+29;4;3304;3304;3;33;De Atacama;Atacama;Huasco;FALSE;0;FALSE;;0,13;0;0,02;0,09;0,12;4,76
+30;5;4101;4101;4;41;De Coquimbo;Coquimbo;La Serena;TRUE;0;FALSE;;0,13;0,02;0,2;0,05;0,08;4,7
+31;5;4102;4102;4;41;De Coquimbo;Coquimbo;Coquimbo;FALSE;0;FALSE;;0,07;0,03;0,15;0,04;0,08;4,37
+32;5;4103;4103;4;41;De Coquimbo;Coquimbo;Andacollo;FALSE;0;FALSE;;0;0,01;0,19;0,09;0,12;3,78
+33;5;4104;4104;4;41;De Coquimbo;Coquimbo;La Higuera;FALSE;0;FALSE;;0;0,01;0,24;0,18;0,09;3,98
+34;5;4105;4105;4;41;De Coquimbo;Coquimbo;Paiguano;FALSE;0;FALSE;;0,09;0,03;0,14;0,17;0,39;3,37
+35;5;4106;4106;4;41;De Coquimbo;Coquimbo;Vicuña;FALSE;0;FALSE;;0,05;0;0,11;0,13;0,12;3,72
+36;5;4201;4201;4;42;De Coquimbo;Coquimbo;Illapel;FALSE;0;FALSE;;0,1;0,02;0,13;0,05;0,07;4,45
+37;5;4202;4202;4;42;De Coquimbo;Coquimbo;Canela;FALSE;0;FALSE;;0,02;0;0,06;0,42;0,23;3,62
+38;5;4203;4203;4;42;De Coquimbo;Coquimbo;Los Vilos;FALSE;0;FALSE;;0,03;0;0,14;0,11;0,08;4,71
+39;5;4204;4204;4;42;De Coquimbo;Coquimbo;Salamanca;FALSE;0;FALSE;;0,07;0,02;0,19;0,25;0,15;4,55
+40;5;4301;4301;4;43;De Coquimbo;Coquimbo;Ovalle;FALSE;0;FALSE;;0,08;0,01;0,22;0,11;0,07;4,91
+41;5;4302;4302;4;43;De Coquimbo;Coquimbo;Combarbalá;FALSE;0;FALSE;;0,04;0;0,16;0,18;0,15;3,94
+42;5;4303;4303;4;43;De Coquimbo;Coquimbo;Monte Patria;FALSE;0;FALSE;;0,01;0;0,2;0,15;0,34;3,83
+43;5;4304;4304;4;43;De Coquimbo;Coquimbo;Punitaqui;FALSE;0;FALSE;;0,03;0,01;0,06;0,29;0,29;3,82
+44;5;4305;4305;4;43;De Coquimbo;Coquimbo;Río Hurtado;FALSE;0;FALSE;;0,05;0;0,09;0,16;0,12;3,77
+45;6;5101;5101;5;51;De Valparaíso;Valparaíso;Valparaíso;TRUE;0;FALSE;;0,16;0,01;0,14;0,03;0,12;5,8
+46;6;5102;5102;5;51;De Valparaíso;Valparaíso;Casablanca;FALSE;0;FALSE;;0,05;0;0,16;0,04;0,05;5,82
+47;6;5103;5103;5;51;De Valparaíso;Valparaíso;Concón;FALSE;0;FALSE;;0,27;0;0,2;0,03;0,17;5,88
+48;6;5104;5104;5;51;De Valparaíso;Valparaíso;Juan Fernández;FALSE;1;FALSE;;;;;;;
+49;6;5105;5105;5;51;De Valparaíso;Valparaíso;Puchuncaví;FALSE;0;FALSE;;0,1;0,06;0,18;0,09;0,16;5,08
+50;6;5107;5107;5;51;De Valparaíso;Valparaíso;Quintero;FALSE;0;FALSE;;0,15;0,04;0,12;0,21;0,26;5,84
+51;6;5109;5109;5;51;De Valparaíso;Valparaíso;Viña del Mar;FALSE;0;FALSE;;0,23;0,01;0,15;0,02;0,11;6,47
+52;6;5201;5201;5;52;De Valparaíso;Valparaíso;Isla de Pascua;FALSE;1;FALSE;;;;;;;
+53;6;5301;5301;5;53;De Valparaíso;Valparaíso;Los Andes;FALSE;0;FALSE;;0,14;0;0,13;0,02;0,04;5,84
+54;6;5302;5302;5;53;De Valparaíso;Valparaíso;Calle Larga;FALSE;0;FALSE;;0;0,02;0,16;0,04;0,05;3,95
+55;6;5303;5303;5;53;De Valparaíso;Valparaíso;Rinconada;FALSE;0;FALSE;;0,04;0;0,2;0,02;0,08;5,18
+56;6;5304;5304;5;53;De Valparaíso;Valparaíso;San Esteban;FALSE;0;FALSE;;0,07;0,02;0,12;0,01;0,16;4,27
+57;6;5401;5401;5;54;De Valparaíso;Valparaíso;La Ligua;FALSE;0;FALSE;;0,12;0;0,15;0,07;0,05;4,2
+58;6;5402;5402;5;54;De Valparaíso;Valparaíso;Cabildo;FALSE;0;FALSE;;0,13;0;0,06;0,06;0,09;4,84
+59;6;5403;5403;5;54;De Valparaíso;Valparaíso;Papudo;FALSE;0;FALSE;;0,11;0;0,14;0;0,1;5,14
+60;6;5404;5404;5;54;De Valparaíso;Valparaíso;Petorca;FALSE;0;FALSE;;0,06;0;0,21;0,08;0,06;4,44
+61;6;5405;5405;5;54;De Valparaíso;Valparaíso;Zapallar;FALSE;0;FALSE;;0,04;0;0,18;0,16;0,15;5,24
+62;6;5501;5501;5;55;De Valparaíso;Valparaíso;Quillota;FALSE;0;FALSE;;0,11;0,01;0,16;0,04;0,06;5,07
+63;6;5502;5502;5;55;De Valparaíso;Valparaíso;Calera;FALSE;0;FALSE;;0,05;0,01;0,2;0,03;0,08;4,38
+64;6;5503;5503;5;55;De Valparaíso;Valparaíso;Hijuelas;FALSE;0;FALSE;;0,04;0;0,2;0,21;0,14;4,47
+65;6;5504;5504;5;55;De Valparaíso;Valparaíso;La Cruz;FALSE;0;FALSE;;0,05;0,01;0,18;0,03;0,12;4,98
+66;6;5506;5506;5;55;De Valparaíso;Valparaíso;Nogales;FALSE;0;FALSE;;0,02;0,02;0,33;0,11;0,21;4,22
+67;6;5601;5601;5;56;De Valparaíso;Valparaíso;San Antonio;FALSE;0;FALSE;;0,05;0,01;0,26;0,03;0,08;4,71
+68;6;5602;5602;5;56;De Valparaíso;Valparaíso;Algarrobo;FALSE;0;FALSE;;0,23;0,02;0,1;0,06;0,29;6,56
+69;6;5603;5603;5;56;De Valparaíso;Valparaíso;Cartagena;FALSE;0;FALSE;;0,03;0;0,13;0,02;0,18;4,84
+70;6;5604;5604;5;56;De Valparaíso;Valparaíso;El Quisco;FALSE;0;FALSE;;0,09;0;0,15;0,09;0,34;4,95
+71;6;5605;5605;5;56;De Valparaíso;Valparaíso;El Tabo;FALSE;0;FALSE;;0,2;0;0,21;0,02;0,19;5,34
+72;6;5606;5606;5;56;De Valparaíso;Valparaíso;Santo Domingo;FALSE;0;FALSE;;0,14;0,01;0,15;0,06;0,15;5,83
+73;6;5701;5701;5;57;De Valparaíso;Valparaíso;San Felipe;FALSE;0;FALSE;;0,12;0,01;0,17;0,07;0,08;5,65
+74;6;5702;5702;5;57;De Valparaíso;Valparaíso;Catemu;FALSE;0;FALSE;;0,02;0,05;0,14;0,17;0,07;3,97
+75;6;5703;5703;5;57;De Valparaíso;Valparaíso;Llaillay;FALSE;0;FALSE;;0,01;0,02;0,18;0,12;0,06;5,29
+76;6;5704;5704;5;57;De Valparaíso;Valparaíso;Panquehue;FALSE;0;FALSE;;0,05;0,02;0,15;0,22;0,09;4,8
+77;6;5705;5705;5;57;De Valparaíso;Valparaíso;Putaendo;FALSE;0;FALSE;;0,02;0;0,25;0,18;0,12;4,19
+78;6;5706;5706;5;57;De Valparaíso;Valparaíso;Santa María;FALSE;0;FALSE;;0,05;0,01;0,14;0,19;0,06;4,84
+79;6;5801;5801;5;58;De Valparaíso;Valparaíso;Quilpué;FALSE;0;FALSE;;0,15;0,01;0,12;0,02;0,08;5,91
+80;6;5802;5802;5;58;De Valparaíso;Valparaíso;Limache;FALSE;0;FALSE;;0,05;0,01;0,18;0,04;0,16;5,22
+81;6;5803;5803;5;58;De Valparaíso;Valparaíso;Olmué;FALSE;0;FALSE;;0,09;0;0,15;0,27;0,23;5,09
+82;6;5804;5804;5;58;De Valparaíso;Valparaíso;Villa Alemana;FALSE;0;FALSE;;0,18;0,01;0,13;0,04;0,06;6,06
+83;7;13101;13101;13;131;Metropolitana de Santiago;Metropolitana;Santiago;FALSE;0;TRUE;Centro;0,43;0,03;0,11;0,02;0,07;7,96
+84;7;13102;13102;13;131;Metropolitana de Santiago;Metropolitana;Cerrillos;FALSE;0;TRUE;Poniente;0,05;0,03;0,26;0,11;0,08;5,02
+85;7;13103;13103;13;131;Metropolitana de Santiago;Metropolitana;Cerro Navia;FALSE;0;TRUE;Poniente;0,04;0,03;0,23;0,05;0,2;4,76
+86;7;13104;13104;13;131;Metropolitana de Santiago;Metropolitana;Conchalí;FALSE;0;TRUE;Norte;0,04;0,04;0,24;0,09;0,12;5,36
+87;7;13105;13105;13;131;Metropolitana de Santiago;Metropolitana;El Bosque;FALSE;0;TRUE;Sur;0,08;0,02;0,26;0,01;0,14;5,06
+88;7;13106;13106;13;131;Metropolitana de Santiago;Metropolitana;Estación Central;FALSE;0;TRUE;Poniente;0,06;0,02;0,18;0,05;0,1;5,43
+89;7;13107;13107;13;131;Metropolitana de Santiago;Metropolitana;Huechuraba;FALSE;0;TRUE;Norte;0,02;0,06;0,22;0,04;0,15;5,34
+90;7;13108;13108;13;131;Metropolitana de Santiago;Metropolitana;Independencia;FALSE;0;TRUE;Norte;0,21;0,07;0,24;0,03;0,05;6,43
+91;7;13109;13109;13;131;Metropolitana de Santiago;Metropolitana;La Cisterna;FALSE;0;TRUE;Sur;0,24;0,01;0,22;0,02;0,09;6
+92;7;13110;13110;13;131;Metropolitana de Santiago;Metropolitana;La Florida;FALSE;0;TRUE;Sur;0,19;0,02;0,2;0,02;0,09;6,1
+93;7;13111;13111;13;131;Metropolitana de Santiago;Metropolitana;La Granja;FALSE;0;TRUE;Sur;0,03;0,02;0,18;0,02;0,05;4,99
+94;7;13112;13112;13;131;Metropolitana de Santiago;Metropolitana;La Pintana;FALSE;0;TRUE;Sur;0,01;0,03;0,21;0,02;0,14;4,15
+95;7;13113;13113;13;131;Metropolitana de Santiago;Metropolitana;La Reina;FALSE;0;TRUE;Oriente;0,53;0;0,14;0,03;0,03;8,23
+96;7;13114;13114;13;131;Metropolitana de Santiago;Metropolitana;Las Condes;FALSE;0;TRUE;Oriente;0,63;0;0,09;0,02;0,03;8,82
+97;7;13115;13115;13;131;Metropolitana de Santiago;Metropolitana;Lo Barnechea;FALSE;0;TRUE;Oriente;0,26;0,01;0,16;0,05;0,15;6,42
+98;7;13116;13116;13;131;Metropolitana de Santiago;Metropolitana;Lo Espejo;FALSE;0;TRUE;Poniente;0,01;0,03;0,24;0,02;0,22;4,85
+99;7;13117;13117;13;131;Metropolitana de Santiago;Metropolitana;Lo Prado;FALSE;0;TRUE;Poniente;0,05;0,04;0,16;0,04;0,07;5,54
+100;7;13118;13118;13;131;Metropolitana de Santiago;Metropolitana;Macul;FALSE;0;TRUE;Centro;0,17;0,02;0,25;0;0,07;6,17
+101;7;13119;13119;13;131;Metropolitana de Santiago;Metropolitana;Maipú;FALSE;0;TRUE;Poniente;0,12;0;0,16;0,01;0,12;6,03
+102;7;13120;13120;13;131;Metropolitana de Santiago;Metropolitana;Ñuñoa;FALSE;0;TRUE;Centro;0,57;0;0,12;0,01;0,05;8,4
+103;7;13121;13121;13;131;Metropolitana de Santiago;Metropolitana;Pedro Aguirre Cerda;FALSE;0;TRUE;Poniente;0,11;0,03;0,29;0,01;0,13;5,35
+104;7;13122;13122;13;131;Metropolitana de Santiago;Metropolitana;Peñalolén;FALSE;0;TRUE;Oriente;0,15;0,04;0,23;0,05;0,11;6,05
+105;7;13123;13123;13;131;Metropolitana de Santiago;Metropolitana;Providencia;FALSE;0;TRUE;Centro;0,7;0;0,06;0,01;0,05;9,12
+106;7;13124;13124;13;131;Metropolitana de Santiago;Metropolitana;Pudahuel;FALSE;0;TRUE;Poniente;0,07;0,03;0,18;0,01;0,1;5,41
+107;7;13125;13125;13;131;Metropolitana de Santiago;Metropolitana;Quilicura;FALSE;0;TRUE;Norte;0,06;0,03;0,13;0,05;0,1;5,97
+108;7;13126;13126;13;131;Metropolitana de Santiago;Metropolitana;Quinta Normal;FALSE;0;TRUE;Poniente;0,08;0,05;0,31;0,06;0,12;5,69
+109;7;13127;13127;13;131;Metropolitana de Santiago;Metropolitana;Recoleta;FALSE;0;TRUE;Norte;0,09;0,05;0,12;0,04;0,1;5,71
+110;7;13128;13128;13;131;Metropolitana de Santiago;Metropolitana;Renca;FALSE;0;TRUE;Norte;0,03;0,01;0,25;0,01;0,15;5,29
+111;7;13129;13129;13;131;Metropolitana de Santiago;Metropolitana;San Joaquín;FALSE;0;TRUE;Centro;0,1;0,05;0,17;0,02;0,12;5,44
+112;7;13130;13130;13;131;Metropolitana de Santiago;Metropolitana;San Miguel;FALSE;0;TRUE;Centro;0,22;0;0,16;0,05;0,02;6,52
+113;7;13131;13131;13;131;Metropolitana de Santiago;Metropolitana;San Ramón;FALSE;0;TRUE;Sur;0,02;0,03;0,23;0,04;0,1;4,49
+114;7;13132;13132;13;131;Metropolitana de Santiago;Metropolitana;Vitacura;FALSE;0;TRUE;Oriente;0,73;0;0,07;0;0,02;9,48
+115;7;13201;13201;13;132;Metropolitana de Santiago;Metropolitana;Puente Alto;FALSE;0;TRUE;Sur;0,1;0,03;0,2;0,01;0,13;5,67
+116;7;13202;13202;13;132;Metropolitana de Santiago;Metropolitana;Pirque;FALSE;0;FALSE;Oriente;0,21;0,01;0,17;0,12;0,21;6,73
+117;7;13203;13203;13;132;Metropolitana de Santiago;Metropolitana;San José de Maipo;FALSE;0;FALSE;Oriente;0,07;0,04;0,11;0,2;0,09;6,04
+118;7;13301;13301;13;133;Metropolitana de Santiago;Metropolitana;Colina;FALSE;0;FALSE;Norte;0,13;0,01;0,16;0,01;0,14;5,26
+119;7;13302;13302;13;133;Metropolitana de Santiago;Metropolitana;Lampa;FALSE;0;FALSE;Norte;0,09;0,01;0,18;0,06;0,16;6,05
+120;7;13303;13303;13;133;Metropolitana de Santiago;Metropolitana;Til Til;FALSE;0;FALSE;Norte;0,02;0,01;0,14;0,11;0,19;4,73
+121;7;13401;13401;13;134;Metropolitana de Santiago;Metropolitana;San Bernardo;FALSE;0;TRUE;Sur;0,08;0,05;0,26;0,03;0,17;5,03
+122;7;13402;13402;13;134;Metropolitana de Santiago;Metropolitana;Buin;FALSE;0;FALSE;Sur;0,05;0,01;0,2;0,02;0,06;4,81
+123;7;13403;13403;13;134;Metropolitana de Santiago;Metropolitana;Calera de Tango;FALSE;0;FALSE;Sur;0,04;0,02;0,3;0,11;0,02;5,36
+124;7;13404;13404;13;134;Metropolitana de Santiago;Metropolitana;Paine;FALSE;0;FALSE;Sur;0,1;0,02;0,17;0,06;0,1;5,79
+125;7;13501;13501;13;135;Metropolitana de Santiago;Metropolitana;Melipilla;FALSE;0;FALSE;Poniente;0,09;0,03;0,2;0,06;0,13;4,76
+126;7;13502;13502;13;135;Metropolitana de Santiago;Metropolitana;Alhué;FALSE;0;FALSE;Poniente;0,03;0;0,11;0,08;0,32;5,58
+127;7;13503;13503;13;135;Metropolitana de Santiago;Metropolitana;Curacaví;FALSE;0;FALSE;Poniente;0,01;0,01;0,12;0,07;0,19;4,23
+128;7;13504;13504;13;135;Metropolitana de Santiago;Metropolitana;María Pinto;FALSE;0;FALSE;Poniente;0,05;0,02;0,21;0,03;0,17;3,71
+129;7;13505;13505;13;135;Metropolitana de Santiago;Metropolitana;San Pedro;FALSE;0;FALSE;Poniente;0,04;0,04;0,11;0,14;0,26;4,25
+130;7;13601;13601;13;136;Metropolitana de Santiago;Metropolitana;Talagante;FALSE;0;FALSE;Poniente;0,17;0;0,09;0,04;0,15;6,06
+131;7;13602;13602;13;136;Metropolitana de Santiago;Metropolitana;El Monte;FALSE;0;FALSE;Poniente;0,02;0,02;0,25;0,05;0,08;5,05
+132;7;13603;13603;13;136;Metropolitana de Santiago;Metropolitana;Isla de Maipo;FALSE;0;FALSE;Poniente;0,02;0,02;0,19;0,07;0,09;4,22
+133;7;13604;13604;13;136;Metropolitana de Santiago;Metropolitana;Padre Hurtado;FALSE;0;FALSE;Poniente;0,02;0,04;0,08;0,02;0,06;4,94
+134;7;13605;13605;13;136;Metropolitana de Santiago;Metropolitana;Peñaflor;FALSE;0;FALSE;Poniente;0,07;0,03;0,17;0,05;0,03;5,38
+135;8;6101;6101;6;61;Del Libertador B. O’Higgins;O’Higgins;Rancagua;TRUE;0;FALSE;;0,14;0,01;0,14;0,02;0,04;5,52
+136;8;6102;6102;6;61;Del Libertador B. O’Higgins;O’Higgins;Codegua;FALSE;0;FALSE;;0,04;0;0,1;0,05;0,14;4,96
+137;8;6103;6103;6;61;Del Libertador B. O’Higgins;O’Higgins;Coinco;FALSE;0;FALSE;;0,06;0,01;0,14;0,11;0,23;3,99
+138;8;6104;6104;6;61;Del Libertador B. O’Higgins;O’Higgins;Coltauco;FALSE;0;FALSE;;0,04;0;0,14;0,24;0,14;4,48
+139;8;6105;6105;6;61;Del Libertador B. O’Higgins;O’Higgins;Doñihue;FALSE;0;FALSE;;0,04;0;0,1;0,06;0,12;4,63
+140;8;6106;6106;6;61;Del Libertador B. O’Higgins;O’Higgins;Graneros;FALSE;0;FALSE;;0,07;0,01;0,14;0,04;0,02;5,48
+141;8;6107;6107;6;61;Del Libertador B. O’Higgins;O’Higgins;Las Cabras;FALSE;0;FALSE;;0,04;0;0,13;0,07;0,09;4,04
+142;8;6108;6108;6;61;Del Libertador B. O’Higgins;O’Higgins;Machalí;FALSE;0;FALSE;;0,19;0,02;0,16;0,04;0,07;6,37
+143;8;6109;6109;6;61;Del Libertador B. O’Higgins;O’Higgins;Malloa;FALSE;0;FALSE;;0,03;0,02;0,15;0,12;0,15;4,78
+144;8;6110;6110;6;61;Del Libertador B. O’Higgins;O’Higgins;Mostazal;FALSE;0;FALSE;;0,05;0,01;0,1;0,09;0,19;5,05
+145;8;6111;6111;6;61;Del Libertador B. O’Higgins;O’Higgins;Olivar;FALSE;0;FALSE;;0,02;0,02;0,19;0,11;0,08;5,16
+146;8;6112;6112;6;61;Del Libertador B. O’Higgins;O’Higgins;Peumo;FALSE;0;FALSE;;0,04;0,01;0,19;0,14;0,16;4,37
+147;8;6113;6113;6;61;Del Libertador B. O’Higgins;O’Higgins;Pichidegua;FALSE;0;FALSE;;0,03;0;0,08;0,16;0,16;4,11
+148;8;6114;6114;6;61;Del Libertador B. O’Higgins;O’Higgins;Quinta de Tilcoco;FALSE;0;FALSE;;0,04;0,02;0,13;0,13;0,22;4,36
+149;8;6115;6115;6;61;Del Libertador B. O’Higgins;O’Higgins;Rengo;FALSE;0;FALSE;;0,07;0,02;0,19;0,08;0,07;5,07
+150;8;6116;6116;6;61;Del Libertador B. O’Higgins;O’Higgins;Requínoa;FALSE;0;FALSE;;0,06;0,01;0,23;0,09;0,18;5,09
+151;8;6117;6117;6;61;Del Libertador B. O’Higgins;O’Higgins;San Vicente;FALSE;0;FALSE;;0,09;0;0,12;0,16;0,12;5,07
+152;8;6201;6201;6;62;Del Libertador B. O’Higgins;O’Higgins;Pichilemu;FALSE;0;FALSE;;0,1;0;0,11;0,11;0,19;6,08
+153;8;6202;6202;6;62;Del Libertador B. O’Higgins;O’Higgins;La Estrella;FALSE;0;FALSE;;0,03;0,01;0,11;0,09;0,21;4,03
+154;8;6203;6203;6;62;Del Libertador B. O’Higgins;O’Higgins;Litueche;FALSE;0;FALSE;;0,07;0;0,12;0,11;0,07;4,96
+155;8;6204;6204;6;62;Del Libertador B. O’Higgins;O’Higgins;Marchihue;FALSE;0;FALSE;;0,03;0,03;0,09;0,07;0,07;4,11
+156;8;6205;6205;6;62;Del Libertador B. O’Higgins;O’Higgins;Navidad;FALSE;0;FALSE;;0;0,05;0,11;0,37;0,37;3,07
+157;8;6206;6206;6;62;Del Libertador B. O’Higgins;O’Higgins;Paredones;FALSE;0;FALSE;;0,04;0,04;0,12;0,23;0,2;4,04
+158;8;6301;6301;6;63;Del Libertador B. O’Higgins;O’Higgins;San Fernando;FALSE;0;FALSE;;0,07;0;0,13;0,03;0,08;5,08
+159;8;6302;6302;6;63;Del Libertador B. O’Higgins;O’Higgins;Chépica;FALSE;0;FALSE;;0,06;0,01;0,14;0,03;0,1;3,92
+160;8;6303;6303;6;63;Del Libertador B. O’Higgins;O’Higgins;Chimbarongo;FALSE;0;FALSE;;0,05;0,01;0,21;0,09;0,11;3,97
+161;8;6304;6304;6;63;Del Libertador B. O’Higgins;O’Higgins;Lolol;FALSE;0;FALSE;;0,02;0;0,11;0,14;0,2;3,82
+162;8;6305;6305;6;63;Del Libertador B. O’Higgins;O’Higgins;Nancagua;FALSE;0;FALSE;;0,01;0,04;0,21;0,04;0,04;4,4
+163;8;6306;6306;6;63;Del Libertador B. O’Higgins;O’Higgins;Palmilla;FALSE;0;FALSE;;0,01;0,02;0,26;0,07;0,17;4,5
+164;8;6307;6307;6;63;Del Libertador B. O’Higgins;O’Higgins;Peralillo;FALSE;0;FALSE;;0,04;0,01;0,16;0,04;0,03;4,56
+165;8;6308;6308;6;63;Del Libertador B. O’Higgins;O’Higgins;Placilla;FALSE;0;FALSE;;0,02;0,02;0,14;0,28;0,07;4,45
+166;8;6309;6309;6;63;Del Libertador B. O’Higgins;O’Higgins;Pumanque;FALSE;0;FALSE;;0,04;0,03;0,14;0,03;0,06;4,83
+167;8;6310;6310;6;63;Del Libertador B. O’Higgins;O’Higgins;Santa Cruz;FALSE;0;FALSE;;0,14;0,01;0,14;0,03;0,08;5,1
+168;9;7101;7101;7;71;Del Maule;Maule;Talca;TRUE;0;FALSE;;0,15;0,01;0,13;0,02;0,04;5,37
+169;9;7102;7102;7;71;Del Maule;Maule;Constitución;FALSE;0;FALSE;;0,06;0,01;0,18;0,05;0,07;4,87
+170;9;7103;7103;7;71;Del Maule;Maule;Curepto;FALSE;0;FALSE;;0,03;0,03;0,11;0,24;0,18;3,86
+171;9;7104;7104;7;71;Del Maule;Maule;Empedrado;FALSE;0;FALSE;;0;0;0,08;0,15;0,15;3,73
+172;9;7105;7105;7;71;Del Maule;Maule;Maule;FALSE;0;FALSE;;0;0,03;0,12;0,05;0,05;4,06
+173;9;7106;7106;7;71;Del Maule;Maule;Pelarco;FALSE;0;FALSE;;0,03;0;0,13;0,25;0,18;3,89
+174;9;7107;7107;7;71;Del Maule;Maule;Pencahue;FALSE;0;FALSE;;0;0;0,16;0,36;0,22;4,67
+175;9;7108;7108;7;71;Del Maule;Maule;Río Claro;FALSE;0;FALSE;;0;0;0,07;0,19;0,14;3,92
+176;9;7109;7109;7;71;Del Maule;Maule;San Clemente;FALSE;0;FALSE;;0,02;0,01;0,14;0,22;0,12;3,72
+177;9;7110;7110;7;71;Del Maule;Maule;San Rafael;FALSE;0;FALSE;;0,02;0;0,13;0,07;0,21;4,81
+178;9;7201;7201;7;72;Del Maule;Maule;Cauquenes;FALSE;0;FALSE;;0,07;0;0,11;0,11;0,06;4,16
+179;9;7202;7202;7;72;Del Maule;Maule;Chanco;FALSE;0;FALSE;;0,05;0,03;0,14;0,31;0,22;3,68
+180;9;7203;7203;7;72;Del Maule;Maule;Pelluhue;FALSE;0;FALSE;;0,05;0;0,09;0,16;0,08;3,32
+181;9;7301;7301;7;73;Del Maule;Maule;Curicó;FALSE;0;FALSE;;0,09;0,01;0,12;0,03;0,07;5,03
+182;9;7302;7302;7;73;Del Maule;Maule;Hualañé;FALSE;0;FALSE;;0,11;0;0,09;0,14;0,22;4,17
+183;9;7303;7303;7;73;Del Maule;Maule;Licantén;FALSE;0;FALSE;;0,03;0,01;0,12;0,17;0,21;3,79
+184;9;7304;7304;7;73;Del Maule;Maule;Molina;FALSE;0;FALSE;;0,03;0;0,15;0,04;0,07;4,48
+185;9;7305;7305;7;73;Del Maule;Maule;Rauco;FALSE;0;FALSE;;0,02;0;0,1;0,06;0,09;4,29
+186;9;7306;7306;7;73;Del Maule;Maule;Romeral;FALSE;0;FALSE;;0,02;0,01;0,2;0,12;0,14;4,22
+187;9;7307;7307;7;73;Del Maule;Maule;Sagrada Familia;FALSE;0;FALSE;;0,03;0,02;0,09;0,08;0,22;4,26
+188;9;7308;7308;7;73;Del Maule;Maule;Teno;FALSE;0;FALSE;;0,01;0,03;0,13;0,19;0,16;4,87
+189;9;7309;7309;7;73;Del Maule;Maule;Vichuquén;FALSE;0;FALSE;;0,02;0,01;0,09;0,38;0,41;3,76
+190;9;7401;7401;7;74;Del Maule;Maule;Linares;FALSE;0;FALSE;;0,1;0,01;0,11;0,06;0,08;4,63
+191;9;7402;7402;7;74;Del Maule;Maule;Colbún;FALSE;0;FALSE;;0,01;0,04;0,17;0,12;0,1;3,65
+192;9;7403;7403;7;74;Del Maule;Maule;Longaví;FALSE;0;FALSE;;0,01;0,04;0,14;0,13;0,14;3,64
+193;9;7404;7404;7;74;Del Maule;Maule;Parral;FALSE;0;FALSE;;0,1;0;0,09;0,05;0,06;4,49
+194;9;7405;7405;7;74;Del Maule;Maule;Retiro;FALSE;0;FALSE;;0,02;0,05;0,08;0,13;0,12;3,54
+195;9;7406;7406;7;74;Del Maule;Maule;San Javier;FALSE;0;FALSE;;0,08;0,02;0,18;0,2;0,16;4,28
+196;9;7407;7407;7;74;Del Maule;Maule;Villa Alegre;FALSE;0;FALSE;;0,01;0,01;0,19;0,17;0,09;4,04
+197;9;7408;7408;7;74;Del Maule;Maule;Yerbas Buenas;FALSE;0;FALSE;;0,03;0,03;0,14;0,19;0,22;4,15
+198;10;8401;16101;16;161;De Ñuble;Ñuble;Chillán;TRUE;0;FALSE;;0,11;0,01;0,13;0,03;0,04;4,98
+199;10;8402;16102;16;161;De Ñuble;Ñuble;Bulnes;FALSE;0;FALSE;;0,04;0,02;0,2;0,1;0,2;4,41
+200;10;8406;16103;16;161;De Ñuble;Ñuble;Chillán Viejo;FALSE;0;FALSE;;0,05;0,02;0,12;0,06;0,04;3,71
+201;10;8407;16104;16;161;De Ñuble;Ñuble;El Carmen;FALSE;0;FALSE;;0,04;0,02;0,1;0,18;0,13;3,13
+202;10;8410;16105;16;161;De Ñuble;Ñuble;Pemuco;FALSE;0;FALSE;;0,08;0,02;0,07;0,23;0,2;3,81
+203;10;8411;16106;16;161;De Ñuble;Ñuble;Pinto;FALSE;0;FALSE;;0,01;0;0,14;0,22;0,18;3,11
+204;10;8413;16107;16;161;De Ñuble;Ñuble;Quillón;FALSE;0;FALSE;;0,05;0;0,12;0,28;0,08;3,85
+205;10;8418;16108;16;161;De Ñuble;Ñuble;San Ignacio;FALSE;0;FALSE;;0,01;0,02;0,09;0,32;0,17;3,31
+206;10;8421;16109;16;161;De Ñuble;Ñuble;Yungay;FALSE;0;FALSE;;0,07;0;0,11;0,1;0,18;3,8
+207;10;8414;16201;16;162;De Ñuble;Ñuble;Quirihue;FALSE;0;FALSE;;0,09;0;0,1;0,15;0,06;4,2
+208;10;8403;16202;16;162;De Ñuble;Ñuble;Cobquecura;FALSE;0;FALSE;;0,06;0;0,15;0,42;0,31;3,37
+209;10;8404;16203;16;162;De Ñuble;Ñuble;Coelemu;FALSE;0;FALSE;;0,08;0,02;0,19;0,16;0,11;4,53
+210;10;8408;16204;16;162;De Ñuble;Ñuble;Ninhue;FALSE;0;FALSE;;0,02;0;0,13;0,27;0,28;3,12
+211;10;8412;16205;16;162;De Ñuble;Ñuble;Portezuelo;FALSE;0;FALSE;;0,02;0,01;0,12;0,23;0,21;3,41
+212;10;8415;16206;16;162;De Ñuble;Ñuble;Ránquil;FALSE;0;FALSE;;0,06;0,02;0,14;0,04;0,11;4,4
+213;10;8420;16207;16;162;De Ñuble;Ñuble;Treguaco;FALSE;0;FALSE;;0,01;0,01;0,11;0,07;0,21;3,28
+214;10;8416;16301;16;163;De Ñuble;Ñuble;San Carlos;FALSE;0;FALSE;;0,07;0,01;0,11;0,08;0,11;4,39
+215;10;8405;16302;16;163;De Ñuble;Ñuble;Coihueco;FALSE;0;FALSE;;0,02;0;0,06;0,26;0,1;3,66
+216;10;8409;16303;16;163;De Ñuble;Ñuble;Ñiquén;FALSE;0;FALSE;;0,03;0;0,16;0,07;0,34;3,87
+217;10;8417;16304;16;163;De Ñuble;Ñuble;San Fabián;FALSE;0;FALSE;;0,04;0,01;0,13;0,17;0,24;4,09
+218;10;8419;16305;16;163;De Ñuble;Ñuble;San Nicolás;FALSE;0;FALSE;;0,02;0,05;0,15;0,21;0,26;4,02
+219;11;8101;8101;8;81;Del Biobío;Biobío;Concepción;TRUE;0;FALSE;;0,24;0,01;0,13;0,04;0,06;5,89
+220;11;8102;8102;8;81;Del Biobío;Biobío;Coronel;FALSE;0;FALSE;;0,07;0,02;0,16;0,04;0,1;4,9
+221;11;8103;8103;8;81;Del Biobío;Biobío;Chiguayante;FALSE;0;FALSE;;0,15;0,01;0,15;0,01;0,02;5,07
+222;11;8104;8104;8;81;Del Biobío;Biobío;Florida;FALSE;0;FALSE;;0,02;0,02;0,14;0,28;0,39;3,84
+223;11;8105;8105;8;81;Del Biobío;Biobío;Hualqui;FALSE;0;FALSE;;0,04;0,01;0,03;0,08;0,06;3,88
+224;11;8106;8106;8;81;Del Biobío;Biobío;Lota;FALSE;0;FALSE;;0,01;0,02;0,17;0,03;0,21;4,38
+225;11;8107;8107;8;81;Del Biobío;Biobío;Penco;FALSE;0;FALSE;;0,04;0,01;0,2;0,04;0,07;4,62
+226;11;8108;8108;8;81;Del Biobío;Biobío;San Pedro de la Paz;FALSE;0;FALSE;;0,23;0,01;0,11;0,02;0,08;5,56
+227;11;8109;8109;8;81;Del Biobío;Biobío;Santa Juana;FALSE;0;FALSE;;0,05;0;0,12;0,22;0,14;4,28
+228;11;8110;8110;8;81;Del Biobío;Biobío;Talcahuano;FALSE;0;FALSE;;0,1;0,02;0,17;0,04;0,13;5,48
+229;11;8111;8111;8;81;Del Biobío;Biobío;Tomé;FALSE;0;FALSE;;0,12;0;0,09;0;0,08;4,74
+230;11;8112;8112;8;81;Del Biobío;Biobío;Hualpén;FALSE;0;FALSE;;0,09;0,01;0,16;0,01;0,02;5,04
+231;11;8201;8201;8;82;Del Biobío;Biobío;Lebu;FALSE;0;FALSE;;0,04;0,01;0,13;0,08;0,18;4,3
+232;11;8202;8202;8;82;Del Biobío;Biobío;Arauco;FALSE;0;FALSE;;0,11;0;0,16;0,11;0,11;4,67
+233;11;8203;8203;8;82;Del Biobío;Biobío;Cañete;FALSE;0;FALSE;;0,03;0,01;0,13;0,11;0,12;4,12
+234;11;8204;8204;8;82;Del Biobío;Biobío;Contulmo;FALSE;0;FALSE;;0,02;0,01;0,07;0,19;0,07;3,48
+235;11;8205;8205;8;82;Del Biobío;Biobío;Curanilahue;FALSE;0;FALSE;;0,06;0;0,18;0,04;0,03;4,31
+236;11;8206;8206;8;82;Del Biobío;Biobío;Los Álamos;FALSE;0;FALSE;;0,03;0;0,14;0,08;0,06;4,23
+237;11;8207;8207;8;82;Del Biobío;Biobío;Tirúa;FALSE;0;FALSE;;0,07;0;0,11;0,15;0,15;3,46
+238;11;8301;8301;8;83;Del Biobío;Biobío;Los Ángeles;FALSE;0;FALSE;;0,12;0,01;0,17;0,05;0,12;4,74
+239;11;8302;8302;8;83;Del Biobío;Biobío;Antuco;FALSE;0;FALSE;;0,07;0;0,12;0,18;0,1;3,3
+240;11;8303;8303;8;83;Del Biobío;Biobío;Cabrero;FALSE;0;FALSE;;0,05;0;0,13;0,05;0,12;4,01
+241;11;8304;8304;8;83;Del Biobío;Biobío;Laja;FALSE;0;FALSE;;0;0,02;0,15;0,09;0,19;4,03
+242;11;8305;8305;8;83;Del Biobío;Biobío;Mulchén;FALSE;0;FALSE;;0,06;0,03;0,15;0,07;0,13;4,23
+243;11;8306;8306;8;83;Del Biobío;Biobío;Nacimiento;FALSE;0;FALSE;;0,05;0;0,15;0,15;0,14;4,61
+244;11;8307;8307;8;83;Del Biobío;Biobío;Negrete;FALSE;0;FALSE;;0,03;0,04;0,19;0,05;0,04;4,04
+245;11;8308;8308;8;83;Del Biobío;Biobío;Quilaco;FALSE;0;FALSE;;0,08;0;0,1;0,18;0,19;3,36
+246;11;8309;8309;8;83;Del Biobío;Biobío;Quilleco;FALSE;0;FALSE;;0,03;0,02;0,18;0,2;0,15;3,84
+247;11;8310;8310;8;83;Del Biobío;Biobío;San Rosendo;FALSE;0;FALSE;;0,01;0;0,11;0,09;0,06;3,52
+248;11;8311;8311;8;83;Del Biobío;Biobío;Santa Bárbara;FALSE;0;FALSE;;0,02;0;0,1;0,12;0,24;4,01
+249;11;8312;8312;8;83;Del Biobío;Biobío;Tucapel;FALSE;0;FALSE;;0,06;0;0,13;0,06;0,02;3,8
+250;11;8313;8313;8;83;Del Biobío;Biobío;Yumbel;FALSE;0;FALSE;;0,03;0;0,17;0,17;0,27;3,42
+251;11;8314;8314;8;83;Del Biobío;Biobío;Alto Biobío;FALSE;0;FALSE;;0,01;0;0,16;0,63;0,33;2,85
+252;12;9101;9101;9;91;De La Araucanía;La Araucanía;Temuco;TRUE;0;FALSE;;0,17;0,01;0,13;0,04;0,06;5,27
+253;12;9102;9102;9;91;De La Araucanía;La Araucanía;Carahue;FALSE;0;FALSE;;0,05;0,03;0,16;0,44;0,22;3,64
+254;12;9103;9103;9;91;De La Araucanía;La Araucanía;Cunco;FALSE;0;FALSE;;0,07;0,01;0,09;0,16;0,19;3,88
+255;12;9104;9104;9;91;De La Araucanía;La Araucanía;Curarrehue;FALSE;0;FALSE;;0,02;0,01;0,16;0,53;0,42;3,54
+256;12;9105;9105;9;91;De La Araucanía;La Araucanía;Freire;FALSE;0;FALSE;;0,12;0,01;0,13;0,29;0,15;3,85
+257;12;9106;9106;9;91;De La Araucanía;La Araucanía;Galvarino;FALSE;0;FALSE;;0,02;0,02;0,22;0,56;0,35;2,8
+258;12;9107;9107;9;91;De La Araucanía;La Araucanía;Gorbea;FALSE;0;FALSE;;0,04;0,01;0,16;0,18;0,08;4,23
+259;12;9108;9108;9;91;De La Araucanía;La Araucanía;Lautaro;FALSE;0;FALSE;;0,11;0,04;0,15;0,05;0,06;4,84
+260;12;9109;9109;9;91;De La Araucanía;La Araucanía;Loncoche;FALSE;0;FALSE;;0,04;0,02;0,11;0,09;0,12;3,65
+261;12;9110;9110;9;91;De La Araucanía;La Araucanía;Melipeuco;FALSE;0;FALSE;;0,04;0,03;0,16;0,32;0,26;3,8
+262;12;9111;9111;9;91;De La Araucanía;La Araucanía;Nueva Imperial;FALSE;0;FALSE;;0,07;0,01;0,16;0,37;0,12;3,8
+263;12;9112;9112;9;91;De La Araucanía;La Araucanía;Padre las Casas;FALSE;0;FALSE;;0,11;0,02;0,12;0,22;0,22;4,55
+264;12;9113;9113;9;91;De La Araucanía;La Araucanía;Perquenco;FALSE;0;FALSE;;0,05;0,06;0,07;0,2;0,2;4,22
+265;12;9114;9114;9;91;De La Araucanía;La Araucanía;Pitrufquén;FALSE;0;FALSE;;0,06;0,01;0,14;0,21;0,15;4,46
+266;12;9115;9115;9;91;De La Araucanía;La Araucanía;Pucón;FALSE;0;FALSE;;0,06;0;0,09;0,15;0,12;4,88
+267;12;9116;9116;9;91;De La Araucanía;La Araucanía;Saavedra;FALSE;0;FALSE;;0,05;0,02;0,16;0,57;0,21;3,12
+268;12;9117;9117;9;91;De La Araucanía;La Araucanía;Teodoro Schmidt;FALSE;0;FALSE;;0,04;0;0,12;0,23;0,17;3,35
+269;12;9118;9118;9;91;De La Araucanía;La Araucanía;Toltén;FALSE;0;FALSE;;0,03;0,02;0,34;0,53;0,29;2,87
+270;12;9119;9119;9;91;De La Araucanía;La Araucanía;Vilcún;FALSE;0;FALSE;;0,02;0,02;0,1;0,39;0,27;2,93
+271;12;9120;9120;9;91;De La Araucanía;La Araucanía;Villarrica;FALSE;0;FALSE;;0,12;0,02;0,16;0,15;0,11;4,42
+272;12;9121;9121;9;91;De La Araucanía;La Araucanía;Cholchol;FALSE;0;FALSE;;0,03;0,02;0,22;0,54;0,23;2,83
+273;12;9201;9201;9;92;De La Araucanía;La Araucanía;Angol;FALSE;0;FALSE;;0,09;0,01;0,12;0,04;0,1;4,7
+274;12;9202;9202;9;92;De La Araucanía;La Araucanía;Collipulli;FALSE;0;FALSE;;0,01;0,03;0,14;0,28;0,14;3,81
+275;12;9203;9203;9;92;De La Araucanía;La Araucanía;Curacautín;FALSE;0;FALSE;;0,05;0;0,16;0,14;0,07;3,94
+276;12;9204;9204;9;92;De La Araucanía;La Araucanía;Ercilla;FALSE;0;FALSE;;0,11;0,08;0,22;0,37;0,17;3,7
+277;12;9205;9205;9;92;De La Araucanía;La Araucanía;Lonquimay;FALSE;0;FALSE;;0,04;0;0,08;0,6;0,25;3,51
+278;12;9206;9206;9;92;De La Araucanía;La Araucanía;Los Sauces;FALSE;0;FALSE;;0,03;0,03;0,16;0,31;0,16;3,51
+279;12;9207;9207;9;92;De La Araucanía;La Araucanía;Lumaco;FALSE;0;FALSE;;0,01;0;0,07;0,47;0,22;3,3
+280;12;9208;9208;9;92;De La Araucanía;La Araucanía;Purén;FALSE;0;FALSE;;0,02;0,01;0,21;0,24;0,09;3,46
+281;12;9209;9209;9;92;De La Araucanía;La Araucanía;Renaico;FALSE;0;FALSE;;0,05;0;0,14;0,12;0,18;4,65
+282;12;9210;9210;9;92;De La Araucanía;La Araucanía;Traiguén;FALSE;0;FALSE;;0,06;0,02;0,14;0,18;0,08;4,26
+283;12;9211;9211;9;92;De La Araucanía;La Araucanía;Victoria;FALSE;0;FALSE;;0,07;0,01;0,18;0,09;0,07;4
+284;13;14101;14101;14;141;De Los Ríos;Los Ríos;Valdivia;TRUE;0;FALSE;;0,18;0,01;0,14;0,05;0,04;5,6
+285;13;14102;14102;14;141;De Los Ríos;Los Ríos;Corral;FALSE;0;FALSE;;0,02;0,01;0,09;0,23;0,49;3,84
+286;13;14103;14103;14;141;De Los Ríos;Los Ríos;Lanco;FALSE;0;FALSE;;0,07;0,01;0,13;0,19;0,16;4,16
+287;13;14104;14104;14;141;De Los Ríos;Los Ríos;Los Lagos;FALSE;0;FALSE;;0,03;0,02;0,14;0,39;0,12;4,25
+288;13;14105;14105;14;141;De Los Ríos;Los Ríos;Máfil;FALSE;0;FALSE;;0,06;0,03;0,17;0,24;0,12;4,93
+289;13;14106;14106;14;141;De Los Ríos;Los Ríos;Mariquina;FALSE;0;FALSE;;0,05;0;0,13;0,12;0,21;3,98
+290;13;14107;14107;14;141;De Los Ríos;Los Ríos;Paillaco;FALSE;0;FALSE;;0,05;0,01;0,09;0,11;0,12;3,97
+291;13;14108;14108;14;141;De Los Ríos;Los Ríos;Panguipulli;FALSE;0;FALSE;;0,08;0,02;0,13;0,19;0,08;4
+292;13;14201;14201;14;142;De Los Ríos;Los Ríos;La Unión;FALSE;0;FALSE;;0,05;0,01;0,12;0,12;0,12;4,37
+293;13;14202;14202;14;142;De Los Ríos;Los Ríos;Futrono;FALSE;0;FALSE;;0,06;0,03;0,1;0,41;0,04;4,3
+294;13;14203;14203;14;142;De Los Ríos;Los Ríos;Lago Ranco;FALSE;0;FALSE;;0,03;0;0,13;0,26;0,13;4,18
+295;13;14204;14204;14;142;De Los Ríos;Los Ríos;Río Bueno;FALSE;0;FALSE;;0,04;0,01;0,15;0,23;0,14;4,08
+296;14;10101;10101;10;101;De Los Lagos;Los Lagos;Puerto Montt;TRUE;0;FALSE;;0,13;0,01;0,13;0,12;0,09;5,29
+297;14;10102;10102;10;101;De Los Lagos;Los Lagos;Calbuco;FALSE;0;FALSE;;0,1;0,01;0,11;0,42;0,1;4,69
+298;14;10103;10103;10;101;De Los Lagos;Los Lagos;Cochamó;FALSE;1;FALSE;;;;;;;
+299;14;10104;10104;10;101;De Los Lagos;Los Lagos;Fresia;FALSE;0;FALSE;;0,05;0,01;0,08;0,23;0,11;4,52
+300;14;10105;10105;10;101;De Los Lagos;Los Lagos;Frutillar;FALSE;0;FALSE;;0,11;0,04;0,12;0,13;0,03;4,98
+301;14;10106;10106;10;101;De Los Lagos;Los Lagos;Los Muermos;FALSE;0;FALSE;;0,04;0,01;0,08;0,46;0,16;4,71
+302;14;10107;10107;10;101;De Los Lagos;Los Lagos;Llanquihue;FALSE;0;FALSE;;0,06;0,02;0,24;0,02;0,05;4,63
+303;14;10108;10108;10;101;De Los Lagos;Los Lagos;Maullín;FALSE;0;FALSE;;0,07;0;0,09;0,29;0,17;3,82
+304;14;10109;10109;10;101;De Los Lagos;Los Lagos;Puerto Varas;FALSE;0;FALSE;;0,2;0,02;0,13;0,11;0,07;5,65
+305;14;10201;10201;10;102;De Los Lagos;Los Lagos;Castro;FALSE;0;FALSE;;0,13;0,01;0,08;0,15;0,09;5,28
+306;14;10202;10202;10;102;De Los Lagos;Los Lagos;Ancud;FALSE;0;FALSE;;0,05;0;0,07;0,13;0,09;4,09
+307;14;10203;10203;10;102;De Los Lagos;Los Lagos;Chonchi;FALSE;0;FALSE;;0,05;0;0,04;0,39;0,21;4,52
+308;14;10204;10204;10;102;De Los Lagos;Los Lagos;Curaco de Vélez;FALSE;0;FALSE;;0,09;0;0,07;0,3;0,15;3,79
+309;14;10205;10205;10;102;De Los Lagos;Los Lagos;Dalcahue;FALSE;0;FALSE;;0,09;0,01;0,15;0,1;0,11;4,95
+310;14;10206;10206;10;102;De Los Lagos;Los Lagos;Puqueldón;FALSE;0;FALSE;;0;0,06;0,15;0,82;0,26;4,24
+311;14;10207;10207;10;102;De Los Lagos;Los Lagos;Queilén;FALSE;0;FALSE;;0,02;0,02;0,13;0,33;0,2;3,54
+312;14;10208;10208;10;102;De Los Lagos;Los Lagos;Quellón;FALSE;0;FALSE;;0,08;0;0,04;0,4;0,16;4,58
+313;14;10209;10209;10;102;De Los Lagos;Los Lagos;Quemchi;FALSE;0;FALSE;;0,04;0,01;0,02;0,4;0,34;3,25
+314;14;10210;10210;10;102;De Los Lagos;Los Lagos;Quinchao;FALSE;0;FALSE;;0,07;0,02;0,04;0,56;0,29;3,98
+315;14;10301;10301;10;103;De Los Lagos;Los Lagos;Osorno;FALSE;0;FALSE;;0,11;0,01;0,17;0,1;0,08;4,93
+316;14;10302;10302;10;103;De Los Lagos;Los Lagos;Puerto Octay;FALSE;0;FALSE;;0,06;0,04;0,25;0,27;0,24;4,94
+317;14;10303;10303;10;103;De Los Lagos;Los Lagos;Purranque;FALSE;0;FALSE;;0,08;0;0,1;0,12;0,1;4,24
+318;14;10304;10304;10;103;De Los Lagos;Los Lagos;Puyehue;FALSE;0;FALSE;;0,08;0,01;0,19;0,21;0,19;4,63
+319;14;10305;10305;10;103;De Los Lagos;Los Lagos;Río Negro;FALSE;0;FALSE;;0,06;0,02;0,07;0,31;0,17;5,19
+320;14;10306;10306;10;103;De Los Lagos;Los Lagos;San Juan de La Costa;FALSE;0;FALSE;;0,05;0,03;0,08;0,49;0,3;3,37
+321;14;10307;10307;10;103;De Los Lagos;Los Lagos;San Pablo;FALSE;0;FALSE;;0,02;0,02;0,15;0,25;0,11;4
+322;14;10401;10401;10;104;De Los Lagos;Los Lagos;Chaitén;FALSE;1;FALSE;;;;;;;
+323;14;10402;10402;10;104;De Los Lagos;Los Lagos;Futaleufú;FALSE;1;FALSE;;;;;;;
+324;14;10403;10403;10;104;De Los Lagos;Los Lagos;Hualaihué;FALSE;1;FALSE;;;;;;;
+325;14;10404;10404;10;104;De Los Lagos;Los Lagos;Palena;FALSE;1;FALSE;;;;;;;
+326;15;11101;11101;11;111;De Aysén del General Carlos Ibáñez del Campo;Aysén;Coyhaique;TRUE;0;FALSE;;0,17;0,01;0,1;0,05;0,08;6,38
+327;15;11102;11102;11;111;De Aysén del General Carlos Ibáñez del Campo;Aysén;Lago Verde;FALSE;1;FALSE;;;;;;;
+328;15;11201;11201;11;112;De Aysén del General Carlos Ibáñez del Campo;Aysén;Aysén;FALSE;0;FALSE;;0,09;0;0,11;0,05;0,07;5,7
+329;15;11202;11202;11;112;De Aysén del General Carlos Ibáñez del Campo;Aysén;Cisnes;FALSE;0;FALSE;;0,05;0;0,06;0,05;0;5,74
+330;15;11203;11203;11;112;De Aysén del General Carlos Ibáñez del Campo;Aysén;Guaitecas;FALSE;1;FALSE;;;;;;;
+331;15;11301;11301;11;113;De Aysén del General Carlos Ibáñez del Campo;Aysén;Cochrane;FALSE;0;FALSE;;0,08;0;0,08;0,19;0,08;6,05
+332;15;11302;11302;11;113;De Aysén del General Carlos Ibáñez del Campo;Aysén;O'Higgins;FALSE;1;FALSE;;;;;;;
+333;15;11303;11303;11;113;De Aysén del General Carlos Ibáñez del Campo;Aysén;Tortel;FALSE;1;FALSE;;;;;;;
+334;15;11401;11401;11;114;De Aysén del General Carlos Ibáñez del Campo;Aysén;Chile Chico;FALSE;2;FALSE;;0,03;0;0,12;0,07;0,06;6,13
+335;15;11402;11402;11;114;De Aysén del General Carlos Ibáñez del Campo;Aysén;Río Ibáñez;FALSE;0;FALSE;;0,07;0,03;0,03;0,14;0,12;4,2
+336;16;12101;12101;12;121;De Magallanes y Antártida Chilena;Magallanes;Punta Arenas;TRUE;0;FALSE;;0,15;0,01;0,13;0,06;0,03;6,62
+337;16;12102;12102;12;121;De Magallanes y Antártida Chilena;Magallanes;Laguna Blanca;FALSE;1;FALSE;;;;;;;
+338;16;12103;12103;12;121;De Magallanes y Antártida Chilena;Magallanes;Río Verde;FALSE;1;FALSE;;;;;;;
+339;16;12104;12104;12;121;De Magallanes y Antártida Chilena;Magallanes;San Gregorio;FALSE;1;FALSE;;;;;;;
+340;16;12201;12201;12;122;De Magallanes y Antártida Chilena;Magallanes;Cabo de Hornos;FALSE;1;FALSE;;;;;;;
+341;16;12202;12202;12;122;De Magallanes y Antártida Chilena;Magallanes;Antártica;FALSE;1;FALSE;;;;;;;
+342;16;12301;12301;12;123;De Magallanes y Antártida Chilena;Magallanes;Porvenir;FALSE;0;FALSE;;0,08;0;0,17;0,02;0,09;7,02
+343;16;12302;12302;12;123;De Magallanes y Antártida Chilena;Magallanes;Primavera;FALSE;1;FALSE;;;;;;;
+344;16;12303;12303;12;123;De Magallanes y Antártida Chilena;Magallanes;Timaukel;FALSE;1;FALSE;;;;;;;
+345;16;12401;12401;12;124;De Magallanes y Antártida Chilena;Magallanes;Natales;FALSE;0;FALSE;;0,08;0;0,13;0,03;0,05;5,6
+346;16;12402;12402;12;124;De Magallanes y Antártida Chilena;Magallanes;Torres del Paine;FALSE;1;FALSE;;;;;;;
