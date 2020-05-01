@@ -26,21 +26,22 @@ resulting vector will preserve the order of the original factor levels.
 }
 \examples{
 library(dplyr)
-partysum <- with(dec13_excerpt, fct_case_when(party == "Republican" ~ "Rep/Lean Rep",
-                          party == "Democrat"  ~ "Dem/Lean Dem",
-                          partyln == "Republican" ~ "Rep/Lean Rep",
-                          partyln == "Democrat" ~ "Dem/Lean Dem",
-                          TRUE ~ partyln)
-                          )
+macrozona <- with(regiones_y_comunas,
+                  fct_case_when(region \%in\% c(15, 1:4) ~ "Norte",
+                                region \%in\% c(5:7, 16) ~ "Centro",
+                                region \%in\% c(13) ~ "RM",
+                                region \%in\% c(8:12, 14) ~ "Sur")
+)
 
 # Compare to normal case_when() and then factor(), which will arrange the levels in
 # unwanted alphabetical order
 
-partysum <- with(dec13_excerpt, factor(case_when(party == "Republican" ~ "Rep/Lean Rep",
-                             party == "Democrat"  ~ "Dem/Lean Dem",
-                             partyln == "Republican" ~ "Rep/Lean Rep",
-                             partyln == "Democrat" ~ "Dem/Lean Dem",
-                             TRUE ~ as.character(partyln))))
+macrozona <- with(regiones_y_comunas,
+                  factor(case_when(region \%in\% c(15, 1:4) ~ "Norte",
+                                   region \%in\% c(5:7, 16) ~ "Centro",
+                                   region \%in\% c(13) ~ "RM",
+                                   region \%in\% c(8:12, 14) ~ "Sur"))
+)
 
 }
 \author{

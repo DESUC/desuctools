@@ -2,9 +2,9 @@
 #'
 #' @description
 #' Tabla que contiene nombres y códigos de regiones y comunas de Chile,
-#' además de algunas segmentación es utilizadas habitualmente
+#' además de algunas segmentación es utilizadas habitualmente.
 #'
-#' @format Un data frame con 346 filas `comunas` y 19 variables
+#' @format Un data.frame con 346 filas \code{comunas} y 19 variables.
 #'
 #' \describe{
 #'   \item{id}{orden de comunas siguiendo geografía y código comunal}
