@@ -25,14 +25,10 @@ rec_ortografia <- function(word,
     # Calcula la distancia entre la palabra y el resto de palabras ordenadas (sorted words).
     edit_dist <- adist(w, sorted_words)
 
-    # Calcula la distancia mínima y devuelve una palabra existente en crea.txt
-    # con un límite de 2 ediciones.
-    min_edit_dist <- min(edit_dist, 2)
-
     # Genera un vector con todas las palabras con el mínimo de distancia.
     # Como sorted_words está ordenada de más a menos común, el vector
     # resultante tendrá la primera coincidencia más común/probable.
-    proposals_by_prob <- c(sorted_words[ edit_dist <= min(edit_dist, 2)])
+    proposals_by_prob <- c(sorted_words[ edit_dist <= min(edit_dist, 2) ])
 
     # En caso de que proposals_by_prob esté vacío asignamos la palabra evaluada
     proposals_by_prob <- c(proposals_by_prob, w)

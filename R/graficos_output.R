@@ -106,7 +106,7 @@ gg_bar_3_niveles_stack <- function(.df,
   if(!is.null(missing)){
     tab_ns <- .df %>%
       filter(pregunta_cat %in% missing) %>%
-      group_by_at(vars(.data$pregunta_lab)) %>%
+      group_by_at(vars({{ x }})) %>%
       summarise(pregunta_cat = str_c(.data$pregunta_cat, collapse = '/'),
                 prop = sum(.data$prop)) %>%
       tidyr::replace_na(list(prop = 0))
