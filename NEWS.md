@@ -8,6 +8,7 @@
 * Función `svy_tabla_vars_segmentos` para obtener estadísticos de multiples variables y segmentos.
 * Función `fct_case_when` a partir de @pewmethods.
 * funcion `rec_ortografia` para corregir ortografía de palabras.
+* función `format_num` para impresión de número con separador de miles.
 
 ## Features
 

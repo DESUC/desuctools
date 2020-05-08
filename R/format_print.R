@@ -6,10 +6,18 @@
 # Uso interno para funciones específicas.
 #
 
-format_dinero_prefix <-  function(x, prefix, digits) {
+format_dinero_prefix <-  function(x,
+                                  prefix,
+                                  digits) {
   x <- round(x, digits = digits)
+
+  if (is.null(prefix)) {
+    prefix <- ''
+  } else {
+    prefix <- paste0(prefix, ' ')
+  }
+
   paste0(prefix,
-         ' ',
          format(x,
                 big.mark = '.',
                 decimal.mark = ',',
@@ -73,7 +81,7 @@ format_dinero <-  function(x, digits = 0) {
 #' Transforma número a texto con separación
 #' de miles con `.` y decimales con `,`.
 #'
-#' @name format_dinero
+#' @name format_num
 #'
 #' @param x numeric
 #' @param digits cantidad de dígitos del número entero que se quiere obtener.
@@ -85,8 +93,8 @@ format_dinero <-  function(x, digits = 0) {
 #'
 #' @examples
 #'
-#' format_dinero(1000000)
+#' format_num(1000000)
 #'
-format_dinero <-  function(x, digits = 0) {
-  format_dinero_prefix(x, prefix = '$', digits = digits)
+format_num <-  function(x, digits = 0) {
+  format_dinero_prefix(x, prefix = NULL, digits = digits)
 }
