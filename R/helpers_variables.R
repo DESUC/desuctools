@@ -205,7 +205,6 @@ is_email <- function(email){
 #'
 #' @return numeric vector
 #'
-#' @examples
 pregunta_orden <- function(.x, .y, cat_orden){
     max(if_else(.x == cat_orden, .y, 0))
 }
@@ -227,7 +226,6 @@ pregunta_orden <- function(.x, .y, cat_orden){
 #'
 #' @export
 #'
-#' @examples
 fct_reorder_cat <- function(.f, .cat, .val, cat_orden, .desc = FALSE){
     forcats::fct_reorder2(.f, .cat, .val,
                           .fun = pregunta_orden, cat_orden = cat_orden,

@@ -12,13 +12,18 @@
 #' @param missing `chr` vector con categor\\u00edas de respuesta consideradas 'missing'
 #' @param text_size `num` tama\\u00f1o de letra
 #' @param flip `logical` TRUE gira los ejes.
-#' @param colour_neg_neu_pos
-#' @param y_na
-#' @param x_str_entre_ini
-#' @param x_str_entre_fin
-#' @param x_str_width
-#' @param colour_na
-#' @param font_family
+#' @param colour_neg_neu_pos Vector con tres colores para negativo, neutro y positivo
+#' @param y_na `dbl` posición de la etiqueta en y de valores missing.
+#' @param x_na `dbl` posición de la etiqueta en x de valores missing.
+#' @param facet_col Variable de facet columna
+#' @param facet_row Variable de facet fila
+#' @param x_str_entre_ini `chr` caracter desde el cual se cortará la etiqueta de x.
+#'        El caracter no queda incluido. Si queda en blanco '', parte desde el inicio,
+#' @param x_str_entre_fin `chr` caracter hasta donde se cortará la etiqueta de x.
+#'        El caracter no queda incluido. Si queda en blanco '', termina al final.
+#' @param x_str_width `int` numero de caracteres para wrap las etiquetas de x.
+#' @param colour_na color para los valores de dato missing, si se incluye.
+#' @param font_family letra a utilizar en el gráfico. Por defecto se usa calibre.
 #'
 #' @import ggplot2
 #' @importFrom stringr str_wrap
@@ -50,6 +55,9 @@ gg_bar_3_niveles_stack <- function(.df,
                                    colour_neg_neu_pos = c('#C00001', '#FFC000', '#20497D'),
                                    y_prop = prop,
                                    y_na = 1.1,
+                                   x_na = 0.6,
+                                   facet_col = NULL,
+                                   facet_row = NULL,
                                    x_str_entre_ini = '',
                                    x_str_entre_fin = '',
                                    x_str_width = 50,
@@ -106,7 +114,7 @@ gg_bar_3_niveles_stack <- function(.df,
   if(!is.null(missing)){
     tab_ns <- .df %>%
       filter(pregunta_cat %in% missing) %>%
-      group_by_at(vars({{ x }})) %>%
+      group_by_at(vars({{ x }}, {{ facet_col }}, {{ facet_row }})) %>%
       summarise(pregunta_cat = str_c(.data$pregunta_cat, collapse = '/'),
                 prop = sum(.data$prop)) %>%
       tidyr::replace_na(list(prop = 0))
@@ -124,7 +132,7 @@ gg_bar_3_niveles_stack <- function(.df,
                 colour = colour_na) +
       annotate(geom = 'text',
                label = str_c(missing, collapse = ' '),
-               x = pos_x_annotate + .6,
+               x = pos_x_annotate + x_na,
                y = y_na,
                size = rel(text_size),
                hjust = 1,
@@ -134,6 +142,8 @@ gg_bar_3_niveles_stack <- function(.df,
   }
 
   gg_niv3 +
+    facet_grid(cols = vars({{ facet_col }}),
+               rows = vars({{ facet_row }})) +
     labs(title = title,
          subtitle = subtitle,
          caption = caption)

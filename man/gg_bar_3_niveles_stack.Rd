@@ -18,6 +18,9 @@ gg_bar_3_niveles_stack(
   colour_neg_neu_pos = c("#C00001", "#FFC000", "#20497D"),
   y_prop = prop,
   y_na = 1.1,
+  x_na = 0.6,
+  facet_col = NULL,
+  facet_row = NULL,
   x_str_entre_ini = "",
   x_str_entre_fin = "",
   x_str_width = 50,
@@ -40,7 +43,27 @@ gg_bar_3_niveles_stack(
 
 \item{flip}{`logical` TRUE gira los ejes.}
 
-\item{font_family}{}
+\item{colour_neg_neu_pos}{Vector con tres colores para negativo, neutro y positivo}
+
+\item{y_na}{`dbl` posición de la etiqueta en y de valores missing.}
+
+\item{x_na}{`dbl` posición de la etiqueta en x de valores missing.}
+
+\item{facet_col}{Variable de facet columna}
+
+\item{facet_row}{Variable de facet fila}
+
+\item{x_str_entre_ini}{`chr` caracter desde el cual se cortará la etiqueta de x.
+El caracter no queda incluido. Si queda en blanco '', parte desde el inicio,}
+
+\item{x_str_entre_fin}{`chr` caracter hasta donde se cortará la etiqueta de x.
+El caracter no queda incluido. Si queda en blanco '', termina al final.}
+
+\item{x_str_width}{`int` numero de caracteres para wrap las etiquetas de x.}
+
+\item{colour_na}{color para los valores de dato missing, si se incluye.}
+
+\item{font_family}{letra a utilizar en el gráfico. Por defecto se usa calibre.}
 
 \item{.data}{`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
 Funciona bien a partir de data.frame de resultado de funci\\u00f3n `tabla_vars_segmentos`.}
