@@ -23,7 +23,7 @@
 #'        El caracter no queda incluido. Si queda en blanco '', termina al final.
 #' @param x_str_width `int` numero de caracteres para wrap las etiquetas de x.
 #' @param colour_na color para los valores de dato missing, si se incluye.
-#' @param font_family letra a utilizar en el gráfico. Por defecto se usa calibre.
+#' @param font_family letra a utilizar en el gráfico. Por defecto se usa 'Calibre'.
 #'
 #' @import ggplot2
 #' @importFrom stringr str_wrap
@@ -87,7 +87,8 @@ gg_bar_3_niveles_stack <- function(.df,
     geom_text(aes(label = abs(round({{ y_prop }} * 100))),
               position = position_stack(vjust = 0.5, reverse = TRUE),
               size = rel(text_size),
-              family = font_family, fontface = 'bold',
+              family = font_family %||% '',
+              fontface = 'bold',
               colour = 'white') +
     scale_x_discrete('',
                      labels = function(x) desuctools::str_entre(x,
@@ -127,7 +128,7 @@ gg_bar_3_niveles_stack <- function(.df,
                 y = y_na,
                 size = rel(text_size),
                 hjust = if(flip) 1 else .5,
-                family = font_family,
+                family = font_family %||% '',
                 fontface = 'plain',
                 colour = colour_na) +
       annotate(geom = 'text',
@@ -136,7 +137,7 @@ gg_bar_3_niveles_stack <- function(.df,
                y = y_na,
                size = rel(text_size),
                hjust = 1,
-               family = font_family,
+               family = font_family %||% '',
                fontface = 'plain',
                colour = colour_na)
   }
