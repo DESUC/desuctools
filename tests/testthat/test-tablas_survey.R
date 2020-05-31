@@ -13,7 +13,7 @@ d <- data.frame(x      = factor(c(rep(letters[1:3], 6), letters[1:2]), levels = 
                 wgt    = c(rep(.5, 10), rep(1.5, 10))
 )
 
-s <- srvyr::as_survey_design(d, weights = wgt)
+s <- srvyr::as_survey_desig(d, weights = wgt)
 
 # svy_tabla_var_segmento ---------------------------------------------------------
 

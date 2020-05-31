@@ -32,14 +32,16 @@ svy_tabla_var_segmento <- function(.data,
   if(!any(class(.data) %in% 'tbl_svy')) stop('Se necesita un data.frame con diseno complejo')
 
   # Construcción de tabla de segmentos y variable de interés
+  # Esto era truncate antes de dplyr 1.0.
   tab <- .data %>%
-    transmute(segmento_var = rlang::as_label(enquo(.segmento))      %||% 'Total',
-              segmento_lab = sjlabelled::get_label({{ .segmento }}) %||% '-',
-              segmento_cat = sjlabelled::as_label({{ .segmento }}   %||% '-') %>%
-                forcats::fct_explicit_na(na_level = 'seg_miss'),
-              pregunta_var = rlang::as_label(enquo(.var)),
-              pregunta_lab = sjlabelled::get_label({{ .var }})      %||% '-',
-              pregunta_cat = sjlabelled::as_label({{ .var }}, add.non.labelled = TRUE))
+    mutate(segmento_var = rlang::as_label(enquo(.segmento))      %||% 'Total',
+           segmento_lab = sjlabelled::get_label({{ .segmento }}) %||% '-',
+           segmento_cat = sjlabelled::as_label({{ .segmento }}   %||% '-') %>%
+             forcats::fct_explicit_na(na_level = 'seg_miss'),
+           pregunta_var = rlang::as_label(enquo(.var)),
+           pregunta_lab = sjlabelled::get_label({{ .var }})      %||% '-',
+           pregunta_cat = sjlabelled::as_label({{ .var }}, add.non.labelled = TRUE)) %>%
+    select(.data$segmento_var:.data$pregunta_cat)
 
   # print(head(tab$variables))
 

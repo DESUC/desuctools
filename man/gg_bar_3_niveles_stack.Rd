@@ -63,7 +63,7 @@ El caracter no queda incluido. Si queda en blanco '', termina al final.}
 
 \item{colour_na}{color para los valores de dato missing, si se incluye.}
 
-\item{font_family}{letra a utilizar en el gráfico. Por defecto se usa calibre.}
+\item{font_family}{letra a utilizar en el gráfico. Por defecto se usa 'Calibre'.}
 
 \item{.data}{`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
 Funciona bien a partir de data.frame de resultado de funci\\u00f3n `tabla_vars_segmentos`.}
