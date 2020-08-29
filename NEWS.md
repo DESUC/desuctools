@@ -9,6 +9,7 @@
 * Función `fct_case_when` a partir de @pewmethods.
 * funcion `rec_ortografia` para corregir ortografía de palabras.
 * función `format_num` para impresión de número con separador de miles.
+* funcion `region_orden` para pasar de regiones como números a factor ordenadoh de norte a sur.
 
 ## Features
 

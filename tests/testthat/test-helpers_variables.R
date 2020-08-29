@@ -79,3 +79,17 @@ test_that("fct_reorder_cat orden de niveles", {
   expect_equal(levels(with(df, fct_reorder_cat(f1, .cat = f_cat, .val = val, cat_orden = 'x', .desc = FALSE))),
                c('b', 'a', 'c'))
 })
+
+
+# Prueba de region_orden
+region <- c(12, 1, 2, 15, 15, 15)
+test_that("region_orden devuelve region ordenada", {
+
+  expect_s3_class(region_orden(region), 'factor')
+  expect_s3_class(region_orden(region, as.factor = FALSE), 'haven_labelled')
+
+  expect_equal(table(region_orden(region))[[1]], 3)
+  expect_equal(names(table(region_orden(region)))[[1]], 'Arica y Parinacota')
+})
+
+
