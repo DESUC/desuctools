@@ -3,9 +3,9 @@ Package: desuctools
 Title: Funciones para trabajo en DESUC
 Version: 0.1.5.9000
 Authors@R: c(
-    person("Cristián", "Ayala", , role = c("aut", "cre")
+    person("Cristián", "Ayala", email = 'caayala@uc.cl', role = c("aut", "cre")
     ),
-    person("Cristina", "Marchant", role = c("aut", "cre")
+    person("Cristina", "Marchant", role = c("ctb")
     ),
     person("DESUC", role = "fnd")
     )
