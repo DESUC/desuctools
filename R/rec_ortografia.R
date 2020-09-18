@@ -1,4 +1,4 @@
-#' Title Corrector ortográfico
+#' @title Corrector ortográfico
 #'
 #' @description
 #' Código idéntico al de Rasmus Bååth

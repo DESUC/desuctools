@@ -2,7 +2,7 @@
 % Please edit documentation in R/rec_ortografia.R
 \name{rec_ortografia}
 \alias{rec_ortografia}
-\title{Title Corrector ortográfico}
+\title{Corrector ortográfico}
 \source{
 \url{https://nubededatos.blogspot.com/2015/01/corrector-ortografico-en-espanol-para-r.html}
 }

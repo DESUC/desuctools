@@ -1,0 +1,26 @@
+URL: https://desuc.github.io/desuctools
+
+home:
+  title: desuctools
+  description: >
+    Funciones y datos auxiliares para análisis de encuestas sociales
+    utilizados por la Dirección de Estudios Sociales UC (DESUC).
+  links:
+  - text: Sitio web DESUC
+    href: https://sociologia.uc.cl/desuc
+
+authors:
+  DESUC:
+    href: https://github.com/desuc
+
+template:
+  opengraph:
+    image:
+      src: man/figures/desuctools.png
+      alt: "Funciones y datos para análisis de encuestas sociales"
+    twitter:
+      creator: "@caayala"
+      site: "@desuc_"
+      card: summary
+  params:
+    ganalytics: UA-570559-10
