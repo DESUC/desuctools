@@ -5,8 +5,8 @@
 
 <!-- badges: start -->
 
-[![Codecov test
-coverage](https://codecov.io/gh/caayala/desuctools/branch/master/graph/badge.svg)](https://codecov.io/gh/caayala/desuctools?branch=master)
+[![R build
+status](https://github.com/DESUC/desuctools/workflows/R-CMD-check/badge.svg)](https://github.com/DESUC/desuctools/actions)
 <!-- badges: end -->
 
 Funciones y datos auxiliares para análisis de encuestas sociales
