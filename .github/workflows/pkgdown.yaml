@@ -32,8 +32,9 @@ jobs:
 
       - name: Install dependencies
         run: |
+          remotes::install_cran("devtools")
           remotes::install_deps(dependencies = TRUE)
-          install.packages("pkgdown")
+          remotes::install_github("desuc/desuctools")
         shell: Rscript {0}
 
       - name: Install package
