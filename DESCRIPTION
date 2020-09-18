@@ -2,11 +2,17 @@ Type: Package
 Package: desuctools
 Title: Funciones para trabajo en DESUC
 Version: 0.1.5.9000
-Author: Cristian Ayala
-Maintainer: Cristiab Ayala <caayala@uc.cl>
+Authors@R: c(
+    person("Cristián", "Ayala", , role = c("aut", "cre")
+    ),
+    person("Cristina", "Marchant", role = c("aut", "cre")
+    ),
+    person("DESUC", role = "fnd")
+    )
 Description: Funciones y datos útiles en el trabajo de limpieza,
     revisión, tabulación y graficación de datos de la Dirección de
     Estudios Sociales UC.
+URL: https://desuc.github.io/desuctools, https://github.com/desuc/desuctools
 License: MIT + file LICENSE
 Depends:
     R (>= 3.5)
