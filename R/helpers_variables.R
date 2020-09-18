@@ -136,9 +136,9 @@ str_entre_parentesis <- function(text){
     # Extrae texto entre paréntesis
     text_extract <- str_entre(text, ini = '\\(', fin = '\\)')
 
-    if (is.na(nchar(text_extract))) {
-        text_extract <- text
-    }
+    text_extract <- ifelse(is.na(nchar(text_extract)),
+                           text,
+                           text_extract)
 
     return(text_extract)
 }
