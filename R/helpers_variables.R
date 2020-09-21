@@ -254,20 +254,20 @@ region_orden <- function(reg, as.factor = TRUE){
     # Ordena número de regiones en un factor de norte a sur.
     reg_num <- c(15, 1:5, 13, 6, 7, 16, 8, 9, 14, 10:12)
     reg_nom <- c("Arica y Parinacota",
-                 "Tarapacá",
+                 "Tarapaca\u0301",
                  "Antofagasta",
                  "Atacama",
                  "Coquimbo",
-                 "Valparaíso",
+                 "Valparai\u0301so",
                  "Metropolitana",
-                 "O’Higgins",
+                 "O\u2019Higgins",
                  "Maule",
-                 "Ñuble",
-                 "Biobío",
-                 "La Araucanía",
-                 "Los Ríos",
+                 "\u00d1uble",
+                 "Biobi\u0301o",
+                 "La Araucani\u0301a",
+                 "Los Ri\u0301os",
                  "Los Lagos",
-                 "Aysén",
+                 "Ayse\u0301n",
                  "Magallanes")
 
     names(reg_num) <- reg_nom
@@ -279,6 +279,6 @@ region_orden <- function(reg, as.factor = TRUE){
     } else {
         haven::labelled(reg,
                         labels = reg_num,
-                        label = 'Región')
+                        label = 'Regi\u00f3n')
     }
 }
