@@ -106,17 +106,17 @@
 <div id="ejemplos" class="section level2">
 <h2 class="hasAnchor">
 <a href="#ejemplos" class="anchor"></a>Ejemplos</h2>
+<div id="datos-de-región-y-comuna" class="section level3">
+<h3 class="hasAnchor">
+<a href="#datos-de-regi%C3%B3n-y-comuna" class="anchor"></a>Datos de región y comuna</h3>
 <p>Base de datos con información sobre regiones y comunas.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org">dplyr</a></span>, warn.conflicts = <span class="fl">FALSE</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="https://desuc.github.io/desuctools">desuctools</a></span>)
-
 <span class="co"># Tabla con comunas capitales regionales.</span>
 <span class="kw">desuctools</span>::<span class="kw"><a href="reference/regiones_y_comunas.html">regiones_y_comunas</a></span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">region_capital</span>) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="kw">region_orden</span>) <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="kw">region</span>, <span class="kw">comuna</span>, <span class="kw">comuna_nom</span>) <span class="op">%&gt;%</span> 
-  <span class="kw">desuctools</span>::<span class="fu"><a href="reference/kable_desuc.html">kable_desuc</a></span>(align = <span class="st">'rrl'</span>)
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span>(<span class="kw">region_capital</span>) <span class="op">%&gt;%</span> 
+  <span class="fu">arrange</span>(<span class="kw">region_orden</span>) <span class="op">%&gt;%</span> 
+  <span class="fu">select</span>(<span class="kw">region</span>, <span class="kw">comuna</span>, <span class="kw">comuna_nom</span>) <span class="op">%&gt;%</span> 
+  <span class="kw">desuctools</span>::<span class="fu"><a href="reference/kable_desuc.html">kable_desuc</a></span>(align = <span class="st">'rrl'</span>, font_size = <span class="fl">9</span>)
 <span class="co">#&gt; Warning in kableExtra::kable_styling(., latex_options = latex_options,</span>
 <span class="co">#&gt; repeat_header_text = "(continuación)", : Please specify format in kable.</span>
 <span class="co">#&gt; kableExtra can customize either HTML or LaTeX outputs. See https://</span>
@@ -206,6 +206,138 @@
 </tr>
 </tbody>
 </table>
+</div>
+<div id="recodificación-de-variables" class="section level3">
+<h3 class="hasAnchor">
+<a href="#recodificaci%C3%B3n-de-variables" class="anchor"></a>Recodificación de variables</h3>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="co"># Cargar base de encuesta Bicentenario</span>
+<span class="kw">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span>()
+<span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span>(url = <span class="st">'https://github.com/DESUC/30diasdegraficos/raw/master/inputs/12-lollipop-df_bicen_19_30diasdegraficos_2020.rds'</span>,
+              destfile = <span class="kw">file</span>)
+
+<span class="kw">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span>(<span class="kw">file</span>)
+
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="kw">data</span>)
+<span class="co">#&gt; # A tibble: 6 x 15</span>
+<span class="co">#&gt;    folio     d07   t01_1   t01_2   t01_3   t02_1   t02_2   t03_1   t03_2   t03_3</span>
+<span class="co">#&gt;    &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;</span>
+<span class="co">#&gt; 1 100101 2 [Muj… 2 [Bas… 6 [No … 1 [Muc… 2 [Bas… 3 [Alg… 1 [Muc… 1 [Muc… 1 [Muc…</span>
+<span class="co">#&gt; 2 100102 2 [Muj… 1 [Muc… 1 [Muc… 1 [Muc… 3 [Alg… 5 [Nad… 1 [Muc… 1 [Muc… 1 [Muc…</span>
+<span class="co">#&gt; 3 100103 1 [Hom… 1 [Muc… 2 [Bas… 1 [Muc… 1 [Muc… 1 [Muc… 1 [Muc… 5 [Nad… 2 [Bas…</span>
+<span class="co">#&gt; 4 100104 2 [Muj… 1 [Muc… 1 [Muc… 1 [Muc… 4 [Poc… 4 [Poc… 4 [Poc… 4 [Poc… 3 [Alg…</span>
+<span class="co">#&gt; 5 100105 2 [Muj… 1 [Muc… 2 [Bas… 1 [Muc… 5 [Nad… 3 [Alg… 4 [Poc… 1 [Muc… 2 [Bas…</span>
+<span class="co">#&gt; 6 100106 2 [Muj… 1 [Muc… 1 [Muc… 1 [Muc… 1 [Muc… 5 [Nad… 1 [Muc… 4 [Poc… 4 [Poc…</span>
+<span class="co">#&gt; # … with 5 more variables: t03_4 &lt;dbl+lbl&gt;, t04_1 &lt;dbl+lbl&gt;, t04_2 &lt;dbl+lbl&gt;,</span>
+<span class="co">#&gt; #   t04_3 &lt;dbl+lbl&gt;, pond_se &lt;dbl&gt;</span>
+</pre></div>
+<p>La función <code><a href="reference/rec_cat_5a3.html">desuctools::rec_cat_5a3</a></code> recodifica preguntas likert de 5 a 3 categorías, entregando la opción de agregar etiquetas a ellas.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">data</span> <span class="op">&lt;-</span> <span class="kw">data</span> <span class="op">%&gt;%</span>  
+  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="kw">t01_1</span><span class="op">:</span><span class="kw">t01_2</span>), 
+                <span class="op">~</span><span class="kw">desuctools</span>::<span class="fu"><a href="reference/rec_cat_5a3.html">rec_cat_5a3</a></span>(<span class="kw">.</span>, labels = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Bastante'</span> = <span class="fl">1</span>, 
+                                                       <span class="st">'Algo'</span> = <span class="fl">2</span>, 
+                                                       <span class="st">'Poco'</span> = <span class="fl">3</span>, 
+                                                       <span class="st">'NA/NR'</span> = <span class="fl">9</span>))))
+
+<span class="kw">data</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>()
+<span class="co">#&gt; # A tibble: 6 x 15</span>
+<span class="co">#&gt;    folio     d07   t01_1   t01_2   t01_3   t02_1   t02_2   t03_1   t03_2   t03_3</span>
+<span class="co">#&gt;    &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;</span>
+<span class="co">#&gt; 1 100101 2 [Muj… 1 [Bas… 9 [NA/… 1 [Muc… 2 [Bas… 3 [Alg… 1 [Muc… 1 [Muc… 1 [Muc…</span>
+<span class="co">#&gt; 2 100102 2 [Muj… 1 [Bas… 1 [Bas… 1 [Muc… 3 [Alg… 5 [Nad… 1 [Muc… 1 [Muc… 1 [Muc…</span>
+<span class="co">#&gt; 3 100103 1 [Hom… 1 [Bas… 1 [Bas… 1 [Muc… 1 [Muc… 1 [Muc… 1 [Muc… 5 [Nad… 2 [Bas…</span>
+<span class="co">#&gt; 4 100104 2 [Muj… 1 [Bas… 1 [Bas… 1 [Muc… 4 [Poc… 4 [Poc… 4 [Poc… 4 [Poc… 3 [Alg…</span>
+<span class="co">#&gt; 5 100105 2 [Muj… 1 [Bas… 1 [Bas… 1 [Muc… 5 [Nad… 3 [Alg… 4 [Poc… 1 [Muc… 2 [Bas…</span>
+<span class="co">#&gt; 6 100106 2 [Muj… 1 [Bas… 1 [Bas… 1 [Muc… 1 [Muc… 5 [Nad… 1 [Muc… 4 [Poc… 4 [Poc…</span>
+<span class="co">#&gt; # … with 5 more variables: t03_4 &lt;dbl+lbl&gt;, t04_1 &lt;dbl+lbl&gt;, t04_2 &lt;dbl+lbl&gt;,</span>
+<span class="co">#&gt; #   t04_3 &lt;dbl+lbl&gt;, pond_se &lt;dbl&gt;</span>
+</pre></div>
+</div>
+<div id="tablas-de-resultados" class="section level3">
+<h3 class="hasAnchor">
+<a href="#tablas-de-resultados" class="anchor"></a>Tablas de resultados</h3>
+<p>Función <code>tabla_vars_segmentos</code>, la cual permite generar un <code>data.frame</code> <em>tidy</em> con la cantidad y proporción de respuestas para un número arbitrario de preguntas y un número arbitrario de segmentos de la población.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="kw">data_tidy</span> <span class="op">&lt;-</span> <span class="kw">data</span> <span class="op">%&gt;%</span> 
+  <span class="kw">desuctools</span>::<span class="fu"><a href="reference/tabla_vars_segmentos.html">tabla_vars_segmentos</a></span>(
+                  total       = <span class="fl">TRUE</span>, <span class="co"># Incluye dato total </span>
+                  .vars       = <span class="fu">vars</span>(<span class="kw">t01_1</span>, <span class="kw">t01_2</span>), <span class="co"># Listado de variables de interés</span>
+                  .segmentos  = <span class="fu">vars</span>(<span class="kw">d07</span>), <span class="co"># Listado de segmentos de interés</span>
+                  .wt         = <span class="kw">pond_se</span>) <span class="co"># Ponderador</span>
+
+<span class="kw">data_tidy</span> <span class="op">%&gt;%</span> 
+  <span class="fu">glimpse</span>()
+<span class="co">#&gt; Rows: 24</span>
+<span class="co">#&gt; Columns: 7</span>
+<span class="co">#&gt; $ segmento_var &lt;fct&gt; d07, d07, d07, d07, d07, d07, d07, d07, d07, d07, d07, d…</span>
+<span class="co">#&gt; $ segmento_cat &lt;fct&gt; Hombre, Hombre, Hombre, Hombre, Mujer, Mujer, Mujer, Muj…</span>
+<span class="co">#&gt; $ pregunta_var &lt;fct&gt; t01_1, t01_1, t01_1, t01_1, t01_1, t01_1, t01_1, t01_1, …</span>
+<span class="co">#&gt; $ pregunta_lab &lt;fct&gt; (No tener suficiente dinero para afrontar la vejez) ¿Cuá…</span>
+<span class="co">#&gt; $ pregunta_cat &lt;fct&gt; Bastante, Algo, Poco, NA/NR, Bastante, Algo, Poco, NA/NR…</span>
+<span class="co">#&gt; $ casos        &lt;dbl&gt; 666.867524, 169.146704, 148.294141, 3.352725, 818.345858…</span>
+<span class="co">#&gt; $ prop         &lt;dbl&gt; 0.675198738, 0.171259863, 0.150146788, 0.003394611, 0.77…</span>
+</pre></div>
+</div>
+<div id="manejo-de-etiquetas" class="section level3">
+<h3 class="hasAnchor">
+<a href="#manejo-de-etiquetas" class="anchor"></a>Manejo de etiquetas</h3>
+<p>Extraer el texto del ítem de una pregunta en matrices de preguntas likert.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">data_tidy</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span>(pregunta_lab_short = <span class="kw">desuctools</span>::<span class="fu"><a href="reference/str_entre_parentesis.html">str_entre_parentesis</a></span>(<span class="kw">pregunta_lab</span>),
+         .keep = <span class="st">'used'</span>, .before = <span class="fl">1</span>) <span class="op">%&gt;%</span> 
+  <span class="fu">distinct</span>() <span class="op">%&gt;%</span> 
+  <span class="kw">kableExtra</span>::<span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span>()
+</pre></div>
+<table class="table">
+<thead><tr>
+<th style="text-align:left;">
+<p>pregunta_lab_short</p>
+</th>
+<th style="text-align:left;">
+<p>pregunta_lab</p>
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<p>No tener suficiente dinero para afrontar la vejez</p>
+</td>
+<td style="text-align:left;">
+<p>(No tener suficiente dinero para afrontar la vejez) ¿Cuánto temor le producen las siguientes situaciones? @_@ITERNAME@_@</p>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<p>Ser despedido/a de su trabajo</p>
+</td>
+<td style="text-align:left;">
+<p>(Ser despedido/a de su trabajo) ¿Cuánto temor le producen las siguientes situaciones? @_@ITERNAME@_@</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb7"><pre class="downlit">
+<span class="kw">data_tidy</span> <span class="op">&lt;-</span> <span class="kw">data_tidy</span> <span class="op">%&gt;%</span> 
+  <span class="fu">mutate</span>(pregunta_lab = <span class="kw">desuctools</span>::<span class="fu"><a href="reference/str_entre_parentesis.html">str_entre_parentesis</a></span>(<span class="kw">pregunta_lab</span>))
+</pre></div>
+</div>
+<div id="gráficos" class="section level3">
+<h3 class="hasAnchor">
+<a href="#gr%C3%A1ficos" class="anchor"></a>Gráficos</h3>
+<p>Función <code><a href="reference/gg_bar_3_niveles_stack.html">desuctools::gg_bar_3_niveles_stack</a></code> para crear gráfico que compare categorías positivas, negativas y neutras.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit">
+<span class="kw">desuctools</span>::<span class="fu"><a href="reference/gg_bar_3_niveles_stack.html">gg_bar_3_niveles_stack</a></span>(
+  .df         = <span class="kw">data_tidy</span>,
+  x           = <span class="kw">segmento_cat</span>, 
+  facet_col   = <span class="kw">pregunta_lab</span>, 
+  missing     = <span class="st">'NA/NR'</span>, y_na = <span class="fl">1.1</span>,  x_na = <span class="op">-</span><span class="fl">2.5</span>,
+  title       = <span class="st">'¿Cuánto temor le producen las siguientes situaciones?'</span>,
+  font_family = <span class="st">''</span>)
+</pre></div>
+<p><img src="reference/figures/grafico-1.png" width="100%" height="100%" style="display: block; margin: auto;"></p>
+</div>
 </div>
 </div>
   </div>
