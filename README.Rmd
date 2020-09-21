@@ -5,6 +5,11 @@ output: github_document
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
+library(tidyverse, warn.conflicts = FALSE)
+library(desuctools)
+library(labelled)
+library(knitr)
+
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
@@ -33,18 +38,96 @@ Para instalar la versión en desarrollo de desuctools desde
 devtools::install_github("desuc/desuctools")
 ```
 
+
 ## Ejemplos
+
+### Datos de región y comuna
 
 Base de datos con información sobre regiones y comunas.
 
 ```{r example}
-library(dplyr, warn.conflicts = FALSE)
-library(desuctools)
-
 # Tabla con comunas capitales regionales.
 desuctools::regiones_y_comunas %>% 
   filter(region_capital) %>% 
   arrange(region_orden) %>% 
   select(region, comuna, comuna_nom) %>% 
-  desuctools::kable_desuc(align = 'rrl')
+  desuctools::kable_desuc(align = 'rrl', font_size = 9)
+```
+
+### Recodificación de variables
+
+```{r}
+# Cargar base de encuesta Bicentenario
+file <- tempfile()
+download.file(url = 'https://github.com/DESUC/30diasdegraficos/raw/master/inputs/12-lollipop-df_bicen_19_30diasdegraficos_2020.rds',
+              destfile = file)
+
+data <- readRDS(file)
+
+head(data)
+```
+
+La función `desuctools::rec_cat_5a3` recodifica preguntas likert de 5 a 3 categorías, entregando la opción de agregar etiquetas a ellas.
+
+```{r}
+data <- data %>%  
+  mutate(across(c(t01_1:t01_2), 
+                ~desuctools::rec_cat_5a3(., labels = c('Bastante' = 1, 
+                                                       'Algo' = 2, 
+                                                       'Poco' = 3, 
+                                                       'NA/NR' = 9))))
+
+data %>% head()
+```
+
+
+### Tablas de resultados
+
+Función `tabla_vars_segmentos`, la cual permite generar un `data.frame` *tidy* con la cantidad y proporción de respuestas para un número arbitrario de preguntas y un número arbitrario de segmentos de la población.
+
+```{r}
+data_tidy <- data %>% 
+  desuctools::tabla_vars_segmentos(
+                  total       = TRUE, # Incluye dato total 
+                  .vars       = vars(t01_1, t01_2), # Listado de variables de interés
+                  .segmentos  = vars(d07), # Listado de segmentos de interés
+                  .wt         = pond_se) # Ponderador
+
+data_tidy %>% 
+  glimpse()
+```
+
+
+### Manejo de etiquetas
+
+Extraer el texto del ítem de una pregunta en matrices de preguntas likert.
+
+```{r}
+data_tidy %>% 
+  mutate(pregunta_lab_short = desuctools::str_entre_parentesis(pregunta_lab),
+         .keep = 'used', .before = 1) %>% 
+  distinct() %>% 
+  kableExtra::kable()
+```
+
+
+```{r}
+data_tidy <- data_tidy %>% 
+  mutate(pregunta_lab = desuctools::str_entre_parentesis(pregunta_lab))
+```
+
+
+### Gráficos
+
+Función `desuctools::gg_bar_3_niveles_stack` para crear gráfico que compare categorías 
+positivas, negativas y neutras.
+
+```{r grafico, fig.dim=c(6, 4), fig.align='center', fig.retina = 2, out.height='100%'}
+desuctools::gg_bar_3_niveles_stack(
+  .df         = data_tidy,
+  x           = segmento_cat, 
+  facet_col   = pregunta_lab, 
+  missing     = 'NA/NR', y_na = 1.1,  x_na = -2.5,
+  title       = '¿Cuánto temor le producen las siguientes situaciones?',
+  font_family = '')
 ```
