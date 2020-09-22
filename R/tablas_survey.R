@@ -31,6 +31,9 @@ svy_tabla_var_segmento <- function(.data,
 
   if(!any(class(.data) %in% 'tbl_svy')) stop('Se necesita un data.frame con diseno complejo')
 
+  # Strinf de la variable de interés. Se usa luego para extraer esta columna.
+  var_str <- rlang::as_label(enquo(.var))
+
   # Construcción de tabla de segmentos y variable de interés
   # Esto era truncate antes de dplyr 1.0.
   tab <- .data %>%
@@ -38,15 +41,17 @@ svy_tabla_var_segmento <- function(.data,
            segmento_lab = sjlabelled::get_label({{ .segmento }}) %||% '-',
            segmento_cat = sjlabelled::as_label({{ .segmento }}   %||% '-') %>%
              forcats::fct_explicit_na(na_level = 'seg_miss'),
-           pregunta_var = rlang::as_label(enquo(.var)),
+           pregunta_var = var_str,
            pregunta_lab = sjlabelled::get_label({{ .var }})      %||% '-',
            pregunta_cat = sjlabelled::as_label({{ .var }}, add.non.labelled = TRUE)) %>%
     select(.data$segmento_var:.data$pregunta_cat)
 
   # print(head(tab$variables))
+  var_labels_length <- length(attr(.data$variables[[var_str]], 'labels'))
+  var_class <- class(.data$variables[[var_str]])
 
   # Construir la variable de interés según si es una variable escalar o categórica
-  if (class(.data$variables[[ rlang::as_label(enquo(.var)) ]] ) %in% c('numeric', 'integer')) {
+  if (var_labels_length == 0 & all(var_class != 'factor')) {
 
     # Variable escalar
     tab <- tab %>%
@@ -60,8 +65,9 @@ svy_tabla_var_segmento <- function(.data,
     tab <- tab %>%
       mutate(pregunta_cat = forcats::fct_explicit_na(.data$pregunta_cat,
                                                      na_level = 'cat_miss')) %>%
-      group_by_at(vars(.data$segmento_var:.data$pregunta_lab, .data$pregunta_cat),
-                  .drop = FALSE) %>%
+      group_by(across(c(.data$segmento_var:.data$pregunta_lab,
+                        .data$pregunta_cat)),
+               .drop = FALSE) %>%
       summarise(prop = srvyr::survey_mean(na.rm = na.rm,
                                           vartype = c('ci', 'se'),
                                           level = level)) %>%
@@ -163,9 +169,11 @@ svy_tabla_vars_segmentos <- function(.data,
   enquo_seg <- rlang::enquo(.segmentos)
 
   # Posiciones de variables en la df .data
-  .var_select <- tidyselect::eval_select(expr = enquo_var, data = .data[['variables']])
+  .var_select <- tidyselect::eval_select(expr = enquo_var,
+                                         data = .data[['variables']])
 
-  .seg_select <- tidyselect::eval_select(expr = enquo_seg, data = .data[['variables']])
+  .seg_select <- tidyselect::eval_select(expr = enquo_seg,
+                                         data = .data[['variables']])
 
   # Nombres de las variables de interés a partir de sus posiciones.
   var_sel_name <- colnames(.data)[.var_select]
@@ -201,7 +209,7 @@ svy_tabla_vars_segmentos <- function(.data,
   }
 
   # Cálculo de cada combinación de variable y segmento
-  l_result <- purrr::map2(tab$var, tab$seg,
+  l_result <- purrr::map2(tab[['var']], tab[['seg']],
                           ~ svy_tabla_var_segmento_int(.x, .y))
 
   # Agregar la lista de resultados a tab para poder desarmarla usando unnest.
@@ -211,7 +219,7 @@ svy_tabla_vars_segmentos <- function(.data,
   # Resultado final sin las columnas auxiliares.
   df_result %>%
     tidyr::unnest(l_result) %>%
-    select(-var, -seg)
+    select(!c('var', 'seg'))
 }
 
 

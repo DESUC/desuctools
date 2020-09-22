@@ -18,4 +18,4 @@
 #' }
 #'
 
-"regiones_y_comunas"
+"corpus_rae"

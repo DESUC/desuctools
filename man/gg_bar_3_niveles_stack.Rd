@@ -29,44 +29,46 @@ gg_bar_3_niveles_stack(
 )
 }
 \arguments{
+\item{.df}{`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
+Funciona bien a partir de data.frame de resultado de funci\\u00f3n `tabla_vars_segmentos`.}
+
 \item{x}{`quo` Nombre de variable a utilizar en eje X.}
 
-\item{title}{`chr` T\\u00edtulo del gr\\u00e1fico}
+\item{title}{`chr` T\\u00edtulo del gr\\u00e1fico.}
 
-\item{subtitle}{`chr` Subt\\u00edtulo del gr\\u00e1fico}
+\item{subtitle}{`chr` Subt\\u00edtulo del gr\\u00e1fico.}
 
-\item{caption}{`chr` Caption del gr\\u00e1fico}
+\item{caption}{`chr` Caption del gr\\u00e1fico.}
 
-\item{missing}{`chr` vector con categor\\u00edas de respuesta consideradas 'missing'}
+\item{missing}{`chr` vector con categor\\u00edas de respuesta consideradas 'missing'.}
 
-\item{text_size}{`num` tama\\u00f1o de letra}
+\item{text_size}{`num` tama\\u00f1o de letra.}
 
 \item{flip}{`logical` TRUE gira los ejes.}
 
-\item{colour_neg_neu_pos}{Vector con tres colores para negativo, neutro y positivo}
+\item{colour_neg_neu_pos}{Vector con tres colores para negativo, neutro y positivo.}
 
-\item{y_na}{`dbl` posición de la etiqueta en y de valores missing.}
+\item{y_prop}{`chr` Variable con valor de proporciones a graficar.}
 
-\item{x_na}{`dbl` posición de la etiqueta en x de valores missing.}
+\item{y_na}{`dbl` posici\\u00f3n de la etiqueta en y de valores missing.}
 
-\item{facet_col}{Variable de facet columna}
+\item{x_na}{`dbl` posici\\u00f3n de la etiqueta en x de valores missing.}
 
-\item{facet_row}{Variable de facet fila}
+\item{facet_col}{Variable de facet columna.}
 
-\item{x_str_entre_ini}{`chr` caracter desde el cual se cortará la etiqueta de x.
+\item{facet_row}{Variable de facet fila.}
+
+\item{x_str_entre_ini}{`chr` caracter desde el cual se cortar\\u00e1 la etiqueta de x.
 El caracter no queda incluido. Si queda en blanco '', parte desde el inicio,}
 
-\item{x_str_entre_fin}{`chr` caracter hasta donde se cortará la etiqueta de x.
+\item{x_str_entre_fin}{`chr` caracter hasta donde se cortar\\u00e1 la etiqueta de x.
 El caracter no queda incluido. Si queda en blanco '', termina al final.}
 
 \item{x_str_width}{`int` numero de caracteres para wrap las etiquetas de x.}
 
 \item{colour_na}{color para los valores de dato missing, si se incluye.}
 
-\item{font_family}{letra a utilizar en el gráfico. Por defecto se usa 'Calibre'.}
-
-\item{.data}{`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
-Funciona bien a partir de data.frame de resultado de funci\\u00f3n `tabla_vars_segmentos`.}
+\item{font_family}{letra a utilizar en el gr\\u00e1fico. Por defecto se usa 'Calibre'.}
 }
 \value{
 ggplot
@@ -85,6 +87,7 @@ df_chart <- data.frame(pregunta_lab = c(rep('a', 4), rep('b', 4)),
 
 gg_bar_3_niveles_stack(df_chart,
                        missing = 'ns',
-                       title = 'Grafico de prueba')
+                       title = 'Prueba',
+                       font_family = NULL)
 
 }

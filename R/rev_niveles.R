@@ -10,7 +10,7 @@
 #'    del primero y último valor que será invertido. Se espera que esos dos valores
 #'    definan un rango.
 #'    Por defecto, invierte todos los niveles.
-#' @param ...
+#' @param ... placeholder.
 #'
 #' @export
 rev_niveles <- function(x, ...) {
@@ -53,7 +53,9 @@ rev_niveles.factor <- function(x, niveles_inv = NULL, ...) {
 
 #' @rdname rev_niveles
 #' @export
-rev_niveles.haven_labelled <- function(x, rango_inv = NULL, ...){
+rev_niveles.haven_labelled <- function(x,
+                                       rango_inv = NULL,
+                                       ...){
 
   # Función para invertir valores según rango_inv
   valores_inv <- function(val, index_inf, index_sup){
@@ -109,9 +111,13 @@ rev_niveles.haven_labelled <- function(x, rango_inv = NULL, ...){
 
 #' @rdname rev_niveles
 #' @export
-rev_niveles.numeric <- function(x, rango_inv = NULL, ...){
+rev_niveles.numeric <- function(x,
+                                rango_inv = NULL,
+                                ...){
 
-  x_new <- rev_niveles.haven_labelled(x, rango_inv = rango_inv, ...)
+  x_new <- rev_niveles.haven_labelled(x,
+                                      rango_inv = rango_inv,
+                                      ...)
 
   # Cambio clase de haven_labelled a numeric por consistencia.
   unclass(x_new)

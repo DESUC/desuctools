@@ -21,4 +21,7 @@ longitud y latitud son capturados como digitos sin decimal y necesitan ser reesc
 }
 \examples{
 
+digitos_entero(c(0.1234, 12.34, 1234, 12345),
+               digits = 3)
+
 }

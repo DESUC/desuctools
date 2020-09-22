@@ -21,7 +21,7 @@ rev_niveles(x, ...)
 \arguments{
 \item{x}{`vector`: Vector de datos que se quiere invertir}
 
-\item{...}{}
+\item{...}{placeholder.}
 
 \item{niveles_inv}{`chr`: Niveles de un factor que serán invertidos.
 Por defecto, invierte todos los niveles.}
