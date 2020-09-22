@@ -169,9 +169,11 @@ svy_tabla_vars_segmentos <- function(.data,
   enquo_seg <- rlang::enquo(.segmentos)
 
   # Posiciones de variables en la df .data
-  .var_select <- tidyselect::eval_select(expr = enquo_var, data = .data[['variables']])
+  .var_select <- tidyselect::eval_select(expr = enquo_var,
+                                         data = .data[['variables']])
 
-  .seg_select <- tidyselect::eval_select(expr = enquo_seg, data = .data[['variables']])
+  .seg_select <- tidyselect::eval_select(expr = enquo_seg,
+                                         data = .data[['variables']])
 
   # Nombres de las variables de interés a partir de sus posiciones.
   var_sel_name <- colnames(.data)[.var_select]
@@ -207,7 +209,7 @@ svy_tabla_vars_segmentos <- function(.data,
   }
 
   # Cálculo de cada combinación de variable y segmento
-  l_result <- purrr::map2(tab$var, tab$seg,
+  l_result <- purrr::map2(tab[['var']], tab[['seg']],
                           ~ svy_tabla_var_segmento_int(.x, .y))
 
   # Agregar la lista de resultados a tab para poder desarmarla usando unnest.
@@ -217,7 +219,7 @@ svy_tabla_vars_segmentos <- function(.data,
   # Resultado final sin las columnas auxiliares.
   df_result %>%
     tidyr::unnest(l_result) %>%
-    select(-var, -seg)
+    select(!c('var', 'seg'))
 }
 
 
