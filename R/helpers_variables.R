@@ -161,10 +161,13 @@ str_entre_parentesis <- function(text){
 #'
 #' @examples
 #'
+#' digitos_entero(c(0.1234, 12.34, 1234, 12345),
+#'                digits = 3)
+#'
 digitos_entero <-  function(x, digits = 2) {
     div <- floor(log10(abs(x))) - digits + 1
 
-    x / 10^div
+    x / 10 ^ div
 }
 
 

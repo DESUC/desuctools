@@ -9,6 +9,7 @@
 format_prefix <-  function(x,
                            prefix,
                            digits) {
+
   x <- round(x, digits = digits)
 
   if (is.null(prefix)) {
@@ -46,7 +47,9 @@ format_prefix <-  function(x,
 #' format_clp(1000000)
 #'
 format_clp <-  function(x, digits = 0) {
-  format_prefix(x, prefix = 'CLP', digits = digits)
+  format_prefix(x,
+                prefix = 'CLP',
+                digits = digits)
 }
 
 
@@ -71,7 +74,9 @@ format_clp <-  function(x, digits = 0) {
 #' format_dinero(1000000)
 #'
 format_dinero <-  function(x, digits = 0) {
-  format_prefix(x, prefix = '$', digits = digits)
+  format_prefix(x,
+                prefix = '$',
+                digits = digits)
 }
 
 
@@ -96,5 +101,7 @@ format_dinero <-  function(x, digits = 0) {
 #' format_num(1000000)
 #'
 format_num <-  function(x, digits = 0) {
-  format_prefix(x, prefix = NULL, digits = digits)
+  format_prefix(x,
+                prefix = NULL,
+                digits = digits)
 }

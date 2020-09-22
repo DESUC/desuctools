@@ -23,7 +23,7 @@ rec_ortografia <- function(word,
 
   correct <- function(w){
     # Calcula la distancia entre la palabra y el resto de palabras ordenadas (sorted words).
-    edit_dist <- adist(w, sorted_words)
+    edit_dist <- utils::adist(w, sorted_words)
 
     # Genera un vector con todas las palabras con el mínimo de distancia.
     # Como sorted_words está ordenada de más a menos común, el vector
