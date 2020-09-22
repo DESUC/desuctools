@@ -176,28 +176,33 @@ Gr\u00e1fico de barras dise\u00f1ado para comparar categor\u00eda positiva, nega
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
+      <th>.df</th>
+      <td><p>`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
+Funciona bien a partir de data.frame de resultado de funci\u00f3n `tabla_vars_segmentos`.</p></td>
+    </tr>
+    <tr>
       <th>x</th>
       <td><p>`quo` Nombre de variable a utilizar en eje X.</p></td>
     </tr>
     <tr>
       <th>title</th>
-      <td><p>`chr` T\u00edtulo del gr\u00e1fico</p></td>
+      <td><p>`chr` T\u00edtulo del gr\u00e1fico.</p></td>
     </tr>
     <tr>
       <th>subtitle</th>
-      <td><p>`chr` Subt\u00edtulo del gr\u00e1fico</p></td>
+      <td><p>`chr` Subt\u00edtulo del gr\u00e1fico.</p></td>
     </tr>
     <tr>
       <th>caption</th>
-      <td><p>`chr` Caption del gr\u00e1fico</p></td>
+      <td><p>`chr` Caption del gr\u00e1fico.</p></td>
     </tr>
     <tr>
       <th>missing</th>
-      <td><p>`chr` vector con categor\u00edas de respuesta consideradas 'missing'</p></td>
+      <td><p>`chr` vector con categor\u00edas de respuesta consideradas 'missing'.</p></td>
     </tr>
     <tr>
       <th>text_size</th>
-      <td><p>`num` tama\u00f1o de letra</p></td>
+      <td><p>`num` tama\u00f1o de letra.</p></td>
     </tr>
     <tr>
       <th>flip</th>
@@ -205,32 +210,36 @@ Gr\u00e1fico de barras dise\u00f1ado para comparar categor\u00eda positiva, nega
     </tr>
     <tr>
       <th>colour_neg_neu_pos</th>
-      <td><p>Vector con tres colores para negativo, neutro y positivo</p></td>
+      <td><p>Vector con tres colores para negativo, neutro y positivo.</p></td>
+    </tr>
+    <tr>
+      <th>y_prop</th>
+      <td><p>`chr` Variable con valor de proporciones a graficar.</p></td>
     </tr>
     <tr>
       <th>y_na</th>
-      <td><p>`dbl` posición de la etiqueta en y de valores missing.</p></td>
+      <td><p>`dbl` posici\u00f3n de la etiqueta en y de valores missing.</p></td>
     </tr>
     <tr>
       <th>x_na</th>
-      <td><p>`dbl` posición de la etiqueta en x de valores missing.</p></td>
+      <td><p>`dbl` posici\u00f3n de la etiqueta en x de valores missing.</p></td>
     </tr>
     <tr>
       <th>facet_col</th>
-      <td><p>Variable de facet columna</p></td>
+      <td><p>Variable de facet columna.</p></td>
     </tr>
     <tr>
       <th>facet_row</th>
-      <td><p>Variable de facet fila</p></td>
+      <td><p>Variable de facet fila.</p></td>
     </tr>
     <tr>
       <th>x_str_entre_ini</th>
-      <td><p>`chr` caracter desde el cual se cortará la etiqueta de x.
+      <td><p>`chr` caracter desde el cual se cortar\u00e1 la etiqueta de x.
 El caracter no queda incluido. Si queda en blanco '', parte desde el inicio,</p></td>
     </tr>
     <tr>
       <th>x_str_entre_fin</th>
-      <td><p>`chr` caracter hasta donde se cortará la etiqueta de x.
+      <td><p>`chr` caracter hasta donde se cortar\u00e1 la etiqueta de x.
 El caracter no queda incluido. Si queda en blanco '', termina al final.</p></td>
     </tr>
     <tr>
@@ -243,12 +252,7 @@ El caracter no queda incluido. Si queda en blanco '', termina al final.</p></td>
     </tr>
     <tr>
       <th>font_family</th>
-      <td><p>letra a utilizar en el gráfico. Por defecto se usa 'Calibre'.</p></td>
-    </tr>
-    <tr>
-      <th>.data</th>
-      <td><p>`data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.
-Funciona bien a partir de data.frame de resultado de funci\u00f3n `tabla_vars_segmentos`.</p></td>
+      <td><p>letra a utilizar en el gr\u00e1fico. Por defecto se usa 'Calibre'.</p></td>
     </tr>
     </table>
 
@@ -265,7 +269,8 @@ Funciona bien a partir de data.frame de resultado de funci\u00f3n `tabla_vars_se
 
 <span class='fu'>gg_bar_3_niveles_stack</span>(<span class='kw'>df_chart</span>,
                        missing = <span class='st'>'ns'</span>,
-                       title = <span class='st'>'Grafico de prueba'</span>)
+                       title = <span class='st'>'Prueba'</span>,
+                       font_family = <span class='kw'>NULL</span>)
 </div><div class='img'><img src='gg_bar_3_niveles_stack-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>

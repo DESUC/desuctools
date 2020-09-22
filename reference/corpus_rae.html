@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Número de dígitos enteros. — digitos_entero • desuctools</title>
+<title>Corpus de Referencia del Español Actual (CREA) escrito — corpus_rae • desuctools</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,9 +46,12 @@
 
 
 
-<meta property="og:title" content="Número de dígitos enteros. — digitos_entero" />
-<meta property="og:description" content="Número de dígitos enteros para valores con decimales. Diseñada para casos en que
-longitud y latitud son capturados como digitos sin decimal y necesitan ser reescalados." />
+<meta property="og:title" content="Corpus de Referencia del Español Actual (CREA) escrito — corpus_rae" />
+<meta property="og:description" content="Un corpus de referencia ha de ser lo suficientemente extenso para representar
+todas las variedades relevantes de una lengua. En la versión 3.2, cerrada en junio de 2008
+y consultable en la actualidad, la parte escrita del CREA cuenta con casi 140 000 documentos
+y algo más de 154 millones de formas procedentes de textos de todos los países
+hispánicos y producidos entre 1975 y 2004." />
 <meta property="og:image" content="/reference/figures/desuctools.png" />
 <meta property="og:image:alt" content="Funciones y datos para análisis de encuestas sociales" />
 <meta name="twitter:card" content="summary" />
@@ -134,42 +137,36 @@ longitud y latitud son capturados como digitos sin decimal y necesitan ser reesc
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Número de dígitos enteros.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/desuc/desuctools/blob/master/R/helpers_variables.R'><code>R/helpers_variables.R</code></a></small>
-    <div class="hidden name"><code>digitos_entero.Rd</code></div>
+    <h1>Corpus de Referencia del Español Actual (CREA) escrito</h1>
+    <small class="dont-index">Source: <a href='https://github.com/desuc/desuctools/blob/master/R/data-corpus_rae.R'><code>R/data-corpus_rae.R</code></a></small>
+    <div class="hidden name"><code>corpus_rae.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Número de dígitos enteros para valores con decimales. Diseñada para casos en que
-longitud y latitud son capturados como digitos sin decimal y necesitan ser reescalados.</p>
+    <p>Un corpus de referencia ha de ser lo suficientemente extenso para representar
+todas las variedades relevantes de una lengua. En la versión 3.2, cerrada en junio de 2008
+y consultable en la actualidad, la parte escrita del CREA cuenta con casi 140 000 documentos
+y algo más de 154 millones de formas procedentes de textos de todos los países
+hispánicos y producidos entre 1975 y 2004.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>digitos_entero</span>(<span class='kw'>x</span>, digits = <span class='fl'>2</span>)</pre>
+    <pre class="usage"><span class='kw'>corpus_rae</span></pre>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>x</th>
-      <td><p>vector numerico.</p></td>
-    </tr>
-    <tr>
-      <th>digits</th>
-      <td><p>cantidad de dígitos del número entero que se quiere obtener.
-Por defecto digits = 2.</p></td>
-    </tr>
-    </table>
 
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>vector numerico.</p>
+    <p>Un data.frame con 3 variables</p>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'>digitos_entero</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1234</span>, <span class='fl'>12.34</span>, <span class='fl'>1234</span>, <span class='fl'>12345</span>),
-               digits = <span class='fl'>3</span>)
-</div><div class='output co'>#&gt; [1] 123.40 123.40 123.40 123.45</div><div class='input'>
-</div></pre>
+    <p><a href='https://www.rae.es/recursos/banco-de-datos/crea-escrito'>https://www.rae.es/recursos/banco-de-datos/crea-escrito</a></p>
+<dl>
+  <dt>Orden</dt><dd><p>formas ortográficas registradas en el CREA</p></dd>
+  <dt>Frec.absoluta</dt><dd><p>frecuencia absoluta de la palabra</p></dd>
+  <dt>Frec.normalizada</dt><dd><p>frecuencia normalizada de la palabra</p></dd>
+
+</dl>
+
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
