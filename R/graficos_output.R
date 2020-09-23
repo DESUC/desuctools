@@ -30,6 +30,7 @@
 #' @importFrom stringr str_wrap
 #' @importFrom tidyr replace_na
 #' @importFrom rlang .data
+#' @importFrom scales percent
 #'
 #' @return ggplot
 #' @export

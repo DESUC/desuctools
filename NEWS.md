@@ -1,6 +1,7 @@
-# desuctools 0.1.5.9000
+# desuctools 0.1.5.9001
 
 * Added a `NEWS.md` file to track changes to the package.
+
 
 ## New functions
 
@@ -9,13 +10,17 @@
 * Función `fct_case_when` a partir de @pewmethods.
 * funcion `rec_ortografia` para corregir ortografía de palabras.
 * función `format_num` para impresión de número con separador de miles.
-* funcion `region_orden` para pasar de regiones como números a factor ordenadoh de norte a sur.
+* función `region_orden` para pasar de regiones como números a factor ordenadoh de norte a sur.
+* función `sg_get` para rescatar información de SurveyToGo desde su 
+           [REST API](https://support.dooblo.net/hc/en-us/articles/208294645-How-To-Use-The-SurveyToGo-REST-API).
+
 
 ## Features
 
 * Agregar columna `comuna18` para tener el código comunal luego de la creación de la región del Ñuble en 2018.
 * Nuevas variables en `regiones_y_comunas` para ajustes de no respuesta.
 * Base de datos con `codigos_ensenanza` para tener equivalencias y descripción de la nomenclatura utilizada por MINEDUC en sus bases de datos.
+
 
 ### Gráfico
 

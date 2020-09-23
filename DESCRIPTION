@@ -1,7 +1,7 @@
 Type: Package
 Package: desuctools
 Title: Funciones para trabajo en DESUC
-Version: 0.1.5.9000
+Version: 0.1.5.9001
 Authors@R: c(
     person("Cristián", "Ayala", email = 'caayala@uc.cl', role = c("aut", "cre")
     ),
@@ -17,25 +17,27 @@ License: MIT + file LICENSE
 Depends:
     R (>= 3.5)
 Imports:
-    dplyr (>= 0.8.3),
+    dplyr (>= 1.0.0),
     forcats,
     ggplot2,
     haven,
-    knitr,
+    httr,
     janitor,
     kableExtra,
-    srvyr,
+    knitr,
     purrr,
-    rmarkdown,
     rlang (>= 0.1.2),
+    rmarkdown,
     sjlabelled,
     sjmisc,
+    srvyr,
     stringr,
     tibble,
     tidyr (>= 1.0.0),
     tidyselect
 Suggests: 
     roxygen2,
+    scales,
     testthat (>= 2.1.0),
     covr
 Encoding: UTF-8
