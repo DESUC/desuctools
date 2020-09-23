@@ -6,10 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Tabla de categorías
-
-Porcentaje de respuesta de categorías de varias variables.
-Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores. — tabla_categorias • desuctools</title>
+<title>SurveyToGo rest API — sg_get • desuctools</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,11 +46,9 @@ Principalmente para mostrar la distribución de casos de variables de segmetnaci
 
 
 
-<meta property="og:title" content="Tabla de categorías
-
-Porcentaje de respuesta de categorías de varias variables.
-Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores. — tabla_categorias" />
-<meta property="og:description" content="Tablas de resultados ----------------------------------------------------" />
+<meta property="og:title" content="SurveyToGo rest API — sg_get" />
+<meta property="og:description" content="Función para acceder a datos del sistema SurveyToGo utilizando
+       su API REST." />
 <meta property="og:image" content="/reference/figures/desuctools.png" />
 <meta property="og:image:alt" content="Funciones y datos para análisis de encuestas sociales" />
 <meta name="twitter:card" content="summary" />
@@ -139,45 +134,55 @@ Principalmente para mostrar la distribución de casos de variables de segmetnaci
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Tabla de categorías
-
-Porcentaje de respuesta de categorías de varias variables.
-Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/desuc/desuctools/blob/master/R/tablas_output.R'><code>R/tablas_output.R</code></a></small>
-    <div class="hidden name"><code>tabla_categorias.Rd</code></div>
+    <h1>SurveyToGo rest API</h1>
+    <small class="dont-index">Source: <a href='https://github.com/desuc/desuctools/blob/master/R/surveytogo_rest_api.R'><code>R/surveytogo_rest_api.R</code></a></small>
+    <div class="hidden name"><code>sg_get.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Tablas de resultados ----------------------------------------------------</p>
+    <p>Función para acceder a datos del sistema SurveyToGo utilizando
+       su API REST.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>tabla_categorias</span>(<span class='kw'>.data</span>, <span class='kw'>...</span>, .wt = <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>sg_get</span>(<span class='kw'>api_operation</span>, <span class='kw'>query</span>, <span class='kw'>api_key</span>, <span class='kw'>user</span>, <span class='kw'>pass</span>, type = <span class='st'>"application/json"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>.data</th>
-      <td><p>data frame. Base de datos.</p></td>
+      <th>api_operation</th>
+      <td><p>`chr`</p></td>
     </tr>
     <tr>
-      <th>...</th>
-      <td><p>Preguntas de las que se quiere saber su proporcion. Se puede utilizar
-`tidyselect` para facilitar la selección de varias columnas.</p></td>
+      <th>query</th>
+      <td><p>`list` listado de variables que serán pasadas a la api_operation
+que se elija.</p></td>
     </tr>
     <tr>
-      <th>.wt</th>
-      <td><p>Ponderador o expansor de los datos. Por defecto es NULL.</p></td>
+      <th>api_key</th>
+      <td><p>`chr` REST API Key entregada por dooblo.</p></td>
+    </tr>
+    <tr>
+      <th>user</th>
+      <td><p>`chr` nombre de usuario.</p></td>
+    </tr>
+    <tr>
+      <th>pass</th>
+      <td><p>`chr` password de usuario.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>`chr` Formato en el que se obtendrán datos.
+Por defecto 'application/json'. Puede ser 'text/xml' si se quiere xml.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>tibble</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <p>json</p>
+    <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
-    <p>Generación de una data.frame con el número de casos y proporción de las distintas
-variables de segmentos que se agregen en `...`.</p>
+    <p>https://support.dooblo.net/hc/en-us/articles/208294645-How-To-Use-The-SurveyToGo-REST-API</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
