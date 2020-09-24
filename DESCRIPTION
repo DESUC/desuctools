@@ -27,17 +27,18 @@ Imports:
     knitr,
     purrr,
     rlang (>= 0.1.2),
+    labelled,
     rmarkdown,
     sjlabelled,
     sjmisc,
     srvyr,
     stringr,
+    scales,
     tibble,
     tidyr (>= 1.0.0),
     tidyselect
 Suggests: 
     roxygen2,
-    scales,
     testthat (>= 2.1.0),
     covr
 Encoding: UTF-8
