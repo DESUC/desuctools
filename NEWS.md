@@ -13,6 +13,9 @@
 * función `region_orden` para pasar de regiones como números a factor ordenadoh de norte a sur.
 * función `sg_get` para rescatar información de SurveyToGo desde su 
            [REST API](https://support.dooblo.net/hc/en-us/articles/208294645-How-To-Use-The-SurveyToGo-REST-API).
+* función `varnames_to_label` para simplificar nombre de bases de datos obtenidas desde
+      servicios web.
+           
 
 
 ## Features
