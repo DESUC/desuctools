@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • desuctools</title>
+<title>varnames_to_label — varnames_to_label • desuctools</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,7 +46,11 @@
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="varnames_to_label — varnames_to_label" />
+<meta property="og:description" content="Toma nombre de variables y los separa en un nombre breve
+      y el resto de la etiqueta la integra en el atributo `label` de la
+      variable.
+      Además cambia la clase de las variables modificadas a `haven_labelled`" />
 <meta property="og:image" content="/reference/figures/desuctools.png" />
 <meta property="og:image:alt" content="Funciones y datos para análisis de encuestas sociales" />
 <meta name="twitter:card" content="summary" />
@@ -80,7 +84,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -132,64 +136,78 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/desuc/desuctools/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+    <h1>varnames_to_label</h1>
+    <small class="dont-index">Source: <a href='https://github.com/desuc/desuctools/blob/master/R/varnames_to_label.R'><code>R/varnames_to_label.R</code></a></small>
+    <div class="hidden name"><code>varnames_to_label.Rd</code></div>
     </div>
 
-    <div id="desuctools-0159001" class="section level1">
-<h1 class="page-header" data-toc-text="0.1.5.9001">
-<a href="#desuctools-0159001" class="anchor"></a>desuctools 0.1.5.9001</h1>
-<ul>
-<li>Added a <code>NEWS.md</code> file to track changes to the package.</li>
-</ul>
-<div id="new-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#new-functions" class="anchor"></a>New functions</h2>
-<ul>
-<li>Función <code>is_email</code> para validar sintaxis de correos electrónicos.</li>
-<li>Función <code>svy_tabla_vars_segmentos</code> para obtener estadísticos de multiples variables y segmentos.</li>
-<li>Función <code>fct_case_when</code> a partir de <a href='https://github.com/pewmethods'>@pewmethods</a>.</li>
-<li>funcion <code>rec_ortografia</code> para corregir ortografía de palabras.</li>
-<li>función <code>format_num</code> para impresión de número con separador de miles.</li>
-<li>función <code>region_orden</code> para pasar de regiones como números a factor ordenadoh de norte a sur.</li>
-<li>función <code>sg_get</code> para rescatar información de SurveyToGo desde su <a href="https://support.dooblo.net/hc/en-us/articles/208294645-How-To-Use-The-SurveyToGo-REST-API">REST API</a>.</li>
-<li>función <code>varnames_to_label</code> para simplificar nombre de bases de datos obtenidas desde servicios web.</li>
-</ul>
-</div>
-<div id="features" class="section level2">
-<h2 class="hasAnchor">
-<a href="#features" class="anchor"></a>Features</h2>
-<ul>
-<li>Agregar columna <code>comuna18</code> para tener el código comunal luego de la creación de la región del Ñuble en 2018.</li>
-<li>Nuevas variables en <code>regiones_y_comunas</code> para ajustes de no respuesta.</li>
-<li>Base de datos con <code>codigos_ensenanza</code> para tener equivalencias y descripción de la nomenclatura utilizada por MINEDUC en sus bases de datos.</li>
-</ul>
-<div id="gráfico" class="section level3">
-<h3 class="hasAnchor">
-<a href="#gr%C3%A1fico" class="anchor"></a>Gráfico</h3>
-<ul>
-<li>Función <code>gg_bar_3_niveles_stack</code>.</li>
-</ul>
-</div>
-</div>
-<div id="bug-fix" class="section level2">
-<h2 class="hasAnchor">
-<a href="#bug-fix" class="anchor"></a>Bug fix</h2>
-<ul>
-<li>Correccion de bug por <code>get_label</code>.</li>
-<li>En <code>tabla_vars_segmentos</code> si una variable no tiene etiquetas, deja pregunta_lab en blanco.</li>
-<li>Corrección y simplificación de <code>shift_missing</code> para que mantenga atributos de variables de clase <code>haven_labelled</code>.</li>
-</ul>
-</div>
-</div>
-  </div>
+    <div class="ref-description">
+    <p>Toma nombre de variables y los separa en un nombre breve
+      y el resto de la etiqueta la integra en el atributo `label` de la
+      variable.
+      Además cambia la clase de las variables modificadas a `haven_labelled`</p>
+    </div>
 
+    <pre class="usage"><span class='fu'>varnames_to_label</span>(
+  <span class='kw'>.df</span>,
+  <span class='kw'>pattern_detect</span>,
+  pattern_extract = <span class='kw'>NULL</span>,
+  var_prefix = <span class='kw'>NULL</span>
+)</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>.df</th>
+      <td><p>`data.frame` Un data.frame</p></td>
+    </tr>
+    <tr>
+      <th>pattern_detect</th>
+      <td><p>`chr` patrón de regex con el que se extrae el nombre breve
+de la variable. Este es el que será utilizado posteriormente como
+nombre final de la variable en la base</p></td>
+    </tr>
+    <tr>
+      <th>pattern_extract</th>
+      <td><p>`chr` patrón de regex opcional.
+Por defecto es NULL e implica que se usará el mismo patrón que el dispuesto
+en `pattern_detect`.</p></td>
+    </tr>
+    <tr>
+      <th>var_prefix</th>
+      <td><p>`chr` opcional. Prefijo para el nombre de las nuevas variables
+que se extraigan.</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>data.frame</p>
+
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(`first variable 1` = <span class='fl'>1</span>,
+                 `second variable 2` = <span class='fl'>2</span>,
+                 var_1 = <span class='fl'>3L</span>,
+                 check.names = <span class='fl'>FALSE</span>)
+
+<span class='fu'>varnames_to_label</span>(<span class='kw'>df</span>, pattern_detect = <span class='st'>' \\d$'</span>,
+                  var_prefix = <span class='st'>'p'</span>)
+</div><div class='output co'>#&gt;   p_1 p_2 var_1
+#&gt; 1   1   2     3</div><div class='input'>
+<span class='fu'>varnames_to_label</span>(<span class='kw'>df</span>,
+                  pattern_detect = <span class='st'>' \\d$'</span>,
+                  pattern_extract = <span class='st'>'\\d$'</span>,
+                  var_prefix = <span class='st'>'p'</span>)
+</div><div class='output co'>#&gt;   p1 p2 var_1
+#&gt; 1  1  2     3</div><div class='input'>
+</div></pre>
+  </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
       <h2 data-toc-skip>Contents</h2>
     </nav>
   </div>
-
 </div>
 
 
