@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Wrapper of knitr::include_graphics to Deal with URLs and Invalid File Types — include_graphics2 • desuctools</title>
+<title>SurveyToGo rest API: Get individual data — sg_get_data • desuctools</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -46,16 +46,9 @@
 
 
 
-<meta property="og:title" content="Wrapper of knitr::include_graphics to Deal with URLs and Invalid File Types — include_graphics2" />
-<meta property="og:description" content="Deals with URL paths and invalid file types passed to path
-of include_graphics. When the output format
-of the R Markdown is PDF, and an URL is passed to
-path, the figure is automatically downloaded from the URL
-and included using the local relative path.
-If a figure has an invalid file extension for PDF output
-(e.g. .gif, .svg), the function passed to
-handler is used to override the default behavior:
-inserting figures with knitr::include_graphics." />
+<meta property="og:title" content="SurveyToGo rest API: Get individual data — sg_get_data" />
+<meta property="og:description" content="Función para bajar datos y respuestas considerando el límite de
+      99 casos por envío. Es un envoltorio de la función `sg_get()`." />
 <meta property="og:image" content="/reference/figures/desuctools.png" />
 <meta property="og:image:alt" content="Funciones y datos para análisis de encuestas sociales" />
 <meta name="twitter:card" content="summary" />
@@ -141,72 +134,70 @@ inserting figures with knitr::include_graphics." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Wrapper of <code>knitr::include_graphics</code> to Deal with URLs and Invalid File Types</h1>
-    <small class="dont-index">Source: <a href='https://github.com/desuc/desuctools/blob/master/R/include_graphics2.R'><code>R/include_graphics2.R</code></a></small>
-    <div class="hidden name"><code>include_graphics2.Rd</code></div>
+    <h1>SurveyToGo rest API: Get individual data</h1>
+    <small class="dont-index">Source: <a href='https://github.com/desuc/desuctools/blob/master/R/sg_get_data.R'><code>R/sg_get_data.R</code></a></small>
+    <div class="hidden name"><code>sg_get_data.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Deals with URL paths and invalid file types passed to <code>path</code>
-of <code><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></code>. When the output format
-of the R Markdown is <code>PDF</code>, and an URL is passed to
-<code>path</code>, the figure is automatically downloaded from the URL
-and included using the local relative path.
-If a figure has an invalid file extension for PDF output
-(e.g. <code>.gif</code>, <code>.svg</code>), the function passed to
-<code>handler</code> is used to override the default behavior:
-inserting figures with <code><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>knitr::include_graphics</a></code>.</p>
+    <p>Función para bajar datos y respuestas considerando el límite de
+      99 casos por envío. Es un envoltorio de la función `sg_get()`.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>include_graphics2</span><span class='op'>(</span>
-  <span class='va'>path</span>,
-  alt_path <span class='op'>=</span> <span class='cn'>NULL</span>,
-  handler <span class='op'>=</span> <span class='kw'>function</span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span> <span class='fu'>knitr</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/pkg/knitr/man/asis_output.html'>asis_output</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"View"</span>, <span class='fu'>tools</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/tools/fileutils.html'>file_ext</a></span><span class='op'>(</span><span class='va'>path</span><span class='op'>)</span>,
-    <span class='st'>"at"</span>, <span class='va'>path</span><span class='op'>)</span><span class='op'>)</span>,
-  <span class='va'>...</span>
+    <pre class="usage"><span class='fu'>sg_get_data</span><span class='op'>(</span>
+  api_operation <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"SimpleExport"</span>, <span class='st'>"OperationData"</span><span class='op'>)</span>,
+  <span class='va'>interview_ids</span>,
+  <span class='va'>...</span>,
+  <span class='va'>api_key</span>,
+  <span class='va'>user</span>,
+  <span class='va'>pass</span>,
+  type <span class='op'>=</span> <span class='cn'>NULL</span>
 <span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>path</th>
-      <td><p>String. Path to a figure to be included. Can be either
-an URL or a local path.</p></td>
+      <th>api_operation</th>
+      <td><p>`chr` Bajar datos según operaciones "SimpleExport"
+o "OperationData".</p></td>
     </tr>
     <tr>
-      <th>alt_path</th>
-      <td><p>String. An alternative figure path for <code>path</code>
-with invalid extensions. In the case of PDF ('LaTeX') output,
-invalid extensions are <code>.gif</code>, <code>.svg</code>.</p></td>
-    </tr>
-    <tr>
-      <th>handler</th>
-      <td><p>Function. A function with a single argument <code>path</code>.
-Used to insert alternative contents, such as a piece of text,
-when the figure cannot be inserted.</p></td>
+      <th>interview_ids</th>
+      <td><p>`int` Vector con códigos de interviews de los que
+se quiera bajar información.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Other arguments to pass to
-<code><a href='https://rdrr.io/pkg/knitr/man/include_graphics.html'>include_graphics</a></code>.</p></td>
+      <td><p>`list` pasa a query en sg_get</p></td>
+    </tr>
+    <tr>
+      <th>api_key</th>
+      <td><p>`chr` REST API Key entregada por dooblo.</p></td>
+    </tr>
+    <tr>
+      <th>user</th>
+      <td><p>`chr` nombre de usuario.</p></td>
+    </tr>
+    <tr>
+      <th>pass</th>
+      <td><p>`chr` password de usuario.</p></td>
+    </tr>
+    <tr>
+      <th>type</th>
+      <td><p>`chr` Formato en el que se obtendrán datos.
+Por defecto 'application/json'. Puede ser 'text/xml' si se quiere xml o
+'text/csv' si se desea un csv.</p></td>
     </tr>
     </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Read more about using the function at
-  <a href='http://bit.ly/include_graphics2'>http://bit.ly/include_graphics2</a>.</p>
+    <p>data.frame</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='va'>png_url</span> <span class='op'>&lt;-</span> <span class='st'>'https://commonmark.org/images/markdown-mark.png'</span>
-<span class='va'>gif_url</span> <span class='op'>&lt;-</span> <span class='st'>'https://media.giphy.com/media/k3dcUPvxuNpK/giphy.gif'</span>
+    <div class='dont-index'><p>sg_get</p></div>
 
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='fu'>include_graphics2</span><span class='op'>(</span><span class='va'>gif_url</span>, alt_path <span class='op'>=</span> <span class='va'>png_url</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
