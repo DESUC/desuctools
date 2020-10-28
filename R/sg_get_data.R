@@ -21,7 +21,7 @@ sg_get_data <- function(api_operation = c('SimpleExport',
                         interview_ids,
                         ...,
                         api_key, user, pass,
-                        type = NULL) {
+                        type = NA) {
 
   if (missing(api_operation)) {
     api_operation <- "SimpleExport"
