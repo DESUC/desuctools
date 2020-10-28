@@ -3,11 +3,15 @@ Package: desuctools
 Title: Funciones para trabajo en DESUC
 Version: 0.1.5.9001
 Authors@R: c(
-    person("Cristián", "Ayala", email = 'caayala@uc.cl', role = c("aut", "cre")
+    person("Cristián", "Ayala", 
+        email = 'caayala@uc.cl', 
+        role = c("aut", "cre")
     ),
-    person("Cristina", "Marchant", role = c("ctb")
+    person("Cristina", "Marchant", 
+        role = c("ctb")
     ),
-    person("DESUC", role = "fnd")
+    person("DESUC", 
+        role = "fnd")
     )
 Description: Funciones y datos útiles en el trabajo de limpieza,
     revisión, tabulación y graficación de datos de la Dirección de
