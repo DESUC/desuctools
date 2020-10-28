@@ -4,10 +4,18 @@
 \alias{sg_get}
 \title{SurveyToGo rest API}
 \usage{
-sg_get(api_operation, query, api_key, user, pass, type = "application/json")
+sg_get(
+  api_operation,
+  query,
+  api_key,
+  user,
+  pass,
+  type = c("application/json", "text/xml", "text/csv")
+)
 }
 \arguments{
-\item{api_operation}{`chr`}
+\item{api_operation}{`chr` Nombre de alguno de las operaciones GET disponibles
+en la API de SurveyToGo. Ver link en referencias.}
 
 \item{query}{`list` listado de variables que serán pasadas a la api_operation
 que se elija.}
@@ -19,7 +27,8 @@ que se elija.}
 \item{pass}{`chr` password de usuario.}
 
 \item{type}{`chr` Formato en el que se obtendrán datos.
-Por defecto 'application/json'. Puede ser 'text/xml' si se quiere xml.}
+Por defecto 'application/json'. Puede ser 'text/xml' si se quiere xml o
+'text/csv' si se desea un csv.}
 }
 \value{
 json

@@ -3,14 +3,16 @@
 #' @description Función para acceder a datos del sistema SurveyToGo utilizando
 #'        su API REST.
 #'
-#' @param api_operation `chr`
+#' @param api_operation `chr` Nombre de alguno de las operaciones GET disponibles
+#'        en la API de SurveyToGo. Ver link en referencias.
 #' @param query `list` listado de variables que serán pasadas a la api_operation
 #'        que se elija.
 #' @param api_key `chr` REST API Key entregada por dooblo.
 #' @param user `chr` nombre de usuario.
 #' @param pass `chr` password de usuario.
 #' @param type `chr` Formato en el que se obtendrán datos.
-#'        Por defecto 'application/json'. Puede ser 'text/xml' si se quiere xml.
+#'        Por defecto 'application/json'. Puede ser 'text/xml' si se quiere xml o
+#'        'text/csv' si se desea un csv.
 #'
 #' @references https://support.dooblo.net/hc/en-us/articles/208294645-How-To-Use-The-SurveyToGo-REST-API
 #'
@@ -23,12 +25,23 @@
 sg_get <- function(api_operation,
                    query,
                    api_key, user, pass,
-                   type = 'application/json'){
+                   type = c('application/json',
+                            'text/xml',
+                            'text/csv')){
+
+  if (missing(type) &&
+      !missing(api_operation)) {
+    type <- "application/json"
+  }
+  if (sum(type %in% c("application/json", "text/xml", "text/csv")) != length(type)) {
+    stop("\"type\" must be one of: \"application/json\" or \"text/xml\" or \"text/csv\"")
+  }
+
   # Referencia
   # https://support.dooblo.net/hc/en-us/articles/208294645-How-To-Use-The-SurveyToGo-REST-API
 
   # SurveyToGo REST API
-  url_sg_api <- 'http://api.dooblo.net/'
+  url_sg_api <- 'https://api.dooblo.net/'
 
 
   sg_auth <- httr::authenticate(user = paste0(api_key, '/', user),
