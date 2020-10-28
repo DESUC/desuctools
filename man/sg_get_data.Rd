@@ -11,7 +11,7 @@ sg_get_data(
   api_key,
   user,
   pass,
-  type = NULL
+  type = NA
 )
 }
 \arguments{
