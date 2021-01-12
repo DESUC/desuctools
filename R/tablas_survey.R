@@ -31,19 +31,28 @@ svy_tabla_var_segmento <- function(.data,
 
   if(!any(class(.data) %in% 'tbl_svy')) stop('Se necesita un data.frame con diseno complejo')
 
+  to_factor <- function(x){
+    if(haven::is.labelled(x)){
+      haven::as_factor(x)
+    } else {
+      x
+    }
+  }
+
   # Strinf de la variable de interés. Se usa luego para extraer esta columna.
   var_str <- rlang::as_label(enquo(.var))
 
   # Construcción de tabla de segmentos y variable de interés
   # Esto era truncate antes de dplyr 1.0.
   tab <- .data %>%
-    mutate(segmento_var = rlang::as_label(enquo(.segmento))      %||% 'Total',
-           segmento_lab = sjlabelled::get_label({{ .segmento }}) %||% '-',
-           segmento_cat = sjlabelled::as_label({{ .segmento }}   %||% '-') %>%
+    mutate(segmento_var = rlang::as_label(enquo(.segmento))    %||% 'Total',
+           segmento_lab = labelled::var_label({{ .segmento }}) %||% '-',
+           segmento_cat = haven::as_factor({{ .segmento }}     %||% '-') %>%
              forcats::fct_explicit_na(na_level = 'seg_miss'),
            pregunta_var = var_str,
-           pregunta_lab = sjlabelled::get_label({{ .var }})      %||% '-',
-           pregunta_cat = sjlabelled::as_label({{ .var }}, add.non.labelled = TRUE)) %>%
+           pregunta_lab = labelled::var_label({{ .var }})      %||% '-',
+           pregunta_cat = to_factor({{ .var }})
+           ) %>%
     select(.data$segmento_var:.data$pregunta_cat)
 
   # print(head(tab$variables))
@@ -55,7 +64,7 @@ svy_tabla_var_segmento <- function(.data,
 
     # Variable escalar
     tab <- tab %>%
-      group_by_at(vars(.data$segmento_var:.data$pregunta_lab)) %>%
+      group_by(across(.data$segmento_var:.data$pregunta_lab)) %>%
       summarise(mean = srvyr::survey_mean(.data$pregunta_cat,
                                           na.rm = na.rm,
                                           vartype = c('ci', 'se'), level = level))
