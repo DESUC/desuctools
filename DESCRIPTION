@@ -43,8 +43,9 @@ Imports:
     tidyselect
 Suggests: 
     roxygen2,
-    testthat (>= 2.1.0),
+    testthat (>= 3.0.0),
     covr
+Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

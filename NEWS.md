@@ -35,3 +35,5 @@
 * Correccion de bug por `get_label`.
 * En `tabla_vars_segmentos` si una variable no tiene etiquetas, deja pregunta_lab en blanco.
 * Corrección y simplificación de `shift_missing` para que mantenga atributos de variables de clase `haven_labelled`.
+* Corregir test para missings en `tabla_vars_segmentos`.
+* Actualizar testthat a 3a edición.

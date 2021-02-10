@@ -1,7 +1,3 @@
-library(dplyr)
-library(srvyr)
-library(desuctools)
-
 d <- data.frame(x      = factor(c(rep(letters[1:3], 6), letters[1:2]), levels = letters[1:4]),
                 fct    = factor(         c(rep(1, 12), rep(0, 8)), labels = c('No', 'Si')),
                 lab    = haven::labelled(c(rep(1, 12), rep(0, 8)), labels = c('Si' = 1, 'No' = 0)),
@@ -20,11 +16,13 @@ s <- srvyr::as_survey_design(d, weights = wgt)
 # Resultados sin segmentos
 
 test_that("svy_tabla_var_segmento proporcion de categoría factor", {
-  expect_identical(svy_tabla_var_segmento(s, .var = fct)$pregunta_cat, factor(c('No', 'Si')))
+  expect_identical(svy_tabla_var_segmento(s, .var = fct)$pregunta_cat,
+                   factor(c('No', 'Si')))
 })
 
 test_that("svy_tabla_var_segmento proporcion de categoría labelled", {
-  expect_identical(svy_tabla_var_segmento(s, .var = lab)$pregunta_cat, factor(c('No', 'Si')))
+  expect_identical(svy_tabla_var_segmento(s, .var = lab)$pregunta_cat,
+                   factor(c('No', 'Si')))
 })
 
 test_that("svy_tabla_var_segmento mismos resultados entre factor y labelled", {
