@@ -39,15 +39,16 @@ tabla_categorias <- function(.data,
     names(seg_labels) <- preguntas
 
     tabla <- .data %>%
-        transmute_at(vars(preguntas, !!wt_quo), list(sjmisc::to_label)) %>%
-        group_by_at(vars(preguntas)) %>%
+        transmute(across(c(any_of(preguntas), !!wt_quo)), list(sjmisc::to_label)) %>%
+        group_by(across(any_of(preguntas))) %>%
         summarise(n = sum(!!wt_quo %||% n())) %>%
         tidyr::pivot_longer(cols = -n,
                             names_to = 'pregunta_var',
                             values_to = 'pregunta_cat') %>%
         mutate(pregunta_var = forcats::as_factor(.data$pregunta_var),
                pregunta_cat = forcats::as_factor(.data$pregunta_cat),
-               pregunta_cat = forcats::fct_explicit_na(.data$pregunta_cat, na_level = 'NA'))
+               pregunta_cat = forcats::fct_explicit_na(.data$pregunta_cat,
+                                                       na_level = 'NA'))
 
     tabla <- tabla %>%
         count(.data$pregunta_var, .data$pregunta_cat, wt = .data$n) %>%
@@ -108,8 +109,8 @@ tabla_total <- function(.data,
     # Cálculo de porcetaje para el total de segmento
 
     tab_total <- .data %>%
-        group_by_at(vars({{ .var }})) %>%
-        summarise_at(vars(.data$casos), ~sum(.)) %>%
+        group_by(across({{ .var }})) %>%
+        summarise(across(.data$casos, sum)) %>%
         mutate({{ .segmento }} := "Total") %>%
         ungroup()
 
@@ -146,9 +147,9 @@ tabla_var_segmento <- function(.data,
     wt_quo <- enquo(.wt)
 
     tab <- .data %>%
-        transmute_at(vars(!!segmento_quo, !!var_quo, !!wt_quo),
-                     sjmisc::to_label, add.non.labelled = TRUE) %>%
-        group_by_at(vars(!!segmento_quo, !!var_quo)) %>%
+        transmute(across(c(!!segmento_quo, !!var_quo, !!wt_quo),
+                         sjmisc::to_label, add.non.labelled = TRUE)) %>%
+        group_by(across(c(!!segmento_quo, !!var_quo))) %>%
         summarise(casos = sum(!!wt_quo %||% n())) %>%
         ungroup()
 
@@ -202,7 +203,7 @@ tabla_var_segmentos <- function(.data,
     tab <- map(.segmentos, ~tabla_var_seg(.data, .seg = !!.))
 
     tab <- reduce(tab, bind_rows) %>%
-        mutate_at(vars(.data$segmento_cat), forcats::as_factor)
+        mutate(across(.data$segmento_cat, forcats::as_factor))
 
     # Copia label y labels a variable "var" recién creada.
     # No utilizo esto para no pegar las etiquetas de
@@ -266,8 +267,7 @@ tabla_vars_segmentos <- function(.data,
             mutate(pregunta_var = .var,
                    pregunta_lab = var_label) %>%
             rename(pregunta_cat = .var) %>%
-            mutate_at(vars(.data$pregunta_var),
-                      as.character)
+            mutate(across(.data$pregunta_var, as.character))
     }
 
     purrr::map2(tab, variables, ~tabla_variables(.x, .y)) %>%
