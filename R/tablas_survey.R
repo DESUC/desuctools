@@ -31,6 +31,9 @@ svy_tabla_var_segmento <- function(.data,
 
   if(!any(class(.data) %in% 'tbl_svy')) stop('Se necesita un data.frame con diseno complejo')
 
+  segmento_quo <- enquo(.segmento)
+  var_quo <- enquo(.var)
+
   to_factor <- function(x){
     if(haven::is.labelled(x)){
       haven::as_factor(x)
@@ -45,13 +48,13 @@ svy_tabla_var_segmento <- function(.data,
   # Construcción de tabla de segmentos y variable de interés
   # Esto era truncate antes de dplyr 1.0.
   tab <- .data %>%
-    mutate(segmento_var = rlang::as_label(enquo(.segmento))    %||% 'Total',
-           segmento_lab = labelled::var_label({{ .segmento }}) %||% '-',
-           segmento_cat = haven::as_factor({{ .segmento }}     %||% '-') %>%
+    mutate(segmento_var = rlang::as_label(segmento_quo)       %||% 'Total',
+           segmento_lab = labelled::var_label(!!segmento_quo) %||% '-',
+           segmento_cat = haven::as_factor(!!segmento_quo     %||% '-') %>%
              forcats::fct_explicit_na(na_level = 'seg_miss'),
            pregunta_var = var_str,
-           pregunta_lab = labelled::var_label({{ .var }})      %||% '-',
-           pregunta_cat = to_factor({{ .var }})
+           pregunta_lab = labelled::var_label(!!var_quo)      %||% '-',
+           pregunta_cat = to_factor(!!var_quo)
            ) %>%
     select(.data$segmento_var:.data$pregunta_cat)
 
