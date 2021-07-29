@@ -1,3 +1,8 @@
+# desuctools 0.1.5.9002
+
+* Cambio de caracteres en el nombre de regiones en función `region_orden`.
+
+
 # desuctools 0.1.5.9001
 
 * Added a `NEWS.md` file to track changes to the package.

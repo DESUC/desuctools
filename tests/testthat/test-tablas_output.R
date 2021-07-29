@@ -4,6 +4,7 @@ df_test <- tibble::tibble(sexo = haven::labelled(c(1, 2, 2, 2),
                           edad = haven::labelled(c(1, 1, 2, 2),
                                                  labels = c('young' = 1, 'old' = 2),
                                                  label = 'Age'),
+                          c_int  = c(1, 1, 1, 1),
                           cat    = c(1, 1, 2, 2),
                           cat_na = c(1, 1, 2, NA),
                           wt     = c(2, 1, 1, 0))
@@ -70,6 +71,15 @@ test_that("tabla_categoria proporcion de categoría y total y missing numérico"
   expect_equal(tabla_vars_segmentos(df_test,
                                     .vars = vars(cat_na),
                                     .segmentos = vars(sexo),
+                                    miss = c(2, NA),
+                                    total = FALSE)[['prop_val']],
+               c(1, 1, NA, NA))
+})
+
+test_that("tabla_categoria proporcion de categoría con segmento constante", {
+  expect_equal(tabla_vars_segmentos(df_test,
+                                    .vars = vars(cat_na),
+                                    .segmentos = vars(NULL),
                                     miss = c(2, NA),
                                     total = FALSE)[['prop_val']],
                c(1, 1, NA, NA))

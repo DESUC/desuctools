@@ -273,8 +273,12 @@ tabla_vars_segmentos <- function(.data,
     purrr::map2(tab, variables, ~tabla_variables(.x, .y)) %>%
         purrr::reduce(bind_rows) %>%
         select(starts_with("segmento"),
-               .data$pregunta_var, .data$pregunta_lab, .data$pregunta_cat,
+               .data$pregunta_var,
+               .data$pregunta_lab,
+               .data$pregunta_cat,
                everything()) %>%
-        mutate_at(vars(.data$segmento_var, .data$pregunta_var, .data$pregunta_lab),
-                  forcats::as_factor)
+        mutate(across(c(.data$segmento_var,
+                        .data$pregunta_var,
+                        .data$pregunta_lab),
+                  forcats::as_factor))
 }
