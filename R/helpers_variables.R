@@ -263,7 +263,7 @@ region_orden <- function(reg, as.factor = TRUE){
                  "Coquimbo",
                  "Valpara\u00EDso",
                  "Metropolitana",
-                 "O\u2019Higgins",
+                 "O'Higgins",
                  "Maule",
                  "\u00d1uble",
                  "Biob\u00EDo",
