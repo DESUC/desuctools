@@ -270,7 +270,7 @@ region_orden <- function(reg, as.factor = TRUE){
                  "La Araucan\u00EDa",
                  "Los R\u00EDos",
                  "Los Lagos",
-                 "Ays\u00C9n",
+                 "Ays\u00E9n",
                  "Magallanes")
 
     names(reg_num) <- reg_nom
