@@ -37,6 +37,8 @@
 </script>
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -49,18 +51,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">desuctools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.5.9002</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -70,7 +66,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/desuc/desuctools/">
+  <a href="https://github.com/desuc/desuctools/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -87,32 +83,31 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="desuctools-" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#desuctools-" class="anchor"></a>desuctools <img src="reference/figures/desuctools.png" align="right" alt="" width="120">
+<div class="section level1">
+<div class="page-header"><h1 id="desuctools-">desuctools <img src="reference/figures/desuctools.png" align="right" alt="" width="120"><a class="anchor" aria-label="anchor" href="#desuctools-"></a>
 </h1></div>
 <!-- badges: start -->
 
-<p>Funciones y datos auxiliares para análisis de encuestas sociales utilizados por la <a href="http://sociologia.uc.cl/desuc">Dirección de Estudios Sociales UC</a> (DESUC).</p>
-<div id="instalación" class="section level2">
-<h2 class="hasAnchor">
-<a href="#instalaci%C3%B3n" class="anchor"></a>Instalación</h2>
-<p>Para instalar la versión en desarrollo de desuctools desde <a href="https://github.com/desuc/desuctools">GitHub</a> puedes utilizar el siguiente código:</p>
+<p>Funciones y datos auxiliares para análisis de encuestas sociales utilizados por la <a href="http://sociologia.uc.cl/desuc" class="external-link">Dirección de Estudios Sociales UC</a> (DESUC).</p>
+<div class="section level2">
+<h2 id="instalación">Instalación<a class="anchor" aria-label="anchor" href="#instalaci%C3%B3n"></a>
+</h2>
+<p>Para instalar la versión en desarrollo de desuctools desde <a href="https://github.com/desuc/desuctools" class="external-link">GitHub</a> puedes utilizar el siguiente código:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
 <span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"desuc/desuctools"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="ejemplos" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ejemplos" class="anchor"></a>Ejemplos</h2>
-<div id="datos-de-región-y-comuna" class="section level3">
-<h3 class="hasAnchor">
-<a href="#datos-de-regi%C3%B3n-y-comuna" class="anchor"></a>Datos de región y comuna</h3>
+<div class="section level2">
+<h2 id="ejemplos">Ejemplos<a class="anchor" aria-label="anchor" href="#ejemplos"></a>
+</h2>
+<div class="section level3">
+<h3 id="datos-de-región-y-comuna">Datos de región y comuna<a class="anchor" aria-label="anchor" href="#datos-de-regi%C3%B3n-y-comuna"></a>
+</h3>
 <p>Base de datos con información sobre regiones y comunas.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Tabla con comunas capitales regionales.</span>
 <span class="fu">desuctools</span><span class="fu">::</span><span class="va"><a href="reference/regiones_y_comunas.html">regiones_y_comunas</a></span> <span class="op">%&gt;%</span> 
-  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html">filter</a></span><span class="op">(</span><span class="va">region_capital</span><span class="op">)</span> <span class="op">%&gt;%</span> 
+  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">region_capital</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">arrange</span><span class="op">(</span><span class="va">region_orden</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">select</span><span class="op">(</span><span class="va">region</span>, <span class="va">comuna</span>, <span class="va">comuna_nom</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">desuctools</span><span class="fu">::</span><span class="fu"><a href="reference/kable_desuc.html">kable_desuc</a></span><span class="op">(</span>align <span class="op">=</span> <span class="st">'rrl'</span>, font_size <span class="op">=</span> <span class="fl">9</span><span class="op">)</span>
@@ -205,18 +200,18 @@
 </tbody>
 </table>
 </div>
-<div id="recodificación-de-variables" class="section level3">
-<h3 class="hasAnchor">
-<a href="#recodificaci%C3%B3n-de-variables" class="anchor"></a>Recodificación de variables</h3>
+<div class="section level3">
+<h3 id="recodificación-de-variables">Recodificación de variables<a class="anchor" aria-label="anchor" href="#recodificaci%C3%B3n-de-variables"></a>
+</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Cargar base de encuesta Bicentenario</span>
-<span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html">tempfile</a></span><span class="op">(</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/download.file.html">download.file</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">'https://github.com/DESUC/30diasdegraficos/raw/master/inputs/12-lollipop-df_bicen_19_30diasdegraficos_2020.rds'</span>,
+<span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span>url <span class="op">=</span> <span class="st">'https://github.com/DESUC/30diasdegraficos/raw/master/inputs/12-lollipop-df_bicen_19_30diasdegraficos_2020.rds'</span>,
               destfile <span class="op">=</span> <span class="va">file</span><span class="op">)</span>
 
-<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span>
+<span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">readRDS</a></span><span class="op">(</span><span class="va">file</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 x 15</span>
 <span class="co">#&gt;    folio     d07   t01_1   t01_2   t01_3   t02_1   t02_2   t03_1   t03_2   t03_3</span>
 <span class="co">#&gt;    &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;</span>
@@ -231,13 +226,13 @@
 <p>La función <code><a href="reference/rec_cat_5a3.html">desuctools::rec_cat_5a3</a></code> recodifica preguntas likert de 5 a 3 categorías, entregando la opción de agregar etiquetas a ellas.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span>  
-  <span class="fu">mutate</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">t01_1</span><span class="op">:</span><span class="va">t01_2</span><span class="op">)</span>, 
-                <span class="op">~</span><span class="fu">desuctools</span><span class="fu">::</span><span class="fu"><a href="reference/rec_cat_5a3.html">rec_cat_5a3</a></span><span class="op">(</span><span class="va">.</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">'Bastante'</span> <span class="op">=</span> <span class="fl">1</span>, 
+  <span class="fu">mutate</span><span class="op">(</span><span class="fu">across</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="va">t01_1</span><span class="op">:</span><span class="va">t01_2</span><span class="op">)</span>, 
+                <span class="op">~</span><span class="fu">desuctools</span><span class="fu">::</span><span class="fu"><a href="reference/rec_cat_5a3.html">rec_cat_5a3</a></span><span class="op">(</span><span class="va">.</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">'Bastante'</span> <span class="op">=</span> <span class="fl">1</span>, 
                                                        <span class="st">'Algo'</span> <span class="op">=</span> <span class="fl">2</span>, 
                                                        <span class="st">'Poco'</span> <span class="op">=</span> <span class="fl">3</span>, 
                                                        <span class="st">'NA/NR'</span> <span class="op">=</span> <span class="fl">9</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">data</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 6 x 15</span>
 <span class="co">#&gt;    folio     d07   t01_1   t01_2   t01_3   t02_1   t02_2   t03_1   t03_2   t03_3</span>
 <span class="co">#&gt;    &lt;dbl&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt; &lt;dbl+l&gt;</span>
@@ -250,9 +245,9 @@
 <span class="co">#&gt; # … with 5 more variables: t03_4 &lt;dbl+lbl&gt;, t04_1 &lt;dbl+lbl&gt;, t04_2 &lt;dbl+lbl&gt;,</span>
 <span class="co">#&gt; #   t04_3 &lt;dbl+lbl&gt;, pond_se &lt;dbl&gt;</span></code></pre></div>
 </div>
-<div id="tablas-de-resultados" class="section level3">
-<h3 class="hasAnchor">
-<a href="#tablas-de-resultados" class="anchor"></a>Tablas de resultados</h3>
+<div class="section level3">
+<h3 id="tablas-de-resultados">Tablas de resultados<a class="anchor" aria-label="anchor" href="#tablas-de-resultados"></a>
+</h3>
 <p>Función <code>tabla_vars_segmentos</code>, la cual permite generar un <code>data.frame</code> <em>tidy</em> con la cantidad y proporción de respuestas para un número arbitrario de preguntas y un número arbitrario de segmentos de la población.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_tidy</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">%&gt;%</span> 
@@ -274,16 +269,16 @@
 <span class="co">#&gt; $ casos        &lt;dbl&gt; 666.867524, 169.146704, 148.294141, 3.352725, 818.345858…</span>
 <span class="co">#&gt; $ prop         &lt;dbl&gt; 0.675198738, 0.171259863, 0.150146788, 0.003394611, 0.77…</span></code></pre></div>
 </div>
-<div id="manejo-de-etiquetas" class="section level3">
-<h3 class="hasAnchor">
-<a href="#manejo-de-etiquetas" class="anchor"></a>Manejo de etiquetas</h3>
+<div class="section level3">
+<h3 id="manejo-de-etiquetas">Manejo de etiquetas<a class="anchor" aria-label="anchor" href="#manejo-de-etiquetas"></a>
+</h3>
 <p>Extraer el texto del ítem de una pregunta en matrices de preguntas likert.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">data_tidy</span> <span class="op">%&gt;%</span> 
   <span class="fu">mutate</span><span class="op">(</span>pregunta_lab_short <span class="op">=</span> <span class="fu">desuctools</span><span class="fu">::</span><span class="fu"><a href="reference/str_entre_parentesis.html">str_entre_parentesis</a></span><span class="op">(</span><span class="va">pregunta_lab</span><span class="op">)</span>,
          .keep <span class="op">=</span> <span class="st">'used'</span>, .before <span class="op">=</span> <span class="fl">1</span><span class="op">)</span> <span class="op">%&gt;%</span> 
   <span class="fu">distinct</span><span class="op">(</span><span class="op">)</span> <span class="op">%&gt;%</span> 
-  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
+  <span class="fu">kableExtra</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <thead><tr>
 <th style="text-align:left;">
@@ -316,9 +311,9 @@
 <code class="sourceCode R"><span class="va">data_tidy</span> <span class="op">&lt;-</span> <span class="va">data_tidy</span> <span class="op">%&gt;%</span> 
   <span class="fu">mutate</span><span class="op">(</span>pregunta_lab <span class="op">=</span> <span class="fu">desuctools</span><span class="fu">::</span><span class="fu"><a href="reference/str_entre_parentesis.html">str_entre_parentesis</a></span><span class="op">(</span><span class="va">pregunta_lab</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="gráficos" class="section level3">
-<h3 class="hasAnchor">
-<a href="#gr%C3%A1ficos" class="anchor"></a>Gráficos</h3>
+<div class="section level3">
+<h3 id="gráficos">Gráficos<a class="anchor" aria-label="anchor" href="#gr%C3%A1ficos"></a>
+</h3>
 <p>Función <code><a href="reference/gg_bar_3_niveles_stack.html">desuctools::gg_bar_3_niveles_stack</a></code> para crear gráfico que compare categorías positivas, negativas y neutras.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">desuctools</span><span class="fu">::</span><span class="fu"><a href="reference/gg_bar_3_niveles_stack.html">gg_bar_3_niveles_stack</a></span><span class="op">(</span>
@@ -336,47 +331,58 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/desuc/desuctools/">https://​github.com/​desuc/​desuctools/​</a>
-</li>
-<li>Sitio web DESUC at <br><a href="https://sociologia.uc.cl/desuc">https://​sociologia.uc.cl/​desuc</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://opensource.org/licenses/mit-license.php">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Cristián Ayala <br><small class="roles"> Author, maintainer </small>  </li>
-<li>
-<a href="https://github.com/desuc">DESUC</a> <br><small class="roles"> Funder </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="https://github.com/desuc/desuctools/" class="external-link">Browse source code</a></li>
+<li><a href="https://sociologia.uc.cl/desuc" class="external-link">Sitio web DESUC</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://github.com/DESUC/desuctools/actions"><img src="https://github.com/DESUC/desuctools/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing desuctools</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Cristián Ayala <br><small class="roles"> Author, maintainer </small>  </li>
+<li>
+<a href="https://github.com/desuc" class="external-link">DESUC</a> <br><small class="roles"> Funder </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/DESUC/desuctools/actions" class="external-link"><img src="https://github.com/DESUC/desuctools/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
+</ul>
+</div>
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Cristián Ayala, <a href="https://github.com/desuc">DESUC</a>.</p>
+  <p></p>
+<p>Developed by Cristián Ayala, <a href="https://github.com/desuc" class="external-link">DESUC</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -384,6 +390,8 @@
 
   
 
+
+  
 
   </body>
 </html>
