@@ -22,5 +22,6 @@ template:
       creator: "@caayala"
       site: "@desuc_"
       card: summary
+  bootstrap: 5
   params:
     ganalytics: UA-570559-10
