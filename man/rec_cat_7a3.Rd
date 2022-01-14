@@ -4,7 +4,7 @@
 \alias{rec_cat_7a3}
 \title{Recodificaión de variables 7 a 3}
 \usage{
-rec_cat_7a3(variable, rec = "1:4 = 1; 4 = 2; 6:7 = 3; else = 9", labels = NULL)
+rec_cat_7a3(variable, rec = "1:4 = 1; 5 = 2; 6:7 = 3; else = 9", labels = NULL)
 }
 \arguments{
 \item{variable}{numeric, Valores de variable a recodificar.}

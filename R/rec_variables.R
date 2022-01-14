@@ -65,7 +65,7 @@ rec_cat_5a3 <- function(variable,
 #' rec_cat_7a3(vect, labels = c('alto' = 1))
 #'
 rec_cat_7a3 <- function(variable,
-                        rec = "1:4 = 1; 4 = 2; 6:7 = 3; else = 9",
+                        rec = "1:4 = 1; 5 = 2; 6:7 = 3; else = 9",
                         labels = NULL){
 
   rec_cat(variable = variable,
