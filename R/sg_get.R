@@ -43,7 +43,6 @@ sg_get <- function(api_operation,
   # SurveyToGo REST API
   url_sg_api <- 'https://api.dooblo.net/'
 
-
   sg_auth <- httr::authenticate(user = paste0(api_key, '/', user),
                                 password = pass,
                                 type = "basic")
@@ -54,6 +53,9 @@ sg_get <- function(api_operation,
                                     "Accept-Charset" = "utf-8"),
                   path = paste0('newapi/', api_operation),
                   query = query)
+
+  # Pausa entre llamados.
+  Sys.sleep(2)
 
   # url usada en GET.
   print(db$url)
