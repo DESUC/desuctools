@@ -55,7 +55,7 @@ sg_get <- function(api_operation,
                   query = query)
 
   # Pausa entre llamados.
-  Sys.sleep(2)
+  Sys.sleep(3)
 
   # url usada en GET.
   print(db$url)
