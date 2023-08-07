@@ -1,7 +1,7 @@
 Type: Package
 Package: desuctools
 Title: Funciones para trabajo en DESUC
-Version: 0.1.5.9002
+Version: 0.1.5.9003
 Authors@R: c(
     person("Cristián", "Ayala", 
         email = 'caayala@uc.cl', 
@@ -19,10 +19,10 @@ Description: Funciones y datos útiles en el trabajo de limpieza,
 URL: https://desuc.github.io/desuctools, https://github.com/desuc/desuctools
 License: MIT + file LICENSE
 Depends:
-    R (>= 3.5)
+    R (>= 4.2)
 Imports:
-    dplyr (>= 1.0.0),
-    forcats,
+    dplyr (>= 1.1.0),
+    forcats (>= 1.0.0),
     ggplot2,
     haven,
     httr,
@@ -48,4 +48,4 @@ Suggests:
 Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3

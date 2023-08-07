@@ -5,6 +5,7 @@
 #'
 #' @title Tabla de categorías
 #'
+#' @description
 #' Porcentaje de respuesta de categorías de varias variables.
 #' Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores.
 #'
@@ -19,7 +20,7 @@
 #'
 #' @import dplyr
 #' @importFrom rlang %||% .data enquo
-#' @importFrom forcats as_factor fct_explicit_na
+#' @importFrom forcats as_factor fct_na_value_to_level
 #' @importFrom sjmisc to_label
 #' @importFrom tidyselect vars_select
 #' @importFrom purrr map_chr
@@ -47,8 +48,8 @@ tabla_categorias <- function(.data,
                             values_to = 'pregunta_cat') %>%
         mutate(pregunta_var = forcats::as_factor(.data$pregunta_var),
                pregunta_cat = forcats::as_factor(.data$pregunta_cat),
-               pregunta_cat = forcats::fct_explicit_na(.data$pregunta_cat,
-                                                       na_level = 'NA'))
+               pregunta_cat = forcats::fct_na_value_to_level(.data$pregunta_cat,
+                                                             level = 'NA'))
 
     tabla <- tabla %>%
         count(.data$pregunta_var, .data$pregunta_cat, wt = .data$n) %>%
@@ -223,7 +224,8 @@ tabla_var_segmentos <- function(.data,
 
 #' @title Tabla de porcentajes de variables según segmentos.
 #'
-#'  Obtiene porcentajes de respuestas de múltiples variables según multiples segmentos.
+#' @description
+#' Obtiene porcentajes de respuestas de múltiples variables según multiples segmentos.
 #'
 #' @param .data tibble
 #'

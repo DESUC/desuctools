@@ -2,9 +2,7 @@
 % Please edit documentation in R/tablas_output.R
 \name{tabla_vars_segmentos}
 \alias{tabla_vars_segmentos}
-\title{Tabla de porcentajes de variables según segmentos.
-
- Obtiene porcentajes de respuestas de múltiples variables según multiples segmentos.}
+\title{Tabla de porcentajes de variables según segmentos.}
 \usage{
 tabla_vars_segmentos(
   .data,
@@ -32,7 +30,5 @@ tabla_vars_segmentos(
 tibble
 }
 \description{
-Tabla de porcentajes de variables según segmentos.
-
- Obtiene porcentajes de respuestas de múltiples variables según multiples segmentos.
+Obtiene porcentajes de respuestas de múltiples variables según multiples segmentos.
 }

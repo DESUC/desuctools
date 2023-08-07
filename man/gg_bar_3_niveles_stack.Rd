@@ -2,9 +2,7 @@
 % Please edit documentation in R/graficos_output.R
 \name{gg_bar_3_niveles_stack}
 \alias{gg_bar_3_niveles_stack}
-\title{Barras 3 niveles positivo neutro negativo
-
-Gr\\u00e1fico de barras dise\\u00f1ado para comparar categor\\u00eda positiva, negativa y neutra.}
+\title{Barras 3 niveles positivo neutro negativo}
 \usage{
 gg_bar_3_niveles_stack(
   .df,
@@ -74,8 +72,6 @@ El caracter no queda incluido. Si queda en blanco '', termina al final.}
 ggplot
 }
 \description{
-Barras 3 niveles positivo neutro negativo
-
 Gr\\u00e1fico de barras dise\\u00f1ado para comparar categor\\u00eda positiva, negativa y neutra.
 }
 \examples{

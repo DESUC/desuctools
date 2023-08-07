@@ -1,3 +1,8 @@
+# desuctools 0.1.5.9003
+
+* Agregar pausa a llamados a API de SurveyToGo `sg_get`.
+* Subir requerimientos de paquetes.
+
 # desuctools 0.1.5.9002
 
 * Cambio de caracteres en el nombre de regiones en función `region_orden`.
@@ -13,7 +18,7 @@
 * Función `is_email` para validar sintaxis de correos electrónicos.
 * Función `svy_tabla_vars_segmentos` para obtener estadísticos de multiples variables y segmentos.
 * Función `fct_case_when` a partir de @pewmethods.
-* funcion `rec_ortografia` para corregir ortografía de palabras.
+* función `rec_ortografia` para corregir ortografía de palabras.
 * función `format_num` para impresión de número con separador de miles.
 * función `region_orden` para pasar de regiones como números a factor ordenadoh de norte a sur.
 * función `sg_get` para rescatar información de SurveyToGo desde su 

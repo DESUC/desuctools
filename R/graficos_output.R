@@ -1,6 +1,7 @@
 
 #' @title Barras 3 niveles positivo neutro negativo
 #'
+#' @description
 #' Gr\\u00e1fico de barras dise\\u00f1ado para comparar categor\\u00eda positiva, negativa y neutra.
 #'
 #' @param .df `data.frame` Debe contener variables `pregunta_lab` y `pregunta_cat`.

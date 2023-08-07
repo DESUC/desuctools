@@ -51,7 +51,7 @@ svy_tabla_var_segmento <- function(.data,
     mutate(segmento_var = rlang::as_label(segmento_quo)       %||% 'Total',
            segmento_lab = labelled::var_label(!!segmento_quo) %||% '-',
            segmento_cat = haven::as_factor(!!segmento_quo     %||% '-') %>%
-             forcats::fct_explicit_na(na_level = 'seg_miss'),
+             forcats::fct_na_value_to_level(level = 'seg_miss'),
            pregunta_var = var_str,
            pregunta_lab = labelled::var_label(!!var_quo)      %||% '-',
            pregunta_cat = to_factor(!!var_quo)
@@ -75,8 +75,8 @@ svy_tabla_var_segmento <- function(.data,
     # Variable categórica
     # print('categorica')
     tab <- tab %>%
-      mutate(pregunta_cat = forcats::fct_explicit_na(.data$pregunta_cat,
-                                                     na_level = 'cat_miss')) %>%
+      mutate(pregunta_cat = forcats::fct_na_value_to_level(.data$pregunta_cat,
+                                                           level = 'cat_miss')) %>%
       group_by(across(c(.data$segmento_var:.data$pregunta_lab,
                         .data$pregunta_cat)),
                .drop = FALSE) %>%

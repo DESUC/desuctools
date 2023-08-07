@@ -2,10 +2,7 @@
 % Please edit documentation in R/tablas_output.R
 \name{tabla_categorias}
 \alias{tabla_categorias}
-\title{Tabla de categorías
-
-Porcentaje de respuesta de categorías de varias variables.
-Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores.}
+\title{Tabla de categorías}
 \usage{
 tabla_categorias(.data, ..., .wt = NULL)
 }
@@ -21,9 +18,12 @@ tabla_categorias(.data, ..., .wt = NULL)
 tibble
 }
 \description{
-Tablas de resultados ----------------------------------------------------
+Porcentaje de respuesta de categorías de varias variables.
+Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores.
 }
 \details{
+Tablas de resultados ----------------------------------------------------
+
 Generación de una data.frame con el número de casos y proporción de las distintas
 variables de segmentos que se agregen en `...`.
 }
