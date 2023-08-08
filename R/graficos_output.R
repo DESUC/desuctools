@@ -120,12 +120,12 @@ gg_bar_3_niveles_stack <- function(.df,
 
   if(!is.null(missing)){
     tab_ns <- .df %>%
-      filter(.data$pregunta_cat %in% missing) %>%
+      filter(.data[['pregunta_cat']] %in% missing) %>%
       group_by(across(c({{ x }},
                         {{ facet_col }},
                         {{ facet_row }}))) %>%
-      summarise(pregunta_cat = str_c(.data$pregunta_cat, collapse = '/'),
-                prop = sum(.data$prop)) %>%
+      summarise(pregunta_cat = str_c(.data[['pregunta_cat']], collapse = '/'),
+                prop = sum(.data[['prop']])) %>%
       tidyr::replace_na(list('prop' = 0))
 
     pos_x_annotate <- length(unique(.df[[rlang::as_name(enquo(x))]]))

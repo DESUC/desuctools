@@ -1,3 +1,10 @@
+# desuctools 0.1.5.9004
+
+* Actualizar función `sg_get` con el paquete `httr2`. 
+Tiene sencillas maneras de controlar la cantidad de request por segundo y re--intentos.
+* Remover dependencia de `httr`.
+* Actualización de funciones para eliminar advertencias y errores.
+
 # desuctools 0.1.5.9003
 
 * Agregar pausa a llamados a API de SurveyToGo `sg_get`.

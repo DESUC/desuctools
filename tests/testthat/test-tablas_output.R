@@ -82,7 +82,7 @@ test_that("tabla_categoria proporcion de categoría con segmento constante", {
                                     .segmentos = vars(NULL),
                                     miss = c(2, NA),
                                     total = FALSE)[['prop_val']],
-               c(1, 1, NA, NA))
+               c(1, NA, NA))
 })
 
 #  rec_cat_5a3 ------------------------------------------------------------

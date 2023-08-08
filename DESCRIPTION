@@ -1,7 +1,7 @@
 Type: Package
 Package: desuctools
 Title: Funciones para trabajo en DESUC
-Version: 0.1.5.9003
+Version: 0.1.5.9004
 Authors@R: c(
     person("Cristián", "Ayala", 
         email = 'caayala@uc.cl', 
@@ -40,7 +40,7 @@ Imports:
     scales,
     tibble,
     tidyr (>= 1.0.0),
-    tidyselect
+    tidyselect (>= 1.2.0),
 Suggests: 
     roxygen2,
     testthat (>= 3.0.0),
