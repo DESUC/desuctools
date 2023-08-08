@@ -51,23 +51,24 @@ svy_tabla_var_segmento <- function(.data,
     mutate(segmento_var = rlang::as_label(segmento_quo)       %||% 'Total',
            segmento_lab = labelled::var_label(!!segmento_quo) %||% '-',
            segmento_cat = haven::as_factor(!!segmento_quo     %||% '-') %>%
-             forcats::fct_na_value_to_level(level = 'seg_miss'),
+             forcats::fct_na_value_to_level(level = 'seg_miss') |>
+             forcats::fct_drop('seg_miss'),
            pregunta_var = var_str,
            pregunta_lab = labelled::var_label(!!var_quo)      %||% '-',
            pregunta_cat = to_factor(!!var_quo)
            ) %>%
-    select(.data$segmento_var:.data$pregunta_cat)
+    select("segmento_var":"pregunta_cat")
 
   # print(head(tab$variables))
-  var_labels_length <- length(attr(.data$variables[[var_str]], 'labels'))
-  var_class <- class(.data$variables[[var_str]])
+  var_labels_length <- length(attr(.data[['variables']][[var_str]], 'labels'))
+  var_class <- class(.data[['variables']][[var_str]])
 
   # Construir la variable de interés según si es una variable escalar o categórica
   if (var_labels_length == 0 & all(var_class != 'factor')) {
 
     # Variable escalar
     tab <- tab %>%
-      group_by(across(.data$segmento_var:.data$pregunta_lab)) %>%
+      group_by(across("segmento_var":"pregunta_lab")) %>%
       summarise(mean = srvyr::survey_mean(.data$pregunta_cat,
                                           na.rm = na.rm,
                                           vartype = c('ci', 'se'), level = level))
@@ -75,10 +76,11 @@ svy_tabla_var_segmento <- function(.data,
     # Variable categórica
     # print('categorica')
     tab <- tab %>%
-      mutate(pregunta_cat = forcats::fct_na_value_to_level(.data$pregunta_cat,
-                                                           level = 'cat_miss')) %>%
-      group_by(across(c(.data$segmento_var:.data$pregunta_lab,
-                        .data$pregunta_cat)),
+      mutate(pregunta_cat = forcats::fct_na_value_to_level(.data[['pregunta_cat']],
+                                                           level = 'cat_miss'),
+             pregunta_cat = forcats::fct_drop(pregunta_cat, 'cat_miss')) %>%
+      group_by(across(c("segmento_var":"pregunta_lab",
+                        "pregunta_cat")),
                .drop = FALSE) %>%
       summarise(prop = srvyr::survey_mean(na.rm = na.rm,
                                           vartype = c('ci', 'se'),
@@ -88,7 +90,7 @@ svy_tabla_var_segmento <- function(.data,
 
   # Determinar si hay diferencias significativas
   tab <- tab %>%
-    group_by(.data$segmento_cat) %>%
+    group_by(.data[['segmento_cat']]) %>%
     svy_diff_sig() %>%
     ungroup()
 
