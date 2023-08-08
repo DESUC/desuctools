@@ -47,19 +47,43 @@ sg_get <- function(api_operation,
                                 password = pass,
                                 type = "basic")
 
-  db <- httr::GET(url = url_sg_api,
-                  sg_auth,
-                  httr::add_headers("Accept" = type,
-                                    "Accept-Charset" = "utf-8"),
-                  path = paste0('newapi/', api_operation),
-                  query = query)
+  print('Antes de GET')
 
   # Pausa entre llamados.
-  Sys.sleep(3)
+  Sys.sleep(2)
 
-  # url usada en GET.
-  print(db$url)
+  db <- try({
+    httr::GET(url = url_sg_api,
+              sg_auth,
+              httr::add_headers("Accept" = type,
+                                "Accept-Charset" = "utf-8"),
+              path = paste0('newapi/', api_operation),
+              query = query)
+  },
+  silent = TRUE)
 
-  httr::content(db,
-                type = type)
+  for (i in 1:5) {
+
+    if(inherits(db, "try-error")){
+      print(paste0('intento: ', i))
+
+      Sys.sleep(i)
+
+      sg_get(api_operation,
+             query,
+             api_key, user, pass, type)
+
+    } else {
+
+      print(paste0('Despues de GET: ', httr::status_code(db)))
+
+      # url usada en GET.
+      print(db$url)
+
+      cont <- httr::content(db,
+                            type = type)
+
+      return(cont)
+    }
+  }
 }
