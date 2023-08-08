@@ -18,7 +18,8 @@
 #'
 #' @return json
 #'
-#' @importFrom httr authenticate GET content add_headers
+#' @import httr2
+#' @importFrom utils read.csv
 #'
 #' @export
 #'
@@ -43,47 +44,37 @@ sg_get <- function(api_operation,
   # SurveyToGo REST API
   url_sg_api <- 'https://api.dooblo.net/'
 
-  sg_auth <- httr::authenticate(user = paste0(api_key, '/', user),
-                                password = pass,
-                                type = "basic")
+  req_stg <- httr2::request(url_sg_api) |>
+      httr2::req_headers("Accept-Charset" = "utf-8",
+                         "Connection" = "keep-alive",
+                         "Accept" = type) |>
+      httr2::req_url_path(path = paste0('newapi/',
+                                        api_operation)) |>
+      httr2::req_url_query(!!!query) |>
+      httr2::req_auth_basic(
+        username = paste0(api_key, '/', user),
+        password = pass) |>
+      httr2::req_throttle(rate = 2) |>  # max 2 requests por segundo
+      httr2::req_retry(max_tries = 5)   # max 5 intentos
 
-  print('Antes de GET')
+    print(req_stg)
 
-  # Pausa entre llamados.
-  Sys.sleep(2)
+    # Perform request:
+    response <- try( # to catch errors
+      {
+        req_stg |>
+          httr2::req_perform()
+      }, silent = FALSE)
 
-  db <- try({
-    httr::GET(url = url_sg_api,
-              sg_auth,
-              httr::add_headers("Accept" = type,
-                                "Accept-Charset" = "utf-8"),
-              path = paste0('newapi/', api_operation),
-              query = query)
-  },
-  silent = TRUE)
-
-  for (i in 1:5) {
-
-    if(inherits(db, "try-error")){
-      print(paste0('intento: ', i))
-
-      Sys.sleep(i)
-
-      sg_get(api_operation,
-             query,
-             api_key, user, pass, type)
-
-    } else {
-
-      print(paste0('Despues de GET: ', httr::status_code(db)))
-
-      # url usada en GET.
-      print(db$url)
-
-      cont <- httr::content(db,
-                            type = type)
-
-      return(cont)
-    }
-  }
+    switch(httr2::resp_content_type(response),
+           'application/json'         = response |>
+             httr2::resp_body_json(),
+           'application/octet-stream' = response |>
+             httr2::resp_body_json(check_type = FALSE),
+           'text/xml'                 = response |>
+             httr2::resp_body_xml(),
+           'text/csv'                 = response |>
+             httr2::resp_body_string() |>
+             textConnection() |> utils::read.csv()
+    )
 }
