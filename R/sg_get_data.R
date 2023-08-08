@@ -33,7 +33,7 @@ sg_get_data <- function(api_operation = c('SimpleExport',
   query_additional <- list(...)
 
   # Dividir interviews. en grupos de 99 entrevistas.
-  df_interviews <- data.frame(group = ceiling(seq_along(interview_ids)/99),
+  df_interviews <- data.frame(group = ceiling(seq_along(interview_ids) / 70),
                               ids = as.integer(unlist(interview_ids)))
 
   # Colapsar el listado de ids a strings de un máximo de 99.
