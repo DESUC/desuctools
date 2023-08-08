@@ -1,3 +1,7 @@
+# desuctools 0.1.5.9005
+
+* Actualizar función `sg_get` para lidiar con errores.
+
 # desuctools 0.1.5.9004
 
 * Actualizar función `sg_get` con el paquete `httr2`. 
