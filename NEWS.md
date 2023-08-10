@@ -1,3 +1,7 @@
+# desuctools 0.1.5.9006
+
+* Aumentar la cantidad de encuestas que descarga la función `sg_get`.
+
 # desuctools 0.1.5.9005
 
 * Actualizar función `sg_get` para lidiar con errores.
