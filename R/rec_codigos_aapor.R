@@ -10,6 +10,8 @@
 #' 110                                        Entrevista completa
 #' 120                                         Entrevista parcial
 #' 211                                   Se rechazó la entrevista
+#' 2111                            Se rechazó la entrevista Hogar
+#' 2112                     Se rechazó la entrevista Seleccionado
 #' 212                               Se interrumpió la entrevista
 #' 223                            Se impidió acceso a la vivienda
 #' 224                   Vivienda ocupada sin moradores presentes
