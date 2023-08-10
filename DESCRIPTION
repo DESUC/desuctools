@@ -25,7 +25,7 @@ Imports:
     forcats (>= 1.0.0),
     ggplot2,
     haven,
-    httr,
+    httr2,
     janitor,
     kableExtra,
     knitr,
