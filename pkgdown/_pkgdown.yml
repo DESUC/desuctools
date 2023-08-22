@@ -7,12 +7,13 @@ home:
     utilizados por la Dirección de Estudios Sociales UC (DESUC).
   links:
   - text: Sitio web DESUC
-    href: https://sociologia.uc.cl/desuc
+    href: https://blog.desuc.cl
 
 authors:
   DESUC:
     href: https://github.com/desuc
 
+lang: es
 template:
   opengraph:
     image:
@@ -20,8 +21,17 @@ template:
       alt: "Funciones y datos para análisis de encuestas sociales"
     twitter:
       creator: "@caayala"
-      site: "@desuc_"
+      site: "@desuc_uc"
       card: summary
+  include:
+    in_header: |
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-BZ4KPLECXL"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BZ4KPLECXL');
+      </script>
   bootstrap: 5
-  params:
-    ganalytics: UA-570559-10
