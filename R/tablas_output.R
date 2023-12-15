@@ -7,7 +7,7 @@
 #'
 #' @description
 #' Porcentaje de respuesta de categorías de varias variables.
-#' Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores.
+#' Principalmente para mostrar la distribución de casos de variables de segmentación posteriores.
 #'
 #' @name tabla_categorias
 #'
@@ -40,7 +40,8 @@ tabla_categorias <- function(.data,
   names(seg_labels) <- preguntas
 
   tabla <- .data %>%
-    mutate(across(any_of(preguntas), haven::as_factor), !!wt_quo,
+    mutate(across(any_of(preguntas), haven::as_factor),
+           !!wt_quo,
            .keep = 'none') %>%
     group_by(across(any_of(preguntas))) %>%
     summarise(n = sum(!!wt_quo %||% n()),
@@ -81,7 +82,7 @@ tabla_orden <- function(.data, .var, .segmento = NULL) {
 }
 
 tabla_prop <- function(.data, .segmento) {
-  # Cálculo de porcetaje de respuestas en tabla con numero de casos.
+  # Cálculo de porcentaje de respuestas en tabla con numero de casos.
 
   segmento_quo <- rlang::enquo(.segmento)
 
@@ -93,7 +94,7 @@ tabla_prop <- function(.data, .segmento) {
 
 
 tabla_prop_val <- function(.data, .var, .segmento, miss) {
-  # Cálculo de porcetaje de respuestas válidas en tabla con numero de casos.
+  # Cálculo de porcentaje de respuestas válidas en tabla con numero de casos.
 
   # Pasar de quosure con texto a string y luego simbolo.
   var_quo <- rlang::sym(rlang::as_name(.var))
@@ -162,7 +163,7 @@ tabla_var_segmento <- function(.data,
   tab <- tabla_prop(tab,
                     .segmento = !!segmento_quo)
 
-  # Agrega el porcentaje válido si es que se señalan categorias perdidas.
+  # Agrega el porcentaje válido si es que se señalan categorías perdidas.
   if (!is.null(miss)) {
     tab <- tabla_prop_val(tab,
                           .var = var_quo,
