@@ -1,3 +1,7 @@
+# desuctools 0.1.5.9007
+
+* Se agrega la función `rec_labelled` para facilitar la recodificación de variables en formato labelled.
+
 # desuctools 0.1.5.9006
 
 * Aumentar la cantidad de encuestas que descarga la función `sg_get`.
