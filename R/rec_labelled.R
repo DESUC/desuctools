@@ -1,16 +1,53 @@
-#' Title Función para recodificar variables etiquetadas (labelled)
+#' Recodificación de variables labelled
 #'
-#' @param .vec: vector/variable a recodificar
-#' @param l_niveles: lista con recodificaciones.
+#' @description Función para recodificar variables labelled utilizando una lista
+#'
+#' @param .vec vector/variable a recodificar
+#' @param ls_niveles lista con recodificaciones.
 #'                   Debe cumplir un formato específico.
 #'
-#' @return vector labelled recodificado
-#' @export rec_labelled
 #'
+#' @return vector labelled recodificado
+#'
+#'
+#' @import labelled
+#' @importFrom forcats fct_recode
+#' @importFrom stringr str_match
 #'
 #' @examples
-#' ls_rec <- list()
+#' # Crear un vector etiquetado
+#' x <- labelled::labelled(
+#'   c(1, 2, 2, 2, 3, 4, 5, 5, 1, NA),
+#'   labels = c("Muy de acuerdo" = 1,
+#'              "De acuerdo" = 2,
+#'              "Ni de acuerdo ni en desacuerdo" = 3,
+#'              "En desacuerdo" = 4,
+#'              "Muy en desacuerdo" = 5)
+#' )
+#'
+#' # Definir la lista de recodificaciones
+#' # IMPORTANTE: el formato es "Val_final-Etiqueta = Val_inicial"
+#' # Donde:
+#' #    Val_final: serán los valores finales de las etiquetas.
+#' #    Etiqueta: etiquetas de los valores anteriormente definidos.
+#' #    Val_inicial: categorías que se consideran para la recodificación (numéricos)
+#' ls_rec <- list(
+#'   "1-Muy de acuerdo + De acuerdo" = 1:2,
+#'   "2-Ni de acuerdo ni en desacuerdo" = 3,
+#'   "3-En desacuerdo + Muy en desacuerdo" = 4:5,
+#'   "99-NA" = NA
+#' )
+#'
+#' # Aplicar rec_labelled al vector etiquetado
+#' resultado_recodificado <- rec_labelled(.vec = x, ls_niveles = ls_rec)
+#' resultado_recodificado
+#'
+#'
+#'
+#' @export
 rec_labelled <- function(.vec, ls_niveles){
+
+  library(labelled)
 
   # Funcion base para recodificacion
   recode_list <- function(.vec,
@@ -55,19 +92,4 @@ rec_labelled <- function(.vec, ls_niveles){
 }
 
 
-x <- labelled(
-  c(1, 2, 2, 2, 3, 4, 5, 5, 1, NA),
-  c("Muy de acuerdo" = 1,
-    "De acuerdo" = 2,
-    "Ni de acuerdo ni en desacuerdo" = 3,
-    "En desacuerdo" = 4,
-    "Muy en desacuerdo" = 5)
-)
 
-ls_rec <- list("1-Muy de acuerdo + De acuerdo" = 1:2,
-               "2-Ni de acuerdo ni en desacuerdo" = 3,
-               "3-En desacuerdo + Muy en desacuerdo" = 4:5,
-               "99-NA" = NA)
-
-rec_labelled(.vec = x,
-             ls_niveles = ls_rec)
