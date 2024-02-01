@@ -19,7 +19,7 @@ tibble
 }
 \description{
 Porcentaje de respuesta de categorías de varias variables.
-Principalmente para mostrar la distribución de casos de variables de segmetnación posteriores.
+Principalmente para mostrar la distribución de casos de variables de segmentación posteriores.
 }
 \details{
 Tablas de resultados ----------------------------------------------------
