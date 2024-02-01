@@ -5,7 +5,7 @@
 
 # Rut de ejemplo
 x <- 20117419
-fecha <- "2019-01-31"
+fecha <- "2024-01-31"
 
 # Test de clase
 test_that("Class", {
