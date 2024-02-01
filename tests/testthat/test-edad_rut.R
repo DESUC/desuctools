@@ -1,11 +1,8 @@
-# ---------------------------------------------------------------------------- #
-#   Test de funcion edad_rut
-# ---------------------------------------------------------------------------- #
-
+# Test de función edad_rut ----
 
 # Rut de ejemplo
 x <- 20117419
-fecha <- "2024-01-31"
+fecha <- as.Date("2024-01-31")
 
 # Test de clase
 test_that("Class", {
@@ -30,5 +27,5 @@ test_that("Valor", {
 
   # Usar expect_* para verificar los resultados
   expect_equal(edad,
-               c(24))
+               24L)
 })
