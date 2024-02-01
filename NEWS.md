@@ -1,3 +1,10 @@
+# desuctools 0.1.5.9008
+
+* Se agrega la función `edad_rut` para calcular la edad utilizando el rut.
+
+# desuctools 0.1.5.9007
+
+* Se agrega la función `rec_labelled` para facilitar la recodificación de variables en formato labelled.
 * Función para bajar y leer bases spss desde Alchemer.
 
 # desuctools 0.1.5.9006
