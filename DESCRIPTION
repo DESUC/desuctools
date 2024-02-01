@@ -1,13 +1,16 @@
 Type: Package
 Package: desuctools
 Title: Funciones para trabajo en DESUC
-Version: 0.1.5.9006
+Version: 0.1.5.9008
 Authors@R: c(
     person("Cristián", "Ayala", 
         email = 'caayala@uc.cl', 
         role = c("aut", "cre")
     ),
     person("Cristina", "Marchant", 
+        role = c("ctb")
+    ),
+    person("Jonatan", "Salazar",
         role = c("ctb")
     ),
     person("DESUC", 
