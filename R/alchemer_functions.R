@@ -7,6 +7,14 @@
 #' @description
 #' Lee el archivo .sav a partir del _distribution link_ de un reporte de
 #' exportación de una encuesta programada en Alchemer.
+#' https://help.alchemer.com/help/spss
+#'
+#' Compatibility
+#' - Comments are not available in SPSS exports.
+#' - The Conjoint question is not available in SPSS exports.
+#' - "Other, Write-In" rows in grid questions as not available in SPSS exports.
+#' - The Time Started field is not includes as part of the SPSS export.
+#'
 #'
 #' @param url `chr` Distribution link del reporte de base de datos en SPSS.
 #'
@@ -16,7 +24,6 @@
 #'
 #' @export
 #'
-#' @examples
 alch_read_spss <- function(url){
   temp_zip <- tempfile(fileext = ".zip") # Descargo archivo zip
 
