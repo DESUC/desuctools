@@ -2,31 +2,33 @@
 % Please edit documentation in R/edad_rut.R
 \name{edad_rut}
 \alias{edad_rut}
-\title{Edad_rut}
+\title{edad_rut}
+\source{
+https://rutificador-chile.com/wp-content/uploads/2022/06/rut-a-edad.html
+}
 \usage{
 edad_rut(.rut, fecha_referencia)
 }
 \arguments{
-\item{.rut}{Vector numérico con el rut (sin dígito verificador).}
+\item{.rut}{`ìnt`: Vector numérico con el rut (sin dígito verificador).}
 
-\item{fecha_referencia}{Vector que contiene la fecha (yy-mm-dd) que determina la edad.
-Pueden ser años pasados, el año actual o años futuros.}
+\item{fecha_referencia}{`date`: Vector que contiene la fecha de referencia que determina la edad.
+Pueden ser una fecha pasada, actual o futura.}
 }
 \value{
 integer
 }
 \description{
-Función para calcular la edad según el rut de la persona.
+Función para calcular una edad estimada según el rut de la persona.
+Es solo una aproximación. Puede ser inexacta para personas migrantes.
 }
 \examples{
 
 # Importante: el rut no debe contar con el dígito verificador
 x <- 20117419
-fecha <- "2024-01-31"
+fecha <- as.Date("2024-01-31")
 
 edad_rut(.rut = x,
          fecha_referencia = fecha)
-
-
 
 }
