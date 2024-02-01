@@ -7,20 +7,20 @@
 rec_labelled(.vec, ls_niveles)
 }
 \arguments{
-\item{.vec}{vector/variable a recodificar}
+\item{.vec}{`labelled_haven`: vector/variable a recodificar}
 
-\item{ls_niveles}{lista con recodificaciones.
+\item{ls_niveles}{`list`: lista con recodificaciones.
 Debe cumplir un formato específico.}
 }
 \value{
-vector labelled recodificado
+vector labelled_haven
 }
 \description{
-Función para recodificar variables labelled utilizando una lista
+Recodificación de un vector labelled_haven utilizando una lista de etiquetas y niveles.
 }
 \examples{
-# Crear un vector etiquetado
-x <- labelled::labelled(
+# vector etiquetado
+v_labelled <- labelled::labelled(
   c(1, 2, 2, 2, 3, 4, 5, 5, 1, NA),
   labels = c("Muy de acuerdo" = 1,
              "De acuerdo" = 2,
@@ -30,11 +30,12 @@ x <- labelled::labelled(
 )
 
 # Definir la lista de recodificaciones
-# IMPORTANTE: el formato es "Val_final-Etiqueta = Val_inicial"
+# IMPORTANTE: el formato es "val_final-Etiqueta = val_inicial"
 # Donde:
-#    Val_final: serán los valores finales de las etiquetas.
+#    val_final: serán los valores finales de las etiquetas.
 #    Etiqueta: etiquetas de los valores anteriormente definidos.
-#    Val_inicial: categorías que se consideran para la recodificación (numéricos)
+#    val_inicial: categorías que se consideran para la recodificación (numéricos)
+
 ls_rec <- list(
   "1-Muy de acuerdo + De acuerdo" = 1:2,
   "2-Ni de acuerdo ni en desacuerdo" = 3,
@@ -42,10 +43,8 @@ ls_rec <- list(
   "99-NA" = NA
 )
 
-# Aplicar rec_labelled al vector etiquetado
-resultado_recodificado <- rec_labelled(.vec = x, ls_niveles = ls_rec)
-resultado_recodificado
-
-
+# Recodificación de v_labelled según niveles de ls_rec
+rec_labelled(.vec = v_labelled,
+             ls_niveles = ls_rec)
 
 }
