@@ -1,35 +1,34 @@
-#' Edad_rut
+#' @title edad_rut
 #'
 #' @description
-#' Función para calcular la edad según el rut de la persona.
+#' Función para calcular una edad estimada según el rut de la persona.
+#' Es solo una aproximación. Puede ser inexacta para personas migrantes.
 #'
 #' @importFrom lubridate date_decimal
 #'
-#' @param .rut Vector numérico con el rut (sin dígito verificador).
-#' @param fecha_referencia Vector que contiene la fecha (yy-mm-dd) que determina la edad.
-#'  Pueden ser años pasados, el año actual o años futuros.
+#' @param .rut `ìnt`: Vector numérico con el rut (sin dígito verificador).
+#' @param fecha_referencia `date`: Vector que contiene la fecha de referencia que determina la edad.
+#'  Pueden ser una fecha pasada, actual o futura.
+#'
+#' @source
+#' https://rutificador-chile.com/wp-content/uploads/2022/06/rut-a-edad.html
 #'
 #' @return
 #' integer
-#'
 #'
 #' @examples
 #'
 #' # Importante: el rut no debe contar con el dígito verificador
 #' x <- 20117419
-#' fecha <- "2024-01-31"
+#' fecha <- as.Date("2024-01-31")
 #'
 #' edad_rut(.rut = x,
 #'          fecha_referencia = fecha)
 #'
-#'
-#'
 #' @export
-edad_rut <- function(.rut, fecha_referencia){
+edad_rut <- function(.rut,
+                     fecha_referencia){
 
-  # https://rutificador-chile.com/wp-content/uploads/2022/06/rut-a-edad.html
-
-  fecha_referencia <- as.Date(fecha_referencia)
   slope <- 3.3363697569700348e-06
   intercept <- 1932.2573852507373
 
@@ -43,5 +42,4 @@ edad_rut <- function(.rut, fecha_referencia){
 
   floor(age / 365.25) |>
     as.integer()
-
 }
