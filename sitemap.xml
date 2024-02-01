@@ -37,6 +37,9 @@
     <loc>/reference/digitos_entero.html</loc>
   </url>
   <url>
+    <loc>/reference/edad_rut.html</loc>
+  </url>
+  <url>
     <loc>/reference/fct_case_when.html</loc>
   </url>
   <url>
@@ -83,6 +86,9 @@
   </url>
   <url>
     <loc>/reference/rec_cdf.html</loc>
+  </url>
+  <url>
+    <loc>/reference/rec_labelled.html</loc>
   </url>
   <url>
     <loc>/reference/rec_ortografia.html</loc>
