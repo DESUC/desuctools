@@ -1,147 +1,52 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/alch_read_spss.html</loc>
-  </url>
-  <url>
-    <loc>/reference/calculo_nse.html</loc>
-  </url>
-  <url>
-    <loc>/reference/chunk_size.html</loc>
-  </url>
-  <url>
-    <loc>/reference/codigos_ensenanza.html</loc>
-  </url>
-  <url>
-    <loc>/reference/corpus_rae.html</loc>
-  </url>
-  <url>
-    <loc>/reference/digitos_entero.html</loc>
-  </url>
-  <url>
-    <loc>/reference/edad_rut.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fct_case_when.html</loc>
-  </url>
-  <url>
-    <loc>/reference/fct_reorder_cat.html</loc>
-  </url>
-  <url>
-    <loc>/reference/format_clp.html</loc>
-  </url>
-  <url>
-    <loc>/reference/format_dinero.html</loc>
-  </url>
-  <url>
-    <loc>/reference/format_num.html</loc>
-  </url>
-  <url>
-    <loc>/reference/frq_trunc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/gg_bar_3_niveles_stack.html</loc>
-  </url>
-  <url>
-    <loc>/reference/include_graphics2.html</loc>
-  </url>
-  <url>
-    <loc>/reference/include_graphics_latex.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/is_email.html</loc>
-  </url>
-  <url>
-    <loc>/reference/kable_desuc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/pregunta_orden.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rec_cat_5a3.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rec_cat_7a3.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rec_cdf.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rec_labelled.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rec_ortografia.html</loc>
-  </url>
-  <url>
-    <loc>/reference/region_orden.html</loc>
-  </url>
-  <url>
-    <loc>/reference/regiones_y_comunas.html</loc>
-  </url>
-  <url>
-    <loc>/reference/rev_niveles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sg_get.html</loc>
-  </url>
-  <url>
-    <loc>/reference/sg_get_data.html</loc>
-  </url>
-  <url>
-    <loc>/reference/shift_missing.html</loc>
-  </url>
-  <url>
-    <loc>/reference/str_collapse.html</loc>
-  </url>
-  <url>
-    <loc>/reference/str_entre.html</loc>
-  </url>
-  <url>
-    <loc>/reference/str_entre_parentesis.html</loc>
-  </url>
-  <url>
-    <loc>/reference/svy_diff_sig.html</loc>
-  </url>
-  <url>
-    <loc>/reference/svy_tabla_var_segmento.html</loc>
-  </url>
-  <url>
-    <loc>/reference/svy_tabla_var_segmentos.html</loc>
-  </url>
-  <url>
-    <loc>/reference/svy_tabla_vars_segmentos.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tabla_categorias.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tabla_columnas.html</loc>
-  </url>
-  <url>
-    <loc>/reference/tabla_vars_segmentos.html</loc>
-  </url>
-  <url>
-    <loc>/reference/varnames_to_label.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/news/index.html</loc></url>
+<url><loc>/reference/alch_read_spss.html</loc></url>
+<url><loc>/reference/calculo_nse.html</loc></url>
+<url><loc>/reference/chunk_size.html</loc></url>
+<url><loc>/reference/codigos_ensenanza.html</loc></url>
+<url><loc>/reference/corpus_rae.html</loc></url>
+<url><loc>/reference/digitos_entero.html</loc></url>
+<url><loc>/reference/edad_rut.html</loc></url>
+<url><loc>/reference/fct_case_when.html</loc></url>
+<url><loc>/reference/fct_reorder_cat.html</loc></url>
+<url><loc>/reference/format_clp.html</loc></url>
+<url><loc>/reference/format_dinero.html</loc></url>
+<url><loc>/reference/format_num.html</loc></url>
+<url><loc>/reference/frq_trunc.html</loc></url>
+<url><loc>/reference/gg_bar_3_niveles_stack.html</loc></url>
+<url><loc>/reference/include_graphics2.html</loc></url>
+<url><loc>/reference/include_graphics_latex.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/is_email.html</loc></url>
+<url><loc>/reference/kable_desuc.html</loc></url>
+<url><loc>/reference/pregunta_orden.html</loc></url>
+<url><loc>/reference/rec_cat_5a3.html</loc></url>
+<url><loc>/reference/rec_cat_7a3.html</loc></url>
+<url><loc>/reference/rec_cdf.html</loc></url>
+<url><loc>/reference/rec_labelled.html</loc></url>
+<url><loc>/reference/rec_ortografia.html</loc></url>
+<url><loc>/reference/region_orden.html</loc></url>
+<url><loc>/reference/regiones_y_comunas.html</loc></url>
+<url><loc>/reference/rev_niveles.html</loc></url>
+<url><loc>/reference/sg_date.html</loc></url>
+<url><loc>/reference/sg_get.html</loc></url>
+<url><loc>/reference/sg_get_data.html</loc></url>
+<url><loc>/reference/shift_missing.html</loc></url>
+<url><loc>/reference/str_collapse.html</loc></url>
+<url><loc>/reference/str_entre.html</loc></url>
+<url><loc>/reference/str_entre_parentesis.html</loc></url>
+<url><loc>/reference/svy_diff_sig.html</loc></url>
+<url><loc>/reference/svy_tabla_var_segmento.html</loc></url>
+<url><loc>/reference/svy_tabla_var_segmentos.html</loc></url>
+<url><loc>/reference/svy_tabla_vars_segmentos.html</loc></url>
+<url><loc>/reference/tabla_categorias.html</loc></url>
+<url><loc>/reference/tabla_columnas.html</loc></url>
+<url><loc>/reference/tabla_vars_segmentos.html</loc></url>
+<url><loc>/reference/varnames_to_label.html</loc></url>
 </urlset>
+
