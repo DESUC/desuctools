@@ -1,3 +1,8 @@
+# desuctools 0.1.5.9009
+
+* Se agrega la función `sg_date` para formatear fechas según los requerimientos de la 
+API de SurveyToGo.
+
 # desuctools 0.1.5.9008
 
 * Se agrega la función `edad_rut` para calcular la edad utilizando el rut.

@@ -57,7 +57,7 @@ sg_get <- function(api_operation,
     httr2::req_throttle(rate = 2) |>  # max 2 requests por segundo
     httr2::req_retry(max_tries = 5)   # max 5 intentos
 
-  print(req_stg)
+  # print(req_stg)
 
   # Perform request:
   response <- try( # to catch errors
