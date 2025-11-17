@@ -1,0 +1,73 @@
+# Calculo NSE
+
+Funciones de trabajo con datos ——————————————
+
+Cálculo de Nivel socioeconómico según formula DESUC utilizando
+ocupación, educación y bienes.
+
+Nivel de educación más alto que alcanzó val label 1 No estudió 2
+Educación básica o preparatoria incompleta 3 Educación básica o
+preparatoria completa 4 Educación media o humanidades incompleta 5
+Educación media o humanidades completa 6 Instituto Profesional o Centro
+de formación Técnica Incompleta 7 Instituto Profesional o Centro de
+Formación Técnica Completa 8 Universitaria incompleta 9 Universitaria
+completa 10 Post grado (máster, doctorado o equivalente) 88 No sabe 99
+No responde
+
+¿Cuál de las siguientes ocupaciones corresponde al trabajo del principal
+sostenedor del hogar? Si el principal sostenedor del hogar esta cesante
+o es jubilado, preguntar por la ultima ocupacion remunerada que tuvo. Si
+el principal sostenedor tiene más de 1 trabajo, debe registrarse el de
+mayor ingreso.
+
+val Categoría
+
+1\. Trabajadores no calificados en ventas y servicios, peones
+agropecuarios, forestales, construcción, etc. 2. Obreros, operarios y
+artesanos de artes mecánicas y de otros oficios. 3. Trabajadores de los
+servicios y vendedores de comercio y mercados. 4. Agricultores y
+trabajadores calificados agropecuarios y pesqueros. 5. Operadores de
+instalaciones y máquinas y montadores / conductores de vehículos. 6.
+Empleados de oficina públicos y privados. 7. Técnicos y profesionales de
+nivel medio (incluye hasta suboficiales FFAA y Carabineros). 8.
+Profesionales, científicos e intelectuales. 9. Alto ejecutivo (gerente
+general o gerente de área o sector) de empresa privadas o pública.
+Director o dueño de grandes empresas. Alto directivo del poder
+ejecutivo, de los cuerpos legislativos y la administración pública
+(incluye oficiales de FFAA y Carabineros). 10. Otros grupos no
+identificados (incluye rentistas, incapacitados, etc.)
+
+## Usage
+
+``` r
+calculo_nse(
+  .data,
+  .ocupacion_jh,
+  .educacion_jh,
+  .bienes_var = NULL,
+  append = TRUE
+)
+```
+
+## Arguments
+
+- .data:
+
+  data.frame Base de datos
+
+- .ocupacion_jh:
+
+  name nombre de variable para educación de jefe de hogar, 10
+  categorías.
+
+- .educacion_jh:
+
+  name nombre de variable para educación de jefe de hogar 10 categorías
+
+- .bienes_var:
+
+  tidyselect selector de variables para bienes
+
+- append:
+
+  logic TRUE para agregar la variable a la base original
