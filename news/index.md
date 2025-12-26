@@ -1,5 +1,11 @@
 # Changelog
 
+## desuctools 0.1.5.9010
+
+- Creación de función `rec_nse_aim2023` para clasificar a personas según
+  criterio de AIM 2023. Reemplaza antigua función `calculo_nse` por
+  estár desactualizada.
+
 ## desuctools 0.1.5.9009
 
 - Se agrega la función `sg_date` para formatear fechas según los

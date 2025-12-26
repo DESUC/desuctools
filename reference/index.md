@@ -13,8 +13,6 @@
 
 - [`alch_read_spss()`](alch_read_spss.md) : read Alchemer SPSS export
 
-- [`calculo_nse()`](calculo_nse.md) : Calculo NSE
-
 - [`chunk_size()`](chunk_size.md) : Ajuste del tamaño del texto en
   chunks
 
@@ -66,6 +64,8 @@
 
 - [`rec_labelled()`](rec_labelled.md) : Recodificación de variables
   labelled
+
+- [`rec_nse_aim2023()`](rec_nse_aim2023.md) : Clasificación NSE AIM 2023
 
 - [`rec_ortografia()`](rec_ortografia.md) : Corrector ortográfico
 
