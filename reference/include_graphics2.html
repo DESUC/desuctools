@@ -23,7 +23,7 @@ inserting figures with knitr::include_graphics."><meta property="og:image" conte
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.5.9010</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +83,7 @@ an URL or a local path.</p></dd>
 
 <dt id="arg-alt-path">alt_path<a class="anchor" aria-label="anchor" href="#arg-alt-path"></a></dt>
 <dd><p>String. An alternative figure path for <code>path</code>
-with invalid extensions. In the case of PDF ('LaTeX') output,
+with invalid extensions. In the case of PDF ("LaTeX") output,
 invalid extensions are <code>.gif</code>, <code>.svg</code>.</p></dd>
 
 
@@ -106,8 +106,8 @@ when the figure cannot be inserted.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">png_url</span> <span class="op">&lt;-</span> <span class="st">'https://commonmark.org/images/markdown-mark.png'</span></span></span>
-<span class="r-in"><span><span class="va">gif_url</span> <span class="op">&lt;-</span> <span class="st">'https://media.giphy.com/media/k3dcUPvxuNpK/giphy.gif'</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">png_url</span> <span class="op">&lt;-</span> <span class="st">"https://commonmark.org/images/markdown-mark.png"</span></span></span>
+<span class="r-in"><span><span class="va">gif_url</span> <span class="op">&lt;-</span> <span class="st">"https://media.giphy.com/media/k3dcUPvxuNpK/giphy.gif"</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
 <span class="r-in"><span><span class="fu">include_graphics2</span><span class="op">(</span><span class="va">gif_url</span>, alt_path <span class="op">=</span> <span class="va">png_url</span><span class="op">)</span></span></span>

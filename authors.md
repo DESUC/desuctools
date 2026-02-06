@@ -15,13 +15,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/desuc/desuctools/blob/master/DESCRIPTION)
 
-Ayala C (2025). *desuctools: Funciones para trabajo en DESUC*. R package
-version 0.1.5.9010, <https://desuc.github.io/desuctools>.
+Ayala C (2026). *desuctools: Funciones para trabajo en DESUC*. R package
+version 0.2.0.9001, <https://desuc.github.io/desuctools>.
 
     @Manual{,
       title = {desuctools: Funciones para trabajo en DESUC},
       author = {Cristián Ayala},
-      year = {2025},
-      note = {R package version 0.1.5.9010},
+      year = {2026},
+      note = {R package version 0.2.0.9001},
       url = {https://desuc.github.io/desuctools},
     }

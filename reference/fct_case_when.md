@@ -1,7 +1,7 @@
 # Factor case_when
 
 Wrapper around
-[`dplyr::case_when`](https://dplyr.tidyverse.org/reference/case_when.html)
+[`dplyr::case_when`](https://dplyr.tidyverse.org/reference/case-and-replace-when.html)
 that converts the output to a factor and preserves the order in which
 value labels were passed into the function.
 
@@ -16,7 +16,7 @@ fct_case_when(..., label = NULL)
 - ...:
 
   A sequence of two-sided formulas consistent with
-  [`dplyr::case_when`](https://dplyr.tidyverse.org/reference/case_when.html).
+  [`dplyr::case_when`](https://dplyr.tidyverse.org/reference/case-and-replace-when.html).
 
 - label:
 
@@ -25,7 +25,7 @@ fct_case_when(..., label = NULL)
 ## Value
 
 The output of
-[`dplyr::case_when`](https://dplyr.tidyverse.org/reference/case_when.html),
+[`dplyr::case_when`](https://dplyr.tidyverse.org/reference/case-and-replace-when.html),
 as class `"factor"` and ordered however you wanted it.
 
 ## Details

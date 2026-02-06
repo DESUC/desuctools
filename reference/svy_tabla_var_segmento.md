@@ -8,17 +8,18 @@ variable \`.var\`.
 
 ``` r
 svy_tabla_var_segmento(
-  .data,
+  .df,
   .var,
   .segmento = NULL,
-  na.rm = TRUE,
+  miss = NULL,
+  vartype = c("ci", "se"),
   level = 0.95
 )
 ```
 
 ## Arguments
 
-- .data:
+- .df:
 
   data frame con diseño complejo
 
@@ -31,9 +32,14 @@ svy_tabla_var_segmento(
   Segmentos de interés para ver diferencias en categorías de variable
   \`.var\`. Por defecto NULL
 
-- na.rm:
+- miss:
 
-  boolean. Considera o no missings, por defecto FALSE.
+  chr vector. Categorías a excluir en el denominador de \`prop_val\` y
+  \`mean\`.
+
+- vartype:
+
+  chr vector. Tipo de error para estimaciones (\`ci\`, \`se\`, etc.).
 
 - level:
 
@@ -41,4 +47,4 @@ svy_tabla_var_segmento(
 
 ## Value
 
-data.frame
+tibble

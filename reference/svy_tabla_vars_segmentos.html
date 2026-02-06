@@ -15,7 +15,7 @@ y segmentos a la vez."><meta property="og:image" content="/reference/figures/des
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.5.9010</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,14 +51,21 @@ y segmentos a la vez.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">svy_tabla_vars_segmentos</span><span class="op">(</span><span class="va">.data</span>, <span class="va">.vars</span>, .segmentos <span class="op">=</span> <span class="cn">NULL</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">svy_tabla_vars_segmentos</span><span class="op">(</span></span>
+<span>  <span class="va">.df</span>,</span>
+<span>  <span class="va">.vars</span>,</span>
+<span>  .segmentos <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  miss <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  vartype <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ci"</span>, <span class="st">"se"</span><span class="op">)</span>,</span>
+<span>  level <span class="op">=</span> <span class="fl">0.95</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg--data">.data<a class="anchor" aria-label="anchor" href="#arg--data"></a></dt>
+<dl><dt id="arg--df">.df<a class="anchor" aria-label="anchor" href="#arg--df"></a></dt>
 <dd><p>`tbl_svy` data.frame con diseño de encuesta.</p></dd>
 
 
@@ -70,13 +77,21 @@ y segmentos a la vez.</p>
 <dd><p>c(). Lista de variables por las que se quiere segmentar `.vars`.</p></dd>
 
 
-<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
-<dd><p>atributos que se pasan a funcion `svy_tabla_var_segmento`.</p></dd>
+<dt id="arg-miss">miss<a class="anchor" aria-label="anchor" href="#arg-miss"></a></dt>
+<dd><p>chr vector. Categorías a excluir en el denominador de `prop_val` y `mean`.</p></dd>
+
+
+<dt id="arg-vartype">vartype<a class="anchor" aria-label="anchor" href="#arg-vartype"></a></dt>
+<dd><p>chr vector. Tipo de error para estimaciones (`ci`, `se`, etc.).</p></dd>
+
+
+<dt id="arg-level">level<a class="anchor" aria-label="anchor" href="#arg-level"></a></dt>
+<dd><p>double. Nivel de confianza para intervalos.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>data.frame</p>
+    <p>tibble</p>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

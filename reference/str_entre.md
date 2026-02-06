@@ -29,6 +29,6 @@ string
 ## Examples
 
 ``` r
-str_entre('a (between) z', ini = '\\(', fin = '\\)')
+str_entre("a (between) z", ini = "\\(", fin = "\\)")
 #> [1] "between"
 ```

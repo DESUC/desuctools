@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.5.9010</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9001</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,12 +33,32 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0.9001" id="desuctools-0209001">desuctools 0.2.0.9001<a class="anchor" aria-label="anchor" href="#desuctools-0209001"></a></h2>
+<ul><li>
+<code><a href="../reference/tabla_vars_segmentos.html">tabla_vars_segmentos()</a></code> queda como punto de entrada principal con despacho S3.</li>
+<li>Nuevos métodos S3 para <code>tabla_vars_segmentos</code>: <code>data.frame</code>, <code>tbl_svy</code> y <code>survey.design2</code>.</li>
+<li>
+<code><a href="../reference/svy_tabla_vars_segmentos.html">svy_tabla_vars_segmentos()</a></code> se mantiene por compatibilidad y ahora delega en <code><a href="../reference/tabla_vars_segmentos.html">tabla_vars_segmentos()</a></code>.</li>
+<li>Se corrige bug en <code><a href="../reference/svy_tabla_vars_segmentos.html">svy_tabla_vars_segmentos()</a></code> por validación de clase (<code>inherits(.df, "tbl_svy")</code>).</li>
+<li>Selección de variables y segmentos con tidyselect en todos los métodos de <code>tabla_vars_segmentos</code> (<code><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">starts_with()</a></code>, <code><a href="https://tidyselect.r-lib.org/reference/all_of.html" class="external-link">all_of()</a></code>, <code>c(...)</code>) y compatibilidad con estilo previo <code>vars(...)</code>.</li>
+<li>Lógica explícita por tipo de variable en <code>.vars</code>:
+<ul><li>Categóricas (incluye <code>haven_labelled</code> con labels): cálculo de <code>prop</code> y <code>prop_val</code>.</li>
+<li>Numéricas: salida con <code>pregunta_cat == "mean"</code> y cálculo de <code>mean</code> (excluyendo <code>NA</code> y <code>miss</code>).</li>
+</ul></li>
+<li>En métodos de encuesta, variables numéricas ahora soportan errores de estimación para media vía <code>vartype</code> (<code>ci</code>, <code>se</code>).</li>
+<li>Ajustes de documentación (<code>roxygen</code>/<code>NAMESPACE</code>/<code>.Rd</code>) para nuevos métodos, argumentos y reglas de cálculo.</li>
+<li>Actualización y ampliación de tests en tablas de output y survey (despacho S3, tidyselect, <code>prop</code>/<code>prop_val</code>, <code>mean</code>).</li>
+<li>Nueva función para obtener información a partir de un rut: <code>rut_información</code>.</li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.5.9010" id="desuctools-0159010">desuctools 0.1.5.9010<a class="anchor" aria-label="anchor" href="#desuctools-0159010"></a></h2>
 <ul><li>Creación de función <code>rec_nse_aim2023</code> para clasificar a personas según criterio de AIM 2023. Reemplaza antigua función <code>calculo_nse</code> por estár desactualizada.</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.5.9009" id="desuctools-0159009">desuctools 0.1.5.9009<a class="anchor" aria-label="anchor" href="#desuctools-0159009"></a></h2>
 <ul><li>Se agrega la función <code>sg_date</code> para formatear fechas según los requerimientos de la API de SurveyToGo.</li>
+<li>Se agregan funciones para codificar a factores variables habituales en bases de datos del <a href="https://centroestudios.mineduc.cl/datos-abiertos/" class="external-link">Ministerio de Educación</a>
+</li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.5.9008" id="desuctools-0159008">desuctools 0.1.5.9008<a class="anchor" aria-label="anchor" href="#desuctools-0159008"></a></h2>
@@ -91,11 +111,11 @@
 <ul><li>Agregar columna <code>comuna18</code> para tener el código comunal luego de la creación de la región del Ñuble en 2018.</li>
 <li>Nuevas variables en <code>regiones_y_comunas</code> para ajustes de no respuesta.</li>
 <li>Base de datos con <code>codigos_ensenanza</code> para tener equivalencias y descripción de la nomenclatura utilizada por MINEDUC en sus bases de datos.</li>
-</ul><div class="section level4">
-<h4 id="gráfico-0-1-5-9001">Gráfico<a class="anchor" aria-label="anchor" href="#gr%C3%A1fico-0-1-5-9001"></a></h4>
+</ul></div>
+<div class="section level3">
+<h3 id="gráfico-0-1-5-9001">Gráfico<a class="anchor" aria-label="anchor" href="#gr%C3%A1fico-0-1-5-9001"></a></h3>
 <ul><li>Función <code>gg_bar_3_niveles_stack</code>.</li>
 </ul></div>
-</div>
 <div class="section level3">
 <h3 id="bug-fix-0-1-5-9001">Bug fix<a class="anchor" aria-label="anchor" href="#bug-fix-0-1-5-9001"></a></h3>
 <ul><li>Correccion de bug por <code>get_label</code>.</li>

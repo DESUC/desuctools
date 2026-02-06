@@ -6,12 +6,12 @@ calculados desde \`srvyr\`.
 ## Usage
 
 ``` r
-svy_diff_sig(.data)
+svy_diff_sig(.df)
 ```
 
 ## Arguments
 
-- .data:
+- .df:
 
   data.frame con variables \`\\\_upp\` y \`\\\_low\`
 

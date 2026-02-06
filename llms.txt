@@ -199,6 +199,29 @@ desuctools::gg_bar_3_niveles_stack(
 
 - [`edad_rut()`](edad_rut.md) : edad_rut
 
+- [`edu_es_educacion_adulto()`](edu_es_educacion_adulto.md) : Detecta
+  códigos de enseñanza para adultos
+
+- [`edu_fct_cod_depe2()`](edu_fct_cod_depe2.md) : Factor de código de
+  dependencia del establecimiento agrupado
+
+- [`edu_fct_cod_ense()`](edu_fct_cod_ense.md) : Factor de niveles de
+  enseñanza
+
+- [`edu_fct_cod_ense2()`](edu_fct_cod_ense2.md) : Factor de niveles de
+  enseñanza agrupado
+
+- [`edu_fct_cod_ense3()`](edu_fct_cod_ense3.md) : Factor de niveles de
+  enseñanza agrupado
+
+- [`edu_fct_educacion_especial()`](edu_fct_educacion_especial.md) :
+  Factor para distingir Educación Especial
+
+- [`edu_fct_ens()`](edu_fct_ens.md) : Factor de código de enseñanza en
+  13 niveles
+
+- [`edu_fct_rural_rbd()`](edu_fct_rural_rbd.md) : Factor de ruralidad
+
 - [`fct_case_when()`](fct_case_when.md) : Factor case_when
 
 - [`fct_reorder_cat()`](fct_reorder_cat.md) : Orden de preguntas según
@@ -250,6 +273,9 @@ desuctools::gg_bar_3_niveles_stack(
 
 - [`rev_niveles()`](rev_niveles.md) : Invertir niveles
 
+- [`rut_informacion()`](rut_informacion.md) : Obtiene información para
+  un RUT
+
 - [`sg_date()`](sg_date.md) : Convierte una fecha para su uso en la API
   de SurveyToGo
 
@@ -274,16 +300,27 @@ desuctools::gg_bar_3_niveles_stack(
 - [`svy_tabla_var_segmento()`](svy_tabla_var_segmento.md) : Tabla con
   intervalos de confianza
 
-- [`svy_tabla_var_segmentos()`](svy_tabla_var_segmentos.md) : Tabla con
-  intervalos de confianza
-
 - [`svy_tabla_vars_segmentos()`](svy_tabla_vars_segmentos.md) : Tabla
   con intervalos de confianza
+
+- [`tabla_categoria()`](tabla_categoria.md) : Tablas de resultados
+  —————————————————-
 
 - [`tabla_categorias()`](tabla_categorias.md) : Tabla de categorías
 
 - [`tabla_columnas()`](tabla_columnas.md) : Divide un data.frame en
   columnas
+
+- [`tabla_prop()`](tabla_prop.md) : Cálculo de proporciones
+
+- [`tabla_prop_val()`](tabla_prop_val.md) : Calculo de proporción para
+  categorías válidas.
+
+- [`tabla_total_prop()`](tabla_total_prop.md) : Agrega dato total por
+  segmento.
+
+- [`tabla_var_segmento()`](tabla_var_segmento.md) : Tabla de respuestas
+  de una variable para cada categoría de un segmento.
 
 - [`tabla_vars_segmentos()`](tabla_vars_segmentos.md) : Tabla de
   porcentajes de variables según segmentos.

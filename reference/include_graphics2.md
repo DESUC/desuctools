@@ -32,7 +32,7 @@ include_graphics2(
 - alt_path:
 
   String. An alternative figure path for `path` with invalid extensions.
-  In the case of PDF ('LaTeX') output, invalid extensions are `.gif`,
+  In the case of PDF ("LaTeX") output, invalid extensions are `.gif`,
   `.svg`.
 
 - handler:
@@ -53,8 +53,8 @@ Read more about using the function at <http://bit.ly/include_graphics2>.
 ## Examples
 
 ``` r
-png_url <- 'https://commonmark.org/images/markdown-mark.png'
-gif_url <- 'https://media.giphy.com/media/k3dcUPvxuNpK/giphy.gif'
+png_url <- "https://commonmark.org/images/markdown-mark.png"
+gif_url <- "https://media.giphy.com/media/k3dcUPvxuNpK/giphy.gif"
 
 if (FALSE) { # \dontrun{
 include_graphics2(gif_url, alt_path = png_url)

@@ -3,6 +3,7 @@
 <url><loc>/LICENSE-text.html</loc></url>
 <url><loc>/LICENSE.html</loc></url>
 <url><loc>/authors.html</loc></url>
+<url><loc>/copilot-instructions.html</loc></url>
 <url><loc>/index.html</loc></url>
 <url><loc>/news/index.html</loc></url>
 <url><loc>/reference/alch_create_df.html</loc></url>
@@ -14,6 +15,14 @@
 <url><loc>/reference/corpus_rae.html</loc></url>
 <url><loc>/reference/digitos_entero.html</loc></url>
 <url><loc>/reference/edad_rut.html</loc></url>
+<url><loc>/reference/edu_es_educacion_adulto.html</loc></url>
+<url><loc>/reference/edu_fct_cod_depe2.html</loc></url>
+<url><loc>/reference/edu_fct_cod_ense.html</loc></url>
+<url><loc>/reference/edu_fct_cod_ense2.html</loc></url>
+<url><loc>/reference/edu_fct_cod_ense3.html</loc></url>
+<url><loc>/reference/edu_fct_educacion_especial.html</loc></url>
+<url><loc>/reference/edu_fct_ens.html</loc></url>
+<url><loc>/reference/edu_fct_rural_rbd.html</loc></url>
 <url><loc>/reference/fct_case_when.html</loc></url>
 <url><loc>/reference/fct_reorder_cat.html</loc></url>
 <url><loc>/reference/format_clp.html</loc></url>
@@ -36,6 +45,7 @@
 <url><loc>/reference/region_orden.html</loc></url>
 <url><loc>/reference/regiones_y_comunas.html</loc></url>
 <url><loc>/reference/rev_niveles.html</loc></url>
+<url><loc>/reference/rut_informacion.html</loc></url>
 <url><loc>/reference/sg_date.html</loc></url>
 <url><loc>/reference/sg_get.html</loc></url>
 <url><loc>/reference/sg_get_data.html</loc></url>
@@ -45,10 +55,14 @@
 <url><loc>/reference/str_entre_parentesis.html</loc></url>
 <url><loc>/reference/svy_diff_sig.html</loc></url>
 <url><loc>/reference/svy_tabla_var_segmento.html</loc></url>
-<url><loc>/reference/svy_tabla_var_segmentos.html</loc></url>
 <url><loc>/reference/svy_tabla_vars_segmentos.html</loc></url>
+<url><loc>/reference/tabla_categoria.html</loc></url>
 <url><loc>/reference/tabla_categorias.html</loc></url>
 <url><loc>/reference/tabla_columnas.html</loc></url>
+<url><loc>/reference/tabla_prop.html</loc></url>
+<url><loc>/reference/tabla_prop_val.html</loc></url>
+<url><loc>/reference/tabla_total_prop.html</loc></url>
+<url><loc>/reference/tabla_var_segmento.html</loc></url>
 <url><loc>/reference/tabla_vars_segmentos.html</loc></url>
 <url><loc>/reference/varnames_to_label.html</loc></url>
 </urlset>

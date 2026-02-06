@@ -32,7 +32,7 @@ haven_labelled
 
 ``` r
 vect <- c(1, 4, 6, 99, NA)
-rec_cat_5a3(vect, labels = c('alto' = 1))
+rec_cat_5a3(vect, labels = c("alto" = 1))
 #> <labelled<double>[5]>
 #> [1]  1  3  9  9 NA
 #> 

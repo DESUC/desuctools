@@ -30,6 +30,6 @@ character
 ## Examples
 
 ``` r
-rec_ortografia(c('pais', 'arbol'))
+rec_ortografia(c("pais", "arbol"))
 #> [1] "país"  "árbol"
 ```
