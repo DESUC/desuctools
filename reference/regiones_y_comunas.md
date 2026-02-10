@@ -13,82 +13,49 @@ regiones_y_comunas
 
 Un data.frame con 346 filas `comunas` y 19 variables.
 
-- id:
-
-  orden de comunas siguiendo geografía y código comunal
-
-- region_orden:
-
-  numeración de regiones de norte a sur
-
-- comuna:
-
-  código de comuna
-
-- comuna18:
-
-  código de comuna luego de la creación de la región de Ñuble en 2018
-
-- region:
-
-  número de región
-
-- provincia:
-
-  código de provincia luego de la creación de la región de Ñuble
-
-- region_nom:
-
-  nombre oficial de la región
-
-- region_nom_small:
-
-  nombre breve de la región
-
-- comuna_nom:
-
-  nombre de la comuna
-
-- region_capital:
-
-  TRUE si comuna es capital regional
-
-- comuna_extrema:
-
-  1 si comuna es extrema para INE, 2 si es extrema para DESUC
-
-- gran_santiago:
-
-  TRUE si comuna pertenece al Gran Santiago
-
-- gran_santiago_zonas:
-
-  nombre de zonas del Gran Santiago
-
-- educ_sup_com:
-
-  % hogares con algún miembro con educación superior
-
-- hacinamiento:
-
-  % hogares con hacinamiento
-
-- allegamiento_int:
-
-  % hogares con allegamiento interno
-
-- carente_ser_bas:
-
-  % hogares carentes de servicios básicos
-
-- carente_entorno:
-
-  % hogares carentes de características beneficiosas en el entorno
-
-- decil:
-
-  promedio de decir de ingresos de los hogares
-
 ## Source
 
-\<http://www.ine.cl/\>
+<http://www.ine.cl/>
+
+## Details
+
+- `id`: orden de comunas siguiendo geografía y código comunal
+
+- `region_orden`: numeración de regiones de norte a sur
+
+- `comuna`: código de comuna
+
+- `comuna18`: código de comuna luego de la creación de la región de
+  Ñuble en 2018
+
+- `region`: número de región
+
+- `provincia`: código de provincia luego de la creación de la región de
+  Ñuble
+
+- `region_nom`: nombre oficial de la región
+
+- `region_nom_small`: nombre breve de la región
+
+- `comuna_nom`: nombre de la comuna
+
+- `region_capital`: TRUE si comuna es capital regional
+
+- `comuna_extrema`: 1 si comuna es extrema para INE, 2 si es extrema
+  para DESUC
+
+- `gran_santiago`: TRUE si comuna pertenece al Gran Santiago
+
+- `gran_santiago_zonas`: nombre de zonas del Gran Santiago
+
+- `educ_sup_com`: \\
+
+- `hacinamiento`: \\
+
+- `allegamiento_int`: \\
+
+- `carente_ser_bas`: \\
+
+- `carente_entorno`: \\
+
+- `decil`: promedio de decir de ingresos de los hogares

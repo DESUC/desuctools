@@ -13,12 +13,12 @@ edu_fct_rural_rbd(x)
 
 - x:
 
-  Un vector de códigos, típicamente variable \`RURAL_RBD\`.
+  Un vector de códigos, típicamente variable `RURAL_RBD`.
 
 ## Value
 
-A factor with 2 levels, with an attached \`"label"\` attribute.
+A factor with 2 levels, with an attached `"label"` attribute.
 
 ## See also
 
-\[https://centroestudios.mineduc.cl/datos-abiertos/\]
+<https://centroestudios.mineduc.cl/datos-abiertos/>

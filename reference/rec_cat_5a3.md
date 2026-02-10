@@ -1,6 +1,6 @@
 # Recodificaión de variables 5 a 3
 
-Por defecto recodifica variables \_likert\_ de 5 niveles a 3 niveles.
+Por defecto recodifica variables *likert* de 5 niveles a 3 niveles.
 
 ## Usage
 

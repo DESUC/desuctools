@@ -15,7 +15,7 @@ data con los contactos).'><meta property="og:image" content="/reference/figures/
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,47 +66,48 @@ devuelve el objeto parseado por la API (lista con metadatos y elemento
 
 
 <dl><dt id="arg-api-token">api_token<a class="anchor" aria-label="anchor" href="#arg-api-token"></a></dt>
-<dd><p>`chr` Clave pública de API de Alchemer. Por defecto toma
+<dd><p><code>chr</code> Clave pública de API de Alchemer. Por defecto toma
 <code>Sys.getenv("ALCHEMER_API_KEY")</code>.</p></dd>
 
 
 <dt id="arg-api-token-secret">api_token_secret<a class="anchor" aria-label="anchor" href="#arg-api-token-secret"></a></dt>
-<dd><p>`chr` Clave secreta de API. Por defecto toma
+<dd><p><code>chr</code> Clave secreta de API. Por defecto toma
 <code>Sys.getenv("ALCHEMER_API_SECRET")</code>.</p></dd>
 
 
 <dt id="arg-survey-id">survey_id<a class="anchor" aria-label="anchor" href="#arg-survey-id"></a></dt>
-<dd><p>`int` ID de la encuesta a la que pertenece la campaña.</p></dd>
+<dd><p><code>int</code> ID de la encuesta a la que pertenece la campaña.</p></dd>
 
 
 <dt id="arg-campaign-id">campaign_id<a class="anchor" aria-label="anchor" href="#arg-campaign-id"></a></dt>
-<dd><p>`int` ID de la campaña de la que se desean obtener los contactos.</p></dd>
+<dd><p><code>int</code> ID de la campaña de la que se desean obtener los contactos.</p></dd>
 
 
 <dt id="arg-results-per-page">results_per_page<a class="anchor" aria-label="anchor" href="#arg-results-per-page"></a></dt>
-<dd><p>`int` Número de contactos por página (1..500). Valor por
+<dd><p><code>int</code> Número de contactos por página (1..500). Valor por
 defecto: 500.</p></dd>
 
 
 <dt id="arg-page">page<a class="anchor" aria-label="anchor" href="#arg-page"></a></dt>
-<dd><p>`int` o <code>"all"</code>. Número de página a descargar, o
+<dd><p><code>int</code> o <code>"all"</code>. Número de página a descargar, o
 <code>"all"</code> para recuperar y combinar todas las páginas.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>`list`. Objeto devuelto por la API (parseado a lista). Si
-  <code>page = "all"</code> el elemento <code>data</code> contendrá los contactos de
-  todas las páginas combinadas.</p>
+    <p><code>list</code>. Objeto devuelto por la API (parseado a lista). Si
+<code>page = "all"</code> el elemento <code>data</code> contendrá los contactos de
+todas las páginas combinadas.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>- Valida que las credenciales y parámetros sean correctos antes de llamar a la API.
-- Cuando <code>page = "all"</code> hace múltiples llamadas (si procede) y concatena
-  todos los elementos <code>data</code> en la respuesta retornada.
-- Los contactos pueden incluir campos como <code>id</code>, <code>email_address</code>,
-  <code>first_name</code>, <code>last_name</code>, etc., según la configuración de la campaña.</p>
-    </div>
+
+<ul><li><p>Valida que las credenciales y parámetros sean correctos antes de llamar a la API.</p></li>
+<li><p>Cuando <code>page = "all"</code> hace múltiples llamadas (si procede) y concatena
+todos los elementos <code>data</code> en la respuesta retornada.</p></li>
+<li><p>Los contactos pueden incluir campos como <code>id</code>, <code>email_address</code>,
+<code>first_name</code>, <code>last_name</code>, etc., según la configuración de la campaña.</p></li>
+</ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

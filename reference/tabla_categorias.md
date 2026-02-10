@@ -19,7 +19,7 @@ tabla_categorias(.df, ..., .wt = NULL, miss = NULL)
 - ...:
 
   Preguntas de las que se quiere saber su proporcion. Se puede utilizar
-  \`tidyselect\` para facilitar la selección de varias columnas.
+  `tidyselect` para facilitar la selección de varias columnas.
 
 - .wt:
 
@@ -29,7 +29,7 @@ tabla_categorias(.df, ..., .wt = NULL, miss = NULL)
 - miss:
 
   chr vector. Categorías de respuesta que deben excluirse del cálculo de
-  \`prop_val\`.
+  `prop_val`.
 
 ## Value
 

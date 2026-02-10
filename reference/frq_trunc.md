@@ -13,7 +13,8 @@ frq_trunc(..., width = 50L, ellipsis = "...")
 
 - ...:
 
-  Una data frame o vector según lo requerido por \`sjmisc::frq\`.
+  Una data frame o vector según lo requerido por
+  [`sjmisc::frq`](https://strengejacke.github.io/sjmisc/reference/frq.html).
 
 - width:
 

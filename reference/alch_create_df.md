@@ -29,11 +29,14 @@ respuesta recibe el atributo `"label"` con la pregunta correspondiente
 
 ## Details
 
-\- Si una pregunta no tiene `answer`, el valor resultante será `NA`. -
-Respuestas múltiples por misma pregunta se colapsan en una cadena
-separada por `"; "`. - La función asume que `ls_alchemer[["data"]]` es
-una lista con la estructura estándar de la API (cada elemento contiene
-sublistas con elementos `id`, `question`, `answer` entre otros).
+- Si una pregunta no tiene `answer`, el valor resultante será `NA`.
+
+- Respuestas múltiples por misma pregunta se colapsan en una cadena
+  separada por `"; "`.
+
+- La función asume que `ls_alchemer[["data"]]` es una lista con la
+  estructura estándar de la API (cada elemento contiene sub-listas con
+  elementos `id`, `question`, `answer` entre otros).
 
 ## Examples
 

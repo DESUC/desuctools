@@ -13,12 +13,12 @@ edu_fct_cod_ense2(x)
 
 - x:
 
-  Un vector de códigos, típicamente variable \`COD_ENSE2\`.
+  Un vector de códigos, típicamente variable `COD_ENSE2`.
 
 ## Value
 
-A factor with 8 levels, with an attached \`"label"\` attribute.
+A factor with 8 levels, with an attached `"label"` attribute.
 
 ## See also
 
-\[https://centroestudios.mineduc.cl/datos-abiertos/\]
+<https://centroestudios.mineduc.cl/datos-abiertos/>

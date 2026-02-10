@@ -1,8 +1,9 @@
 # Orden de preguntas según valor de categoría
 
-función de ayuda para \`forcats::fct_reorder2\` con tal de ordenar
-distintas preguntas según una catogoría de respuesta de interès
-\`cat_orden\`.
+función de ayuda para
+[`forcats::fct_reorder2`](https://forcats.tidyverse.org/reference/fct_reorder.html)
+con tal de ordenar distintas preguntas según una catogoría de respuesta
+de interès `cat_orden`.
 
 ## Usage
 

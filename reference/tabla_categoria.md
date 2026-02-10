@@ -24,10 +24,10 @@ tabla_categoria(.df, .var, .wt = NULL, miss = NULL)
 
 - miss:
 
-  chr vector. Nombre de niveles de categorías de \`.var\` que deben ser
+  chr vector. Nombre de niveles de categorías de `.var` que deben ser
   considerados missing.
 
 ## Details
 
 Generación de una data.frame con el número de casos y proporción de las
-distintas variables de segmentos que se agregen en \`...\`.
+distintas variables de segmentos que se agregen en `...`.

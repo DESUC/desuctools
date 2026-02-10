@@ -2,7 +2,7 @@
 
 Recodificación para bases de datos disponibles en el Centro de Estudios
 MINEDUC, Chile Detecta niveles de enseñanza para adultos ya que su
-segunda cifra significativa es igual al dígito \`6\`.
+segunda cifra significativa es igual al dígito `6`.
 
 ## Usage
 
@@ -22,4 +22,4 @@ Un vector lógico indicando si es un código de enseñanza para adultos.
 
 ## See also
 
-\[https://centroestudios.mineduc.cl/datos-abiertos/\]
+<https://centroestudios.mineduc.cl/datos-abiertos/>

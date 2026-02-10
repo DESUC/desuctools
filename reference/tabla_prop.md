@@ -28,10 +28,6 @@ tibble
 df <- tibble::tibble(var = c("a", "b"),
             casos = c(30, 70))
 
-desuctools:::tabla_prop(df, .segmento = NULL)
-#> Error in .df[[.segmento]]: Can't extract column with `.segmento`.
-#> ✖ Subscript `.segmento` must be size 1, not 0.
-
 desuctools:::tabla_prop(df, .segmento = "var")
 #> # A tibble: 2 × 3
 #>   var   casos  prop

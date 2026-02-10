@@ -1,6 +1,6 @@
 # Colapso de strings
 
-Variable útil para colapsar en una sola casilla \_list variables\_ en un
+Variable útil para colapsar en una sola casilla *list variables* en un
 tibble que quiera ser mostrad en una tabla
 
 ## Usage

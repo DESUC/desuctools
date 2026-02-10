@@ -30,50 +30,50 @@ kable_desuc(
 
 - digits:
 
-  \`int\` Número de decimales en la tabla (por defecto digits = 1)
+  `int` Número de decimales en la tabla (por defecto digits = 1)
 
 - row.names:
 
-  \`Logical\` Se incluye o no los nombres de las filas.
+  `Logical` Se incluye o no los nombres de las filas.
 
 - col.names:
 
-  \`strings\` Vector de texto para los nombres de las columnas. (por
+  `strings` Vector de texto para los nombres de las columnas. (por
   defecto igual al colname de la tabla)
 
 - align:
 
-  \`vector\` Indicación para la alineación de las columnas. c('rll')
+  `vector` Indicación para la alineación de las columnas. c('rll')
 
 - caption:
 
-  \`string\` Leyenda asociada a la tabla (por defecto sin leyenda)
+  `string` Leyenda asociada a la tabla (por defecto sin leyenda)
 
 - booktabs:
 
-  \`bolean\` si usa estilo booktabs para la tabla (por defecto TRUE)
+  `bolean` si usa estilo booktabs para la tabla (por defecto TRUE)
 
 - longtable:
 
-  \`bolean\` si usa estilo para tablas que cruzan dos páginas (por
-  defecto FALSE)
+  `bolean` si usa estilo para tablas que cruzan dos páginas (por defecto
+  FALSE)
 
 - escape:
 
-  \`bolean\` Si se normalizan los caracterres especiales en html o
-  latex. (por defecto TRUE)
+  `bolean` Si se normalizan los caracterres especiales en html o latex.
+  (por defecto TRUE)
 
 - font_size:
 
-  \`ìnt\` tamaño de letra en la tabla (por defecto 8)
+  `ìnt` tamaño de letra en la tabla (por defecto 8)
 
 - latex_options:
 
-  \`vector de caracteres\` donde se controla aspectos de latex.
+  `vector de caracteres` donde se controla aspectos de latex.
 
 - ...:
 
-  Atributos pasados a la función \`kable_styling\`
+  Atributos pasados a la función `kable_styling`
 
 ## Value
 

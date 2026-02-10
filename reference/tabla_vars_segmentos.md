@@ -57,7 +57,7 @@ tabla_vars_segmentos(
 - .segmentos:
 
   tidyselect, lista de nombres de variables de segmentación de las
-  preguntas de \`.vars\`
+  preguntas de `.vars`
 
 - ...:
 

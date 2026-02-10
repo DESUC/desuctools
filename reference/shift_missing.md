@@ -26,7 +26,7 @@ shift_missing(.data, .var1, .var2 = NULL, missing = c(77L, 88L, 99L))
 - missing:
 
   vector con valores considerados no válidos (por defecto `77, 88, 99`).
-  \`NA\` es considerado siempre.
+  `NA` es considerado siempre.
 
 ## Value
 

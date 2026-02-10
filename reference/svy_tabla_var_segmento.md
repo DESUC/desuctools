@@ -1,8 +1,8 @@
 # Tabla con intervalos de confianza
 
 Devuelve tabla de frecuencias con intervalos de confianza para un nivel
-\`level\`de significancia entre las categorías de respuesta de la
-variable \`.var\`.
+`level`de significancia entre las categorías de respuesta de la variable
+`.var`.
 
 ## Usage
 
@@ -30,16 +30,16 @@ svy_tabla_var_segmento(
 - .segmento:
 
   Segmentos de interés para ver diferencias en categorías de variable
-  \`.var\`. Por defecto NULL
+  `.var`. Por defecto NULL
 
 - miss:
 
-  chr vector. Categorías a excluir en el denominador de \`prop_val\` y
-  \`mean\`.
+  chr vector. Categorías a excluir en el denominador de `prop_val` y
+  `mean`.
 
 - vartype:
 
-  chr vector. Tipo de error para estimaciones (\`ci\`, \`se\`, etc.).
+  chr vector. Tipo de error para estimaciones (`ci`, `se`, etc.).
 
 - level:
 

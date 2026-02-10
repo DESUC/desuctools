@@ -22,40 +22,41 @@ alch_get_survey_responses(
 
 - api_token:
 
-  \`chr\` Clave pública de API de Alchemer. Por defecto toma
+  `chr` Clave pública de API de Alchemer. Por defecto toma
   `Sys.getenv("ALCHEMER_API_KEY")`.
 
 - api_token_secret:
 
-  \`chr\` Clave secreta de API. Por defecto toma
+  `chr` Clave secreta de API. Por defecto toma
   `Sys.getenv("ALCHEMER_API_SECRET")`.
 
 - survey_id:
 
-  \`int\` ID de la encuesta de la que se desean obtener las respuestas.
+  `int` ID de la encuesta de la que se desean obtener las respuestas.
 
 - results_per_page:
 
-  \`int\` Número de respuestas por página (1..500). Valor por defecto:
+  `int` Número de respuestas por página (1..500). Valor por defecto:
   500.
 
 - page:
 
-  \`int\` o `"all"`. Número de página a descargar, o `"all"` para
+  `int` o `"all"`. Número de página a descargar, o `"all"` para
   recuperar y combinar todas las páginas.
 
 ## Value
 
-\`list\`. Objeto devuelto por la API (parseado a lista). Si
-`page = "all"` el elemento `data` contendrá las respuestas de todas las
-páginas combinadas.
+`list`. Objeto devuelto por la API (parseado a lista). Si `page = "all"`
+el elemento `data` contendrá las respuestas de todas las páginas
+combinadas.
 
 ## Details
 
-\- Valida que las credenciales y parámetros sean correctos antes de
-llamar a la API. - Cuando `page = "all"` hace múltiples llamadas (si
-procede) y concatena todos los elementos `data` en la respuesta
-retornada.
+- Valida que las credenciales y parámetros sean correctos antes de
+  llamar a la API.
+
+- Cuando `page = "all"` hace múltiples llamadas (si procede) y concatena
+  todos los elementos `data` en la respuesta retornada.
 
 ## Examples
 

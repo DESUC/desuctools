@@ -13,11 +13,11 @@ rec_labelled(.vec, ls_niveles)
 
 - .vec:
 
-  \`labelled_haven\`: vector/variable a recodificar
+  `labelled_haven`: vector/variable a recodificar
 
 - ls_niveles:
 
-  \`list\`: lista con recodificaciones. Debe cumplir un formato
+  `list`: lista con recodificaciones. Debe cumplir un formato
   específico.
 
 ## Value

@@ -25,7 +25,7 @@ rev_niveles(x, rango_inv = NULL, ...)
 
 - x:
 
-  \`vector\`: Vector de datos que se quiere invertir
+  `vector`: Vector de datos que se quiere invertir
 
 - ...:
 
@@ -33,11 +33,11 @@ rev_niveles(x, rango_inv = NULL, ...)
 
 - niveles_inv:
 
-  \`chr\`: Niveles de un factor que serán invertidos. Por defecto,
+  `chr`: Niveles de un factor que serán invertidos. Por defecto,
   invierte todos los niveles.
 
 - rango_inv:
 
-  \`num\`: Vector de dos niveles en el que se señala el valor del
-  primero y último valor que será invertido. Se espera que esos dos
-  valores definan un rango. Por defecto, invierte todos los niveles.
+  `num`: Vector de dos niveles en el que se señala el valor del primero
+  y último valor que será invertido. Se espera que esos dos valores
+  definan un rango. Por defecto, invierte todos los niveles.

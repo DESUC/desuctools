@@ -1,8 +1,8 @@
 # Tabla con intervalos de confianza
 
 Devuelve tabla de frecuencias con intervalos de confianza para un nivel
-\`level\`de significancia entre las categorías de respuesta de la
-variable \`.vars\`.
+`level`de significancia entre las categorías de respuesta de la variable
+`.vars`.
 
 A diferencia de svy_tabla_var_segmentos, esta funcion puede procesar
 varias variables y segmentos a la vez.
@@ -24,7 +24,7 @@ svy_tabla_vars_segmentos(
 
 - .df:
 
-  \`tbl_svy\` data.frame con diseño de encuesta.
+  `tbl_svy` data.frame con diseño de encuesta.
 
 - .vars:
 
@@ -32,16 +32,16 @@ svy_tabla_vars_segmentos(
 
 - .segmentos:
 
-  c(). Lista de variables por las que se quiere segmentar \`.vars\`.
+  c(). Lista de variables por las que se quiere segmentar `.vars`.
 
 - miss:
 
-  chr vector. Categorías a excluir en el denominador de \`prop_val\` y
-  \`mean\`.
+  chr vector. Categorías a excluir en el denominador de `prop_val` y
+  `mean`.
 
 - vartype:
 
-  chr vector. Tipo de error para estimaciones (\`ci\`, \`se\`, etc.).
+  chr vector. Tipo de error para estimaciones (`ci`, `se`, etc.).
 
 - level:
 

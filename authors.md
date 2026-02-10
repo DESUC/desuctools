@@ -16,12 +16,12 @@ Source:
 [`DESCRIPTION`](https://github.com/desuc/desuctools/blob/master/DESCRIPTION)
 
 Ayala C (2026). *desuctools: Funciones para trabajo en DESUC*. R package
-version 0.2.0.9001, <https://desuc.github.io/desuctools>.
+version 0.2.0.9002, <https://desuc.github.io/desuctools>.
 
     @Manual{,
       title = {desuctools: Funciones para trabajo en DESUC},
       author = {Cristián Ayala},
       year = {2026},
-      note = {R package version 0.2.0.9001},
+      note = {R package version 0.2.0.9002},
       url = {https://desuc.github.io/desuctools},
     }

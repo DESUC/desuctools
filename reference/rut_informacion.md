@@ -28,26 +28,26 @@ rut_list = c(
 ) # example list of RUT values
 
 l_ruts_info <- lapply(rut_list, rut_informacion)
-#> Información sobre:  8714763-0 
-#> Información sobre:  4606477-1 
-#> Información sobre:  20283632-1 
+#> Informacion sobre:  8714763-0 
+#> Informacion sobre:  4606477-1 
+#> Informacion sobre:  20283632-1 
 
 l_ruts_info |> str(2)
 #> List of 3
 #>  $ :List of 5
-#>   ..$ timestamp: chr "2026-02-06T01:17:33.577+0000"
+#>   ..$ timestamp: chr "2026-02-10T00:36:11.565+0000"
 #>   ..$ status   : int 401
 #>   ..$ error    : chr "Unauthorized"
 #>   ..$ message  : chr "No message available"
 #>   ..$ path     : chr "/v1/registro-civil/informacionPersona"
 #>  $ :List of 5
-#>   ..$ timestamp: chr "2026-02-06T01:17:33.757+0000"
+#>   ..$ timestamp: chr "2026-02-10T00:36:11.713+0000"
 #>   ..$ status   : int 401
 #>   ..$ error    : chr "Unauthorized"
 #>   ..$ message  : chr "No message available"
 #>   ..$ path     : chr "/v1/registro-civil/informacionPersona"
 #>  $ :List of 5
-#>   ..$ timestamp: chr "2026-02-06T01:17:33.949+0000"
+#>   ..$ timestamp: chr "2026-02-10T00:36:11.849+0000"
 #>   ..$ status   : int 401
 #>   ..$ error    : chr "Unauthorized"
 #>   ..$ message  : chr "No message available"

@@ -1,6 +1,6 @@
 # Recodificaión de variables 7 a 3
 
-Por defecto recodifica variables de \_notas\_ de 7 niveles a 3 niveles.
+Por defecto recodifica variables de *notas* de 7 niveles a 3 niveles.
 
 ## Usage
 

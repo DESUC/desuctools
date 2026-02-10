@@ -1,7 +1,7 @@
 # Dinero en formato CLP
 
-Transforma número a texto como \`CLP\` con separación de miles con \`.\`
-y decimales con \`,\`.
+Transforma número a texto como `CLP` con separación de miles con `.` y
+decimales con `,`.
 
 ## Usage
 

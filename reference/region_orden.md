@@ -13,12 +13,12 @@ region_orden(reg, as.factor = TRUE)
 
 - reg:
 
-  \`num\`. numérico con valores de 1 a 16
+  `num`. numérico con valores de 1 a 16
 
 - as.factor:
 
-  \`logical\`. Por defecto TRUE para crear factor ordenado
-  geográficamente. FALSE crea variable de clase \`labelled\`.
+  `logical`. Por defecto TRUE para crear factor ordenado
+  geográficamente. FALSE crea variable de clase `labelled`.
 
 ## Value
 

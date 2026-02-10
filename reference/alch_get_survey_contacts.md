@@ -23,46 +23,47 @@ alch_get_survey_contacts(
 
 - api_token:
 
-  \`chr\` Clave pública de API de Alchemer. Por defecto toma
+  `chr` Clave pública de API de Alchemer. Por defecto toma
   `Sys.getenv("ALCHEMER_API_KEY")`.
 
 - api_token_secret:
 
-  \`chr\` Clave secreta de API. Por defecto toma
+  `chr` Clave secreta de API. Por defecto toma
   `Sys.getenv("ALCHEMER_API_SECRET")`.
 
 - survey_id:
 
-  \`int\` ID de la encuesta a la que pertenece la campaña.
+  `int` ID de la encuesta a la que pertenece la campaña.
 
 - campaign_id:
 
-  \`int\` ID de la campaña de la que se desean obtener los contactos.
+  `int` ID de la campaña de la que se desean obtener los contactos.
 
 - results_per_page:
 
-  \`int\` Número de contactos por página (1..500). Valor por defecto:
-  500.
+  `int` Número de contactos por página (1..500). Valor por defecto: 500.
 
 - page:
 
-  \`int\` o `"all"`. Número de página a descargar, o `"all"` para
+  `int` o `"all"`. Número de página a descargar, o `"all"` para
   recuperar y combinar todas las páginas.
 
 ## Value
 
-\`list\`. Objeto devuelto por la API (parseado a lista). Si
-`page = "all"` el elemento `data` contendrá los contactos de todas las
-páginas combinadas.
+`list`. Objeto devuelto por la API (parseado a lista). Si `page = "all"`
+el elemento `data` contendrá los contactos de todas las páginas
+combinadas.
 
 ## Details
 
-\- Valida que las credenciales y parámetros sean correctos antes de
-llamar a la API. - Cuando `page = "all"` hace múltiples llamadas (si
-procede) y concatena todos los elementos `data` en la respuesta
-retornada. - Los contactos pueden incluir campos como `id`,
-`email_address`, `first_name`, `last_name`, etc., según la configuración
-de la campaña.
+- Valida que las credenciales y parámetros sean correctos antes de
+  llamar a la API.
+
+- Cuando `page = "all"` hace múltiples llamadas (si procede) y concatena
+  todos los elementos `data` en la respuesta retornada.
+
+- Los contactos pueden incluir campos como `id`, `email_address`,
+  `first_name`, `last_name`, etc., según la configuración de la campaña.
 
 ## Examples
 

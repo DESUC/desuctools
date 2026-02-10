@@ -1,7 +1,7 @@
 # Número en formato para texto
 
-Transforma número a texto con separación de miles con \`.\` y decimales
-con \`,\`.
+Transforma número a texto con separación de miles con `.` y decimales
+con `,`.
 
 ## Usage
 

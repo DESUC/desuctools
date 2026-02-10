@@ -17,11 +17,11 @@ https://rutificador-chile.com/wp-content/uploads/2022/06/rut-a-edad.html
 
 - .rut:
 
-  \`ìnt\`: Vector numérico con el rut (sin dígito verificador).
+  `ìnt`: Vector numérico con el rut (sin dígito verificador).
 
 - fecha_referencia:
 
-  \`date\`: Vector que contiene la fecha de referencia que determina la
+  `date`: Vector que contiene la fecha de referencia que determina la
   edad. Pueden ser una fecha pasada, actual o futura.
 
 ## Value

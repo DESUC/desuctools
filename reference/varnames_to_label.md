@@ -1,8 +1,8 @@
 # varnames_to_label
 
 Toma nombre de variables y los separa en un nombre breve y el resto de
-la etiqueta la integra en el atributo \`label\` de la variable. Además
-cambia la clase de las variables modificadas a \`haven_labelled\`
+la etiqueta la integra en el atributo `label` de la variable. Además
+cambia la clase de las variables modificadas a `haven_labelled`
 
 ## Usage
 
@@ -19,23 +19,23 @@ varnames_to_label(
 
 - .df:
 
-  \`data.frame\` Un data.frame
+  `data.frame` Un data.frame
 
 - pattern_detect:
 
-  \`chr\` patrón de regex con el que se extrae el nombre breve de la
+  `chr` patrón de regex con el que se extrae el nombre breve de la
   variable. Este es el que será utilizado posteriormente como nombre
   final de la variable en la base
 
 - pattern_extract:
 
-  \`chr\` patrón de regex opcional. Por defecto es NULL e implica que se
-  usará el mismo patrón que el dispuesto en \`pattern_detect\`.
+  `chr` patrón de regex opcional. Por defecto es NULL e implica que se
+  usará el mismo patrón que el dispuesto en `pattern_detect`.
 
 - var_prefix:
 
-  \`chr\` opcional. Prefijo para el nombre de las nuevas variables que
-  se extraigan.
+  `chr` opcional. Prefijo para el nombre de las nuevas variables que se
+  extraigan.
 
 ## Value
 

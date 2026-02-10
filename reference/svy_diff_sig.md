@@ -1,7 +1,7 @@
 # Comparación entre intervalos de confianza
 
 Determina diferencias significativas según intervalos de confianza
-calculados desde \`srvyr\`.
+calculados desde `srvyr`.
 
 ## Usage
 
@@ -13,7 +13,7 @@ svy_diff_sig(.df)
 
 - .df:
 
-  data.frame con variables \`\\\_upp\` y \`\\\_low\`
+  data.frame con variables `\\*_upp` y `\\*_low`
 
 ## Value
 

@@ -17,7 +17,7 @@ con el texto de la pregunta (etiquetas HTML son limpiadas).'><meta property="og:
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9001</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,19 +69,20 @@ el elemento <code>data</code> con las respuestas (lista de respuestas).</p></dd>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>Tibble. Una fila por respuesta de encuesta con las columnas de
-  metadatos originales y columnas de respuesta llamadas <code>var&lt;id&gt;</code>.
-  Cada columna de respuesta recibe el atributo <code>"label"</code> con la
-  pregunta correspondiente (texto limpio).</p>
+metadatos originales y columnas de respuesta llamadas <code>var&lt;id&gt;</code>.
+Cada columna de respuesta recibe el atributo <code>"label"</code> con la
+pregunta correspondiente (texto limpio).</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>- Si una pregunta no tiene <code>answer</code>, el valor resultante será <code>NA</code>.
-- Respuestas múltiples por misma pregunta se colapsan en una cadena
-  separada por <code>"; "</code>.
-- La función asume que <code>ls_alchemer[["data"]]</code> es una lista con la
-  estructura estándar de la API (cada elemento contiene sublistas con
-  elementos <code>id</code>, <code>question</code>, <code>answer</code> entre otros).</p>
-    </div>
+
+<ul><li><p>Si una pregunta no tiene <code>answer</code>, el valor resultante será <code>NA</code>.</p></li>
+<li><p>Respuestas múltiples por misma pregunta se colapsan en una cadena
+separada por <code>"; "</code>.</p></li>
+<li><p>La función asume que <code>ls_alchemer[["data"]]</code> es una lista con la
+estructura estándar de la API (cada elemento contiene sub-listas con
+elementos <code>id</code>, <code>question</code>, <code>answer</code> entre otros).</p></li>
+</ul></div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>

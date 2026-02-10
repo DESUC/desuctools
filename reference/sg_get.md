@@ -20,29 +20,29 @@ sg_get(
 
 - api_operation:
 
-  \`chr\` Nombre de alguno de las operaciones GET disponibles en la API
-  de SurveyToGo. Ver link en referencias.
+  `chr` Nombre de alguno de las operaciones GET disponibles en la API de
+  SurveyToGo. Ver link en referencias.
 
 - query:
 
-  \`list\` listado de variables que serán pasadas a la api_operation que
+  `list` listado de variables que serán pasadas a la api_operation que
   se elija.
 
 - api_key:
 
-  \`chr\` REST API Key entregada por dooblo.
+  `chr` REST API Key entregada por dooblo.
 
 - user:
 
-  \`chr\` nombre de usuario.
+  `chr` nombre de usuario.
 
 - pass:
 
-  \`chr\` password de usuario.
+  `chr` password de usuario.
 
 - type:
 
-  \`chr\` Formato en el que se obtendrán datos. Por defecto
+  `chr` Formato en el que se obtendrán datos. Por defecto
   'application/json'. Puede ser 'text/xml' si se quiere xml o 'text/csv'
   si se desea un csv.
 

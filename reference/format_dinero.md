@@ -1,7 +1,7 @@
 # Dinero en formato \$
 
-Transforma número a texto como \`\$\` con separación de miles con \`.\`
-y decimales con \`,\`.
+Transforma número a texto como `$` con separación de miles con `.` y
+decimales con `,`.
 
 ## Usage
 
