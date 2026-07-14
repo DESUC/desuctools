@@ -31,6 +31,7 @@ haven_labelled
 ## Examples
 
 ``` r
+
 vect <- c(1, 4, 6, 99, NA)
 rec_cat_7a3(vect, labels = c("alto" = 1))
 #> <labelled<double>[5]>

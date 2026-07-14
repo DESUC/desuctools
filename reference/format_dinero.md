@@ -27,6 +27,7 @@ character
 ## Examples
 
 ``` r
+
 format_dinero(1000000)
 #> [1] "$ 1.000.000"
 ```

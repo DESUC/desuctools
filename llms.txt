@@ -11,6 +11,7 @@ Para instalar la versión en desarrollo de desuctools desde
 siguiente código:
 
 ``` r
+
 # install.packages("devtools")
 devtools::install_github("desuc/desuctools")
 ```
@@ -22,6 +23,7 @@ devtools::install_github("desuc/desuctools")
 Base de datos con información sobre regiones y comunas.
 
 ``` r
+
 # Tabla con comunas capitales regionales.
 desuctools::regiones_y_comunas %>% 
   filter(region_capital) %>% 
@@ -55,6 +57,7 @@ desuctools::regiones_y_comunas %>%
 ### Recodificación de variables
 
 ``` r
+
 # Cargar base de encuesta Bicentenario
 file <- tempfile()
 download.file(url = 'https://github.com/DESUC/30diasdegraficos/raw/master/inputs/12-lollipop-df_bicen_19_30diasdegraficos_2020.rds',
@@ -81,6 +84,7 @@ recodifica preguntas likert de 5 a 3 categorías, entregando la opción de
 agregar etiquetas a ellas.
 
 ``` r
+
 data <- data %>%  
   mutate(across(c(t01_1:t01_2), 
                 ~desuctools::rec_cat_5a3(., labels = c('Bastante' = 1, 
@@ -110,6 +114,7 @@ arbitrario de preguntas y un número arbitrario de segmentos de la
 población.
 
 ``` r
+
 data_tidy <- data %>% 
   desuctools::tabla_vars_segmentos(
                   total       = TRUE, # Incluye dato total 
@@ -136,6 +141,7 @@ Extraer el texto del ítem de una pregunta en matrices de preguntas
 likert.
 
 ``` r
+
 data_tidy %>% 
   mutate(pregunta_lab_short = desuctools::str_entre_parentesis(pregunta_lab),
          .keep = 'used', .before = 1) %>% 
@@ -143,12 +149,13 @@ data_tidy %>%
   kableExtra::kable()
 ```
 
-| pregunta_lab_short                                | pregunta_lab                                                                                                               |
-|:--------------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------|
+| pregunta_lab_short | pregunta_lab |
+|:---|:---|
 | No tener suficiente dinero para afrontar la vejez | (No tener suficiente dinero para afrontar la vejez) ¿Cuánto temor le producen las siguientes situaciones? @\_@ITERNAME@\_@ |
-| Ser despedido/a de su trabajo                     | (Ser despedido/a de su trabajo) ¿Cuánto temor le producen las siguientes situaciones? @\_@ITERNAME@\_@                     |
+| Ser despedido/a de su trabajo | (Ser despedido/a de su trabajo) ¿Cuánto temor le producen las siguientes situaciones? @\_@ITERNAME@\_@ |
 
 ``` r
+
 data_tidy <- data_tidy %>% 
   mutate(pregunta_lab = desuctools::str_entre_parentesis(pregunta_lab))
 ```
@@ -161,6 +168,7 @@ para crear gráfico que compare categorías positivas, negativas y
 neutras.
 
 ``` r
+
 desuctools::gg_bar_3_niveles_stack(
   .df         = data_tidy,
   x           = segmento_cat, 

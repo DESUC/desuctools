@@ -27,6 +27,7 @@ character
 ## Examples
 
 ``` r
+
 format_clp(1000000)
 #> [1] "CLP 1.000.000"
 ```

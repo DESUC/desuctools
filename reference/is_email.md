@@ -23,6 +23,7 @@ vector logico
 ## Examples
 
 ``` r
+
 is_email(c("a@a.com", "a@a"))
 #> [1]  TRUE FALSE
 ```

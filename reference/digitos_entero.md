@@ -28,6 +28,7 @@ vector numerico.
 ## Examples
 
 ``` r
+
 digitos_entero(c(0.1234, 12.34, 1234, 12345),
                digits = 3)
 #> [1] 123.40 123.40 123.40 123.45

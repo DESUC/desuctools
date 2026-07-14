@@ -31,6 +31,7 @@ integer
 ## Examples
 
 ``` r
+
 # Importante: el rut no debe contar con el dígito verificador
 x <- 20117419
 fecha <- as.Date("2024-01-31")
