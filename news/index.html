@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9002</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,29 @@
       <small>Source: <a href="https://github.com/desuc/desuctools/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0.9003" id="desuctools-0209003">desuctools 0.2.0.9003<a class="anchor" aria-label="anchor" href="#desuctools-0209003"></a></h2>
+<ul><li>Mejoras en <code><a href="../reference/svy_tabla_vars_segmentos.html">svy_tabla_vars_segmentos()</a></code> y <code><a href="../reference/tabla_vars_segmentos.html">tabla_vars_segmentos()</a></code> para diseños de encuesta:
+<ul><li>Corrección: los códigos de <code>miss</code> (p.ej. <code>9</code>) ahora se reconocen en variables <code>labelled</code> aunque el factor muestre la etiqueta (antes quedaban en el denominador de <code>prop_val</code>).</li>
+<li>
+<code>prop_val</code> es <code>NA</code> (antes <code>NaN</code>) cuando un segmento no tiene casos válidos.</li>
+<li>Se acepta <code>.vars</code> y <code>.segmentos</code> con la misma variable (antes fallaba).</li>
+<li>Una columna llamada <code>total</code> en los datos ya no interfiere con el cálculo del total.</li>
+<li>Error claro cuando <code>.var</code> o <code>.segmento</code> no existen en los datos.</li>
+<li>
+<code><a href="../reference/svy_tabla_vars_segmentos.html">svy_tabla_vars_segmentos()</a></code> acepta también objetos <code>survey.design2</code>.</li>
+<li>El denominador de casos válidos se calcula sin una segunda agregación sobre el diseño (más rápido); se elimina la columna <code>casos_val_se</code> en tablas categóricas.</li>
+</ul></li>
+<li>
+<code><a href="../reference/tabla_vars_segmentos.html">tabla_vars_segmentos()</a></code> con <code>data.frame</code>: los códigos de <code>miss</code> (p.ej. <code>9</code>) ahora también se reconocen en variables <code>labelled</code> y se excluyen del denominador de <code>prop_val</code>, alineando el comportamiento con el método para diseños de encuesta.</li>
+<li>Se elimina la dependencia de <code>sjmisc</code>:
+<ul><li>
+<code><a href="../reference/rec_cat_5a3.html">rec_cat_5a3()</a></code> y <code><a href="../reference/rec_cat_7a3.html">rec_cat_7a3()</a></code> usan ahora un recodificador interno que soporta rangos (<code>a:b</code>), valores separados por coma y <code>else</code> (los <code>NA</code> se mantienen como <code>NA</code>).</li>
+<li>
+<code><a href="../reference/frq_trunc.html">frq_trunc()</a></code> calcula la tabla de frecuencias internamente y retorna una <code>data.frame</code> con columnas <code>val</code>, <code>label</code>, <code>frq</code>, <code>raw.prc</code> y <code>cum.prc</code>; recibe un vector como primer argumento en vez de <code>...</code>.</li>
+</ul></li>
+<li>Se actualiza <code>README.Rmd</code> (pipe nativo <code>|&gt;</code> y tidyselect en <code><a href="../reference/tabla_vars_segmentos.html">tabla_vars_segmentos()</a></code>).</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0.9002" id="desuctools-0209002">desuctools 0.2.0.9002<a class="anchor" aria-label="anchor" href="#desuctools-0209002"></a></h2>
 <ul><li>Correcciones para pasar R CMD check.</li>

@@ -6,15 +6,14 @@ preestablecido para una mejor visión de la tabla resultante.
 ## Usage
 
 ``` r
-frq_trunc(..., width = 50L, ellipsis = "...")
+frq_trunc(x, width = 50L, ellipsis = "...")
 ```
 
 ## Arguments
 
-- ...:
+- x:
 
-  Una data frame o vector según lo requerido por
-  [`sjmisc::frq`](https://strengejacke.github.io/sjmisc/reference/frq.html).
+  Un vector, posiblemente etiquetado (`haven_labelled`).
 
 - width:
 
@@ -27,4 +26,4 @@ frq_trunc(..., width = 50L, ellipsis = "...")
 
 ## Value
 
-Una kable con el formato DESUC
+Una data.frame con columnas val, label, frq, raw.prc y cum.prc.

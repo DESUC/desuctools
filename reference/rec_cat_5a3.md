@@ -17,7 +17,8 @@ rec_cat_5a3(variable, rec = "1:2 = 1; 3 = 2; 4:5 = 3; else = 9", labels = NULL)
 - rec:
 
   string, por defecto recodifica 1:2 en 1, 3 en 2 y 4:5 en 3. Todo lo
-  demás lo deja como 9
+  demás lo deja como 9. Acepta rangos (`a:b`), valores separados por
+  coma y `else` (los `NA` se mantienen como `NA`).
 
 - labels:
 

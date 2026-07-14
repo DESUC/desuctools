@@ -1,5 +1,43 @@
 # Changelog
 
+## desuctools 0.2.0.9003
+
+- Mejoras en
+  [`svy_tabla_vars_segmentos()`](../reference/svy_tabla_vars_segmentos.md)
+  y [`tabla_vars_segmentos()`](../reference/tabla_vars_segmentos.md)
+  para diseños de encuesta:
+  - Corrección: los códigos de `miss` (p.ej. `9`) ahora se reconocen en
+    variables `labelled` aunque el factor muestre la etiqueta (antes
+    quedaban en el denominador de `prop_val`).
+  - `prop_val` es `NA` (antes `NaN`) cuando un segmento no tiene casos
+    válidos.
+  - Se acepta `.vars` y `.segmentos` con la misma variable (antes
+    fallaba).
+  - Una columna llamada `total` en los datos ya no interfiere con el
+    cálculo del total.
+  - Error claro cuando `.var` o `.segmento` no existen en los datos.
+  - [`svy_tabla_vars_segmentos()`](../reference/svy_tabla_vars_segmentos.md)
+    acepta también objetos `survey.design2`.
+  - El denominador de casos válidos se calcula sin una segunda
+    agregación sobre el diseño (más rápido); se elimina la columna
+    `casos_val_se` en tablas categóricas.
+- [`tabla_vars_segmentos()`](../reference/tabla_vars_segmentos.md) con
+  `data.frame`: los códigos de `miss` (p.ej. `9`) ahora también se
+  reconocen en variables `labelled` y se excluyen del denominador de
+  `prop_val`, alineando el comportamiento con el método para diseños de
+  encuesta.
+- Se elimina la dependencia de `sjmisc`:
+  - [`rec_cat_5a3()`](../reference/rec_cat_5a3.md) y
+    [`rec_cat_7a3()`](../reference/rec_cat_7a3.md) usan ahora un
+    recodificador interno que soporta rangos (`a:b`), valores separados
+    por coma y `else` (los `NA` se mantienen como `NA`).
+  - [`frq_trunc()`](../reference/frq_trunc.md) calcula la tabla de
+    frecuencias internamente y retorna una `data.frame` con columnas
+    `val`, `label`, `frq`, `raw.prc` y `cum.prc`; recibe un vector como
+    primer argumento en vez de `...`.
+- Se actualiza `README.Rmd` (pipe nativo `|>` y tidyselect en
+  [`tabla_vars_segmentos()`](../reference/tabla_vars_segmentos.md)).
+
 ## desuctools 0.2.0.9002
 
 - Correcciones para pasar R CMD check.

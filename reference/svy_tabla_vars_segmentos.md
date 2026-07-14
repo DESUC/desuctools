@@ -24,7 +24,7 @@ svy_tabla_vars_segmentos(
 
 - .df:
 
-  `tbl_svy` data.frame con diseño de encuesta.
+  `tbl_svy` o `survey.design2`, data.frame con diseño de encuesta.
 
 - .vars:
 
