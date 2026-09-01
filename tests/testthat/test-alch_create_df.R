@@ -1,7 +1,16 @@
+testthat::skip_on_cran()
 testthat::skip_on_ci()
 testthat::skip_if_offline()
 
-resp <- desuctools::alch_get_survey_responses(survey_id = 8453877, page = 1)
+# La API de Alchemer puede fallar o responder con error (p. ej. 504) aunque
+# haya conexión a internet; en ese caso se omiten los tests en vez de fallar
+# el archivo completo.
+resp <- tryCatch(
+  desuctools::alch_get_survey_responses(survey_id = 8453877, page = 1),
+  error = function(e) {
+    testthat::skip(paste("API de Alchemer no disponible:", conditionMessage(e)))
+  }
+)
 df <- desuctools::alch_create_df(resp)
 
 test_that("alch_create_df construye tibble con columnas var* y metadatos", {
