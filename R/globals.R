@@ -7,6 +7,7 @@ utils::globalVariables(
     "pregunta_cat",
     "pregunta_lab",
     "prop",
+    "regiones_y_comunas",
     "survey_data",
     "value"
   )

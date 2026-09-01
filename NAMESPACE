@@ -12,6 +12,7 @@ export(alch_get_survey_contacts)
 export(alch_get_survey_responses)
 export(alch_read_spss)
 export(chunk_size)
+export(comuna_orden)
 export(digitos_entero)
 export(edad_rut)
 export(edu_es_educacion_adulto)
@@ -58,65 +59,91 @@ import(dplyr)
 import(ggplot2)
 import(httr2)
 import(rlang)
-importFrom(dplyr,across)
-importFrom(dplyr,arrange)
-importFrom(dplyr,bind_cols)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,distinct)
-importFrom(dplyr,enquo)
-importFrom(dplyr,mutate)
-importFrom(dplyr,pull)
-importFrom(dplyr,select)
-importFrom(dplyr,starts_with)
-importFrom(forcats,as_factor)
-importFrom(forcats,fct_na_value_to_level)
-importFrom(forcats,fct_recode)
-importFrom(forcats,fct_reorder2)
-importFrom(haven,labelled)
-importFrom(haven,read_sav)
-importFrom(httr2,req_perform)
-importFrom(httr2,req_url_path_append)
-importFrom(httr2,req_url_query)
-importFrom(httr2,request)
-importFrom(httr2,resp_body_json)
+importFrom(dplyr,
+  across,
+  arrange,
+  bind_cols,
+  bind_rows,
+  distinct,
+  enquo,
+  mutate,
+  pull,
+  select,
+  starts_with
+)
+importFrom(forcats,
+  as_factor,
+  fct_na_value_to_level,
+  fct_recode,
+  fct_reorder2
+)
+importFrom(haven,
+  labelled,
+  read_sav
+)
+importFrom(httr2,
+  req_perform,
+  req_url_path_append,
+  req_url_query,
+  request,
+  resp_body_json
+)
 importFrom(janitor,make_clean_names)
-importFrom(knitr,current_input)
-importFrom(knitr,kable)
-importFrom(labelled,`var_label<-`)
-importFrom(labelled,labelled)
-importFrom(labelled,var_label)
-importFrom(lubridate,date_decimal)
-importFrom(lubridate,interval)
-importFrom(lubridate,year)
-importFrom(purrr,list_flatten)
-importFrom(purrr,list_rbind)
-importFrom(purrr,map)
-importFrom(purrr,map_chr)
-importFrom(purrr,reduce)
-importFrom(rlang,"%||%")
-importFrom(rlang,":=")
-importFrom(rlang,.data)
-importFrom(rlang,as_label)
-importFrom(rlang,enquo)
-importFrom(rlang,quo_is_null)
+importFrom(knitr,
+  current_input,
+  kable
+)
+importFrom(labelled,
+  `var_label<-`,
+  labelled,
+  var_label
+)
+importFrom(lubridate,
+  date_decimal,
+  interval,
+  year
+)
+importFrom(purrr,
+  list_flatten,
+  list_rbind,
+  map,
+  map_chr,
+  reduce
+)
+importFrom(rlang,
+  "%||%",
+  ":=",
+  .data,
+  as_label,
+  enquo,
+  quo_is_null
+)
 importFrom(scales,percent)
 importFrom(srvyr,survey_mean)
-importFrom(stringr,str_c)
-importFrom(stringr,str_detect)
-importFrom(stringr,str_extract)
-importFrom(stringr,str_glue)
-importFrom(stringr,str_match)
-importFrom(stringr,str_remove)
-importFrom(stringr,str_squish)
-importFrom(stringr,str_trunc)
-importFrom(stringr,str_which)
-importFrom(stringr,str_wrap)
+importFrom(stringr,
+  str_c,
+  str_detect,
+  str_extract,
+  str_glue,
+  str_match,
+  str_remove,
+  str_squish,
+  str_trunc,
+  str_which,
+  str_wrap
+)
 importFrom(tibble,enframe)
-importFrom(tidyr,pivot_wider)
-importFrom(tidyr,replace_na)
-importFrom(tidyr,unnest_wider)
+importFrom(tidyr,
+  pivot_wider,
+  replace_na,
+  unnest_wider
+)
 importFrom(tidyselect,eval_select)
-importFrom(tools,file_ext)
-importFrom(tools,file_path_sans_ext)
-importFrom(utils,download.file)
-importFrom(utils,read.csv)
+importFrom(tools,
+  file_ext,
+  file_path_sans_ext
+)
+importFrom(utils,
+  download.file,
+  read.csv
+)
