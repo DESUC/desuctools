@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9003</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9004</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,14 @@
       <small>Source: <a href="https://github.com/desuc/desuctools/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0.9004" id="desuctools-0209004">desuctools 0.2.0.9004<a class="anchor" aria-label="anchor" href="#desuctools-0209004"></a></h2>
+<ul><li>Nueva función <code><a href="../reference/comuna_orden.html">comuna_orden()</a></code> para convertir CUT comunal (numérico o character, con o sin ceros a la izquierda) al nombre de la comuna, como factor ordenado geográficamente de norte a sur (o como vector <code>labelled</code>), a partir de los datos de <code>regiones_y_comunas</code>. Emite un <code>warning</code> (y retorna <code>NA</code>) cuando el CUT ingresado no corresponde a ninguna comuna conocida.</li>
+<li>
+<code><a href="../reference/region_orden.html">region_orden()</a></code> queda en su propio archivo <code>R/region_orden.R</code> (antes compartía archivo con <code><a href="../reference/comuna_orden.html">comuna_orden()</a></code>).</li>
+<li>Se corrige <code>NOTE</code> de <code>R CMD check</code> (<code>no visible binding for global variable</code>) agregando <code>regiones_y_comunas</code> a <code><a href="https://rdrr.io/r/utils/globalVariables.html" class="external-link">utils::globalVariables()</a></code>.</li>
+<li>Se evita que los tests que dependen de la API externa de Alchemer (<code>test-alch_create_df.R</code>, <code>test-alch_get_survey_responses.R</code>) fallen con <code>ERROR</code> cuando el servicio no responde (p.ej. timeout HTTP 504): ahora usan <code>skip_on_cran()</code> y <code><a href="https://testthat.r-lib.org/reference/skip.html" class="external-link">testthat::skip()</a></code> ante errores de red, en vez de abortar el archivo de tests completo.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0.9003" id="desuctools-0209003">desuctools 0.2.0.9003<a class="anchor" aria-label="anchor" href="#desuctools-0209003"></a></h2>
 <ul><li>Mejoras en <code><a href="../reference/svy_tabla_vars_segmentos.html">svy_tabla_vars_segmentos()</a></code> y <code><a href="../reference/tabla_vars_segmentos.html">tabla_vars_segmentos()</a></code> para diseños de encuesta:

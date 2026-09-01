@@ -1,5 +1,27 @@
 # Changelog
 
+## desuctools 0.2.0.9004
+
+- Nueva función [`comuna_orden()`](../reference/comuna_orden.md) para
+  convertir CUT comunal (numérico o character, con o sin ceros a la
+  izquierda) al nombre de la comuna, como factor ordenado
+  geográficamente de norte a sur (o como vector `labelled`), a partir de
+  los datos de `regiones_y_comunas`. Emite un `warning` (y retorna `NA`)
+  cuando el CUT ingresado no corresponde a ninguna comuna conocida.
+- [`region_orden()`](../reference/region_orden.md) queda en su propio
+  archivo `R/region_orden.R` (antes compartía archivo con
+  [`comuna_orden()`](../reference/comuna_orden.md)).
+- Se corrige `NOTE` de `R CMD check`
+  (`no visible binding for global variable`) agregando
+  `regiones_y_comunas` a
+  [`utils::globalVariables()`](https://rdrr.io/r/utils/globalVariables.html).
+- Se evita que los tests que dependen de la API externa de Alchemer
+  (`test-alch_create_df.R`, `test-alch_get_survey_responses.R`) fallen
+  con `ERROR` cuando el servicio no responde (p.ej. timeout HTTP 504):
+  ahora usan `skip_on_cran()` y
+  [`testthat::skip()`](https://testthat.r-lib.org/reference/skip.html)
+  ante errores de red, en vez de abortar el archivo de tests completo.
+
 ## desuctools 0.2.0.9003
 
 - Mejoras en

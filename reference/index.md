@@ -18,6 +18,8 @@
 
 - [`codigos_ensenanza`](codigos_ensenanza.md) : Codigos de enseñanza
 
+- [`comuna_orden()`](comuna_orden.md) : Orden de comuna
+
 - [`corpus_rae`](corpus_rae.md) : Corpus de Referencia del Español
   Actual (CREA) escrito
 
