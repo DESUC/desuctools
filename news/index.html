@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9004</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9005</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,10 @@
       <small>Source: <a href="https://github.com/desuc/desuctools/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0.9005" id="desuctools-0209005">desuctools 0.2.0.9005<a class="anchor" aria-label="anchor" href="#desuctools-0209005"></a></h2>
+<ul><li>Se corrige <code><a href="../reference/comuna_orden.html">comuna_orden()</a></code> para que funcione al llamarla mediante <code><a href="../reference/comuna_orden.html">desuctools::comuna_orden()</a></code> sin adjuntar previamente el paquete.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0.9004" id="desuctools-0209004">desuctools 0.2.0.9004<a class="anchor" aria-label="anchor" href="#desuctools-0209004"></a></h2>
 <ul><li>Nueva función <code><a href="../reference/comuna_orden.html">comuna_orden()</a></code> para convertir CUT comunal (numérico o character, con o sin ceros a la izquierda) al nombre de la comuna, como factor ordenado geográficamente de norte a sur (o como vector <code>labelled</code>), a partir de los datos de <code>regiones_y_comunas</code>. Emite un <code>warning</code> (y retorna <code>NA</code>) cuando el CUT ingresado no corresponde a ninguna comuna conocida.</li>

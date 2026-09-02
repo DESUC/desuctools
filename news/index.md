@@ -1,5 +1,12 @@
 # Changelog
 
+## desuctools 0.2.0.9005
+
+- Se corrige [`comuna_orden()`](../reference/comuna_orden.md) para que
+  funcione al llamarla mediante
+  [`desuctools::comuna_orden()`](../reference/comuna_orden.md) sin
+  adjuntar previamente el paquete.
+
 ## desuctools 0.2.0.9004
 
 - Nueva función [`comuna_orden()`](../reference/comuna_orden.md) para
