@@ -45,3 +45,16 @@ test_that("comuna_orden con as.factor = FALSE devuelve vector labelled", {
   expect_equal(as.numeric(out), c(1101, 13101))
   expect_equal(attr(out, "label"), "Comuna")
 })
+
+test_that("comuna_orden funciona sin adjuntar desuctools", {
+  package_attached <- "package:desuctools" %in% search()
+  if (package_attached) {
+    detach("package:desuctools")
+    on.exit(library(desuctools), add = TRUE)
+  }
+
+  expect_equal(
+    as.character(desuctools::comuna_orden(c(1101, 13101))),
+    c("Iquique", "Santiago")
+  )
+})

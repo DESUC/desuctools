@@ -1,3 +1,8 @@
+# desuctools 0.2.0.9005
+
+* Se corrige `comuna_orden()` para que funcione al llamarla mediante
+  `desuctools::comuna_orden()` sin adjuntar previamente el paquete.
+
 # desuctools 0.2.0.9004
 
 * Nueva función `comuna_orden()` para convertir CUT comunal (numérico o character, con

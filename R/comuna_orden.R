@@ -28,8 +28,8 @@ comuna_orden <- function(com, as.factor = TRUE) {
 
   # `regiones_y_comunas` ya está ordenada de norte a sur; se usa ese orden de fila
   # para construir los niveles/labels sin reordenar manualmente.
-  com_num <- regiones_y_comunas$comuna18
-  com_nom <- regiones_y_comunas$comuna_nom
+  com_num <- desuctools::regiones_y_comunas$comuna18
+  com_nom <- desuctools::regiones_y_comunas$comuna_nom
 
   # Avisa si algún CUT no coincide con ninguna comuna conocida (y por tanto
   # se convertirá en NA), para no ocultar errores de tipeo o CUT inválidos.
