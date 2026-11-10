@@ -11,7 +11,7 @@ sg_get_data(
   api_key,
   user,
   pass,
-  type = NA
+  type = "application/json"
 )
 }
 \arguments{
@@ -29,9 +29,8 @@ se quiera bajar información.}
 
 \item{pass}{\code{chr} password de usuario.}
 
-\item{type}{\code{chr} Formato en el que se obtendrán datos.
-Por defecto 'application/json'. Puede ser 'text/xml' si se quiere xml o
-'text/csv' si se desea un csv.}
+\item{type}{\code{chr} Formato en el que se obtendrán datos. Por defecto
+'application/json', necesario para integrar "SimpleExport".}
 }
 \value{
 data.frame

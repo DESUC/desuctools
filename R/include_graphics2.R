@@ -69,15 +69,18 @@ include_graphics_latex <- function(
     knitr::asis_output(paste("View", tools::file_ext(path), "at", path)),
   ...
 ) {
-  # URL
-  if (grepl("^https?://", path)) {
-    ifelse(
-      use_alt_path(path, alt_path),
-      path <- alt_path,
-      return(handler(path))
-    )
+  # Estados posibles: "valida" | "alternativa" | "sin_alternativa".
+  estado <- latex_img_estado(path, alt_path)
 
-    ## Download Figure
+  if (estado == "sin_alternativa") {
+    return(handler(path))
+  }
+  if (estado == "alternativa") {
+    path <- alt_path
+  }
+
+  # URL: se descarga la figura y se usa la ruta local.
+  if (grepl("^https?://", path)) {
     dir_path <- paste0(
       "downloadFigs4latex_",
       file_path_sans_ext(current_input())
@@ -92,27 +95,25 @@ include_graphics_latex <- function(
     )
     download.file(path, destfile = file_path)
     path <- file_path
-  } else { # Local files
-    ifelse(
-      use_alt_path(path, alt_path),
-      path <- alt_path,
-      return(handler(path))
-    )
   }
 
   # Insert Figure
   return(knitr::include_graphics(path, ...))
 }
 
-
-use_alt_path <- function(path, alt_path) {
-  # Invalid img ext & no alt provided: Don't include in File
-  if (inval_latex_img(path) && is.null(alt_path)) return(FALSE)
-  # Invalid img ext with alt provided: insert alt-figure
-  if (inval_latex_img(path) && !is.null(alt_path)) {
-    stopifnot(!inval_latex_img(alt_path))
-    return(TRUE)
+# Resuelve qué figura se puede incluir en salida LaTeX:
+# - "valida": `path` tiene extensión soportada.
+# - "alternativa": `path` no es soportado y se usa `alt_path`.
+# - "sin_alternativa": `path` no es soportado y no hay `alt_path`; se usa `handler`.
+latex_img_estado <- function(path, alt_path = NULL) {
+  if (!inval_latex_img(path)) {
+    return("valida")
   }
+  if (is.null(alt_path)) {
+    return("sin_alternativa")
+  }
+  stopifnot(!inval_latex_img(alt_path))
+  "alternativa"
 }
 
 inval_latex_img <- function(path) {

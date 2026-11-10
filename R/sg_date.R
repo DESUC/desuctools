@@ -29,13 +29,8 @@ sg_date <- function(date, hora = "ma\u00f1ana") {
     stop("Error: 'date' debe ser un objeto de tipo Date o POSIXct.")
   }
 
-  # Compatibilidad: acepta "mañana" o "tarde".
-  if (identical(hora, "ma\u00f1ana")) {
-    hora <- "ma\u00f1ana"
-  }
-
   # Verificar que hora sea "mañana" o "tarde"
-  if (!hora %in% c("ma\u00f1ana", "tarde")) {
+  if (length(hora) != 1 || !hora %in% c("ma\u00f1ana", "tarde")) {
     stop("Error: 'hora' debe ser 'ma\u00f1ana' o 'tarde'.")
   }
 
@@ -54,11 +49,12 @@ sg_date <- function(date, hora = "ma\u00f1ana") {
   } else {
     timezone_format <- timezone_format(Sys.time())
 
-    hora_format <- switch(
-      hora,
-      "ma\u00f1ana" = "00:00:00.0000000",
-      "tarde" = "23:59:59.9990000"
-    )
+    # `hora` ya fue validada: solo puede ser "mañana" o "tarde".
+    hora_format <- if (identical(hora, "tarde")) {
+      "23:59:59.9990000"
+    } else {
+      "00:00:00.0000000"
+    }
 
     date_format <- format(
       date,

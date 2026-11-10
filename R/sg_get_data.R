@@ -9,6 +9,8 @@
 #'        se quiera bajar información.
 #' @param ... `list` pasa a query en sg_get
 #' @inheritParams sg_get
+#' @param type `chr` Formato en el que se obtendrán datos. Por defecto
+#'        'application/json', necesario para integrar "SimpleExport".
 #'
 #' @seealso sg_get
 #'
@@ -22,7 +24,7 @@ sg_get_data <- function(
   api_key,
   user,
   pass,
-  type = NA
+  type = "application/json"
 ) {
   if (missing(api_operation)) {
     api_operation <- "SimpleExport"

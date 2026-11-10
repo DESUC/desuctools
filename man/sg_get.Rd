@@ -31,7 +31,10 @@ Por defecto 'application/json'. Puede ser 'text/xml' si se quiere xml o
 'text/csv' si se desea un csv.}
 }
 \value{
-json
+\code{list} (json), \code{xml_document} (xml) o \code{data.frame} (csv), según el
+tipo de contenido de la respuesta. Si la consulta falla se lanza un
+error que indica la operación. Si la respuesta tiene un tipo de
+contenido no soportado se devuelve \code{NULL} con un \code{warning}.
 }
 \description{
 Función para acceder a datos del sistema SurveyToGo utilizando

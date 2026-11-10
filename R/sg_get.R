@@ -16,7 +16,10 @@
 #'
 #' @references https://support.dooblo.net/hc/en-us/articles/208294645-How-To-Use-The-SurveyToGo-REST-API
 #'
-#' @return json
+#' @return `list` (json), `xml_document` (xml) o `data.frame` (csv), según el
+#'        tipo de contenido de la respuesta. Si la consulta falla se lanza un
+#'        error que indica la operación. Si la respuesta tiene un tipo de
+#'        contenido no soportado se devuelve `NULL` con un `warning`.
 #'
 #' @import httr2
 #' @importFrom utils read.csv
@@ -68,23 +71,27 @@ sg_get <- function(
 
   # print(req_stg)
 
-  # Perform request:
-  response <- try(
-    # to catch errors
-    {
-      req_stg |>
-        httr2::req_perform()
-    },
-    silent = FALSE
+  # Estados de la consulta: error_http | respuesta con tipo conocido |
+  # respuesta con tipo no soportado.
+
+  # Estado: error_http. Se informa la operación que falló y el error original.
+  response <- tryCatch(
+    httr2::req_perform(req_stg),
+    error = function(e) {
+      stop(
+        "Error: fall\u00f3 la consulta a SurveyToGo '",
+        api_operation,
+        "': ",
+        conditionMessage(e),
+        call. = FALSE
+      )
+    }
   )
 
-  if (is.null(response)) {
-    # Si es error, devuelve la respuesta con el mensaje de error.
-    return(response)
-  }
+  content_type <- httr2::resp_content_type(response)
 
   switch(
-    httr2::resp_content_type(response),
+    content_type,
     "application/json" = response |>
       httr2::resp_body_json(),
     "application/octet-stream" = response |>
@@ -94,6 +101,18 @@ sg_get <- function(
     "text/csv" = response |>
       httr2::resp_body_string() |>
       textConnection() |>
-      utils::read.csv()
+      utils::read.csv(),
+    # Estado: tipo no soportado. Se mantiene el retorno NULL, pero se avisa.
+    {
+      warning(
+        "SurveyToGo '",
+        api_operation,
+        "' devolvi\u00f3 un tipo de contenido no soportado ('",
+        content_type,
+        "'); se devuelve NULL.",
+        call. = FALSE
+      )
+      invisible(NULL)
+    }
   )
 }

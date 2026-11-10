@@ -89,109 +89,17 @@ alch_get_survey_responses <- function(
   results_per_page = 500,
   page = "all"
 ) {
-  # Validaciones
-  # 1. Credenciales de API
-  if (api_token == "" || api_token_secret == "") {
-    stop(
-      "Error: Las credenciales 'api_token' y 'api_token_secret' no pueden estar vac\u00edas. Revisa tus variables de entorno."
-    )
-  }
+  alch_validar_credenciales(api_token, api_token_secret)
+  alch_validar_id(survey_id, "survey_id")
+  alch_validar_paginacion(results_per_page, page)
 
-  # 2. Parámetro 'survey_id'
-  if (!is.numeric(survey_id) || length(survey_id) != 1) {
-    stop("Error: 'survey_id' debe ser un \u00fanico valor num\u00e9rico.")
-  }
-
-  # 3. Parámetro 'results_per_page'
-  if (
-    !is.numeric(results_per_page) ||
-      results_per_page <= 0 ||
-      results_per_page > 500
-  ) {
-    stop(
-      "Error: 'results_per_page' debe ser un n\u00famero entero entre 1 y 500."
-    )
-  }
-
-  # 4. Parámetro 'page'
-  if (
-    !identical(page, "all") &&
-      (!is.numeric(page) || length(page) != 1 || page <= 0)
-  ) {
-    stop(
-      "Error: 'page' debe ser la cadena \"all\" o un n\u00famero entero positivo."
-    )
-  }
-
-  # Base URL para Alchemer API v5
-  base_url <- "https://api.alchemer.com/v5"
-
-  # Función interna para obtener una página específica
-  get_page <- function(
-    page_num,
-    .api_token = api_token,
-    .api_token_secret = api_token_secret
-  ) {
-    req <- httr2::request(base_url) |>
-      httr2::req_url_path_append("survey", survey_id, "surveyresponse") |>
-      httr2::req_url_query(
-        resultsperpage = results_per_page,
-        page = page_num,
-        api_token = .api_token,
-        api_token_secret = .api_token_secret
-      )
-
-    resp <- httr2::req_perform(req) |>
-      httr2::resp_body_json()
-
-    return(resp)
-  }
-
-  # Si se solicita una página específica, se devuelve la respuesta completa
-  if (is.numeric(page)) {
-    resp_data <- get_page(page)
-    return(resp_data)
-  }
-
-  # Si se solicitan todas las páginas
-  if (page == "all") {
-    # Request inicial para obtener la primera página y metadatos
-    resp_page1 <- get_page(1)
-
-    # Si no hay datos, devolver la respuesta de la primera página tal cual
-    if (resp_page1[["total_count"]] == 0) {
-      return(resp_page1)
-    }
-
-    # Extraemos los datos de la página 1
-    all_data <- resp_page1[["data"]]
-
-    # Recuperar la cantidad de páginas existentes según la configuración
-    total_pages <- resp_page1[["total_pages"]]
-
-    # Si hay más páginas, iterar y obtener los datos restantes
-    if (total_pages > 1) {
-      # Usar purrr::map para iterar desde la página 2 hasta el final
-      remaining_pages_resp <- purrr::map(2:total_pages, get_page)
-
-      # Extraer solo la data de cada respuesta
-      remaining_pages_data <- unlist(
-        purrr::map(remaining_pages_resp, "data"),
-        recursive = FALSE
-      )
-
-      # Combinar los datos de todas las páginas
-      all_data <- c(all_data, remaining_pages_data)
-    }
-
-    # Reemplazar el elemento 'data' en la respuesta original con todos los datos
-    resp_page1[["data"]] <- all_data
-    # Actualizar metadatos para reflejar que se han combinado las páginas
-    resp_page1[["page"]] <- "all"
-    resp_page1[["results_per_page"]] <- resp_page1[["total_count"]]
-
-    return(resp_page1)
-  }
+  alch_get_paginado(
+    path = list("survey", survey_id, "surveyresponse"),
+    api_token = api_token,
+    api_token_secret = api_token_secret,
+    results_per_page = results_per_page,
+    page = page
+  )
 }
 
 
@@ -260,107 +168,155 @@ alch_get_survey_contacts <- function(
   results_per_page = 500,
   page = "all"
 ) {
-  # Validaciones
-  # 1. Credenciales de API
+  alch_validar_credenciales(api_token, api_token_secret)
+  alch_validar_id(survey_id, "survey_id")
+  alch_validar_id(campaign_id, "campaign_id")
+  alch_validar_paginacion(results_per_page, page)
+
+  alch_get_paginado(
+    path = list(
+      "survey",
+      survey_id,
+      "surveycampaign",
+      campaign_id,
+      "surveycontact"
+    ),
+    api_token = api_token,
+    api_token_secret = api_token_secret,
+    results_per_page = results_per_page,
+    page = page
+  )
+}
+
+
+# Paginación de la API de Alchemer ------------------------------------------
+#
+# Las funciones `alch_get_*()` comparten un mismo flujo de descarga. Los estados
+# posibles están explícitos en `alch_get_paginado()`:
+#
+#   validar -> pagina_unica                      (page numérico)
+#   validar -> pagina_1 -> sin_datos             (page = "all", total_count == 0)
+#                       -> una_pagina            (page = "all", total_pages <= 1)
+#                       -> paginas_restantes     (page = "all", total_pages > 1)
+#                       -> error_api             (result_ok == FALSE)
+#
+# Para agregar un nuevo endpoint paginado basta con validar sus ids y llamar a
+# `alch_get_paginado()` con el `path` correspondiente.
+
+alch_validar_credenciales <- function(api_token, api_token_secret) {
   if (api_token == "" || api_token_secret == "") {
     stop(
-      "Error: Las credenciales 'api_token' y 'api_token_secret' no pueden estar vac\u00edas. Revisa tus variables de entorno."
+      "Error: Las credenciales 'api_token' y 'api_token_secret' no pueden estar vac\u00edas. Revisa tus variables de entorno.",
+      call. = FALSE
     )
   }
+  invisible(TRUE)
+}
 
-  # 2. Parámetro 'survey_id'
-  if (!is.numeric(survey_id) || length(survey_id) != 1) {
-    stop("Error: 'survey_id' debe ser un \u00fanico valor num\u00e9rico.")
+alch_validar_id <- function(x, nombre) {
+  if (!is.numeric(x) || length(x) != 1) {
+    stop(
+      "Error: '",
+      nombre,
+      "' debe ser un \u00fanico valor num\u00e9rico.",
+      call. = FALSE
+    )
   }
+  invisible(TRUE)
+}
 
-  # 3. Parámetro 'campaign_id'
-  if (!is.numeric(campaign_id) || length(campaign_id) != 1) {
-    stop("Error: 'campaign_id' debe ser un \u00fanico valor num\u00e9rico.")
-  }
-
-  # 4. Parámetro 'results_per_page'
+alch_validar_paginacion <- function(results_per_page, page) {
   if (
     !is.numeric(results_per_page) ||
       results_per_page <= 0 ||
       results_per_page > 500
   ) {
     stop(
-      "Error: 'results_per_page' debe ser un n\u00famero entero entre 1 y 500."
+      "Error: 'results_per_page' debe ser un n\u00famero entero entre 1 y 500.",
+      call. = FALSE
     )
   }
 
-  # 5. Parámetro 'page'
   if (
     !identical(page, "all") &&
       (!is.numeric(page) || length(page) != 1 || page <= 0)
   ) {
     stop(
-      "Error: 'page' debe ser la cadena \"all\" o un n\u00famero entero positivo."
+      "Error: 'page' debe ser la cadena \"all\" o un n\u00famero entero positivo.",
+      call. = FALSE
+    )
+  }
+  invisible(TRUE)
+}
+
+# Descarga una página o todas las páginas de un endpoint de Alchemer API v5.
+# `path` es una lista con los segmentos del endpoint.
+alch_get_paginado <- function(
+  path,
+  api_token,
+  api_token_secret,
+  results_per_page,
+  page
+) {
+  get_page <- function(page_num) {
+    req <- httr2::request("https://api.alchemer.com/v5")
+    req <- do.call(httr2::req_url_path_append, c(list(req), path))
+    req <- httr2::req_url_query(
+      req,
+      resultsperpage = results_per_page,
+      page = page_num,
+      api_token = api_token,
+      api_token_secret = api_token_secret
+    )
+
+    httr2::resp_body_json(httr2::req_perform(req))
+  }
+
+  # Estado: pagina_unica. Se devuelve la respuesta completa tal cual.
+  if (is.numeric(page)) {
+    return(get_page(page))
+  }
+
+  # Desde aquí page == "all" (garantizado por `alch_validar_paginacion()`).
+  resp_page1 <- get_page(1)
+
+  # Estado: error_api. La API responde HTTP 200 con `result_ok = FALSE`.
+  if (isFALSE(resp_page1[["result_ok"]])) {
+    stop(
+      "Error: la API de Alchemer rechaz\u00f3 la consulta (",
+      paste(path, collapse = "/"),
+      "): ",
+      resp_page1[["message"]] %||% "sin mensaje.",
+      call. = FALSE
     )
   }
 
-  # Base URL para Alchemer API v5
-  base_url <- "https://api.alchemer.com/v5"
-
-  # Función interna para obtener una página específica
-  get_page <- function(
-    page_num,
-    .api_token = api_token,
-    .api_token_secret = api_token_secret
-  ) {
-    req <- httr2::request(base_url) |>
-      httr2::req_url_path_append(
-        "survey",
-        survey_id,
-        "surveycampaign",
-        campaign_id,
-        "surveycontact"
-      ) |>
-      httr2::req_url_query(
-        resultsperpage = results_per_page,
-        page = page_num,
-        api_token = .api_token,
-        api_token_secret = .api_token_secret
-      )
-
-    resp <- httr2::req_perform(req) |>
-      httr2::resp_body_json()
-
-    return(resp)
-  }
-
-  # Si se solicita una página específica
-  if (is.numeric(page)) {
-    resp_data <- get_page(page)
-    return(resp_data)
-  }
-
-  # Si se solicitan todas las páginas
-  if (page == "all") {
-    resp_page1 <- get_page(1)
-
-    if (resp_page1[["total_count"]] == 0) {
-      return(resp_page1)
-    }
-
-    all_data <- resp_page1[["data"]]
-    total_pages <- resp_page1[["total_pages"]]
-
-    if (total_pages > 1) {
-      remaining_pages_resp <- purrr::map(2:total_pages, get_page)
-      remaining_pages_data <- unlist(
-        purrr::map(remaining_pages_resp, "data"),
-        recursive = FALSE
-      )
-      all_data <- c(all_data, remaining_pages_data)
-    }
-
-    resp_page1[["data"]] <- all_data
-    resp_page1[["page"]] <- "all"
-    resp_page1[["results_per_page"]] <- resp_page1[["total_count"]]
-
+  # Estado: sin_datos. Se devuelve la respuesta de la primera página tal cual.
+  if (resp_page1[["total_count"]] == 0) {
     return(resp_page1)
   }
+
+  all_data <- resp_page1[["data"]]
+  total_pages <- resp_page1[["total_pages"]]
+
+  # Estado: paginas_restantes. Se descargan y concatenan las páginas 2..n.
+  if (total_pages > 1) {
+    remaining_pages_resp <- purrr::map(2:total_pages, get_page)
+
+    remaining_pages_data <- unlist(
+      purrr::map(remaining_pages_resp, "data"),
+      recursive = FALSE
+    )
+
+    all_data <- c(all_data, remaining_pages_data)
+  }
+
+  # Los metadatos reflejan que se combinaron todas las páginas.
+  resp_page1[["data"]] <- all_data
+  resp_page1[["page"]] <- "all"
+  resp_page1[["results_per_page"]] <- resp_page1[["total_count"]]
+
+  resp_page1
 }
 
 
