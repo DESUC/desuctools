@@ -1,4 +1,4 @@
-# desuctools (desarrollo)
+# desuctools 0.2.0.9006
 
 * Se hacen explícitos los estados de las funciones que consultan APIs externas:
   * `alch_get_survey_responses()` y `alch_get_survey_contacts()` comparten una única

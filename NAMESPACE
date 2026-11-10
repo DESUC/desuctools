@@ -94,7 +94,7 @@ importFrom(knitr,
   kable
 )
 importFrom(labelled,
-  `var_label<-`,
+  "var_label<-",
   labelled,
   var_label
 )
