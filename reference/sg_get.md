@@ -48,7 +48,10 @@ sg_get(
 
 ## Value
 
-json
+`list` (json), `xml_document` (xml) o `data.frame` (csv), según el tipo
+de contenido de la respuesta. Si la consulta falla se lanza un error que
+indica la operación. Si la respuesta tiene un tipo de contenido no
+soportado se devuelve `NULL` con un `warning`.
 
 ## References
 
