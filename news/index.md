@@ -1,5 +1,37 @@
 # Changelog
 
+## desuctools 0.2.0.9006
+
+- Se hacen explícitos los estados de las funciones que consultan APIs
+  externas:
+  - [`alch_get_survey_responses()`](../reference/alch_get_survey_responses.md)
+    y
+    [`alch_get_survey_contacts()`](../reference/alch_get_survey_contacts.md)
+    comparten una única implementación interna de validación y
+    paginación (`alch_get_paginado()`). Con `page = "all"`, si Alchemer
+    responde `result_ok = FALSE` se entrega un error con el mensaje de
+    la API (antes fallaba con un error críptico).
+  - [`sg_get()`](../reference/sg_get.md): cuando la consulta falla, el
+    error indica la operación consultada (antes se obtenía un error
+    sobre un objeto `try-error`). Si la respuesta tiene un tipo de
+    contenido no soportado se mantiene el retorno `NULL`, pero ahora con
+    un `warning`.
+  - [`sg_get_data()`](../reference/sg_get_data.md): `type` usa por
+    defecto `"application/json"` (el valor anterior, `NA`, hacía fallar
+    la función si no se indicaba `type`).
+  - [`sg_date()`](../reference/sg_date.md): la hora para objetos `Date`
+    ya no depende de la codificación del sistema (en locale `C` se
+    generaba una fecha sin hora). Error claro si `hora` tiene más de un
+    valor.
+  - [`include_graphics2()`](../reference/include_graphics2.md): en
+    salida LaTeX, la decisión entre figura original, figura alternativa
+    o `handler` queda en una función interna (`latex_img_estado()`). La
+    figura que se termina usando es la que se revisa para descargar si
+    es URL.
+- Nuevos tests con respuestas HTTP simuladas (sin red ni credenciales)
+  para la paginación de Alchemer y los estados de
+  [`sg_get()`](../reference/sg_get.md).
+
 ## desuctools 0.2.0.9005
 
 - Se corrige [`comuna_orden()`](../reference/comuna_orden.md) para que

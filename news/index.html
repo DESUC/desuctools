@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">desuctools</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9005</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9006</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,6 +32,22 @@
       <small>Source: <a href="https://github.com/desuc/desuctools/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.2.0.9006" id="desuctools-0209006">desuctools 0.2.0.9006<a class="anchor" aria-label="anchor" href="#desuctools-0209006"></a></h2>
+<ul><li>Se hacen explícitos los estados de las funciones que consultan APIs externas:
+<ul><li>
+<code><a href="../reference/alch_get_survey_responses.html">alch_get_survey_responses()</a></code> y <code><a href="../reference/alch_get_survey_contacts.html">alch_get_survey_contacts()</a></code> comparten una única implementación interna de validación y paginación (<code>alch_get_paginado()</code>). Con <code>page = "all"</code>, si Alchemer responde <code>result_ok = FALSE</code> se entrega un error con el mensaje de la API (antes fallaba con un error críptico).</li>
+<li>
+<code><a href="../reference/sg_get.html">sg_get()</a></code>: cuando la consulta falla, el error indica la operación consultada (antes se obtenía un error sobre un objeto <code>try-error</code>). Si la respuesta tiene un tipo de contenido no soportado se mantiene el retorno <code>NULL</code>, pero ahora con un <code>warning</code>.</li>
+<li>
+<code><a href="../reference/sg_get_data.html">sg_get_data()</a></code>: <code>type</code> usa por defecto <code>"application/json"</code> (el valor anterior, <code>NA</code>, hacía fallar la función si no se indicaba <code>type</code>).</li>
+<li>
+<code><a href="../reference/sg_date.html">sg_date()</a></code>: la hora para objetos <code>Date</code> ya no depende de la codificación del sistema (en locale <code>C</code> se generaba una fecha sin hora). Error claro si <code>hora</code> tiene más de un valor.</li>
+<li>
+<code><a href="../reference/include_graphics2.html">include_graphics2()</a></code>: en salida LaTeX, la decisión entre figura original, figura alternativa o <code>handler</code> queda en una función interna (<code>latex_img_estado()</code>). La figura que se termina usando es la que se revisa para descargar si es URL.</li>
+</ul></li>
+<li>Nuevos tests con respuestas HTTP simuladas (sin red ni credenciales) para la paginación de Alchemer y los estados de <code><a href="../reference/sg_get.html">sg_get()</a></code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0.9005" id="desuctools-0209005">desuctools 0.2.0.9005<a class="anchor" aria-label="anchor" href="#desuctools-0209005"></a></h2>
 <ul><li>Se corrige <code><a href="../reference/comuna_orden.html">comuna_orden()</a></code> para que funcione al llamarla mediante <code><a href="../reference/comuna_orden.html">desuctools::comuna_orden()</a></code> sin adjuntar previamente el paquete.</li>
